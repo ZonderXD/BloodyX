@@ -25,6 +25,7 @@ async def on_ready():
 async def is_owner(ctx):
     return ctx.author.id == 668325441224048641 # Айди создателя бота
     return ctx.author.id == 491928659599425537 # Айди создателя бота
+    return ctx.author.id == 429350473854746629 # Айди создателя бота
 
 @bot.command()
 async def password(ctx, lenght: int = None, number: int = None):
