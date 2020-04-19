@@ -14,7 +14,7 @@ bot.remove_command('help')
 @bot.event
 async def on_ready():
     print(f'          [Bloody X]')
-    await bot.change_presence(status = discord.Status.online, activity = discord.Game('EXPLOIT BLOODY X\n Command help: -help'))
+    await bot.change_presence(status = discord.Status.online, activity = discord.Game('EXPLOIT BLOODY X'))
     print(f"[Bloody X] Bot successfully launched!;")
     print(f"[Bloody X] Name: [{bot.user}];")
     print(f'[Bloody X] ID: [{bot.user.id}]')
