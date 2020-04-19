@@ -26,6 +26,17 @@ async def is_owner(ctx):
     return ctx.author.id == 668325441224048641 # Айди создателя бота
 
 @bot.command()
+@commands.check(is_owner)
+async def edit(ctx, message_id: int = None, new_content: str = None):
+    if message_id == None or new_content == None:
+        await ctx.send(embed = discord.Embed(description = f'**{ctx.author.mention}, Пожалуйста укажите `ID` сообщения.'))
+    else:
+        message = await ctx.message.channel.fetch_message(message_id)
+        
+        await message.edit(content = new_content)
+        await ctx.message.add_reaction('✅')
+
+@bot.command()
 async def password(ctx, lenght: int = None, number: int = None):
 
     if not lenght or not number:
