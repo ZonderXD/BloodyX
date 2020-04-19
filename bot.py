@@ -8,13 +8,13 @@ import os
 from discord.ext import commands
 from discord.utils import get
 
-bot = commands.Bot(command_prefix=',')
+bot = commands.Bot(command_prefix='-')
 bot.remove_command('help')
 
 @bot.event
 async def on_ready():
     print(f'          [Bloody X]')
-    await bot.change_presence(status = discord.Status.online, activity = discord.Game('EXPLOIT BLOODY X'))
+    await bot.change_presence(status = discord.Status.online, activity = discord.Game('EXPLOIT BLOODY X\n Command help: -help'))
     print(f"[Bloody X] Bot successfully launched!;")
     print(f"[Bloody X] Name: [{bot.user}];")
     print(f'[Bloody X] ID: [{bot.user.id}]')
@@ -47,9 +47,9 @@ async def password(ctx, lenght: int = None, number: int = None):
 async def help(ctx):
 	emb = discord.Embed( title = 'Команды:', color=0x6fdb9e )
 
-	emb.add_field(name='Информационные:', value='``,user`` - Узнать информацию о пользователе\n ``,server`` - Узнать информацию о сервере', inline = False)
-	emb.add_field(name='Разное:', value=' ``.avatar`` - Аватар пользоватлея\n ``.time`` - Узнать время',inline = False)
-	emb.add_field(name='Весёлости:', value='``.ran_color`` - Рандомный цвет в формате HEX\n ``.coin`` - Бросить монетку\n ``.math`` - Решить пример\n `.8ball` - Волшебный шар\n `.password` - Рандомный',inline = False)
+	emb.add_field(name='Информационные:', value='``-user`` - Узнать информацию о пользователе\n ``-server`` - Узнать информацию о сервере', inline = False)
+	emb.add_field(name='Разное:', value=' ``-avatar`` - Аватар пользоватлея\n ``-time`` - Узнать время',inline = False)
+	emb.add_field(name='Весёлости:', value='``-ran_color`` - Рандомный цвет в формате HEX\n ``-coin`` - Бросить монетку\n ``-math`` - Решить пример\n `-8ball` - Волшебный шар\n `-password` - Рандомный',inline = False)
 	emb.set_thumbnail(url=ctx.guild.icon_url)
 	emb.set_footer(text='𝕯𝖆𝖗𝖐 𝕬𝖓𝖌𝖊𝖑#8992 © | Все права защищены', icon_url='https://cdn.discordapp.com/avatars/668325441224048641/8431275535fe40a8234d810db5646643.png?size=512')
 
