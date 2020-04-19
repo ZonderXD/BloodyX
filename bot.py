@@ -201,8 +201,7 @@ async def server(ctx):
 @commands.check(is_owner)
 async def say(ctx, *, arg):
     await ctx.message.delete()
-    clr = (random.randint(0,16777215))
-    await ctx.send(embed = discord.Embed(description = f'{arg}', color=crl))
+    await ctx.send(embed = discord.Embed(description = f'{arg}', color=0xda4a))
 
 @bot.command()
 @commands.check(is_owner)
