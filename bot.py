@@ -29,7 +29,7 @@ async def is_owner(ctx):
 @commands.check(is_owner)
 async def edit(ctx, message_id: int = None, new_content: str = None):
     if message_id == None or new_content == None:
-        await ctx.send(embed = discord.Embed(description = f'**{ctx.author.mention}, Пожалуйста укажите `ID` сообщения.'))
+        await ctx.send(embed = discord.Embed(description = f'**{ctx.author.mention}, Пожалуйста укажите `ID` сообщения.**'))
     else:
         message = await ctx.message.channel.fetch_message(message_id)
         
