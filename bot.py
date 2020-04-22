@@ -34,6 +34,18 @@ async def on_member_join( member ):
     channel = bot.get_channel( 696322644106281032 ) # Айди канала куда будет писатся сообщение
     await channel.send( embed = emb )
 
+@bot.command()
+async def kill(  ctx, member: discord.Member ):
+    await ctx.send( f"{ctx.author.mention} Достает дробовик... \n https://tenor.com/view/eyebrow-raise-smile-prepared-ready-loaded-gif-15793001" )
+    await asyncio.sleep( 3 )
+    await ctx.send( f"{ctx.author.mention} Направляет дробовик на {member.mention}... \n https://tenor.com/view/aim-point-gun-prepared-locked-and-loaded-gif-15793489" )
+    await asyncio.sleep( 2 )
+    await ctx.send( f"{ctx.author.mention} Стреляет в {member.mention}... \n https://media.discordapp.net/attachments/690222948283580435/701494203607416943/tenor_3.gif" )
+    await asyncio.sleep( 2 )
+    await ctx.send( f"{member.mention} истекает кровью..." )
+    await asyncio.sleep( 3 )
+    await ctx.send( f"{member.mention} погиб..." )
+
 @bot.event
 async def on_member_leave( member ):
     emb = discord.Embed( description = f"**Жаль что от нас ушёл {member.mention}. Надеюсь он ещё вернётся.😭**", color = 0xda4a )
