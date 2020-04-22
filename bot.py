@@ -36,15 +36,15 @@ async def on_member_join( member ):
 
 @bot.command()
 async def kill(  ctx, member: discord.Member ):
-    await ctx.send( f"{ctx.author.mention} Достает дробовик... \n https://tenor.com/view/eyebrow-raise-smile-prepared-ready-loaded-gif-15793001" )
+    await ctx.send(embed = discrod.Embed(description = f"{ctx.author.mention} Достает дробовик... \n https://tenor.com/view/eyebrow-raise-smile-prepared-ready-loaded-gif-15793001", color=0xda4a))
     await asyncio.sleep( 3 )
-    await ctx.send( f"{ctx.author.mention} Направляет дробовик на {member.mention}... \n https://tenor.com/view/aim-point-gun-prepared-locked-and-loaded-gif-15793489" )
-    await asyncio.sleep( 2 )
-    await ctx.send( f"{ctx.author.mention} Стреляет в {member.mention}... \n https://media.discordapp.net/attachments/690222948283580435/701494203607416943/tenor_3.gif" )
-    await asyncio.sleep( 2 )
-    await ctx.send( f"{member.mention} истекает кровью..." )
+    await ctx.edit(embed = discrod.Embed(description = f"{ctx.author.mention} Направляет дробовик на {member.mention}... \n https://tenor.com/view/aim-point-gun-prepared-locked-and-loaded-gif-15793489", color=0xda4a))
     await asyncio.sleep( 3 )
-    await ctx.send( f"{member.mention} погиб..." )
+    await ctx.edit(embed = discrod.Embed(description = f"{ctx.author.mention} Стреляет в {member.mention}... \n https://media.discordapp.net/attachments/690222948283580435/701494203607416943/tenor_3.gif", color=0xda4a))
+    await asyncio.sleep( 3 )
+    await ctx.edit(embed = discrod.Embed(description = f"{member.mention} истекает кровью...", color=0xda4a))
+    await asyncio.sleep( 3 )
+    await ctx.edit(embed = discrod.Embed(description = f"{member.mention} погиб...", color=0xda4a))
 
 @bot.event
 async def on_member_leave( member ):
