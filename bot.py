@@ -31,7 +31,7 @@ async def on_member_join( member ):
     role = discord.utils.get( member.guild.roles, id = 696322642747064383 ) # Айди роли которая будет выдаватся когда человек зашёл на сервер
 
     await member.add_roles( role )
-    channel = client.get_channel( 696322644106281032 ) # Айди канала куда будет писатся сообщение
+    channel = bot.get_channel( 696322644106281032 ) # Айди канала куда будет писатся сообщение
     await channel.send( embed = emb )
 
 @bot.command()
