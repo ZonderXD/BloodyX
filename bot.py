@@ -25,11 +25,20 @@ async def on_ready():
 async def is_owner(ctx):
     return ctx.author.id == 668325441224048641 # Айди создателя бота
 
+@bot.event
+async def on_member_join( member ):
+    emb = discord.Embed( description = f"**Приветствкю тебя {member.mention}. Ты попал на сервер `{member.guild.name}`. Удачи тебе на сервере**", color = 0x0c0c0c )
+    role = discord.utils.get( member.guild.roles, id = 696322642747064383 ) # Айди роли которая будет выдаватся когда человек зашёл на сервер
+
+    await member.add_roles( role )
+    channel = client.get_channel( 696322644106281032 ) # Айди канала куда будет писатся сообщение
+    await channel.send( embed = emb )
+
 @bot.command()
 @commands.check(is_owner)
 async def edit(ctx, message_id: int = None, new_content: str = None):
     if message_id == None or new_content == None:
-        await ctx.send(embed = discord.Embed(description = f'**{ctx.author.mention}, Пожалуйста укажите `ID` сообщения.**'))
+        await ctx.send(embed = discord.Embed(description = f'**{ctx.author.mention}, Пожалуйста укажите `ID` сообщения или сообщение на которое хотите изменить.**'))
     else:
         message = await ctx.message.channel.fetch_message(message_id)
         
