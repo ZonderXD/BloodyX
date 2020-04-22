@@ -34,6 +34,12 @@ async def on_member_join( member ):
     channel = bot.get_channel( 696322644106281032 ) # Айди канала куда будет писатся сообщение
     await channel.send( embed = emb )
 
+@bot.event
+async def on_member_leave( member ):
+    emb = discord.Embed( description = f"**Жаль что от нас ушёл {member.mention}. Надеюсь он ещё вернётся.😭**", color = 0xda4a )
+    channel = bot.get_channel( 696322644106281032 ) # Айди канала куда будет писатся сообщение
+    await channel.send( embed = emb )
+
 @bot.command()
 @commands.check(is_owner)
 async def edit(ctx, message_id: int = None, new_content: str = None):
