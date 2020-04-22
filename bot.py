@@ -27,7 +27,7 @@ async def is_owner(ctx):
 
 @bot.event
 async def on_member_join( member ):
-    emb = discord.Embed( description = f"**Приветствкю тебя {member.mention}. Ты попал на сервер `{member.guild.name}`. Удачи тебе на сервере**", color = 0x0c0c0c )
+    emb = discord.Embed( description = f"**Приветствую тебя {member.mention}. Ты попал на сервер `{member.guild.name}`. Удачи тебе на сервере! 😜**", color = 0xda4a )
     role = discord.utils.get( member.guild.roles, id = 696322642747064383 ) # Айди роли которая будет выдаватся когда человек зашёл на сервер
 
     await member.add_roles( role )
