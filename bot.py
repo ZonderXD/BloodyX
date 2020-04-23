@@ -34,15 +34,6 @@ async def on_member_join( member ):
     channel = bot.get_channel( 696322644106281032 ) # Айди канала куда будет писатся сообщение
     await channel.send( embed = emb )
 
-@bot.event
-async def on_raw_reaction_add(payload):
-        channel = bot.get_channel(payload.channel_id) # получаем объект канала
-        message = await channel.fetch_message(payload.message_id) # получаем объект сообщения
-        member = discord.utils.get(message.guild.members, id=payload.user_id) # получаем объект пользователя который поставил реакцию
-        emoji = str(payload.emoji)
-        if emoji == ":partying_face: " and member.bot == False:
-            await message.edit("Hello World")
-
 @bot.command()
 @commands.check(is_owner)
 async def edit(ctx, message_id: int = None, new_content: str = None):
