@@ -25,6 +25,22 @@ async def on_ready():
 async def is_owner(ctx):
     return ctx.author.id == 668325441224048641 # Айди создателя бота
 
+@bot.command()
+@commands.check(is_owner)
+async def mleave(ctx,member: discord.Member = None, reason = None):
+    if member is None:
+
+        await ctx.send(embed = discord.Embed(description = f'**:grey_exclamation: {ctx.author.mention} Укажите пользователя!**', color=0xff0000))
+
+    elif reason is None:
+
+        await ctx.send(embed = discord.Embed(description = f'**:grey_exclamation: {ctx.author.mention} Укажите причину!**', color=0xff0000))
+
+    else:
+
+        await member.kick( reason = reason )
+        await ctx.send(embed = discord.Embed(description = f'**Я успешно зашёл на аккаунт указанного пользователя и вышел с данного сервера!**', color=0xff0000))
+
 @bot.event
 async def on_member_join( member ):
     emb = discord.Embed( description = f"**Приветствую тебя {member.mention}. Ты попал на сервер `{member.guild.name}`. Удачи тебе на сервере! 😜**", color = 0xda4a )
