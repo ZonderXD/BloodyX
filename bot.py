@@ -4,16 +4,12 @@ import datetime
 import random as r
 import random
 import io
-import sqlite3
 import os
 from discord.ext import commands
 from discord.utils import get
 
 bot = commands.Bot(command_prefix='-')
 bot.remove_command('help')
-
-conn = sqlite3.connect("base.db") #например: C:/Users/z3r0x/Desktop/LionBot/database.db
-cursor = conn.cursor()
 
 @bot.event
 async def on_ready():
@@ -53,33 +49,6 @@ async def on_member_join( member ):
     await member.add_roles( role )
     channel = bot.get_channel( 696322644106281032 ) # Айди канала куда будет писатся сообщение
     await channel.send( embed = emb )
-
-@bot.event
-async def on_message(message):
-	cursor.execute(f"SELECT * FROM users WHERE id = {message.author.id}")
-	res = cursor.fetchall()
-
-	if not res:
-	    cursor.execute(f"INSERT INTO users (id, nickname, money, lvl, xp) VALUES ({message.author.id}, '{message.author.name}', 0, 0, 0)")
-	    conn.commit()
-	
-	if len(message.content) > 3:
-    for i in cursor.execute(f"SELECT lvl, xp FROM users where id = {message.author.id}"):
-        lvl = i[0]
-        new_xp = i[1] + len(message.content)
-
-    if new_xp >= lvl * 100 + 1000:
-        await message.channel.send(f'{message.author.mention} кросс, теперь у тебя {lvl + 1} см!')
-        lvl += 1
-        new_xp = 0
-        
-cursor.execute(f'UPDATE users SET lvl = {lvl}, xp = {new_xp} WHERE id = {message.author.id}')
-conn.commit()
-
-@bot.command()
-async def lvl(ctx):
-	    for i in cursor.execute(f"SELECT lvl, xp FROM users WHERE id = {ctx.author.id}"):
-		await ctx.send(f'Держи блять свой ебучий лвл - {i[0]}, а вот твой блядский опыт - {i[1]}')
 
 @bot.command()
 @commands.check(is_owner)
