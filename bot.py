@@ -91,7 +91,7 @@ async def on_raw_reaction_add(payload):
         guild = bot.get_guild(payload.guild_id)
         role = None
 
-        if str(payload.emoji) == ':white_check_mark:': # Emoji для реакций
+        if str(payload.emoji) == '✅': # Emoji для реакций
             role = guild.get_role(703688480278052894) # ID Ролей для выдачи
 
         if role:
@@ -105,7 +105,7 @@ async def on_raw_reaction_remove(payload):
         guild = bot.get_guild(payload.guild_id)
         role = None
 
-        if str(payload.emoji) == ':white_check_mark:':
+        if str(payload.emoji) == '✅':
             role = guild.get_role(703688480278052894)
 
         if role:
