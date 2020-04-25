@@ -8,7 +8,7 @@ import os
 from discord.ext import commands
 from discord.utils import get
 
-bot = commands.Bot(command_prefix='-')
+bot = commands.Bot(command_prefix=';')
 bot.remove_command('help')
 
 @bot.event
@@ -63,13 +63,13 @@ async def on_member_join( member ):
 
 @bot.command(aliases=['bot'])
 async def botinfo(ctx):
-    embed = discord.Embed(title=f"{ctx.guild.name}", description="Информация о боте **Bloody X#7002**.\n Бот был написан специально для проекта **`Bloody X`,\n Подробнее о командах: -help", color = 0x00ffff)
-    embed.add_field(name=f'**Меня создал:**', value="𝕯𝖆𝖗𝖐 𝕬𝖓𝖌𝖊𝖑#8992(<@668325441224048641>)", inline=True)  # Создает строку
-    embed.add_field(name=f'**Помощь в создании:**', value="ПчелоБан#2362 (<@342317507991961602>)", inline=True)  # Создает строку
-    embed.add_field(name=f'**Лицензия:**', value="LD-v7", inline=True)  # Создает строку
-    embed.add_field(name=f'**Я написан на:**', value="Discord.py", inline=True)  # Создает строку
-    embed.add_field(name=f'**Версия:**', value="V.3.0.1", inline=True)  # Создает строку
-    embed.add_field(name=f'**Патч:**', value="10", inline=True)  # Создает строку
+    embed = discord.Embed(title=f"{ctx.guild.name}", description="Информация о боте **Bloody X#7002**.\n Бот был написан специально для проекта **`Bloody X`**,\n Подробнее о командах: **`;help`**", color = 0x00ffff)
+    embed.add_field(name=f'**Меня создал:**', value="𝕯𝖆𝖗𝖐 𝕬𝖓𝖌𝖊𝖑#8992(<@668325441224048641>)", inline=False)  # Создает строку
+    embed.add_field(name=f'**Помощь в создании:**', value="ПчелоБан#2362 (<@342317507991961602>)", inline=False)  # Создает строку
+    embed.add_field(name=f'**Лицензия:**', value="LD-v7", inline=False)  # Создает строку
+    embed.add_field(name=f'**Я написан на:**', value="Discord.py", inline=False)  # Создает строку
+    embed.add_field(name=f'**Версия:**', value="V.3.0.1", inline=False)  # Создает строку
+    embed.add_field(name=f'**Патч:**', value="10", inline=False)  # Создает строку
     embed.set_thumbnail( url = bot.user.avatar_url)
     embed.set_footer(text=f"𝕯𝖆𝖗𝖐 𝕬𝖓𝖌𝖊𝖑#8992 © | Все права защищены", icon_url='https://cdn.discordapp.com/avatars/668325441224048641/8431275535fe40a8234d810db5646643.png?size=512') # создаение футера
     await ctx.send(embed=embed)
@@ -105,9 +105,9 @@ async def password(ctx, lenght: int = None, number: int = None):
 async def help(ctx):
 	emb = discord.Embed( title = 'Команды:', color=0x6fdb9e )
 
-	emb.add_field(name='Информационные:', value='``-user`` - Узнать информацию о пользователе\n ``-server`` - Узнать информацию о сервере', inline = False)
-	emb.add_field(name='Разное:', value=' ``-avatar`` - Аватар пользоватлея\n ``-time`` - Узнать время\n `-bot` - Информация о боте',inline = False)
-	emb.add_field(name='Весёлости:', value='``-ran_color`` - Рандомный цвет в формате HEX\n ``-coin`` - Бросить монетку\n ``-math`` - Решить пример\n `-8ball` - Волшебный шар\n `-password` - Рандомный пароль',inline = False)
+	emb.add_field(name='Информационные:', value='``;user`` - Узнать информацию о пользователе\n ``;server`` - Узнать информацию о сервере', inline = False)
+	emb.add_field(name='Разное:', value=' ``;avatar`` - Аватар пользоватлея\n ``;time`` - Узнать время\n `;bot` - Информация о боте',inline = False)
+	emb.add_field(name='Весёлости:', value='``;ran_color`` - Рандомный цвет в формате HEX\n ``;coin`` - Бросить монетку\n ``;math`` - Решить пример\n `;8ball` - Волшебный шар\n `;password` - Рандомный пароль',inline = False)
 	emb.set_thumbnail(url=ctx.guild.icon_url)
 	emb.set_footer(text='𝕯𝖆𝖗𝖐 𝕬𝖓𝖌𝖊𝖑#8992 © | Все права защищены', icon_url='https://cdn.discordapp.com/avatars/668325441224048641/8431275535fe40a8234d810db5646643.png?size=512')
 
@@ -233,7 +233,7 @@ async def server(ctx):
     allvoice = len(ctx.guild.voice_channels)
     alltext = len(ctx.guild.text_channels)
     allroles = len(ctx.guild.roles)
-    embed = discord.Embed(title=f"〘{ctx.guild.name}〙", color=0xff0000, timestamp=ctx.message.created_at)
+    embed = discord.Embed(title=f"Сервер: `{ctx.guild.name}`", color=0xff0000, timestamp=ctx.message.created_at)
     embed.description=(
         f":timer: **Сервер создали: `{ctx.guild.created_at.strftime('%A, %b %#d %Y')}`**\n\n"
         f":flag_white: **Регион: `{ctx.guild.region}`**\n\n"
@@ -252,7 +252,7 @@ async def server(ctx):
     )
 
     embed.set_thumbnail(url=ctx.guild.icon_url)
-    embed.set_footer(text=f"Информация о сервере: 〘{ctx.guild.name}〙")
+    embed.set_footer(text=f"Информация о сервере: {ctx.guild.name}")
     await ctx.send(embed=embed)
 
 @bot.command()
