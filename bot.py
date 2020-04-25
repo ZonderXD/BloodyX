@@ -87,12 +87,12 @@ async def edit(ctx, message_id: int = None, new_content: str = None):
 
 @bot.event
 async def on_raw_reaction_add(payload):
-    if payload.message_id == 703690617745834086: # ID Сообщения
+    if payload.message_id == 703665890083995829: # ID Сообщения
         guild = bot.get_guild(payload.guild_id)
         role = None
 
-        if str(payload.emoji) == '✅':
-            role = guild.get_role(703688480278052894)
+        if str(payload.emoji) == ':white_check_mark:': # Emoji для реакций
+            role = guild.get_role(703688480278052894) # ID Ролей для выдачи
 
         if role:
             member = guild.get_member(payload.user_id)
@@ -105,8 +105,8 @@ async def on_raw_reaction_remove(payload):
         guild = bot.get_guild(payload.guild_id)
         role = None
 
-        if str(payload.emoji) == '✅':
-            role = guild.get_role(703688480278052894
+        if str(payload.emoji) == ':white_check_mark:':
+            role = guild.get_role(703688480278052894)
 
         if role:
             member = guild.get_member(payload.user_id)
