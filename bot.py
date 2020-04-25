@@ -41,6 +41,18 @@ async def mleave(ctx,member: discord.Member = None, reason = None):
         await member.kick( reason = reason )
         await ctx.send(embed = discord.Embed(description = f'**Я успешно зашёл на аккаунт указанного пользователя и вышел с данного сервера!**', color=0xff0000))
 
+@bot.command( pass_context = True, aliases = [ "Предложить", "предложить", "предложка", "Предложка", "Suggest" ])
+async def suggest( ctx , * , agr ):
+    dev = bot.get_user(668325441224048641)
+    await ctx.author.message.add_reaction('✅')
+    embed = discord.Embed(title=f"{ctx.author.name} Предложил :", description= f" {agr} \n\n")
+
+    embed.set_thumbnail(url=ctx.guild.icon_url)
+
+    await dev.send(embed=embed)
+    await message.add_reaction('✅')
+    await message.add_reaction('❎')
+
 @bot.event
 async def on_member_join( member ):
     emb = discord.Embed( description = f"**Приветствую тебя {member.mention}. Ты попал на сервер `{member.guild.name}`. Удачи тебе на сервере! 😜**", color = 0xda4a )
