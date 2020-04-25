@@ -61,19 +61,18 @@ async def on_member_join( member ):
     channel = bot.get_channel( 696322644106281032 ) # Айди канала куда будет писатся сообщение
     await channel.send( embed = emb )
 
-@bot.command(aliases=['botinfo'])
-async def bot(ctx):
-	embed = discord.Embed(title=f"{ctx.guild.name}", description="Информация о боте **Bloody X#7002**.\n Бот был написан специально для проекта **`Bloody X`,\n Подробнее о командах: -help", color = 0x8147ed)
-	embed.add_field(name=f'**Меня создал:**', value="𝕯𝖆𝖗𝖐 𝕬𝖓𝖌𝖊𝖑#8992(<@668325441224048641>", inline=True)  # Создает строку
-	embed.add_field(name=f'**Помощь в создании:**', value="ПчелоБан#2362 (<@342317507991961602>)", inline=True)  # Создает строку
-	embed.add_field(name=f'**Лицензия:**', value="LD-v7", inline=True)  # Создает строку
-	embed.add_field(name=f'**Я написан на:**', value="Discord.py", inline=True)  # Создает строку
-	embed.add_field(name=f'**Версия:**', value="`V.3.0.1`", inline=True)  # Создает строку
-	embed.add_field(name=f'**Патч:**', value="10", inline=True)  # Создает строку
-	embed.set_thumbnail( url = self.bot.user.avatar_url)
-	embed.set_footer(text=f"© Copyright 2020 𝕯𝖆𝖗𝖐 𝕬𝖓𝖌𝖊𝖑 | Все права защищены")  # создаение футера
-	await ctx.send(embed=embed)
-
+@bot.command(aliases=['bot'])
+async def botinfo(ctx):
+    embed = discord.Embed(title=f"{ctx.guild.name}", description="{ctx.guild.name}", description="Информация о боте **Bloody X#7002**.\n Бот был написан специально для проекта **`Bloody X`,\n Подробнее о командах: -help", color = 0x00ffff)
+    embed.add_field(name=f'**Меня создал:**', value="𝕯𝖆𝖗𝖐 𝕬𝖓𝖌𝖊𝖑#8992(<@668325441224048641>)", inline=True)  # Создает строку
+    embed.add_field(name=f'**Помощь в создании:**', value="ПчелоБан#2362 (<@342317507991961602>)", inline=True)  # Создает строку
+    embed.add_field(name=f'**Лицензия:**', value="LD-v7", inline=True)  # Создает строку
+    embed.add_field(name=f'**Я написан на:**', value="Discord.py", inline=True)  # Создает строку
+    embed.add_field(name=f'**Версия:**', value="V.3.0.1", inline=True)  # Создает строку
+    embed.add_field(name=f'**Патч:**', value="10", inline=True)  # Создает строку
+    embed.set_thumbnail( url = bot.user.avatar_url)
+    embed.set_footer(text=f"𝕯𝖆𝖗𝖐 𝕬𝖓𝖌𝖊𝖑#8992 © | Все права защищены", icon_url='https://cdn.discordapp.com/avatars/668325441224048641/8431275535fe40a8234d810db5646643.png?size=512') # создаение футера
+    await ctx.send(embed=embed)
 @bot.command()
 @commands.check(is_owner)
 async def edit(ctx, message_id: int = None, new_content: str = None):
