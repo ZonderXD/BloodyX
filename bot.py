@@ -117,6 +117,7 @@ async def on_raw_reaction_remove(payload):
 @commands.check(is_owner)
 async def emoji(ctx,id:int,reaction:str):
         message = await ctx.message.channel.fetch_message(id)
+        await ctx.message.delete()
         await message.add_reaction(reaction)
 
 @bot.command()
