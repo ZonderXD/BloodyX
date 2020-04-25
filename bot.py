@@ -72,6 +72,21 @@ async def edit(ctx, message_id: int = None, new_content: str = None):
         await message.edit(content = new_content)
         await ctx.message.add_reaction('✅')
 
+@bot.event
+async def on_message(message):
+    await bot.process_commands(message) # Штука чтобы работали другие команды (ОСТОРОЖНО ЛОМАЕТ КОГИ(COGS)! В КОГАХ ОН НЕ НУЖЕН)
+    if not message.guild: # Проверка что это ЛС
+        chanel = client.get_channel( 695786640190210110 ) # Айди канала куда бот отправит сообщение
+
+        embed = discord.Embed( description = f'{message.content}', color=0x0000FF) 
+        embed.set_author(name=message.author, icon_url=message.author.avatar_url)
+        embed.set_image(url=message.attachments[0].url)
+
+        message = await chanel.send(embed = embed)
+        await message.add_reaction('❤️')
+        await message.add_reaction('💔')
+        await message.add_reaction('❓')
+
 @bot.command()
 async def password(ctx, lenght: int = None, number: int = None):
 
