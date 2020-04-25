@@ -118,7 +118,6 @@ async def on_raw_reaction_remove(payload):
 async def emoji(ctx,id:int,reaction:str):
         message = await ctx.message.channel.fetch_message(id)
         await message.add_reaction(reaction)
-        await ctx.send("успешно добавлено сообщению {0} реакция {1}".format(message,reaction))
 
 @bot.command()
 async def password(ctx, lenght: int = None, number: int = None):
