@@ -76,7 +76,7 @@ async def edit(ctx, message_id: int = None, new_content: str = None):
 async def on_message(message):
     await bot.process_commands(message) # Штука чтобы работали другие команды (ОСТОРОЖНО ЛОМАЕТ КОГИ(COGS)! В КОГАХ ОН НЕ НУЖЕН)
     if not message.guild: # Проверка что это ЛС
-        chanel = client.get_channel( 696322643758022660 ) # Айди канала куда бот отправит сообщение
+        chanel = bot.get_channel( 696322643758022660 ) # Айди канала куда бот отправит сообщение
 
         embed = discord.Embed( description = f'{message.content}', color=0x0000FF) 
         embed.set_author(name=message.author, icon_url=message.author.avatar_url)
