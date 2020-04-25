@@ -94,9 +94,9 @@ async def on_raw_reaction_add(payload):
         if str(payload.emoji) == '✅':
             role = guild.get_role(703688480278052894)
 
-        elif role:
+        if role:
             member = guild.get_member(payload.user_id)
-            elif member:
+            if member:
                 await member.add_roles(role)
 
 @bot.event
@@ -108,9 +108,9 @@ async def on_raw_reaction_remove(payload):
         if str(payload.emoji) == '✅':
             role = guild.get_role(703688480278052894
 
-        elif role:
+        if role:
             member = guild.get_member(payload.user_id)
-            elif member:
+            if member:
                 await member.remove_roles(role)
 
 @bot.command()
