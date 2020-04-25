@@ -73,6 +73,7 @@ async def botinfo(ctx):
     embed.set_thumbnail( url = bot.user.avatar_url)
     embed.set_footer(text=f"𝕯𝖆𝖗𝖐 𝕬𝖓𝖌𝖊𝖑#8992 © | Все права защищены", icon_url='https://cdn.discordapp.com/avatars/668325441224048641/8431275535fe40a8234d810db5646643.png?size=512') # создаение футера
     await ctx.send(embed=embed)
+
 @bot.command()
 @commands.check(is_owner)
 async def edit(ctx, message_id: int = None, new_content: str = None):
@@ -83,6 +84,34 @@ async def edit(ctx, message_id: int = None, new_content: str = None):
         
         await message.edit(content = new_content)
         await ctx.message.add_reaction('✅')
+
+@bot.event
+async def on_raw_reaction_add(payload):
+    if payload.message_id == 703690617745834086: # ID Сообщения
+        guild = bot.get_guild(payload.guild_id)
+        role = None
+
+        if str(payload.emoji) == '✅: # Emoji для реакций
+            role = guild.get_role(703688480278052894) # ID Ролей для выдачи
+
+        if role:
+            member = guild.get_member(payload.user_id)
+            if member:
+                await member.add_roles(role)
+
+@bot.event
+async def on_raw_reaction_remove(payload):
+    if payload.message_id == 703665890083995829: # ID Сообщения
+        guild = bot.get_guild(payload.guild_id)
+        role = None
+
+        if str(payload.emoji) == '✅: # Emoji для реакций
+            role = guild.get_role(703688480278052894) # ID Ролей для выдачи
+
+        if role:
+            member = guild.get_member(payload.user_id)
+            if member:
+                await member.remove_roles(role)
 
 @bot.command()
 async def password(ctx, lenght: int = None, number: int = None):
