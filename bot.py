@@ -61,7 +61,7 @@ async def on_member_join( member ):
     channel = bot.get_channel( 696322644106281032 ) # Айди канала куда будет писатся сообщение
     await channel.send( embed = emb )
 
-@commands.command(aliases=['botinfo'])
+@bot.command(aliases=['botinfo'])
 async def bot(ctx):
 	embed = discord.Embed(title=f"{ctx.guild.name}", description="Информация о боте **Bloody X#7002**.\n Бот был написан специально для проекта **`Bloody X`,\n Подробнее о командах: -help", color = 0x8147ed)
 	embed.add_field(name=f'**Меня создал:**', value="𝕯𝖆𝖗𝖐 𝕬𝖓𝖌𝖊𝖑#8992(<@668325441224048641>", inline=True)  # Создает строку
