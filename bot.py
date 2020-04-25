@@ -50,8 +50,8 @@ async def suggest( ctx , * , agr ):
     embed.set_thumbnail(url=ctx.guild.icon_url)
 
     await dev.send(embed=embed)
-    await message.add_reaction('✅')
-    await message.add_reaction('❎')
+    await ctx.author.message.add_reaction('✅')
+    await ctx.author.message.add_reaction('❎')
 
 @bot.event
 async def on_member_join( member ):
