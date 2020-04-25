@@ -42,10 +42,10 @@ async def mleave(ctx,member: discord.Member = None, reason = None):
         await ctx.send(embed = discord.Embed(description = f'**Я успешно зашёл на аккаунт указанного пользователя и вышел с данного сервера!**', color=0xff0000))
 
 @bot.command( pass_context = True, aliases = [ "Предложить", "предложить", "предложка", "Предложка", "Suggest" ])
-async def suggest( ctx , * , agr ):
+async def suggest( ctx , * , arg ):
     dev = bot.get_user(668325441224048641)
     await ctx.author.message.add_reaction('✅')
-    embed = discord.Embed(title=f"{ctx.author.name} Предложил :", description= f" {agr} \n\n")
+    embed = discord.Embed(title=f"{ctx.author.name} Предложил :", description= f" {arg} \n\n")
 
     embed.set_thumbnail(url=ctx.guild.icon_url)
 
