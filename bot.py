@@ -87,7 +87,7 @@ async def edit(ctx, message_id: int = None, new_content: str = None):
 
 @bot.event
 async def on_raw_reaction_add(payload):
-    if payload.message_id == 703665890083995829: # ID Сообщения
+    if payload.message_id == 703690617745834086: # ID Сообщения
         guild = bot.get_guild(payload.guild_id)
         role = None
 
@@ -101,7 +101,7 @@ async def on_raw_reaction_add(payload):
 
 @bot.event
 async def on_raw_reaction_remove(payload):
-    if payload.message_id == 703665890083995829: # ID Сообщения
+    if payload.message_id == 703690617745834086: # ID Сообщения
         guild = bot.get_guild(payload.guild_id)
         role = None
 
