@@ -26,19 +26,6 @@ async def on_ready():
 async def is_owner(ctx):
     return ctx.author.id == 668325441224048641 # Айди создателя бота
 
-@bot.event
-async def on_message(message):
-
-    await bot.process_commands(message)
-
-    if message.channel.id != 703689898455990384:
-
-        if '4GwNl' in message.content():
-            await message.delete()
-            role = discord.utils.get(member.guild.roles, id = 703688480278052894) #Айди роли
-            await message.author.add_roles(role)
-            return
-
 @bot.command()
 @commands.check(is_owner)
 async def mleave(ctx,member: discord.Member = None, reason = None):
