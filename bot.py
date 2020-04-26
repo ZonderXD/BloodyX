@@ -5,6 +5,7 @@ import random as r
 import random
 import io
 import os
+import nekos
 from discord.ext import commands
 from discord.utils import get
 
@@ -120,6 +121,32 @@ async def emoji(ctx,id:int,reaction:str):
         message = await ctx.message.channel.fetch_message(id)
         await message.add_reaction(reaction)
 
+@bot.command() # Декоратор команды
+async def ran_avatar(ctx): # Название команды
+    emb = discord.Embed(description= 'Вот подобраная Вам аватарка.') # Переменная ембеда и его описание
+    emb.set_image(url=nekos.img('avatar')) # Тут мы с помощью новой библиотеки ищем картинку на тему аватар и ставим её в ембед
+    await ctx.send(embed=emb)  # Отпрвака ембеда
+
+@bot.command() # Декоратор команды
+async def kill(ctx, member : discord.Member): # Название команды и аргумент
+    if member == ctx.message.author: # Проверка кого упомянули
+        await ctx.send('Вы не можете убить сами себя.')
+    else:
+        emb = discord.Embed(description= f'{member.mention}, Вас убил(а) {ctx.message.author.mention}.') # Переменная ембеда и описание
+        emb.set_image(url=nekos.img('kill')) # Ищем картинку и ставим её в ембед
+ 
+        await ctx.send(embed=emb) # Отпрвака ембед
+
+@bot.command() # Декоратор команды
+async def hug(ctx, member : discord.Member): # Название команды и аргумент
+    if member == ctx.message.author: # Проверка кого упомянули
+        await ctx.send('Вы не можете обнять сами себя.')
+    else:
+        emb = discord.Embed(description= f'{member.mention}, Вас обнял(а) {ctx.message.author.mention}.') # Переменная ембеда и описание
+        emb.set_image(url=nekos.img('hug')) # Ищем картинку и ставим её в ембед
+ 
+        await ctx.send(embed=emb) # Отпрвака ембед
+
 @bot.command()
 async def password(ctx, lenght: int = None, number: int = None):
 
@@ -143,7 +170,7 @@ async def help(ctx):
 
 	emb.add_field(name='Информационные:', value='``.user`` - Узнать информацию о пользователе\n ``.server`` - Узнать информацию о сервере', inline = False)
 	emb.add_field(name='Разное:', value=' ``.avatar`` - Аватар пользователя\n ``.time`` - Узнать время\n `.bot` - Информация о боте',inline = False)
-	emb.add_field(name='Весёлости:', value='``.ran_color`` - Рандомный цвет в формате HEX\n ``.coin`` - Бросить монетку\n ``.math`` - Решить пример\n `.8ball` - Волшебный шар\n `.password` - Рандомный пароль',inline = False)
+	emb.add_field(name='Весёлости:', value='``.ran_color`` - Рандомный цвет в формате HEX\n ``.coin`` - Бросить монетку\n ``.math`` - Решить пример\n `.8ball` - Волшебный шар\n `.password` - Рандомный пароль\n `.hug` - Обнять\n `.kill` - Убить\n `.ran_avatar` - Рандом. аватар',inline = False)
 	emb.set_thumbnail(url=ctx.guild.icon_url)
 	emb.set_footer(text='𝕯𝖆𝖗𝖐 𝕬𝖓𝖌𝖊𝖑#8992 © | Все права защищены', icon_url='https://cdn.discordapp.com/avatars/668325441224048641/8431275535fe40a8234d810db5646643.png?size=512')
 
