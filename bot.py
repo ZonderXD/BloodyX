@@ -44,6 +44,7 @@ async def mleave(ctx,member: discord.Member = None, reason = None):
 
 @bot.command( pass_context = True, aliases = [ "Предложить", "предложить", "предложка", "Предложка", "Suggest" ])
 async def suggest( ctx , * , agr ):
+    await ctx.message.add_reaction('✅')
     suggest_chanell = bot.get_channel( 703655454563237969 ) #Айди канала предложки
     embed = discord.Embed(title=f"{ctx.author.name} Предложил :", description= f" {agr} \n\n")
 
