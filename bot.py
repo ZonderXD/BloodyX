@@ -75,9 +75,9 @@ async def on_message(message):
    if not res:
         cursor.execute(f"INSERT INTO users (id, nickname, money, lvl, xp) VALUES ({message.author.id}, '{message.author.name}', 0, 0, 0)")
         conn.commit()
-    if len(message.content) > 5:
+   if len(message.content) > 5:
     
-    for i in cursor.execute(f"SELECT lvl, xp FROM users where id = {message.author.id}"):
+   for i in cursor.execute(f"SELECT lvl, xp FROM users where id = {message.author.id}"):
         lvl = i[0]
         new_xp = i[1] + len(message.content)
 
