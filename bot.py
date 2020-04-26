@@ -72,7 +72,7 @@ async def on_message(message):
    cursor.execute(f"SELECT * FROM users WHERE id = {message.author.id}")
    res = cursor.fetchall()
 
-    if not res:
+   if not res:
         cursor.execute(f"INSERT INTO users (id, nickname, money, lvl, xp) VALUES ({message.author.id}, '{message.author.name}', 0, 0, 0)")
         conn.commit()
     if len(message.content) > 5:
