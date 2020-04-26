@@ -58,13 +58,13 @@ async def suggest( ctx , * , agr ):
 @commands.check(is_owner)
 async def opros(ctx, *, arg):
     await ctx.message.delete()
-    embed = discord.Embed(title=f"ОПРОС:`**", color = 0x00ffff)
+    embed = discord.Embed(title=f"ОПРОС:", color = 0x00ffff)
     embed.add_field(name=f'**Вопрос:**', value=f"**{arg}**\n", inline=False)  # Создает строку
     embed.add_field(name=f'**Решение:**', value="**-=-=- Да - ❤ -=-=-\n -=-=- Нет - 💔 -=-=-**\n\n", inline=False)  # Создает строку
     embed.add_field(name=f'**Инфо:**', value="**Выбор за Вами!**", inline=False)  # Создает строку
     await ctx.send(embed=embed)
-    await ctx.message.add_reaction('❤')
-    await ctx.message.add_reaction('💔')
+    await ctx.message.add_reaction(':heart:')
+    await ctx.message.add_reaction(':broken_heart:')
 
 @bot.event
 async def on_member_join( member ):
