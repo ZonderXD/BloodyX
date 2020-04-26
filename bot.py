@@ -70,7 +70,7 @@ async def on_member_join( member ):
 @bot.event
 async def on_message(message):
    cursor.execute(f"SELECT * FROM users WHERE id = {message.author.id}")
-    res = cursor.fetchall()
+   res = cursor.fetchall()
 
     if not res:
         cursor.execute(f"INSERT INTO users (id, nickname, money, lvl, xp) VALUES ({message.author.id}, '{message.author.name}', 0, 0, 0)")
