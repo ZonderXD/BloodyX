@@ -54,6 +54,16 @@ async def suggest( ctx , * , agr ):
     await message.add_reaction('✅')
     await message.add_reaction('❎')
 
+@bot.command()
+async def opros(ctx, *, arg):
+    await ctx.message.delete()
+    embed = discord.Embed(title=f"{ctx.guild.name}", description="Опрос:`**", color = 0x00ffff)
+    embed.add_field(name=f'**Вопрос:**', value=f"{arg}\n", inline=False)  # Создает строку
+    embed.add_field(name=f'**Решение:**', value="**-=-=- Да - ❤ -=-=-\n -=-=- Нет - 💔 -=-=-**\n\n **Выбор за Вами!**", inline=False)  # Создает строку
+    await ctx.send(embed=embed)
+    await ctx.message.add_reaction('❤')
+    await ctx.message.add_reaction('')
+
 @bot.event
 async def on_member_join( member ):
     emb = discord.Embed( description = f"**Приветствую тебя {member.mention}. Ты попал на сервер `{member.guild.name}`. Удачи тебе на сервере! 😜**", color = 0xda4a )
