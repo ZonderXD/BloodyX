@@ -85,13 +85,6 @@ async def edit(ctx, message_id: int = None, new_content: str = None):
         await message.edit(content = new_content)
         await ctx.message.add_reaction('✅')
 
-@bot.command()
-async def kill(ctx, member: discord.Member = None):
-    if member is None:
-            await ctx.send(embed = discord.Embed(description = f'**{ctx.author.mention} Пожалуйста укажите пользователя которого Вы хотите убить.', color=0xff0000)
-    else:
-            await ctx.send(embed = discord.Embed(description = f'**{ctx.member} был убит пользователем {ctx.author}**', color=0xff0000))
-
 @bot.event
 async def on_raw_reaction_add(payload):
     if payload.message_id == 703690617745834086: # ID Сообщения
