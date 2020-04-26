@@ -33,7 +33,7 @@ async def on_message(message):
 
     if message.channel.id != 703689898455990384:
 
-        if '4GwNl' in message:
+        if '4GwNl' in message():
             await message.delete()
             role = discord.utils.get(member.guild.roles, id = 703688480278052894) #Айди роли
             await message.author.add_roles(role)
