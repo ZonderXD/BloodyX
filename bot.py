@@ -97,34 +97,6 @@ async def edit(ctx, message_id: int = None, new_content: str = None):
         await message.edit(content = new_content)
         await ctx.message.add_reaction('✅')
 
-@bot.event
-async def on_raw_reaction_add(payload):
-    if payload.message_id == 703690617745834086: # ID Сообщения
-        guild = bot.get_guild(payload.guild_id)
-        role = None
-
-        if str(payload.emoji) == '✅': # Emoji для реакций
-            role = guild.get_role(703688480278052894) # ID Ролей для выдачи
-
-        if role:
-            member = guild.get_member(payload.user_id)
-            if member:
-                await member.add_roles(role)
-
-@bot.event
-async def on_raw_reaction_remove(payload):
-    if payload.message_id == 703690617745834086: # ID Сообщения
-        guild = bot.get_guild(payload.guild_id)
-        role = None
-
-        if str(payload.emoji) == '✅':
-            role = guild.get_role(703688480278052894)
-
-        if role:
-            member = guild.get_member(payload.user_id)
-            if member:
-                await member.remove_roles(role)
-
 @bot.command()
 @commands.check(is_owner)
 async def emoji(ctx,id:int,reaction:str):
