@@ -83,6 +83,10 @@ async def on_message(message):
         conn.commit()
 
 @bot.command()
+async def money(ctx):
+    
+
+@bot.command()
 async def bonus(ctx):
     time_now = time.time()
     print(time_now)
@@ -108,8 +112,8 @@ async def bonus(ctx):
 
 @bot.command()
 async def rang(ctx):
-    await ctx.typing()
     for i in cursor.execute(f"SELECT lvl, xp FROM users WHERE id = {ctx.author.id}"):
+        await ctx.typing()
         await ctx.send(embed = discord.Embed(description = f'**Твой уровень: `{i[0]}`, а вот твой опыт: `{i[1]}`**', color=0x00ffff))
 
 @bot.command()
