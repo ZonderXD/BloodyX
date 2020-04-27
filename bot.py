@@ -73,7 +73,7 @@ async def on_message(message):
             new_xp = i[1] + len(message.content)
 
     if new_xp >= lvl * 100 + 1000:
-	await message.channel.send(f'{message.author.mention} кросс, теперь у тебя {lvl + 1} см!')
+        await message.channel.send(f'{message.author.mention} кросс, теперь у тебя {lvl + 1} см!')
             lvl += 1
             new_xp = 0
         
