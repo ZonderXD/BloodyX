@@ -69,13 +69,13 @@ async def on_message(message):
     
     if len(message.content) > 3:
         for i in cursor.execute(f"SELECT lvl, xp FROM users where id = {message.author.id}"):
-        lvl = i[0]
-        new_xp = i[1] + len(message.content)
+            lvl = i[0]
+            new_xp = i[1] + len(message.content)
 
     if new_xp >= lvl * 100 + 1000:
-        await message.channel.send(f'{message.author.mention} кросс, теперь у тебя {lvl + 1} см!')
-        lvl += 1
-        new_xp = 0
+	await message.channel.send(f'{message.author.mention} кросс, теперь у тебя {lvl + 1} см!')
+	lvl += 1
+	new_xp = 0
         
     cursor.execute(f'UPDATE users SET lvl = {lvl}, xp = {new_xp} WHERE id = {message.author.id}')
     conn.commit()
