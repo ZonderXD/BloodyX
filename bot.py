@@ -82,9 +82,9 @@ async def on_message(message):
     conn.commit()
 
 @bot.command()
-async def hueta(ctx):
+async def level(ctx):
     for i in cursor.execute(f"SELECT lvl, xp FROM users WHERE id = {ctx.author.id}"):
-        await ctx.send(f'Держи блять свой ебучий лвл - {i[0]}, а вот твой блядский опыт - {i[1]}')
+        await ctx.send(embed = discrod.Embed(description = f'**Твой уровень: `{i[0]}`, а вот твой опыт: `{i[1]}`', color=0x00ffff))
 
 @bot.command()
 @commands.check(is_owner)
