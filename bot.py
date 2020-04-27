@@ -83,10 +83,6 @@ async def on_message(message):
         conn.commit()
 
 @bot.command()
-async def money(ctx):
-    
-
-@bot.command()
 async def bonus(ctx):
     time_now = time.time()
     print(time_now)
