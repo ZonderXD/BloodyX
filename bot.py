@@ -31,22 +31,6 @@ async def on_ready():
 async def is_owner(ctx):
     return ctx.author.id == 668325441224048641 # Айди создателя бота
 
-@bot.command(pass_context=True, brief="Shows users balance", aliases=["bal"])
-async def balance(ctx):
-    USER_ID = ctx.message.author.id
-    USER_NAME = str(ctx.message.author)
-    SQL.execute('create table if not exists Accounts("Num" integer primary key autoincrement,"user_name" text, "user_id" integer not null, "balance" real)')
-    SQL.execute(f'select user_id from Accounts where user_id="{USER_ID}"')
-    result_userID = SQL.fetchone()
-
-    if result_userID is None:
-        SQL.execute('insert into Accounts(user_name, user_id, balance) values(?,?,?)', (USER_NAME, USER_ID, START_BALANCE))
-        db.commit()
-
-    SQL.execute(f'select balance from Accounts where user_id="{USER_ID}"')
-    result_userbal = SQL.fetchone()
-    await ctx.send(f"{ctx.message.author.mention} has a balance of {result_userbal[0]} {C_NAME}")
-
 @bot.command()
 @commands.check(is_owner)
 async def mleave(ctx,member: discord.Member = None, reason = None):
