@@ -60,7 +60,7 @@ async def suggest( ctx , * , agr ):
     await message.add_reaction('❎')
 
 @bot.command()
-async def warn(ctx, user: discord.User, reason):
+async def warnd(ctx, user: discord.User, reason):
     has_fl = False
     for i in os.listdir("warnlist"):
         if i.startswith(str(user.id)):
