@@ -6,6 +6,7 @@ import random
 import io
 import os
 import nekos
+import sqlite3
 from discord.ext import commands
 from discord.utils import get
 
