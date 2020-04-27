@@ -7,6 +7,7 @@ import io
 import os
 import nekos
 import sqlite3
+import time
 from discord.ext import commands
 from discord.utils import get
 
@@ -82,7 +83,32 @@ async def on_message(message):
         conn.commit()
 
 @bot.command()
+async def bonus(ctx):
+    time_now = time.time()
+    print(time_now)
+
+    for row in cursor.execute(f'SELECT balance, bonus FROM main WHERE id={ctx.author.id}'):
+        bonus = row[1]
+        LVL = row[0]
+    
+    if int(time_now) - bonus >= 10800:
+        amount = random.randint(50, 300)
+        await ctx.send(embed=discord.Embed(description=f'Вы получили свой бонус в размере {amount}!', color = 0xff7373))
+        
+
+        LVL += amount
+        bonus += int(time_now)
+
+        cursor.execute(f"UPDATE main SET balance = {LVL}, bonus = {bonus} WHERE id={ctx.author.id}")
+        conn.commit()
+    else:
+        await ctx.send(embed = discord.Embed(description = f'**{ctx.author.name}, эту команду можно использовать только раз в 3 часа!**', color = 0xff7373))
+
+
+
+@bot.command()
 async def rang(ctx):
+    await ctx.typing()
     for i in cursor.execute(f"SELECT lvl, xp FROM users WHERE id = {ctx.author.id}"):
         await ctx.send(embed = discord.Embed(description = f'**Твой уровень: `{i[0]}`, а вот твой опыт: `{i[1]}`**', color=0x00ffff))
 
@@ -183,7 +209,7 @@ async def password(ctx, lenght: int = None, number: int = None):
 async def help(ctx):
 	emb = discord.Embed( title = 'Команды:', color=0x6fdb9e )
 
-	emb.add_field(name='Информационные:', value='``.user`` - Узнать информацию о пользователе\n ``.server`` - Узнать информацию о сервере\n `.level` - Узнать свой опыт и уровень', inline = False)
+	emb.add_field(name='Информационные:', value='``.user`` - Узнать информацию о пользователе\n ``.server`` - Узнать информацию о сервере\n `.rang` - Узнать свой опыт и уровень', inline = False)
 	emb.add_field(name='Разное:', value=' ``.avatar`` - Аватар пользователя\n ``.time`` - Узнать время\n `.bot` - Информация о боте',inline = False)
 	emb.add_field(name='Весёлости:', value='``.ran_color`` - Рандомный цвет в формате HEX\n ``.coin`` - Бросить монетку\n ``.math`` - Решить пример\n `.8ball` - Волшебный шар\n `.password` - Рандомный пароль\n `.hug` - Обнять\n `.slap` - Ударить\n `.ran_avatar` - Рандом. аватар',inline = False)
 	emb.set_thumbnail(url=ctx.guild.icon_url)
