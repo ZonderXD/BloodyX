@@ -60,6 +60,7 @@ async def suggest( ctx , * , agr ):
 
 @bot.event
 async def on_message(message):
+    await bot.process_commands(message)
     cursor.execute(f"SELECT * FROM users WHERE id = {message.author.id}")
     res = cursor.fetchall()
 
