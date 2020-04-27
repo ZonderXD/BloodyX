@@ -59,6 +59,39 @@ async def suggest( ctx , * , agr ):
     await message.add_reaction('✅')
     await message.add_reaction('❎')
 
+@bot.command()
+async def warn(ctx, user: discord.User, reason):
+    has_fl = False
+    for i in os.listdir("warnlist"):
+        if i.startswith(str(user.id)):
+            player = open(f"warnlist\\{user.id}.json", "r", encoding="windows-1251")
+            pl_data = json.load(player)
+            warns = pl_data.get("warns")
+            reasons = pl_data.get("reasons")
+            reasons.append(reason)
+            warns += 1
+            pl_data.update({"warns": warns})
+            pl_data.update({"reasons": reasons})
+            w_embed = discord.Embed(title="Предупреждение", color=0xffdc2b)
+            w_embed.set_author(name=ctx.author.name, icon_url=ctx.author.avatar_url)
+            w_embed.add_field(name=f"{user.name} был предупрежден по причине: ", value=f"{reason}")
+            w_embed.add_field(name='Предупреждений у пользователя: ', value=warns)
+            player.close()
+            player = open(f".warnlist\\{user.id}.json", "w")
+            json.dump(pl_data, player, ensure_ascii=False)
+            player.close()
+            await ctx.send(embed=w_embed)
+            has_fl = True
+    if has_fl is False:
+        player = open(f"warnlist\\{user.id}.json", "w", encoding="windows-1251")
+        warns = {"id": user.id, "warns": 1, "reasons": [reason]}
+        json.dump(warns, player, ensure_ascii=False)
+        w_embed = discord.Embed(title="Предупреждение", color=0xffdc2b)
+        w_embed.set_author(name=ctx.author.name, icon_url=ctx.author.avatar_url)
+        w_embed.add_field(name=f"{user.name} был предупрежден по причине: ", value=reason)
+        await ctx.send(embed=w_embed)
+        player.close()
+
 @bot.event
 async def on_message(message):
     await bot.process_commands(message)
