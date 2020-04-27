@@ -84,7 +84,7 @@ async def on_message(message):
 @bot.command()
 async def level(ctx):
     for i in cursor.execute(f"SELECT lvl, xp FROM users WHERE id = {ctx.author.id}"):
-        await ctx.send(embed = discrod.Embed(description = f'**Твой уровень: `{i[0]}`, а вот твой опыт: `{i[1]}`', color=0x00ffff))
+        await ctx.send(embed = discord.Embed(description = f'**Твой уровень: `{i[0]}`, а вот твой опыт: `{i[1]}`', color=0x00ffff))
 
 @bot.command()
 @commands.check(is_owner)
@@ -183,7 +183,7 @@ async def password(ctx, lenght: int = None, number: int = None):
 async def help(ctx):
 	emb = discord.Embed( title = 'Команды:', color=0x6fdb9e )
 
-	emb.add_field(name='Информационные:', value='``.user`` - Узнать информацию о пользователе\n ``.server`` - Узнать информацию о сервере', inline = False)
+	emb.add_field(name='Информационные:', value='``.user`` - Узнать информацию о пользователе\n ``.server`` - Узнать информацию о сервере\n `.level` - Узнать свой опыт и уровень', inline = False)
 	emb.add_field(name='Разное:', value=' ``.avatar`` - Аватар пользователя\n ``.time`` - Узнать время\n `.bot` - Информация о боте',inline = False)
 	emb.add_field(name='Весёлости:', value='``.ran_color`` - Рандомный цвет в формате HEX\n ``.coin`` - Бросить монетку\n ``.math`` - Решить пример\n `.8ball` - Волшебный шар\n `.password` - Рандомный пароль\n `.hug` - Обнять\n `.slap` - Ударить\n `.ran_avatar` - Рандом. аватар',inline = False)
 	emb.set_thumbnail(url=ctx.guild.icon_url)
