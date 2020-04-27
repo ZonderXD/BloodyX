@@ -68,7 +68,7 @@ async def on_message(message):
         conn.commit()
     
     if len(message.content) > 3:
-    for i in cursor.execute(f"SELECT lvl, xp FROM users where id = {message.author.id}"):
+        for i in cursor.execute(f"SELECT lvl, xp FROM users where id = {message.author.id}"):
         lvl = i[0]
         new_xp = i[1] + len(message.content)
 
