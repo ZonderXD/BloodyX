@@ -124,7 +124,10 @@ async def hug(ctx, member : discord.Member): # Название команды �
 
 @bot.command()
 async def kill(ctx, member : discord.Member):
-	if member == ctx.message.author:
+	if member in ["668325441224048641", "429350473854746629"]
+		await ctx.send(embed = discord.Embed(description = f"Извините, но Вы не можете убить данного пользователя.", color=0x6fdb9e))
+	
+	elif member == ctx.message.author:
 		emb = discord.Embed(description= f'{ctx.message.author.mention} Прыгает с крыши.', color=0x6fdb9e) # Переменная ембеда и описание
 		emb.set_image(url='https://cdn.discordapp.com/attachments/702533257534898248/704731742946459708/BIty.gif')
 		
