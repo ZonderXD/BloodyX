@@ -53,31 +53,6 @@ async def opros(ctx, *, arg):
     embed.add_field(name=f'**Инфо:**', value="**Выбор за Вами!**", inline=False)  # Создает строку
     await ctx.send(embed=embed)
 
-@bot.commands()
-      async def hueta12345(ctx, category: str = None):
-            if category == None:
-                await ctx.send('Укажите категорию!')
-            else:
-                possible = [
-                    'feet', 'yuri', 'trap', 'futanari', 'hololewd', 'lewdkemo',
-                    'solog', 'feetg', 'cum', 'erokemo', 'les', 'wallpaper', 'lewdk',
-                    'ngif', 'tickle', 'lewd', 'feed', 'gecg', 'eroyuri', 'eron',
-                    'cum_jpg', 'bj', 'nsfw_neko_gif', 'solo', 'kemonomimi', 'nsfw_avatar',
-                    'gasm', 'poke', 'anal', 'slap', 'hentai', 'avatar', 'erofeet', 'holo',
-                    'keta', 'blowjob', 'pussy', 'tits', 'holoero', 'lizard', 'pussy_jpg',
-                    'pwankg', 'classic', 'kuni', 'waifu', 'pat', '8ball', 'kiss', 'femdom',
-                    'neko', 'spank', 'cuddle', 'erok', 'fox_girl', 'boobs', 'random_hentai_gif',
-                    'smallboobs', 'hug', 'ero', 'smug', 'goose', 'baka', 'woof'
-                ]
-
-                if category.lower() not in possible:
-                    await ctx.send('Нет такой категории!')
-                else:
-                    embed = discord.Embed(title = 'Вот тебе кот)', color = 0x000000)
-                    embed.set_image(url = nekos.img(category))
-
-                    await ctx.send(embed = embed)
-
 @bot.event
 async def on_member_join( member ):
     emb = discord.Embed( description = f"**Приветствую тебя {member.mention}. Ты попал на сервер `{member.guild.name}`. Удачи тебе на сервере! 😜**", color = 0xda4a )
