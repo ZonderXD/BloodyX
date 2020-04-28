@@ -67,11 +67,6 @@ async def on_message(message):
         conn.commit()
 
 @bot.command()
-async def rang(ctx):
-    for i in cursor.execute(f"SELECT xp FROM users WHERE id = {ctx.author.id}"):
-        await ctx.send(embed = discord.Embed(description = f'**Твой опыт: `{i[0]}`**', color=0x00ffff))
-
-@bot.command()
 @commands.check(is_owner)
 async def opros(ctx, *, arg):
     await ctx.message.delete()
