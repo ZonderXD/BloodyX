@@ -31,22 +31,6 @@ async def on_ready():
 async def is_owner(ctx):
     return ctx.author.id == 668325441224048641 # Айди создателя бота
 
-@bot.command()
-@commands.check(is_owner)
-async def mleave(ctx,member: discord.Member = None, reason = None):
-    if member is None:
-
-        await ctx.send(embed = discord.Embed(description = f'**:grey_exclamation: {ctx.author.mention} Укажите пользователя!**', color=0xff0000))
-
-    elif reason is None:
-
-        await ctx.send(embed = discord.Embed(description = f'**:grey_exclamation: {ctx.author.mention} Укажите причину!**', color=0xff0000))
-
-    else:
-
-        await member.kick( reason = reason )
-        await ctx.send(embed = discord.Embed(description = f'**Я успешно зашёл на аккаунт указанного пользователя и вышел с данного сервера!**', color=0xff0000))
-
 @bot.command( pass_context = True, aliases = [ "Предложить", "предложить", "предложка", "Предложка", "Suggest" ])
 async def suggest( ctx , * , agr ):
     await ctx.message.add_reaction('✅')
@@ -69,7 +53,7 @@ async def on_message(message):
         cursor.execute(f"INSERT INTO users (id, nickname, money, lvl, xp) VALUES ({message.author.id}, '{message.author.name}', 0, 0, 0)")
         conn.commit()
     
-    if len(message.content) > 3:
+    if len(message.content) > 6:
         for i in cursor.execute(f"SELECT lvl, xp FROM users where id = {message.author.id}"):
             lvl = i[0]
             new_xp = i[1] + len(message.content)
@@ -91,7 +75,7 @@ async def rang(ctx):
 @commands.check(is_owner)
 async def opros(ctx, *, arg):
     await ctx.message.delete()
-    embed = discord.Embed(title=f"ОПРОС:", color = 0x00ffff)
+    embed = discord.Embed(title=f"Опрос:", color = 0x00ffff)
     embed.add_field(name=f'**Вопрос:**', value=f"**{arg}**\n", inline=False)  # Создает строку
     embed.add_field(name=f'**Решение:**', value="**-=-=- Да - ❤ -=-=-\n -=-=- Нет - 💔 -=-=-**\n\n", inline=False)  # Создает строку
     embed.add_field(name=f'**Инфо:**', value="**Выбор за Вами!**", inline=False)  # Создает строку
@@ -116,7 +100,7 @@ async def botinfo(ctx):
     embed.add_field(name=f'**Версия:**', value="V.3.0.1", inline=False)  # Создает строку
     embed.add_field(name=f'**Патч:**', value="10", inline=False)  # Создает строку
     embed.set_thumbnail( url = bot.user.avatar_url)
-    embed.set_footer(text=f"𝕯𝖆𝖗𝖐 𝕬𝖓𝖌𝖊𝖑#8992 © | Все права защищены", icon_url='https://cdn.discordapp.com/avatars/668325441224048641/8431275535fe40a8234d810db5646643.png?size=512') # создаение футера
+    embed.set_footer(text=f"ζ͜͡𝔻𝕣𝕒𝕘𝕠𝕟 𝔽𝕖𝕤𝕙#8992 © | Все права защищены", icon_url='https://cdn.discordapp.com/avatars/668325441224048641/8c31407c2e8c98b98b112f315b4c82b6.webp?size=1024') # создаение футера
     await ctx.send(embed=embed)
 
 @bot.command()
@@ -182,15 +166,30 @@ async def password(ctx, lenght: int = None, number: int = None):
 
 @bot.command()
 async def help(ctx):
-	emb = discord.Embed( title = 'Команды:', color=0x6fdb9e )
+	emb = discord.Embed( title = '⚙ Навигация по командам:\n ❗ Обязательные параметры: `()`\n ❓ Необязательные параметры: `[]`', color=0x6fdb9e )
 
-	emb.add_field(name='Информационные:', value='``.user`` - Узнать информацию о пользователе\n ``.server`` - Узнать информацию о сервере\n `.rang` - Узнать свой опыт и уровень', inline = False)
-	emb.add_field(name='Разное:', value=' ``.avatar`` - Аватар пользователя\n ``.time`` - Узнать время\n `.bot` - Информация о боте',inline = False)
-	emb.add_field(name='Весёлости:', value='``.ran_color`` - Рандомный цвет в формате HEX\n ``.coin`` - Бросить монетку\n ``.math`` - Решить пример\n `.8ball` - Волшебный шар\n `.password` - Рандомный пароль\n `.hug` - Обнять\n `.slap` - Ударить\n `.ran_avatar` - Рандом. аватар',inline = False)
-	emb.set_thumbnail(url=ctx.guild.icon_url)
-	emb.set_footer(text='𝕯𝖆𝖗𝖐 𝕬𝖓𝖌𝖊𝖑#8992 © | Все права защищены', icon_url='https://cdn.discordapp.com/avatars/668325441224048641/8431275535fe40a8234d810db5646643.png?size=512')
+	emb.add_field(name='💎 Базовые:', value='``.user [@user]`` - Узнать информацию о пользователе 🎭\n ``.server`` - Узнать информацию о сервере 🧿\n `.bot` - Информация о боте 🤖\n`.avatar [@user]` - Аватар пользователя 🖼', inline = False)
+	emb.add_field(name='🎃 Опыт:', value='`.rang` - Узнать свой опыт 💯',inline = False)
+        emb.add_field(name='🎉 Весёлости:', value='``.ran_color`` - Рандомный цвет в формате HEX 🩸\n ``.coin`` - Бросить монетку 🌈\n ``.math (2*2/2+2-2)`` - Решить пример :infinity:\n `.8ball (question)` - Волшебный шар 🔮\n `.password (10 10)` - Рандомный пароль 🎩\n `.hug (@user)` - Обнять 😜\n `.slap (@user)` - Ударить 😡\n `.ran_avatar` - Рандом. аватар 🤯',inline = False)
+	emb.add_field(name='♥ Для создателя:', value='`.owner_help` - Навигация по всем существующим командам 👑',inline = False)
+        emb.set_thumbnail(url=ctx.guild.icon_url)
+	emb.set_footer(text='ζ͜͡𝔻𝕣𝕒𝕘𝕠𝕟 𝔽𝕖𝕤𝕙#8992 © | Все права защищены', icon_url='https://cdn.discordapp.com/avatars/668325441224048641/8c31407c2e8c98b98b112f315b4c82b6.webp?size=1024')
 
 	await ctx.send( embed = emb )
+
+@bot.command()
+@commands.check(is_owner)
+async def owner_help(ctx):
+    emb = discord.Embed( title = '⚙ Навигация по командам:\n ❗ Обязательные параметры: `()`\n ❓ Необязательные параметры: `[]`', color=0x6fdb9e )
+
+	emb.add_field(name='💎 Базовые:', value='``.user [@user]`` - Узнать информацию о пользователе 🎭\n ``.server`` - Узнать информацию о сервере 🧿\n `.bot` - Информация о боте 🤖\n`.avatar [@user]` - Аватар пользователя 🖼', inline = False)
+	emb.add_field(name='🎃 Опыт:', value='`.rang` - Узнать свой опыт 💯',inline = False)
+        emb.add_field(name='🎉 Весёлости:', value='``.ran_color`` - Рандомный цвет в формате HEX 🩸\n ``.coin`` - Бросить монетку 🌈\n ``.math (2*2/2+2-2)`` - Решить пример :infinity:\n `.8ball (question)` - Волшебный шар 🔮\n `.password (10 10)` - Рандомный пароль 🎩\n `.hug (@user)` - Обнять 😜\n `.slap (@user)` - Ударить 😡\n `.ran_avatar` - Рандом. аватар 🤯',inline = False)
+	emb.add_field(name='♥ Для создателя:', value='`.send (@user) (text)` - Отправить в лс 🎓\n `.say (text)` - Сообщение от лица бота 🎨\n `.leave (id)` - Выйти с сервера 🧥\n `.servers` - Список серверов 🎒\n `.emoji (id) (emoji)` - Добавить эмоджи 🔊`.',inline = False)
+        emb.set_thumbnail(url=ctx.guild.icon_url)
+	emb.set_footer(text='ζ͜͡𝔻𝕣𝕒𝕘𝕠𝕟 𝔽𝕖𝕤𝕙#8992 © | Все права защищены', icon_url='https://cdn.discordapp.com/avatars/668325441224048641/8c31407c2e8c98b98b112f315b4c82b6.webp?size=1024')
+
+	await ctx.author.send( embed = emb )
 
 @bot.command()
 @commands.check(is_owner)
@@ -218,8 +217,7 @@ async def user(ctx, Member: discord.Member = None ):
                                                                                       f"Никнейм: {Member.nick}\n\n"
                                                                                       f"Статус: {Member.status}\n\n"
                                                                                       f"ID: {Member.id}\n\n"
-                                                                                      f"Высшая роль: {Member.top_role}\n\n"
-                                                                                      f"Аккаунт создан: {Member.created_at.strftime('%b %#d, %Y')}", 
+                                                                                      f"Высшая роль: {Member.top_role.mention}\n\n"
                                                                                       color=0xff0000, timestamp=ctx.message.created_at)
 
     emb.set_thumbnail(url= Member.avatar_url)
@@ -232,7 +230,7 @@ async def avatar(ctx, member : discord.Member = None):
 
     user = ctx.message.author if (member == None) else member
 
-    embed = discord.Embed(title=f'Аватар пользователя {user}', color= 0x0c0c0c)
+    embed = discord.Embed(title=f'**Аватар {user.mention}**', color= 0x0c0c0c)
 
     embed.set_image(url=user.avatar_url)
 
@@ -253,19 +251,6 @@ async def coin( ctx ):
             Тебе не повезло у тебя: ``{ coins_r }``''', color = 0x0c0c0c))
 
 @bot.command()
-async def time(ctx):
-    emb = discord.Embed(colour= discord.Color.green(), url= 'https://www.timeserver.ru')
-    
-    emb.set_author(name= bot.user.name, icon_url=bot.user.avatar_url)
-    emb.set_footer(text= 'Если у вас время по МСК, то к этому добавляйте +1 час', icon_url=ctx.author.avatar_url)
-    emb.set_thumbnail(url='https://www.worldtimeserver.com/img/dst/dst-2-3.png')
-
-    now_date = datetime.datetime.now()
-    emb.add_field(name='Time', value='{}'.format(now_date))
-
-    await ctx.send( embed = emb )
-
-@bot.command()
 async def ran_color(ctx):
     clr = (random.randint(0,16777215))
     emb = discord.Embed(
@@ -278,7 +263,7 @@ async def ran_color(ctx):
 @bot.command(name = "8ball")
 async def ball(ctx, *, arg):
 
-    message = ['Нет','Да','Возможно','Опредленно нет'] 
+    message = ['Нет 😑','Да 😎','Возможно 😪','Опредленно нет '] 
     s = random.choice( message )
     await ctx.send(embed = discord.Embed(description = f'**:crystal_ball: Знаки говорят:** {s}', color=0x0c0c0c))
     return
