@@ -219,7 +219,7 @@ async def user(ctx, Member: discord.Member = None ):
                                                                                       f"Статус: {Member.status}\n\n"
                                                                                       f"ID: {Member.id}\n\n"
                                                                                       f"Высшая роль: {Member.top_role.mention}\n\n"
-                                                                                      color=0xff0000, timestamp=ctx.message.created_at)
+                                                                                      color=0xff0000)
 
     emb.set_thumbnail(url= Member.avatar_url)
     emb.set_footer(icon_url= Member.avatar_url)
