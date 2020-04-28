@@ -33,15 +33,18 @@ async def is_owner(ctx):
 
 @bot.command( pass_context = True, aliases = [ "Предложить", "предложить", "предложка", "Предложка", "Suggest" ])
 async def suggest( ctx , * , agr ):
-    await ctx.message.add_reaction('✅')
-    suggest_chanell = bot.get_channel( 703655454563237969 ) #Айди канала предложки
-    embed = discord.Embed(title=f"{ctx.author.name} Предложил :", description= f" {agr} \n\n")
+    if ctx.author.id == <429350473854746629>
+        await ctx.send(embed = discord.Embed(description = f"Извините, но Вы не можете использовать данную команду так как создатель бота запретил Вам доступ к этой команде!"))
+    else:
+        await ctx.message.add_reaction('✅')
+        suggest_chanell = bot.get_channel( 703655454563237969 ) #Айди канала предложки
+        embed = discord.Embed(title=f"{ctx.author.name} Предложил :", description= f" {agr} \n\n")
 
-    embed.set_thumbnail(url=ctx.guild.icon_url)
+        embed.set_thumbnail(url=ctx.guild.icon_url)
 
-    message = await suggest_chanell.send(embed=embed)
-    await message.add_reaction('✅')
-    await message.add_reaction('❎')
+        message = await suggest_chanell.send(embed=embed)
+        await message.add_reaction('✅')
+        await message.add_reaction('❎')
 
 @bot.command()
 @commands.check(is_owner)
