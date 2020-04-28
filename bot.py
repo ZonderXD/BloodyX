@@ -186,12 +186,12 @@ async def user(ctx, Member: discord.Member = None ):
         Member = ctx.author
     roles = (role for role in Member.roles )
     emb = discord.Embed(title='Информация о пользователе.'.format(Member.name), description=f"Участник зашёл на сервер: {Member.joined_at.strftime('%b %#d, %Y')}\n\n "
-                                                                                      f"Имя: {Member.name}\n\n"
-                                                                                      f"Никнейм: {Member.nick}\n\n"
-                                                                                      f"Статус: {Member.status}\n\n"
-                                                                                      f"ID: {Member.id}\n\n"
-                                                                                      f"Высшая роль: {Member.top_role}\n\n"
-                                                                                      f"Аккаунт создан: {Member.created_at.strftime('%b %#d, %Y')}", 
+                                                                                      f"**🧬 Имя: `{Member.name}`**\n\n"
+                                                                                      f"**⚔ Никнейм: `{Member.nick}`**\n\n"
+                                                                                      f"**🌵 Статус: `{Member.status*}`**\n\n"
+                                                                                      f"**🔑 ID: `{Member.id}`**\n\n"
+                                                                                      f"**🌋 Высшая роль: `{Member.top_role}`**\n\n"
+                                                                                      f"**🌟 Аккаунт создан: {user.created_at.strftime('%A %b %#d, %Y')}", 
                                                                                       color=0xff0000, timestamp=ctx.message.created_at)
 
     emb.set_thumbnail(url= Member.avatar_url)
@@ -204,7 +204,7 @@ async def avatar(ctx, member : discord.Member = None):
 
     user = ctx.message.author if (member == None) else member
 
-    embed = discord.Embed(title=f'**Аватар `{user}`**', color= 0x0c0c0c)
+    embed = discord.Embed(title=f'** Аватар `{user}`**', color= 0x0c0c0c)
 
     embed.set_image(url=user.avatar_url)
 
