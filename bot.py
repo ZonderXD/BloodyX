@@ -34,7 +34,7 @@ async def is_owner(ctx):
 @bot.command( pass_context = True, aliases = [ "Предложить", "предложить", "предложка", "Предложка", "Suggest" ])
 async def suggest( ctx , * , agr ):
     if ctx.author.id == 429350473854746629:
-        await ctx.send(embed = discord.Embed(description = f"**Извините, но Вы не можете использовать данную команду так как создатель бота запретил Вам доступ к этой команде! Вы далбаёб)**"))
+        await ctx.send(embed = discord.Embed(description = f"**Извините, но Вы не можете использовать данную команду так как создатель бота запретил Вам доступ к этой команде!**"))
     else:
         await ctx.message.add_reaction('✅')
         suggest_chanell = bot.get_channel( 703655454563237969 ) #Айди канала предложки
