@@ -123,11 +123,15 @@ async def hug(ctx, member : discord.Member): # Название команды �
 async def kill(ctx, member : discord.Member):
     if member == ctx.message.author:
         emb = discord.Embed(description= f'{ctx.message.author.mention} Прыгает с крыши.') # Переменная ембеда и описание
-        emb.set_image(url=https://cdn.discordapp.com/attachments/702533257534898248/704731742946459708/BIty.gif)
+        emb.set_image(url='https://cdn.discordapp.com/attachments/702533257534898248/704731742946459708/BIty.gif')
+        await ctx.send(embed=emb)
+    elif member == None:
+        emb = discord.Embed(description= f'{ctx.message.author.mention} Прыгает с крыши.') # Переменная ембеда и описание
+        emb.set_image(url='https://cdn.discordapp.com/attachments/702533257534898248/704731742946459708/BIty.gif')
         await ctx.send(embed=emb)
     else:
 	emb = discord.Embed(description= f'{member.mention}, Вас убил(-а) {ctx.message.author.mention}.') # Переменная ембеда и описание
-        emb.set_image(url=https://cdn.discordapp.com/attachments/702533257534898248/704733276136276078/3j0F.gif) # Ищем картинку и ставим её в ембед
+        emb.set_image(url='https://cdn.discordapp.com/attachments/702533257534898248/704733276136276078/3j0F.gif') # Ищем картинку и ставим её в ембед
  
         await ctx.send(embed=emb) # Отпрвака ембед
 
