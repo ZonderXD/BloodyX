@@ -125,10 +125,7 @@ async def hug(ctx, member : discord.Member): # Название команды �
 no_kill_users = [ "668325441224048641", "429350473854746629" ]
 @bot.command()
 async def kill(ctx, member : discord.Member = None):
-	if member.mention in no_kill_users:
-		await ctx.send(embed = discord.Embed(description = f"Извините, но Вы не можете убить данного пользователя.", color=0x6fdb9e))
-	
-	elif member == None:
+	if member == None:
 		emb = discord.Embed(description= f'{ctx.message.author.mention} Прыгает с крыши.', color=0x6fdb9e) # Переменная ембеда и описание
 		emb.set_image(url='https://cdn.discordapp.com/attachments/702533257534898248/704731742946459708/BIty.gif')
 		
