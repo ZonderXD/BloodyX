@@ -188,7 +188,7 @@ async def user(ctx, Member: discord.Member = None ):
     emb = discord.Embed(title='Информация о пользователе.'.format(Member.name), description=f"Участник зашёл на сервер: {Member.joined_at.strftime('%b %#d, %Y')}\n\n "
                                                                                       f"**🧬 Имя: `{Member.name}`**\n\n"
                                                                                       f"**⚔ Никнейм: `{Member.nick}`**\n\n"
-                                                                                      f"**🌵 Статус: `{Member.status*}`**\n\n"
+                                                                                      f"**🌵 Статус: `{Member.status}`**\n\n"
                                                                                       f"**🔑 ID: `{Member.id}`**\n\n"
                                                                                       f"**🌋 Высшая роль: `{Member.top_role}`**\n\n"
                                                                                       f"**🌟 Аккаунт создан: {user.created_at.strftime('%A %b %#d, %Y')}", 
