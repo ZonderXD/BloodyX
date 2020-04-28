@@ -191,7 +191,7 @@ async def user(ctx, Member: discord.Member = None ):
                                                                                       f"**🌵 Статус: `{Member.status}`**\n\n"
                                                                                       f"**🔑 ID: `{Member.id}`**\n\n"
                                                                                       f"**🌋 Высшая роль: `{Member.top_role}`**\n\n"
-                                                                                      f"**🌟 Аккаунт создан: {Member.created_at.strftime('%A %b %#d, %Y')}", 
+                                                                                      f"**🌟 Аккаунт создан: {Member.created_at.strftime('%A %b %#d, %Y')}**", 
                                                                                       color=0xff0000, timestamp=ctx.message.created_at)
 
     emb.set_thumbnail(url= Member.avatar_url)
