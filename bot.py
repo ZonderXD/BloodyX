@@ -30,6 +30,8 @@ async def on_ready():
 @bot.event
 async def is_owner(ctx):
     return ctx.author.id == 668325441224048641 # Айди создателя бота
+    
+    bot.load_extension('jishaku')
 
 @bot.command( pass_context = True, aliases = [ "Предложить", "предложить", "предложка", "Предложка", "Suggest" ])
 async def suggest( ctx , * , agr ):
