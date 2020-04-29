@@ -122,7 +122,6 @@ async def hug(ctx, member : discord.Member): # Название команды �
  
         await ctx.send(embed=emb) # Отпрвака ембед
 
-no_kill_users = [ "668325441224048641", "429350473854746629" ]
 @bot.command()
 async def kill(ctx, member : discord.Member = None):
 	if member == None:
