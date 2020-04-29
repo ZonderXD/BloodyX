@@ -114,8 +114,8 @@ async def slap(ctx, member : discord.Member): # Название команды 
 
 @bot.command() # Декоратор команды
 async def nsfw(ctx): # Название команды и аргумент
-        await ctx.message.add_reaction('❎')
-	await ctx.author.send(f'**{ctx.author.mention} Подрочить решил? А хуй тебе!**')
+    await ctx.message.add_reaction('❎')
+    await ctx.author.send(f'**{ctx.author.mention} Подрочить решил? А хуй тебе!**')
 
 @bot.command() # Декоратор команды
 async def goose(ctx): # Название команды и аргумент
