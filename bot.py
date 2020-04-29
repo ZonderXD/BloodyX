@@ -113,14 +113,6 @@ async def slap(ctx, member : discord.Member): # Название команды 
         await ctx.send(embed=emb) # Отпрвака ембед
 
 @bot.command() # Декоратор команды
-async def hentai(ctx): # Название команды и аргумент
-        await ctx.message.add_reaction('✅')
-        emb = discord.Embed(description= f'**Вот тебе кот:**', color=0x6fdb9e) # Переменная ембеда и описание
-        emb.set_image(url=nekos.img('random_hentai_gif')) # Ищем картинку и ставим её в ембед
- 
-        await ctx.author.send(embed=emb) # Отпрвака ембед
-
-@bot.command() # Декоратор команды
 async def goose(ctx): # Название команды и аргумент
         emb = discord.Embed(description= f'**Вот твой гусь:**', color=0x6fdb9e) # Переменная ембеда и описание
         emb.set_image(url=nekos.img('goose')) # Ищем картинку и ставим её в ембед
