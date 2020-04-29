@@ -55,9 +55,16 @@ async def opros(ctx, *, arg):
     embed.add_field(name=f'**Решение:**', value="**-=-=- Да - ❤ -=-=-\n -=-=- Нет - 💔 -=-=-**\n\n", inline=False)  # Создает строку
     embed.add_field(name=f'**Инфо:**', value="**Голосование будет длиться 1 минуту!**", inline=False)  # Создает строку
     await ctx.send(embed=embed)
-    await message.edit("⚔ Голосование идёт! ⚔")
-    await asyncio.sleep(60)
-    await message.edit("🎉 Голосование законечено! 🎉")
+
+@bot.command()
+@commands.has_permissions( administrator = True)
+async def clear(ctx, amount:int=None):
+    if amount == None:
+        return await ctx.send(embed = discord.Embed(description = f'**Укажите количество сообщений для удаления**', color=0x75218f))
+    embed = discord.Embed(description=f'**Было удалено {amount} сообщений**', color=0x75218f)
+    await ctx.message.delete()
+    await ctx.channel.purge(limit=amount)
+    await ctx.send(embed=embed, delete_after=6.0)
 
 @bot.event
 async def on_member_join( member ):
