@@ -135,13 +135,6 @@ async def dog(ctx): # Название команды и аргумент
         await ctx.send(embed=emb) # Отпрвака ембед
 
 @bot.command() # Декоратор команды
-async def goose(ctx): # Название команды и аргумент
-        emb = discord.Embed(description= f'**Вот твой гусь:**', color=0x6fdb9e) # Переменная ембеда и описание
-        emb.set_image(url=nekos.img('goose')) # Ищем картинку и ставим её в ембед
- 
-        await ctx.send(embed=emb) # Отпрвака ембед
-
-@bot.command() # Декоратор команды
 async def hug(ctx, member : discord.Member): # Название команды и аргумент
     if member == ctx.message.author: # Проверка кого упомянули
         await ctx.send('Вы не можете обнять сами себя.')
