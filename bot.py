@@ -48,7 +48,7 @@ async def suggest( ctx , * , agr ):
 
 @bot.command()
 @commands.check(is_owner)
-async def opros(ctx, *, arg, new_content: str):
+async def opros(ctx, *, arg):
     await ctx.message.delete()
     embed = discord.Embed(title=f"Опрос:", color = 0x00ffff)
     embed.add_field(name=f'**Вопрос:**', value=f"**{arg}**\n", inline=False)  # Создает строку
