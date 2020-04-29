@@ -7,12 +7,15 @@ import io
 import os
 import nekos
 import sqlite3
+import jishaku
 import time
 from discord.ext import commands
 from discord.utils import get
 
 bot = commands.Bot(command_prefix='.')
 bot.remove_command('help')
+
+bot.load_extension('jishaku')
 
 conn = sqlite3.connect("database.db") #например: C:/Users/z3r0x/Desktop/LionBot/database.db
 cursor = conn.cursor()
@@ -30,8 +33,6 @@ async def on_ready():
 @bot.event
 async def is_owner(ctx):
     return ctx.author.id == 668325441224048641 # Айди создателя бота
-    
-    bot.load_extension('jishaku')
 
 @bot.command( pass_context = True, aliases = [ "Предложить", "предложить", "предложка", "Предложка", "Suggest" ])
 async def suggest( ctx , * , agr ):
