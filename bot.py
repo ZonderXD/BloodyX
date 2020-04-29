@@ -115,7 +115,7 @@ async def slap(ctx, member : discord.Member): # Название команды 
 @bot.command() # Декоратор команды
 async def dog(ctx): # Название команды и аргумент
         emb = discord.Embed(description= f'**Вот твоя собака:**', color=0x6fdb9e) # Переменная ембеда и описание
-        emb.set_image(url=nekos.img('woof')) # Ищем картинку и ставим её в ембед
+        emb.set_image(url=nekos.img('goose')) # Ищем картинку и ставим её в ембед
  
         await ctx.send(embed=emb) # Отпрвака ембед
 
