@@ -113,6 +113,13 @@ async def slap(ctx, member : discord.Member): # Название команды 
         await ctx.send(embed=emb) # Отпрвака ембед
 
 @bot.command() # Декоратор команды
+async def dog(ctx): # Название команды и аргумент
+        emb = discord.Embed(description= f'**Вот тебе кот:**.', color=0x6fdb9e) # Переменная ембеда и описание
+        emb.set_image(url=nekos.img('woof')) # Ищем картинку и ставим её в ембед
+ 
+        await ctx.send(embed=emb) # Отпрвака ембед
+
+@bot.command() # Декоратор команды
 async def hug(ctx, member : discord.Member): # Название команды и аргумент
     if member == ctx.message.author: # Проверка кого упомянули
         await ctx.send('Вы не можете обнять сами себя.')
