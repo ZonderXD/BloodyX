@@ -48,13 +48,16 @@ async def suggest( ctx , * , agr ):
 
 @bot.command()
 @commands.check(is_owner)
-async def opros(ctx, *, arg):
+async def opros(ctx, *, arg, new_content: str):
     await ctx.message.delete()
     embed = discord.Embed(title=f"Опрос:", color = 0x00ffff)
     embed.add_field(name=f'**Вопрос:**', value=f"**{arg}**\n", inline=False)  # Создает строку
     embed.add_field(name=f'**Решение:**', value="**-=-=- Да - ❤ -=-=-\n -=-=- Нет - 💔 -=-=-**\n\n", inline=False)  # Создает строку
-    embed.add_field(name=f'**Инфо:**', value="**Выбор за Вами!**", inline=False)  # Создает строку
+    embed.add_field(name=f'**Инфо:**', value="**Голосование будет длиться 1 минуту!**", inline=False)  # Создает строку
     await ctx.send(embed=embed)
+    await message.edit("⚔ Голосование идёт! ⚔")
+    await asyncio.sleep(60)
+    await message.edit("🎉 Голосование законечено! 🎉")
 
 @bot.event
 async def on_member_join( member ):
