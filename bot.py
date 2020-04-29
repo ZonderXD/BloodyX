@@ -105,12 +105,12 @@ async def edit(ctx, message_id: int = None, new_content: str = None):
 
 @bot.command()
 async def emoji(ctx,id:int,reaction:str):
-    if ctx.author.id == 668325441224048641:
-        await ctx.message.delete()
-        message = await ctx.message.channel.fetch_message(id)
-        await message.add_reaction(reaction)
-    else:
-	await ctx.send(embed = discord.Embed(description = f"**Извините, но Вы не можете использовать данную команду так как создатель бота запретил Вам доступ к этой команде!**"))
+	if ctx.author.id == 668325441224048641:
+		await ctx.message.delete()
+		message = await ctx.message.channel.fetch_message(id)
+		await message.add_reaction(reaction)
+	else:
+		await ctx.send(embed = discord.Embed(description = f"**Извините, но Вы не можете использовать данную команду так как создатель бота запретил Вам доступ к этой команде!**"))
 
 @bot.command() # Декоратор команды
 async def ran_avatar(ctx): # Название команды
