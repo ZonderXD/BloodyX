@@ -51,15 +51,15 @@ async def suggest( ctx , * , agr ):
 
 @bot.command()
 async def opros(ctx, *, arg):
-    if ctx.author.id == 668325441224048641:
-        await ctx.message.delete()
-        embed = discord.Embed(title=f"Опрос:", color = 0x00ffff)
-        embed.add_field(name=f'**Вопрос:**', value=f"**{arg}**\n", inline=False)  # Создает строку
-        embed.add_field(name=f'**Решение:**', value="**-=-=- Да - ❤ -=-=-\n -=-=- Нет - 💔 -=-=-**\n\n", inline=False)  # Создает строку
-        embed.add_field(name=f'**Инфо:**', value="**Голосование будет длиться 1 минуту!**", inline=False)  # Создает строку
-        await ctx.send(embed=embed)
-    else:
-	await ctx.send(embed = discord.Embed(description = f"**Извините, но Вы не можете использовать данную команду так как создатель бота запретил Вам доступ к этой команде!**"))
+	if ctx.author.id == 668325441224048641:
+		await ctx.message.delete()
+		embed = discord.Embed(title=f"Опрос:", color = 0x00ffff)
+		embed.add_field(name=f'**Вопрос:**', value=f"**{arg}**\n", inline=False)  # Создает строку
+		embed.add_field(name=f'**Решение:**', value="**-=-=- Да - ❤ -=-=-\n -=-=- Нет - 💔 -=-=-**\n\n", inline=False)  # Создает строку
+		embed.add_field(name=f'**Инфо:**', value="**Голосование будет длиться 1 минуту!**", inline=False)  # Создает строку
+		await ctx.send(embed=embed)
+	else:
+		await ctx.send(embed = discord.Embed(description = f"**Извините, но Вы не можете использовать данную команду так как создатель бота запретил Вам доступ к этой команде!**"))
     
 @bot.command()
 @commands.has_permissions( administrator = True)
