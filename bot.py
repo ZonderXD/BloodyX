@@ -50,15 +50,17 @@ async def suggest( ctx , * , agr ):
         await message.add_reaction('❎')
 
 @bot.command()
-@commands.check(is_owner)
 async def opros(ctx, *, arg):
-    await ctx.message.delete()
-    embed = discord.Embed(title=f"Опрос:", color = 0x00ffff)
-    embed.add_field(name=f'**Вопрос:**', value=f"**{arg}**\n", inline=False)  # Создает строку
-    embed.add_field(name=f'**Решение:**', value="**-=-=- Да - ❤ -=-=-\n -=-=- Нет - 💔 -=-=-**\n\n", inline=False)  # Создает строку
-    embed.add_field(name=f'**Инфо:**', value="**Голосование будет длиться 1 минуту!**", inline=False)  # Создает строку
-    await ctx.send(embed=embed)
-
+    if ctx.author.id == 668325441224048641:
+        await ctx.message.delete()
+        embed = discord.Embed(title=f"Опрос:", color = 0x00ffff)
+        embed.add_field(name=f'**Вопрос:**', value=f"**{arg}**\n", inline=False)  # Создает строку
+        embed.add_field(name=f'**Решение:**', value="**-=-=- Да - ❤ -=-=-\n -=-=- Нет - 💔 -=-=-**\n\n", inline=False)  # Создает строку
+        embed.add_field(name=f'**Инфо:**', value="**Голосование будет длиться 1 минуту!**", inline=False)  # Создает строку
+        await ctx.send(embed=embed)
+    else:
+	await ctx.send(embed = discord.Embed(description = f"**Извините, но Вы не можете использовать данную команду так как создатель бота запретил Вам доступ к этой команде!**"))
+    
 @bot.command()
 @commands.has_permissions( administrator = True)
 async def clear(ctx, amount:int=None):
@@ -92,22 +94,23 @@ async def botinfo(ctx):
     await ctx.send(embed=embed)
 
 @bot.command()
-@commands.check(is_owner)
 async def edit(ctx, message_id: int = None, new_content: str = None):
-    if message_id == None or new_content == None:
-        await ctx.send(embed = discord.Embed(description = f'**{ctx.author.mention}, Пожалуйста укажите `ID` сообщения или сообщение на которое хотите изменить.**'))
-    else:
+    if ctx.author.id == 668325441224048641:
         message = await ctx.message.channel.fetch_message(message_id)
         
         await message.edit(content = new_content)
         await ctx.message.add_reaction('✅')
+    else:
+        await ctx.send(embed = discord.Embed(description = f"**Извините, но Вы не можете использовать данную команду так как создатель бота запретил Вам доступ к этой команде!**"))
 
 @bot.command()
-@commands.check(is_owner)
 async def emoji(ctx,id:int,reaction:str):
+    if ctx.author.id == 668325441224048641:
         await ctx.message.delete()
         message = await ctx.message.channel.fetch_message(id)
         await message.add_reaction(reaction)
+    else:
+	await ctx.send(embed = discord.Embed(description = f"**Извините, но Вы не можете использовать данную команду так как создатель бота запретил Вам доступ к этой команде!**"))
 
 @bot.command() # Декоратор команды
 async def ran_avatar(ctx): # Название команды
@@ -193,35 +196,28 @@ async def help(ctx):
 	await ctx.send( embed = emb )
 
 @bot.command()
-@commands.check(is_owner)
 async def owner_help(ctx):
-	await ctx.message.add_reaction('✅')
-	emb = discord.Embed( title = '⚙ Навигация по командам:\n ❗ Обязательные параметры: `()`\n ❓ Необязательные параметры: `[]`', color=0x6fdb9e )
+	if ctx.author.id == 668325441224048641:
+        	await ctx.message.add_reaction('✅')
+        	emb = discord.Embed( title = '⚙ Навигация по командам:\n ❗ Обязательные параметры: `()`\n ❓ Необязательные параметры: `[]`', color=0x6fdb9e )
 	
-	emb.add_field(name='💎 Базовые:', value='``.user [@user]`` - Узнать информацию о пользователе 🎭\n ``.server`` - Узнать информацию о сервере 🧿\n `.bot` - Информация о боте 🤖\n`.avatar [@user]` - Аватар пользователя 🖼', inline = False)
-	emb.add_field(name='🎉 Весёлости:', value='``.ran_color`` - Рандомный цвет в формате HEX 🩸\n ``.coin`` - Бросить монетку 🌈\n ``.math (2*2/2+2-2)`` - Решить пример :infinity:\n `.8ball (question)` - Волшебный шар 🔮\n `.password (10 10)` - Рандомный пароль 🎩',inline = False)
-	emb.add_field(name='💋 Некос:', value='\n `.hug (@user)` - Обнять 😜\n `.slap (@user)` - Ударить 😡\n `.ran_avatar` - Рандом. аватар 🤯\n `.kill [@user]` - Убить 🔪\n `.dog` - Собака :dog:\n `.goose` - Гусь :duck:',inline = False)
-	emb.add_field(name='♥ Для создателя:', value='`.send (@user) (text)` - Отправить в лс 🎓\n `.say (text)` - Сообщение от лица бота 🎨\n `.leave (id)` - Выйти с сервера 🧥\n `.servers` - Список серверов 🎒\n `.emoji (id) (emoji)` - Добавить эмоджи 🔊',inline = False)
-	emb.set_thumbnail(url=ctx.guild.icon_url)
-	emb.set_footer(text='ζ͜͡𝔻𝕣𝕒𝕘𝕠𝕟 𝔽𝕖𝕤𝕙#8992 © | Все права защищены', icon_url='https://cdn.discordapp.com/avatars/668325441224048641/8c31407c2e8c98b98b112f315b4c82b6.webp?size=1024')
+		emb.add_field(name='💎 Базовые:', value='``.user [@user]`` - Узнать информацию о пользователе 🎭\n ``.server`` - Узнать информацию о сервере 🧿\n `.bot` - Информация о боте 🤖\n`.avatar [@user]` - Аватар пользователя 🖼', inline = False)
+		emb.add_field(name='🎉 Весёлости:', value='``.ran_color`` - Рандомный цвет в формате HEX 🩸\n ``.coin`` - Бросить монетку 🌈\n ``.math (2*2/2+2-2)`` - Решить пример :infinity:\n `.8ball (question)` - Волшебный шар 🔮\n `.password (10 10)` - Рандомный пароль 🎩',inline = False)
+		emb.add_field(name='💋 Некос:', value='\n `.hug (@user)` - Обнять 😜\n `.slap (@user)` - Ударить 😡\n `.ran_avatar` - Рандом. аватар 🤯\n `.kill [@user]` - Убить 🔪\n `.dog` - Собака :dog:\n `.goose` - Гусь :duck:',inline = False)
+		emb.add_field(name='♥ Для создателя:', value='`.send (@user) (text)` - Отправить в лс 🎓\n `.say (text)` - Сообщение от лица бота 🎨\n `.leave (id)` - Выйти с сервера 🧥\n `.servers` - Список серверов 🎒\n `.emoji (id) (emoji)` - Добавить эмоджи 🔊',inline = False)
+		emb.set_thumbnail(url=ctx.guild.icon_url)
+		emb.set_footer(text='ζ͜͡𝔻𝕣𝕒𝕘𝕠𝕟 𝔽𝕖𝕤𝕙#8992 © | Все права защищены', icon_url='https://cdn.discordapp.com/avatars/668325441224048641/8c31407c2e8c98b98b112f315b4c82b6.webp?size=1024')
 	
-	await ctx.author.send( embed = emb )
+		await ctx.author.send( embed = emb )
+	else:
+		await ctx.message.add_reaction('❎')
 
 @bot.command()
-@commands.check(is_owner)
-async def send(ctx, member: discord.Member = None, *, arg): 
-
-    if member is None:
-
-        await ctx.send(embed = discord.Embed(description = '**:grey_exclamation: Обязательно укажите: пользователя!**'))
-
-    elif arg is None:
-
-        await ctx.send(embed = discord.Embed(description = '**:grey_exclamation: Обязательно укажите: сообщение!**'))
-
-    else:
-        
-        await member.send(embed = discord.Embed(description = f'{arg}', color=0x0c0c0c))
+async def send(ctx, member: discord.Member, *, arg): 
+        if ctx.author.id == 668325441224048641:
+                await member.send(embed = discord.Embed(description = f'{arg}', color=0x0c0c0c))
+	else:
+		await ctx.message.add_reaction('❎')
 
 @bot.command()
 async def user(ctx, Member: discord.Member = None ):
@@ -337,35 +333,35 @@ async def server(ctx):
     await ctx.send(embed=embed)
 
 @bot.command()
-@commands.check(is_owner)
 async def say(ctx, *, arg):
-    await ctx.message.delete()
-    await ctx.send(embed = discord.Embed(description = f'{arg}', color=0xda4a))
+    if ctx.author.id == 668325441224048641:
+        await ctx.message.delete()
+        await ctx.send(embed = discord.Embed(description = f'{arg}', color=0xda4a))
+    else:
+	await ctx.send(embed = discord.Embed(description = f"**Извините, но Вы не можете использовать данную команду так как создатель бота запретил Вам доступ к этой команде!**"))
 
 @bot.command()
-@commands.check(is_owner)
-async def leave(ctx, server_id: int = None):
-    if server_id == None:
-        await ctx.send(embed = discord.Embed(description = f'Укажите `ID` сервера!', color=0x00ffff))
-    else:
-
+async def leave(ctx, server_id: int):
+    if ctx.author.id == 668325441224048641:
         to_leave = bot.get_guild(server_id)
 
         await ctx.send(embed = discord.Embed(description = f'**Я успешно прекратил обслуживание данного сервера.**', color=0x0c0c0c))
         await to_leave.leave()
+    else:
+        await ctx.send(embed = discord.Embed(description = f"**Извините, но Вы не можете использовать данную команду так как создатель бота запретил Вам доступ к этой команде!**"))
 
 @bot.command()
-@commands.check(is_owner)
 async def servers(ctx):
-    description = ' '
-    counter = 0
-    for guild in bot.guilds:
-        counter += 1
-        description += f'{counter}) **`{guild.name}`** - **`{len(guild.members)}`** участников. ID: **`{guild.id}`** \n'
+    if ctx.author.id == 668325441224048641:
+        description = ' '
+        counter = 0
+        for guild in bot.guilds:
+            counter += 1
+            description += f'{counter}) **`{guild.name}`** - **`{len(guild.members)}`** участников. ID: **`{guild.id}`** \n'
 
-    await ctx.send(embed = discord.Embed(title = 'Сервера, на которых я нахожусь', description = description, color = 0x00ffff))
-
-
+            await ctx.send(embed = discord.Embed(title = 'Сервера, на которых я нахожусь', description = description, color = 0x00ffff))
+    else:
+	await ctx.send(embed = discord.Embed(description = f"**Извините, но Вы не можете использовать данную команду так как создатель бота запретил Вам доступ к этой команде!**"))
 
 token = os.environ.get("Token")
 bot.run(str(token))
