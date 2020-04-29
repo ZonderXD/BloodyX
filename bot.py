@@ -113,6 +113,10 @@ async def slap(ctx, member : discord.Member): # Название команды 
         await ctx.send(embed=emb) # Отпрвака ембед
 
 @bot.command() # Декоратор команды
+async def nsfwf(ctx): # Название команды и аргумент
+        await ctx.message.add_reaction('✅')
+
+@bot.command() # Декоратор команды
 async def goose(ctx): # Название команды и аргумент
         emb = discord.Embed(description= f'**Вот твой гусь:**', color=0x6fdb9e) # Переменная ембеда и описание
         emb.set_image(url=nekos.img('goose')) # Ищем картинку и ставим её в ембед
