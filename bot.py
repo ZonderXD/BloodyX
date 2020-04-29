@@ -113,7 +113,7 @@ async def slap(ctx, member : discord.Member): # Название команды 
         await ctx.send(embed=emb) # Отпрвака ембед
 
 @bot.command() # Декоратор команды
-async def nsfwf(ctx): # Название команды и аргумент
+async def nsfw(ctx): # Название команды и аргумент
         await ctx.message.add_reaction('✅')
 
 @bot.command() # Декоратор команды
