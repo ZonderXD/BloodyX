@@ -64,7 +64,7 @@ def random_meme():
 
 @bot.command()
 async def meme(ctx):
-    emb = discord.Embed()
+    emb = discord.Embed(description = f"**Вот тебе мем:**", color = 0xda4a)
     emb.set_image(url= random_meme())
     await ctx.send(embed=emb)
 
