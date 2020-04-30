@@ -55,7 +55,19 @@ async def opros(ctx, *, arg):
 	embed.add_field(name=f'**Решение:**', value="**-=-=- Да - ❤ -=-=-\n -=-=- Нет - 💔 -=-=-**\n\n", inline=False)  # Создает строку
 	embed.add_field(name=f'**Инфо:**', value="**Голосование будет длиться 1 минуту!**", inline=False)  # Создает строку
 	await ctx.send(embed=embed)
-    
+
+def random_meme():
+    with open('memes_data.txt', 'r') as file:
+        memes = file.read().split(',')
+    picked_meme = random.choice(memes)
+    return picked_meme
+
+@bot.command()
+async def meme(ctx):
+    emb = discord.Embed()
+    emb.set_image(url= random_meme())
+    await ctx.send(embed=emb)
+
 @bot.command()
 @commands.has_permissions( administrator = True)
 async def clear(ctx, amount:int=None):
@@ -178,7 +190,7 @@ async def help(ctx):
 	emb = discord.Embed( title = '⚙ Навигация по командам:\n ❗ Обязательные параметры: `()`\n ❓ Необязательные параметры: `[]`', color=0x6fdb9e )
 	
 	emb.add_field(name='💎 Базовые:', value='``.user [@user]`` - Узнать информацию о пользователе 🎭\n ``.server`` - Узнать информацию о сервере 🧿\n `.bot` - Информация о боте 🤖\n`.avatar [@user]` - Аватар пользователя 🖼\n `.suggest (text)` - Предложить идею', inline = False)
-	emb.add_field(name='🎉 Весёлости:', value='``.ran_color`` - Рандомный цвет в формате HEX 🩸\n ``.coin`` - Бросить монетку 🌈\n ``.math (2*2/2+2-2)`` - Решить пример :infinity:\n `.8ball (question)` - Волшебный шар 🔮\n `.password (10 10)` - Рандомный пароль 🎩',inline = False)
+	emb.add_field(name='🎉 Весёлости:', value='``.ran_color`` - Рандомный цвет в формате HEX 🩸\n ``.coin`` - Бросить монетку 🌈\n ``.math (2*2/2+2-2)`` - Решить пример :infinity:\n `.8ball (question)` - Волшебный шар 🔮\n `.password (10 10)` - Рандомный пароль 🎩\n `.meme` - Рандомный мем 🤣',inline = False)
 	emb.add_field(name='💋 Некос:', value='\n `.hug (@user)` - Обнять 😜\n `.slap (@user)` - Ударить 😡\n `.ran_avatar` - Рандом. аватар 🤯\n `.kill [@user]` - Убить 🔪\n `.dog` - Собака :dog:\n `.goose` - Гусь :duck:',inline = False)
 	emb.add_field(name='♥ Для создателя:', value='`.owner_help` - Навигация по всем командам 👑',inline = False)
 	emb.set_thumbnail(url=ctx.guild.icon_url)
@@ -193,7 +205,7 @@ async def owner_help(ctx):
 	emb = discord.Embed( title = '⚙ Навигация по командам:\n ❗ Обязательные параметры: `()`\n ❓ Необязательные параметры: `[]`', color=0x6fdb9e )
 	
 	emb.add_field(name='💎 Базовые:', value='``.user [@user]`` - Узнать информацию о пользователе 🎭\n ``.server`` - Узнать информацию о сервере 🧿\n `.bot` - Информация о боте 🤖\n`.avatar [@user]` - Аватар пользователя 🖼', inline = False)
-	emb.add_field(name='🎉 Весёлости:', value='``.ran_color`` - Рандомный цвет в формате HEX 🩸\n ``.coin`` - Бросить монетку 🌈\n ``.math (2*2/2+2-2)`` - Решить пример :infinity:\n `.8ball (question)` - Волшебный шар 🔮\n `.password (10 10)` - Рандомный пароль 🎩',inline = False)
+	emb.add_field(name='🎉 Весёлости:', value='``.ran_color`` - Рандомный цвет в формате HEX 🩸\n ``.coin`` - Бросить монетку 🌈\n ``.math (2*2/2+2-2)`` - Решить пример :infinity:\n `.8ball (question)` - Волшебный шар 🔮\n `.password (10 10)` - Рандомный пароль 🎩\n `.meme` - Рандомный мем 🤣',inline = False)
 	emb.add_field(name='💋 Некос:', value='\n `.hug (@user)` - Обнять 😜\n `.slap (@user)` - Ударить 😡\n `.ran_avatar` - Рандом. аватар 🤯\n `.kill [@user]` - Убить 🔪\n `.dog` - Собака :dog:\n `.goose` - Гусь :duck:',inline = False)
 	emb.add_field(name='♥ Для создателя:', value='`.send (@user) (text)` - Отправить в лс 🎓\n `.say (text)` - Сообщение от лица бота 🎨\n `.leave (id)` - Выйти с сервера 🧥\n `.servers` - Список серверов 🎒\n `.emoji (id) (emoji)` - Добавить эмоджи 🔊',inline = False)
 	emb.set_thumbnail(url=ctx.guild.icon_url)
