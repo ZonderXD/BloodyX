@@ -219,9 +219,9 @@ async def music(ctx, *, arg: int = None):
   if arg == None:
       await ctx.send(embed = discord.Embed(description = f"**{ctx.author.mention}, Пожалуйста напишите `.music 1` или `.music 2`**\n *P.S Это страницы*", color=0x6fdb9e))
   elif arg == 1:
-    await ctx.send(embed = discord.Embed(description = f'**`1.` "РА-ТА-ТА-ТА-ТА" - `4618705402`\n `2.` "Копы" - `2933225417`\n `3.` "Последняя" - `4624707819`\n `4.` "Чикибамбони" - `4570427470`\n `5.` "4 Украинки" - `4624707819`\n `6.` "Пам пам пам"- `2717372934`**', color=0x6fdb9e))
+    await ctx.send(embed = discord.Embed(description = f'**`1.` РА-ТА-ТА-ТА-ТА - `4618705402`\n `2.` Копы - `2933225417`\n `3.` Последняя - `4624707819`\n `4.` Чикибамбони - `4570427470`\n `5.` 4 Украинки - `4624707819`\n `6.` Пам пам пам - `2717372934`**', color=0x6fdb9e))
   elif arg == 2:
-    await ctx.send(embed = discord.Embed(description = f'**`7.` "Грустный реп" - `4518984639`\n `8.` "Реальный Flesh" - `3766039768`\n `9.` "Ракета" - `3666410231`\n `10.` "Убьют за нас" - `3134163814`\n `11.` "Хубба Бубба" - `4502015210`\n `12.` "Надо Поле Притоптать" - `1170717899`**', color=0x6fdb9e))
+    await ctx.send(embed = discord.Embed(description = f'**`7.` Грустный реп - `4518984639`\n `8.` Реальный Flesh - `3766039768`\n `9.` Ракета - `3666410231`\n `10.` Убьют за нас - `3134163814`\n `11.` Хубба Бубба - `4502015210`\n `12.` Надо Поле Притоптать - `1170717899`**', color=0x6fdb9e))
 
 @bot.command()
 async def user(ctx, Member: discord.Member = None ):
