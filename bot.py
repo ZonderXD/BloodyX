@@ -217,7 +217,7 @@ async def owner_help(ctx):
 @bot.command()
 async def music(ctx, *, arg: int = None):
   if arg == None:
-      await ctx.send(embed = discord.Embed(description = f"**{ctx.author.mention}, Пожалуйсто напишите `.music 1` или `.music 2`**\n *P.S Это страницы*"))
+      await ctx.send(embed = discord.Embed(description = f"**{ctx.author.mention}, Пожалуйста напишите `.music 1` или `.music 2`**\n *P.S Это страницы*", color=0x6fdb9e))
   elif arg == 1:
     await ctx.send(embed = discord.Embed(description = f'**`1.` "РА-ТА-ТА-ТА-ТА" - `4618705402`\n `2.` "Копы" - `2933225417`\n `3.` "Последняя" - `4624707819`\n `4.` "Чикибамбони" - `4570427470`\n `5.` "4 Украинки" - `4624707819`\n `6.` "Пам пам пам"- `2717372934`**', color=0x6fdb9e))
   elif arg == 2:
