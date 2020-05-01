@@ -219,7 +219,7 @@ async def music(ctx, *, arg: int = None):
   if arg == None:
       await ctx.send(embed = discord.Embed(description = f"**{ctx.author.mention}, Пожалуйсто напишите `.music 1`**\n *P.S Это страницы*"))
   elif arg == 1:
-    await ctx.send(embed = discord.Embed(description = f'`1.` Моргенштерн "РА-ТА-ТА-ТА-ТА" - `4618705402`\n `2.` Грибы "Копы" - `2933225417`\n `3. Моргенштерн "Последняя" - `4624707819`\n `4.` "Чикибамбони" - `4570427470`\n `5.` Моргенштерн "4 Украинки" - `4624707819`\n `6.` Моргенштерн "Пам пам пам"- `2717372934`', color=0x6fdb9e))
+    await ctx.send(embed = discord.Embed(description = f'`1.` Моргенштерн "РА-ТА-ТА-ТА-ТА" - `4618705402`\n `2.` Грибы "Копы" - `2933225417`\n `3.` Моргенштерн "Последняя" - `4624707819`\n `4.` "Чикибамбони" - `4570427470`\n `5.` Моргенштерн "4 Украинки" - `4624707819`\n `6.` Моргенштерн "Пам пам пам"- `2717372934`', color=0x6fdb9e))
 
 @bot.command()
 async def user(ctx, Member: discord.Member = None ):
