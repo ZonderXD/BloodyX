@@ -1,0 +1,7 @@
+--1337.xyz#6508
+shared.settings = {
+	['Bind'] = Enum.KeyCode.RightShift; -- https://developer.roblox.com/en-us/api-reference/enum/KeyCode
+	['DarkMode'] = true; -- true DarkMode , false WhiteMode
+	}
+
+loadstring(game:HttpGet("https://raw.githubusercontent.com/1337xyz/robloxscripts/master/BoxingSimulator.lua"))()

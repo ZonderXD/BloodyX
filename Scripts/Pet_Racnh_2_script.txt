@@ -1,0 +1,565 @@
+-- credits:TEOHACKSYT
+-- NAME4YOU#1192 (for making Gamepasses script & Teleport Pet script)
+-- and who made the script
+
+-- Instance:
+local plr = game.Players.LocalPlayer.Name
+local statdisplay = game.ReplicatedStorage[plr.."StatDisplay"]
+
+-- Fungsi
+Open = false
+AFKMODE = false
+tlol = false
+pete = false
+ewe = false
+puki = false
+mekis = false
+kntols = false
+pukise = false
+mekiser = false
+regix = false
+mmk = false
+kntle = false
+
+
+-- Instances:
+local Petkeran = Instance.new("ScreenGui")
+local Frame = Instance.new("Frame")
+local judul = Instance.new("TextLabel")
+local OG = Instance.new("TextButton")
+local AF = Instance.new("TextButton")
+local RB = Instance.new("TextButton")
+local GMPS = Instance.new("TextButton")
+local Equiped = Instance.new("TextButton")
+local TPETS = Instance.new("TextButton")
+local Basic = Instance.new("TextButton")
+local Elist = Instance.new("ScrollingFrame")
+local T1 = Instance.new("TextButton")
+local T2 = Instance.new("TextButton")
+local T3 = Instance.new("TextButton")
+local T4 = Instance.new("TextButton")
+local T5 = Instance.new("TextButton")
+local Regg = Instance.new("TextButton")
+local Basic_2 = Instance.new("Frame")
+local WS = Instance.new("TextButton")
+local JP = Instance.new("TextButton")
+local WST = Instance.new("TextBox")
+local JPT = Instance.new("TextBox")
+--Properties:
+Petkeran.Name = "Petkeran"
+Petkeran.Parent = game.CoreGui
+
+Frame.Parent = Petkeran
+Frame.BackgroundColor3 = Color3.new(0.607843, 0.34902, 0.713726)
+Frame.BorderColor3 = Color3.new(0.556863, 0.266667, 0.678431)
+Frame.BorderSizePixel = 3
+Frame.Position = UDim2.new(0.302752286, 0, 0.280523241, 0)
+Frame.Size = UDim2.new(0, 427, 0, 338)
+Frame.Active = true
+Frame.Draggable = true
+
+judul.Name = "judul"
+judul.Parent = Frame
+judul.BackgroundColor3 = Color3.new(0.607843, 0.34902, 0.713726)
+judul.BorderColor3 = Color3.new(0.556863, 0.266667, 0.678431)
+judul.BorderSizePixel = 4
+judul.Position = UDim2.new(0, 0, -0.000834267528, 0)
+judul.Size = UDim2.new(0, 427, 0, 48)
+judul.Font = Enum.Font.GothamBold
+judul.Text = "Pet Ranch Simulator"
+judul.TextColor3 = Color3.new(0.172549, 0.243137, 0.313726)
+judul.TextSize = 31
+
+OG.Name = "OG"
+OG.Parent = Frame
+OG.BackgroundColor3 = Color3.new(0.607843, 0.34902, 0.713726)
+OG.BorderColor3 = Color3.new(0.556863, 0.266667, 0.678431)
+OG.BorderSizePixel = 4
+OG.Position = UDim2.new(0.0163934417, 0, 0.204142019, 0)
+OG.Size = UDim2.new(0, 159, 0, 48)
+OG.Font = Enum.Font.GothamBold
+OG.Text = "OpenEgg"
+OG.TextColor3 = Color3.new(0.172549, 0.243137, 0.313726)
+OG.TextSize = 21
+OG.MouseButton1Down:connect(function()
+ 
+if Open == true then
+Open = false
+OG.BackgroundColor3 = Color3.new(0.607843, 0.34902, 0.713726)
+Elist.Visible = false
+else
+Open = true
+OG.BackgroundColor3 = Color3.new(40, 127, 71)
+Elist.Visible = true
+end
+end)
+
+AF.Name = "AF"
+AF.Parent = Frame
+AF.BackgroundColor3 = Color3.new(0.607843, 0.34902, 0.713726)
+AF.BorderColor3 = Color3.new(0.556863, 0.266667, 0.678431)
+AF.BorderSizePixel = 4
+AF.Position = UDim2.new(0.0163934417, 0, 0.396449685, 0)
+AF.Size = UDim2.new(0, 159, 0, 48)
+AF.Font = Enum.Font.GothamBold
+AF.Text = "AntiAFK"
+AF.TextColor3 = Color3.new(0.172549, 0.243137, 0.313726)
+AF.TextSize = 21
+AF.MouseButton1Down:connect(function()
+ 
+if AFKMODE == true then
+AFKMODE = false
+AF.BackgroundColor3 = Color3.new(0.607843, 0.34902, 0.713726)
+else
+AFKMODE = true
+AF.BackgroundColor3 = Color3.new(40, 127, 71)
+local VirtualUser=game:service'VirtualUser'
+game:service'Players'.LocalPlayer.Idled:connect(function()
+VirtualUser:CaptureController()
+VirtualUser:ClickButton2(Vector2.new())
+end)
+end
+end)
+
+RB.Name = "RB"
+RB.Parent = Frame
+RB.BackgroundColor3 = Color3.new(0.607843, 0.34902, 0.713726)
+RB.BorderColor3 = Color3.new(0.556863, 0.266667, 0.678431)
+RB.BorderSizePixel = 4
+RB.Position = UDim2.new(0.313817322, 0, 0.831360877, 0)
+RB.Size = UDim2.new(0, 159, 0, 48)
+RB.Font = Enum.Font.GothamBold
+RB.Text = "Rainbow"
+RB.TextColor3 = Color3.new(0.172549, 0.243137, 0.313726)
+RB.TextSize = 21
+RB.MouseButton1Down:connect(function()
+
+if Rainbow == true then
+Rainbow = false
+RB.BackgroundColor3 = Color3.new(0.607843, 0.34902, 0.713726)
+else
+Rainbow = true
+RB.BackgroundColor3 = Color3.new(40, 127, 71)
+	function zigzag(X) return math.acos(math.cos(X*math.pi))/math.pi end
+local counter1 = 1
+while wait(0.1) do
+    Frame.BackgroundColor3 = Color3.fromHSV(zigzag(counter1),1,1)
+    Basic.BackgroundColor3 = Color3.fromHSV(zigzag(counter1),1,1)
+    Elist.BackgroundColor3 = Color3.fromHSV(zigzag(counter1),1,1)
+    OG.BackgroundColor3 = Color3.fromHSV(zigzag(counter1),1,1)
+    AF.BackgroundColor3 = Color3.fromHSV(zigzag(counter1),1,1)
+    Equiped.BackgroundColor3 = Color3.fromHSV(zigzag(counter1),1,1)
+    TPETS.BackgroundColor3 = Color3.fromHSV(zigzag(counter1),1,1)
+    RB.BackgroundColor3 = Color3.fromHSV(zigzag(counter1),1,1)
+    GMPS.BackgroundColor3 = Color3.fromHSV(zigzag(counter1),1,1)
+    judul.BackgroundColor3 = Color3.fromHSV(zigzag(counter1),1,1)
+    WST.BackgroundColor3 = Color3.fromHSV(zigzag(counter1),1,1)
+    WS.BackgroundColor3 = Color3.fromHSV(zigzag(counter1),1,1)
+    JP.BackgroundColor3 = Color3.fromHSV(zigzag(counter1),1,1)
+    JPT.BackgroundColor3 = Color3.fromHSV(zigzag(counter1),1,1)
+    T1.BackgroundColor3 = Color3.fromHSV(zigzag(counter1),1,1)
+    T2.BackgroundColor3 = Color3.fromHSV(zigzag(counter1),1,1)
+    T3.BackgroundColor3 = Color3.fromHSV(zigzag(counter1),1,1)
+    T4.BackgroundColor3 = Color3.fromHSV(zigzag(counter1),1,1)
+    T5.BackgroundColor3 = Color3.fromHSV(zigzag(counter1),1,1)
+    Regg.BackgroundColor3 = Color3.fromHSV(zigzag(counter1),1,1)
+    counter1 = counter1 + 0.01
+end
+end
+end)
+
+GMPS.Name = "GMPS"
+GMPS.Parent = Frame
+GMPS.BackgroundColor3 = Color3.new(0.607843, 0.34902, 0.713726)
+GMPS.BorderColor3 = Color3.new(0.556863, 0.266667, 0.678431)
+GMPS.BorderSizePixel = 4
+GMPS.Position = UDim2.new(0.0163934268, 0, 0.588757336, 0)
+GMPS.Size = UDim2.new(0, 159, 0, 48)
+GMPS.Font = Enum.Font.GothamBold
+GMPS.Text = "GamePass"
+GMPS.TextColor3 = Color3.new(0.172549, 0.243137, 0.313726)
+GMPS.TextSize = 21
+GMPS.MouseButton1Down:connect(function()
+ 
+if tlol == true then
+tlol = false
+GMPS.BackgroundColor3 = Color3.new(0.607843, 0.34902, 0.713726)
+statdisplay["Gamepass_2xCoins"].Value = false
+statdisplay["Rebirth Token"].Value = false
+statdisplay["Gamepass_Lucky"].Value = false
+else
+tlol = true
+GMPS.BackgroundColor3 = Color3.new(40, 127, 71)
+statdisplay["Gamepass_2xCoins"].Value = true
+statdisplay["Rebirth Token"].Value = true
+statdisplay["Gamepass_Lucky"].Value = true
+end
+end)
+
+Equiped.Name = "Equiped"
+Equiped.Parent = Frame
+Equiped.BackgroundColor3 = Color3.new(0.607843, 0.34902, 0.713726)
+Equiped.BorderColor3 = Color3.new(0.556863, 0.266667, 0.678431)
+Equiped.BorderSizePixel = 4
+Equiped.Position = UDim2.new(0.608899295, 0, 0.204141945, 0)
+Equiped.Size = UDim2.new(0, 159, 0, 48)
+Equiped.Font = Enum.Font.GothamBold
+Equiped.Text = "MaxPet"
+Equiped.TextColor3 = Color3.new(0.172549, 0.243137, 0.313726)
+Equiped.TextSize = 21
+Equiped.MouseButton1Down:connect(function()
+ 
+if pete == true then
+pete = false
+Equiped.BackgroundColor3 = Color3.new(0.607843, 0.34902, 0.713726)
+else
+pete = true
+Equiped.BackgroundColor3 = Color3.new(40, 127, 71)
+Equiplel()
+end
+end)
+
+TPETS.Name = "TPETS"
+TPETS.Parent = Frame
+TPETS.BackgroundColor3 = Color3.new(0.607843, 0.34902, 0.713726)
+TPETS.BorderColor3 = Color3.new(0.556863, 0.266667, 0.678431)
+TPETS.BorderSizePixel = 4
+TPETS.Position = UDim2.new(0.608899295, 0, 0.396449625, 0)
+TPETS.Size = UDim2.new(0, 159, 0, 48)
+TPETS.Font = Enum.Font.GothamBold
+TPETS.Text = "TPPetsToYou"
+TPETS.TextColor3 = Color3.new(0.172549, 0.243137, 0.313726)
+TPETS.TextSize = 21
+TPETS.MouseButton1Down:connect(function()
+ 
+if ewe == true then
+ewe = false
+TPETS.BackgroundColor3 = Color3.new(0.607843, 0.34902, 0.713726)
+else
+ewe = true
+TPETS.BackgroundColor3 = Color3.new(40, 127, 71)
+Tepepet()
+end
+end)
+
+Basic.Name = "Basic"
+Basic.Parent = Frame
+Basic.BackgroundColor3 = Color3.new(0.607843, 0.34902, 0.713726)
+Basic.BorderColor3 = Color3.new(0.556863, 0.266667, 0.678431)
+Basic.BorderSizePixel = 4
+Basic.Position = UDim2.new(0.608899295, 0, 0.588757336, 0)
+Basic.Size = UDim2.new(0, 159, 0, 48)
+Basic.Font = Enum.Font.GothamBold
+Basic.Text = "LocalCharacter"
+Basic.TextColor3 = Color3.new(0.172549, 0.243137, 0.313726)
+Basic.TextSize = 21
+Basic.MouseButton1Down:connect(function()
+ 
+if mmk == true then
+mmk = false
+Basic.BackgroundColor3 = Color3.new(0.607843, 0.34902, 0.713726)
+Basic_2.Visible = false
+else
+mmk = true
+Basic.BackgroundColor3 = Color3.new(40, 127, 71)
+Basic_2.Visible = true
+end
+end)
+
+Elist.Name = "Elist"
+Elist.Parent = Frame
+Elist.BackgroundColor3 = Color3.new(0.607843, 0.34902, 0.713726)
+Elist.BorderColor3 = Color3.new(0.556863, 0.266667, 0.678431)
+Elist.BorderSizePixel = 4
+Elist.Position = UDim2.new(-0.477751762, 0, -9.31322575e-10, 0)
+Elist.Size = UDim2.new(0, 190, 0, 338)
+Elist.Visible = false
+
+T1.Name = "T1"
+T1.Parent = Elist
+T1.BackgroundColor3 = Color3.new(0.607843, 0.34902, 0.713726)
+T1.BorderColor3 = Color3.new(0.556863, 0.266667, 0.678431)
+T1.BorderSizePixel = 4
+T1.Position = UDim2.new(0.0789473727, 0, 0.00739645027, 0)
+T1.Size = UDim2.new(0, 145, 0, 42)
+T1.Font = Enum.Font.GothamBold
+T1.Text = "Tier1"
+T1.TextColor3 = Color3.new(0.172549, 0.243137, 0.313726)
+T1.TextSize = 31
+T1.MouseButton1Down:connect(function()
+ 
+if puki == true then
+puki = false
+T1.BackgroundColor3 = Color3.new(0.607843, 0.34902, 0.713726)
+else
+puki = true
+T1.BackgroundColor3 = Color3.new(40, 127, 71)
+while puki do 
+	wait()
+local tbl_main = 
+{
+      "BuyEgg", 
+      "Tier1Egg"
+}
+game:GetService("ReplicatedStorage").RemoteFunctions.MainRemoteFunction:InvokeServer(unpack(tbl_main))
+end
+end
+end)
+
+T2.Name = "T2"
+T2.Parent = Elist
+T2.BackgroundColor3 = Color3.new(0.607843, 0.34902, 0.713726)
+T2.BorderColor3 = Color3.new(0.556863, 0.266667, 0.678431)
+T2.BorderSizePixel = 4
+T2.Position = UDim2.new(0.0789473727, 0, 0.0902366862, 0)
+T2.Size = UDim2.new(0, 145, 0, 42)
+T2.Font = Enum.Font.GothamBold
+T2.Text = "Tier2"
+T2.TextColor3 = Color3.new(0.172549, 0.243137, 0.313726)
+T2.TextSize = 31
+T2.MouseButton1Down:connect(function()
+ 
+if mekis == true then
+mekis = false
+T2.BackgroundColor3 = Color3.new(0.607843, 0.34902, 0.713726)
+else
+mekis = true
+T2.BackgroundColor3 = Color3.new(40, 127, 71)
+while mekis do 
+	wait()
+local tbl_main = 
+{
+      "BuyEgg", 
+      "Tier2Egg"
+}
+game:GetService("ReplicatedStorage").RemoteFunctions.MainRemoteFunction:InvokeServer(unpack(tbl_main))
+end
+end
+end)
+
+T3.Name = "T3"
+T3.Parent = Elist
+T3.BackgroundColor3 = Color3.new(0.607843, 0.34902, 0.713726)
+T3.BorderColor3 = Color3.new(0.556863, 0.266667, 0.678431)
+T3.BorderSizePixel = 4
+T3.Position = UDim2.new(0.0789473727, 0, 0.17159763, 0)
+T3.Size = UDim2.new(0, 145, 0, 42)
+T3.Font = Enum.Font.GothamBold
+T3.Text = "Tier3"
+T3.TextColor3 = Color3.new(0.172549, 0.243137, 0.313726)
+T3.TextSize = 31
+T3.MouseButton1Down:connect(function()
+ 
+if kntols == true then
+kntols = false
+T3.BackgroundColor3 = Color3.new(0.607843, 0.34902, 0.713726)
+else
+kntols = true
+T3.BackgroundColor3 = Color3.new(40, 127, 71)
+while kntols do 
+	wait()
+local tbl_main = 
+{
+      "BuyEgg", 
+      "Tier3Egg"
+}
+game:GetService("ReplicatedStorage").RemoteFunctions.MainRemoteFunction:InvokeServer(unpack(tbl_main))
+end
+end
+end)
+
+T4.Name = "T4"
+T4.Parent = Elist
+T4.BackgroundColor3 = Color3.new(0.607843, 0.34902, 0.713726)
+T4.BorderColor3 = Color3.new(0.556863, 0.266667, 0.678431)
+T4.BorderSizePixel = 4
+T4.Position = UDim2.new(0.0789473727, 0, 0.251479298, 0)
+T4.Size = UDim2.new(0, 145, 0, 42)
+T4.Font = Enum.Font.GothamBold
+T4.Text = "Tier4"
+T4.TextColor3 = Color3.new(0.172549, 0.243137, 0.313726)
+T4.TextSize = 31
+T4.MouseButton1Down:connect(function()
+ 
+if pukise == true then
+pukise = false
+T4.BackgroundColor3 = Color3.new(0.607843, 0.34902, 0.713726)
+else
+pukise = true
+T4.BackgroundColor3 = Color3.new(40, 127, 71)
+while pukise do 
+	wait()
+local tbl_main = 
+{
+      "BuyEgg", 
+      "Tier4Egg"
+}
+game:GetService("ReplicatedStorage").RemoteFunctions.MainRemoteFunction:InvokeServer(unpack(tbl_main))
+end
+end
+end)
+
+T5.Name = "T5"
+T5.Parent = Elist
+T5.BackgroundColor3 = Color3.new(0.607843, 0.34902, 0.713726)
+T5.BorderColor3 = Color3.new(0.556863, 0.266667, 0.678431)
+T5.BorderSizePixel = 4
+T5.Position = UDim2.new(0.0789473727, 0, 0.331360936, 0)
+T5.Size = UDim2.new(0, 145, 0, 42)
+T5.Font = Enum.Font.GothamBold
+T5.Text = "Tier5"
+T5.TextColor3 = Color3.new(0.172549, 0.243137, 0.313726)
+T5.TextSize = 31
+T5.MouseButton1Down:connect(function()
+ 
+if mekiser == true then
+mekiser = false
+T5.BackgroundColor3 = Color3.new(0.607843, 0.34902, 0.713726)
+else
+mekiser = true
+T5.BackgroundColor3 = Color3.new(40, 127, 71)
+while mekiser do 
+	wait()
+local tbl_main = 
+{
+      "BuyEgg", 
+      "Tier5Egg"
+}
+game:GetService("ReplicatedStorage").RemoteFunctions.MainRemoteFunction:InvokeServer(unpack(tbl_main))
+end
+end
+end)
+
+Regg.Name = "Regg"
+Regg.Parent = Elist
+Regg.BackgroundColor3 = Color3.new(0.607843, 0.34902, 0.713726)
+Regg.BorderColor3 = Color3.new(0.556863, 0.266667, 0.678431)
+Regg.BorderSizePixel = 4
+Regg.Position = UDim2.new(0.0789473727, 0, 0.41420117, 0)
+Regg.Size = UDim2.new(0, 145, 0, 42)
+Regg.Font = Enum.Font.GothamBold
+Regg.Text = "RebirthEgg"
+Regg.TextColor3 = Color3.new(0.172549, 0.243137, 0.313726)
+Regg.TextSize = 21
+Regg.MouseButton1Down:connect(function()
+ 
+if regix == true then
+regix = false
+Regg.BackgroundColor3 = Color3.new(0.607843, 0.34902, 0.713726)
+else
+regix = true
+Regg.BackgroundColor3 = Color3.new(40, 127, 71)
+while puki do 
+	wait()
+local tbl_main = 
+{
+      "BuyEgg", 
+      "RebirthEgg"
+}
+game:GetService("ReplicatedStorage").RemoteFunctions.MainRemoteFunction:InvokeServer(unpack(tbl_main))
+end
+end
+end)
+
+Basic_2.Name = "Basic"
+Basic_2.Parent = Frame
+Basic_2.BackgroundColor3 = Color3.new(0.607843, 0.34902, 0.713726)
+Basic_2.BorderColor3 = Color3.new(0.556863, 0.266667, 0.678431)
+Basic_2.BorderSizePixel = 4
+Basic_2.Position = UDim2.new(1.02576113, 0, 0, 0)
+Basic_2.Size = UDim2.new(0, 158, 0, 339)
+Basic_2.Visible = false
+
+WS.Name = "WS"
+WS.Parent = Basic_2
+WS.BackgroundColor3 = Color3.new(0.607843, 0.34902, 0.713726)
+WS.BorderColor3 = Color3.new(0.556863, 0.266667, 0.678431)
+WS.BorderSizePixel = 4
+WS.Position = UDim2.new(0.0796844885, 0, 0.227740899, 0)
+WS.Size = UDim2.new(0, 131, 0, 48)
+WS.Font = Enum.Font.GothamBold
+WS.Text = "WalkSpeed"
+WS.TextColor3 = Color3.new(0.172549, 0.243137, 0.313726)
+WS.TextSize = 21
+WS.MouseButton1Down:connect(function()
+ 
+if kntle == true then
+kntle = false
+WS.BackgroundColor3 = Color3.new(0.607843, 0.34902, 0.713726)
+else
+kntle = true
+WS.BackgroundColor3 = Color3.new(40, 127, 71)
+local x = WST.Text
+game.workspace[game.Players.LocalPlayer.Name].Humanoid.WalkSpeed = x
+end
+end)
+
+JP.Name = "JP"
+JP.Parent = Basic_2
+JP.BackgroundColor3 = Color3.new(0.607843, 0.34902, 0.713726)
+JP.BorderColor3 = Color3.new(0.556863, 0.266667, 0.678431)
+JP.BorderSizePixel = 4
+JP.Position = UDim2.new(0.0796844885, 0, 0.782313168, 0)
+JP.Size = UDim2.new(0, 131, 0, 48)
+JP.Font = Enum.Font.GothamBold
+JP.Text = "JumpPower"
+JP.TextColor3 = Color3.new(0.172549, 0.243137, 0.313726)
+JP.TextSize = 21
+JP.MouseButton1Down:connect(function()
+ 
+if eeq == true then
+eeq = false
+JP.BackgroundColor3 = Color3.new(0.607843, 0.34902, 0.713726)
+else
+eeq = true
+JP.BackgroundColor3 = Color3.new(40, 127, 71)
+local c = JPT.Text
+game.workspace[game.Players.LocalPlayer.Name].Humanoid.JumpHeight = c
+end
+end)
+
+WST.Name = "WST"
+WST.Parent = Basic_2
+WST.BackgroundColor3 = Color3.new(0.607843, 0.34902, 0.713726)
+WST.BorderColor3 = Color3.new(0.556863, 0.266667, 0.678431)
+WST.BorderSizePixel = 3
+WST.Position = UDim2.new(0.0759493634, 0, 0.0324483775, 0)
+WST.Size = UDim2.new(0, 132, 0, 50)
+WST.Font = Enum.Font.GothamBold
+WST.Text = "160"
+WST.TextColor3 = Color3.new(0.172549, 0.243137, 0.313726)
+WST.TextSize = 31
+
+JPT.Name = "JPT"
+JPT.Parent = Basic_2
+JPT.BackgroundColor3 = Color3.new(0.607843, 0.34902, 0.713726)
+JPT.BorderColor3 = Color3.new(0.556863, 0.266667, 0.678431)
+JPT.BorderSizePixel = 3
+JPT.Position = UDim2.new(0.0696202517, 0, 0.587020636, 0)
+JPT.Size = UDim2.new(0, 132, 0, 50)
+JPT.Font = Enum.Font.GothamBold
+JPT.Text = "15"
+JPT.TextColor3 = Color3.new(0.172549, 0.243137, 0.313726)
+JPT.TextSize = 31
+-- Scripts:
+
+-- Pet
+
+function Equiplel()
+for _,v in pairs(game.Players.LocalPlayer.PlayerGui.MainGui.CenterUIFrame.PetInventory.PetInventoryInnerFrame.PetInventoryScrollingFrame:GetChildren()) do 
+    game:GetService("ReplicatedStorage").RemoteFunctions.MainRemoteFunction:InvokeServer("CreatePet", v.Name)
+end
+end
+
+-- TepePet
+
+function Tepepet()
+	while ewe do 
+    for _,v in pairs(game.Workspace:GetChildren()) do 
+    if v.ClassName == "MeshPart" then 
+        v.Anchored = true
+        v.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame + game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.LookVector * 3
+    end
+end
+end
+end

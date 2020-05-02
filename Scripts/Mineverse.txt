@@ -1,0 +1,1025 @@
+local Withergui = Instance.new("ScreenGui")
+local Mineverseguiframe = Instance.new("Frame")
+local Decor = Instance.new("Frame")
+local Decor_2 = Instance.new("Frame")
+local Decor_3 = Instance.new("Frame")
+local Esp = Instance.new("TextButton")
+local Infjump = Instance.new("TextButton")
+local Altdelete = Instance.new("TextButton")
+local Nofall = Instance.new("TextButton")
+local TextBox = Instance.new("TextBox")
+local TextBox_2 = Instance.new("TextBox")
+local TextBox_3 = Instance.new("TextBox")
+local TextBox_4 = Instance.new("TextBox")
+local Openframe = Instance.new("Frame")
+local TextBox_5 = Instance.new("TextBox")
+local Opengui = Instance.new("TextButton")
+ 
+Withergui.Name = "Wither gui"
+Withergui.Parent = game.CoreGui
+Withergui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+Mineverseguiframe.Name = "Mineverse gui frame"
+Mineverseguiframe.Parent = Withergui
+Mineverseguiframe.BackgroundColor3 = Color3.new(0.388235, 0.368627, 1)
+Mineverseguiframe.Position = UDim2.new(-0.00615006173, 0, 0.213062093, 0)
+Mineverseguiframe.Size = UDim2.new(0, 151, 0, 249)
+Mineverseguiframe.Visible = false
+
+Decor.Name = "Decor"
+Decor.Parent = Mineverseguiframe
+Decor.BackgroundColor3 = Color3.new(0, 0, 0)
+Decor.Position = UDim2.new(0, 0, -0.0281124506, 0)
+Decor.Size = UDim2.new(0, 151, 0, 7)
+
+Decor_2.Name = "Decor"
+Decor_2.Parent = Mineverseguiframe
+Decor_2.BackgroundColor3 = Color3.new(0, 0, 0)
+Decor_2.Position = UDim2.new(1, 0, -0.0281124506, 0)
+Decor_2.Size = UDim2.new(0, 8, 0, 263)
+
+Decor_3.Name = "Decor"
+Decor_3.Parent = Mineverseguiframe
+Decor_3.BackgroundColor3 = Color3.new(0, 0, 0)
+Decor_3.Position = UDim2.new(0, 0, 0.99999994, 0)
+Decor_3.Size = UDim2.new(0, 151, 0, 7)
+
+Esp.Name = "Esp"
+Esp.Parent = Mineverseguiframe
+Esp.BackgroundColor3 = Color3.new(0.301961, 1, 0.290196)
+Esp.Position = UDim2.new(-0.0463576168, 0, 0, 0)
+Esp.Size = UDim2.new(0, 158, 0, 34)
+Esp.Font = Enum.Font.SourceSans
+Esp.Text = "Esp"
+Esp.TextColor3 = Color3.new(0, 0, 0)
+Esp.TextSize = 14
+Esp.MouseButton1Down:connect(function()
+																																			--[[
+																																				
+			                  __/\\\\____________/\\\\_________________________________________________________        
+		      	                   _\/\\\\\\________/\\\\\\_________________________________________________________       
+			                    _\/\\\//\\\____/\\\//\\\_________________________________________________________      
+			                     _\/\\\\///\\\/\\\/_\/\\\_____/\\\\\_____/\\/\\\\\\\___/\\\\\\\\\\_____/\\\\\\\\__     
+			                      _\/\\\__\///\\\/___\/\\\___/\\\///\\\__\/\\\/////\\\_\/\\\//////____/\\\/////\\\_    
+			                       _\/\\\____\///_____\/\\\__/\\\__\//\\\_\/\\\___\///__\/\\\\\\\\\\__/\\\\\\\\\\\__   
+			                        _\/\\\_____________\/\\\_\//\\\__/\\\__\/\\\_________\////////\\\_\//\\///////___  
+			                         _\/\\\_____________\/\\\__\///\\\\\/___\/\\\__________/\\\\\\\\\\__\//\\\\\\\\\\_ 
+			                          _\///______________\///_____\/////_____\///__________\//////////____\//////////__
+			
+									      FIRST PERSON SHOOTERS
+
+                                                                             ------------------------
+										  -: CHANGELOG :-
+                                                                             ------------------------
+										v1.21:
+										   - Chams Fix
+
+                                                                                v1.4:
+                                                                                   - Fullbright
+
+																																			--]]
+																																																																	
+local World = game:GetService('Workspace');
+local Input = game:GetService('UserInputService');
+local Lighting = game:GetService("Lighting");
+local Players = game:GetService('Players');
+local Player = Players['LocalPlayer'];
+
+local Keys = {}
+local Misc = {
+	CharFunctions = getmetatable(newproxy(true));
+	GUIColors = {
+		On = Color3.fromRGB(46, 105, 132);
+		Off = Color3.new(.38, .38, .38);
+	};
+	
+	ChamsColors = {
+		{'White', Color3.new(1, 1, 1)};
+		{'Black', Color3.new(0, 0, 0)};
+		{'Red', Color3.new(1, 0, 0)};
+		{'Green', Color3.new(0, 1, 0)};
+		{'Blue', Color3.new(0, 0, 1)};
+		{'Purple', Color3.new(0.65, 0, 0.65)};
+		{'Yellow',  Color3.new(1, 1, 0)};
+		{'Grey', Color3.new(0.8, 0.8, 0.8)};
+	}
+}
+
+local function GetFunc(t, i)
+	for __, ___ in next, (t) do
+		if string.lower(i):match(__:lower()) then
+			return ___, __
+		end
+	end
+end
+
+local function GetColor(t, i)
+	for __, ___ in next, (t) do
+		if (___[1] == i) then
+			return ___, __
+		elseif (___[2] == i) then
+			return ___, __
+		end
+	end
+end
+
+local Settings = {
+	{'Menu', false, Enum.KeyCode.Delete};
+	{'Team Chams [\'COLOR\']', true, 'Toggle'};
+	{'Enemy Chams [\'COLOR\']', true, 'Toggle'};
+	{'Chams Transparency', false, '0'};
+	-- {'ESP', true, 'N/A'};
+
+}
+
+------------ [[ GUI SPAWN ]] ------------
+FormAssets = function()
+	------ ERROR MAGIC ------
+	local __ERROR__ = Instance.new('BindableEvent')
+	__ERROR__['Event']:Connect(error)
+	
+	--------- CREATE FUNCTION ---------
+	local create = function(class, parent) 
+		local instance = Instance.new(class);
+		return function(props)
+			for property, value in next, (props) do
+				if (property ~= 'Parent') and (typeof(value) ~= 'Instance') then
+					local suc, err = pcall(function()
+						instance[property] = value
+					end)
+					if not suc then __ERROR__:Fire('[Script->Asset]: ' .. err) end
+					
+				elseif (property == 'Parent') then
+					parent = value
+				end
+			end
+			
+			if parent and (typeof(parent) == 'Instance') then
+				instance['Parent'] = parent
+			end
+			
+			return instance
+		end
+	end
+	
+	-------------------------------------
+	-------------------------------------
+	-- SOME THINGS MAY BE OUT OF ORDER --
+	----(INSTANCE RELATED PROPERTIES)----
+	-------------(UNLIKELY)--------------
+	-------------------------------------
+	-------------------------------------
+
+	local Main = create('ScreenGui'){
+		Name = "FPS Hacks - Menu"
+	}
+	
+	local Folder = create('Folder', Main){
+		Name = 'Chams'
+	}
+	
+	local Folder1 = create('Folder', Folder){
+		Name = 'Team'
+	}
+	
+	local Folder2 = create('Folder', Folder){
+		Name = 'Enemy'
+	}
+	
+	local Frame = create('Frame', Main){
+		Name = "Main";
+		BackgroundColor3 = Color3.new(1, 1, 1);
+		BackgroundTransparency = 1;
+		Position = UDim2.new(0.5, 0, 0.5, 0);
+		Size = UDim2.new(0, 250, 0, 190);
+		Draggable = true;
+		Active = true;
+		AnchorPoint = Vector2.new(0.5, 0.5);
+		Transparency = 1
+	}
+	
+	local TextLabel = create('TextLabel', Frame){
+		Name = "Title";
+		BackgroundColor3 = Color3.new(0.180392, 0.411765, 0.517647);
+		BorderSizePixel = 0;
+		Size = UDim2.new(1, 0, 0, 35);
+		Text = "FPS Hacks";
+		TextColor3 = Color3.new(0.866667, 0.843137, 0.843137);
+		Font = Enum.Font.SciFi;
+		FontSize = Enum.FontSize.Size28;
+		TextWrapped = true
+	}
+	
+	local ScrollingFrame = create('ScrollingFrame', Frame){
+		Name = "Buttons";
+		BackgroundColor3 = Color3.new(1, 1, 1);
+		BackgroundTransparency = 1;
+		BorderSizePixel = 0;
+		Position = UDim2.new(0.5, 0, 0, 40);
+		CanvasSize = UDim2.new(0, 0, 0, 0);
+		Size = UDim2.new(1, 0, 0, 260);
+		AnchorPoint = Vector2.new(0.5, 0);
+		Transparency = 1
+	}
+	
+	local Frame1 = create('Frame'){
+		BackgroundColor3 = Color3.new(1, 1, 1);
+		BackgroundTransparency = 1;
+		BorderSizePixel = 0;
+		Position = UDim2.new(0, 0, 0, 1);
+		Selectable = true;
+		Size = UDim2.new(1, 0, 0, 25);
+		ClipsDescendants = true;
+		Transparency = 1
+	}
+	
+	local TextLabel1 = create('TextButton', Frame1){
+		Name = "Text";
+		BackgroundColor3 = Color3.new(1, 1, 1);
+		BorderColor3 = Color3.new(0.180392, 0.411765, 0.517647);
+		Position = UDim2.new(0.100000001, 0, 0, 0);
+		Size = UDim2.new(0.600000024, 0, 1, 0);
+		Text = "Example";
+		TextColor3 = Color3.new(0.180392, 0.411765, 0.517647);
+		Font = Enum.Font.SciFi;
+		FontSize = Enum.FontSize.Size14
+	}
+	
+	local Frame2 = create('Frame', Frame1){
+		Name = "Status";
+		BackgroundColor3 = Color3.new(0, 1, 0);
+		BorderSizePixel = 0;
+		Position = UDim2.new(0.0250000004, 0, 0.5, 0);
+		Size = UDim2.new(0, 7, 0, 7);
+		Style = Enum.FrameStyle.DropShadow;
+		AnchorPoint = Vector2.new(0, 0.5)
+	}
+	
+	local TextButton = create('TextButton', Frame1){
+		Name = "Key";
+		BackgroundColor3 = Color3.new(0.180392, 0.411765, 0.517647);
+		BackgroundTransparency = 0.5;
+		BorderSizePixel = 0;
+		Position = UDim2.new(0.699999988, 0, 0, 0);
+		Size = UDim2.new(0.300000012, 0, 1, 0);
+		Text = "[EXAMPLE]";
+		TextColor3 = Color3.new(0.839216, 0.839216, 0.839216);
+		Font = Enum.Font.SciFi;
+		FontSize = Enum.FontSize.Size14;
+		TextStrokeColor3 = Color3.new(0.380392, 0.380392, 0.380392);
+		TextStrokeTransparency = 0;
+		Transparency = 0.5
+	}
+	
+	local UIListLayout = create('UIListLayout', ScrollingFrame){
+		Padding = UDim.new(0, 4);
+		HorizontalAlignment = Enum.HorizontalAlignment.Center
+	}
+	
+	local UIPadding = create('UIPadding', ScrollingFrame){}
+
+	
+	return create, Main, Frame1, Folder
+end
+
+local Create, Menu, Button, Chams = FormAssets()
+local TDB = false
+local EDB = false
+local Functions = {
+	['Menu'] = function()
+		Menu['Enabled'] = not (Menu['Enabled']);
+	end;
+	
+	['Team Chams'] = function()
+		if TDB then return end
+		TDB = true
+		Settings['TCO'] = not (Settings['TCO'])
+		if Settings['TCO'] then
+			Misc['CharFunctions']
+			['TCCH'] = function(char)
+				local Target = Players:GetPlayerFromCharacter(char)
+				if (Target == Player) or (Target.TeamColor ~= Player.TeamColor) then return end
+				
+				local Folder = Chams['Team']:FindFirstChild(Target['Name'])
+					or Create('Folder', Chams['Team']){Name = Target['Name']}
+					
+				for __, part in next, (char:GetChildren()) do
+					if part:IsA('BasePart') then
+						Create('BoxHandleAdornment', Folder)
+						{
+							Name = part.Name .. '_CHAM';
+							Color3 = Settings['TCC'][2];
+							AlwaysOnTop = true;
+							Transparency = Settings['CT'];
+							Visible = true;
+							ZIndex = 10;
+							
+							Size = (part['Name'] == 'Head' and Vector3.new(1.25, 1.3, 1.25))
+								or (Vector3.new(.5, .5, .5) + part.Size)
+						}['Adornee'] = part
+					end
+				end
+			end
+		elseif Misc['CharFunctions']['TCCH'] then
+			Misc['CharFunctions']['TCCH'] = nil
+			Chams['Team']:ClearAllChildren()
+		end
+		TDB = false
+	end;
+	
+	['Enemy Chams'] = function()
+		if EDB then return end
+		EDB = true
+		Settings['ECO'] = not (Settings['ECO'])
+		if Settings['ECO'] then
+			Misc['CharFunctions']
+			['ECCH'] = function(char)
+				local Target = Players:GetPlayerFromCharacter(char)
+				if (Target == Player) or (Target.TeamColor == Player.TeamColor) then return end
+				
+				local Folder = Chams['Enemy']:FindFirstChild(Target['Name'])
+					or Create('Folder', Chams['Enemy']){Name = Target['Name']}
+				
+				for __, part in next, (char:GetChildren()) do
+					if part:IsA('BasePart') then
+						Create('BoxHandleAdornment', Folder)
+						{
+							Name = part.Name .. '_CHAM';
+							Color3 = Settings['ECC'][2];
+							AlwaysOnTop = true;
+							Transparency = Settings['CT'];
+							Visible = true;
+							ZIndex = 10;
+							
+							Size = (part['Name'] == 'Head' and Vector3.new(1.25, 1.3, 1.25))
+								or (Vector3.new(.5, .5, .5) + part.Size)
+						}['Adornee'] = part
+					end
+				end
+			end
+		elseif Misc['CharFunctions']['ECCH'] then
+			Misc['CharFunctions']['ECCH'] = nil
+			Chams['Enemy']:ClearAllChildren()
+		end
+		EDB = false
+	end;
+	
+	['Chams Transparency'] = function(t)
+		if t then
+			local Trans = Settings['CT']
+			Settings['CT'] = (Trans < .8 and Trans + (1/10)) or 0 
+		end
+		
+		local TeamCham = Chams['Team']:GetChildren()
+		local EnemyCham = Chams['Enemy']:GetChildren()
+		
+		for __, object in next, (TeamCham) do
+			for __, bha in next, (object:GetChildren()) do
+				bha.Transparency = Settings['CT']
+				bha.Color3 = Settings['TCC'][2]
+			end
+		end
+		
+		for __, object in next, (EnemyCham) do
+			for __, bha in next, (object:GetChildren()) do
+				bha.Transparency = Settings['CT']
+				bha.Color3 = Settings['ECC'][2]
+			end
+		end
+		
+		Menu['Main']['Buttons']['Frans']['Key'].Text = '[' .. tostring(Settings['CT']) .. ']'
+	end;
+	
+	['Fullbright'] = function(Toggle, TextBox)
+		local Fullbright = Settings.Fullbright		
+		if Toggle then Fullbright.On = not (Fullbright.On); end
+		
+		local function Handle()
+			local Setting = Fullbright.Options[Fullbright.Current]
+			local Settings = Fullbright.OptionDefs[Setting]
+			
+			
+			TextBox['Text'] = '[' .. Setting .. ']'
+			Lighting.Ambient = Settings.InAmbience;
+			Lighting.OutdoorAmbient = Settings.OutAmbience;
+			Lighting.Brightness = Settings.Brightness;
+			Lighting.FogStart = Settings.Fog;
+			Lighting.FogEnd = Settings.Fog;
+		end		
+		
+		if (not Fullbright.On) then
+			Fullbright.Current = 3
+		end
+		
+		Handle()
+	end;
+	
+	['Aimbot'] = function(l)
+		l:Destroy()
+		
+		local IgnorePlayersNamed = {NAME=true} -- Name = true or false
+		--[[
+			[J] - To go down the list.
+			[U] - To go up the list.
+			[H] - To toggle that item in the list.
+			[RMB] - To aim at your target using the current settings. (THIS UPDATES IN LIVE TIME SO YOU DON'T HAVE TO STOP AIMING FOR IT TO TAKE EFFECT)
+		--]]
+		
+		local services	= setmetatable({
+				World   = game:GetService('Workspace');
+				Players = game:GetService('Players');
+				Input	= game:GetService('UserInputService');
+				Run 	= game:GetService('RunService');
+				UI		= game:GetService('StarterGui');
+			},{
+			__index					= function(tab,index)
+				local serv
+				local ran,err		= pcall(function() serv=game:service(index) end)
+				if ran then
+					tab[index]		= serv
+					return serv
+				end
+			end
+		})
+		
+		local cre = Create
+		local ResizeUI = function(ui,downscale,byclass)
+			if not rawequal(ui['ClassName'],'ScrollingFrame') then return end
+			
+			local count = 0;	
+			for __, asset in next, (ui:GetChildren()) do
+				if rawequal(asset['ClassName'],byclass) then
+					count = count + 1
+				end
+			end
+			
+			ui['CanvasSize'] = UDim2.new(ui.CanvasSize.X.Scale,ui.CanvasSize.X.Offset,ui.CanvasSize.Y.Scale,downscale*count)
+		end
+		
+		local wfc, ffc, ffoc, cast, ray = services.World.WaitForChild, services.World.FindFirstChild, services.World.FindFirstChildOfClass, services.World.FindPartOnRayWithIgnoreList, Ray.new
+		local wfcoc = function(p,class)
+			local obj
+			repeat services.Run.RenderStepped:wait() 
+				obj = p:FindFirstChildOfClass(class)
+			until obj
+			return obj
+		end
+		
+		local Client = services.Players.LocalPlayer
+		local ClientUI = wfc(Client,'PlayerGui')
+		local ClientMouse = Client:GetMouse()
+		local ClientModel = Client.Character or Client.CharacterAdded:wait()
+		local ClientCamera = services.World.CurrentCamera
+		local ClientHumanoid = wfcoc(ClientModel,'Humanoid')
+		local ClientActiveUI;
+		
+		local status = {
+			Enabled = false,
+			TeamCheck = false,
+			HeadsOnly = false,
+			RayCheck = true,
+			AutoAim = false,
+		}
+		
+		local function toggle(button)
+			local option, val = button['Text']:match('(.*):%s*(.*)')
+			status[option] = not status[option]
+			
+			if status[option] then
+				button.TextColor3 = Color3.fromRGB(0,255,0)
+			else
+				button.TextColor3 = Color3.fromRGB(255,0,0)
+			end
+			button.Text = option .. ': ' .. tostring(status[option])
+		end
+		
+		local selection = {}
+		local select_pos = 1
+		local current_pos = 0
+		local __ = function()
+			if ffc(game.CoreGui, '___') then return end
+			
+			local GUI = cre('ScreenGui',game:GetService('CoreGui')){
+				Name = '___';
+			}
+			
+			local Frame = cre('ScrollingFrame',GUI){
+				BackgroundTransparency = 1,
+				BorderSizePixel = 0,
+				
+				Name = 'Options',
+				Position = UDim2.new(.8,0,.915,0),
+				Size = UDim2.new(.2,0,0,30),
+				ZIndex = 10,
+				ClipsDescendants = true,
+				CanvasSize = UDim2.new(0,0,0,0),
+				ScrollBarThickness = 0,
+				ScrollingEnabled = false,
+			}
+			
+			local UILL = cre('UIListLayout',Frame){
+				Name = 'LayoutHandler',
+				FillDirection = 'Vertical',
+				HorizontalAlignment = 'Center',
+				SortOrder = 'LayoutOrder',
+				VerticalAlignment = 'Top'
+			}
+			
+			local Template = cre('TextButton',nil){
+				BackgroundTransparency = 1,
+				BorderSizePixel = 0,
+				
+				Name = 'Template',
+				Size = UDim2.new(.9,0,0,30),
+				Font = 'SciFi',
+				Text = '',
+				TextColor3 = Color3.fromRGB(255,255,255),
+				TextScaled = true,
+				TextWrapped = true,
+			} 
+			
+			local TSC = cre('UISizeConstraint',Template){
+				Name = 'TemplateSizeConstraint',		
+				MaxSize = Vector2.new(math.huge,30),
+			}
+			
+			Frame['ChildAdded']:connect(function()
+				ResizeUI(Frame,30,'TextButton')
+			end)
+			
+			local sel_pos = 0
+			for option, val in next, status do
+				local tp = Template:Clone()
+				
+				tp.Name = option
+				tp.Text = option .. ': ' .. tostring(val)
+				
+				if status[option] then
+					tp.TextColor3 = Color3.fromRGB(0,255,0)
+				else
+					tp.TextColor3 = Color3.fromRGB(255,0,0)
+				end
+				
+				sel_pos = sel_pos + 1
+				selection[sel_pos] = tp		
+				tp.Parent = Frame
+			end
+		
+			Frame.CanvasPosition = Vector2.new(0, current_pos)
+			return Frame
+		end
+		
+		Client['CharacterAdded']:connect(function(c)
+			ClientModel = c
+			ClientHumanoid = wfcoc(ClientModel,'Humanoid')
+			ClientActiveUI.Parent.Parent = nil
+			ClientActiveUI = coroutine.wrap(__)()
+		end)
+		ClientActiveUI = coroutine.wrap(__)()
+		
+		local right_down, keylogs, inputlogs = nil, {}, {}
+		services.Input.InputBegan:connect(function(input, procc)
+			keylogs[input.KeyCode],inputlogs[input.UserInputType] = true, true;
+			
+			if not ClientActiveUI then return end
+			if keylogs[Enum.KeyCode.U] and current_pos >= 30 then
+				select_pos = select_pos - 1
+				current_pos = current_pos - 30
+				ClientActiveUI.CanvasPosition = Vector2.new(0,current_pos)
+				
+			elseif keylogs[Enum.KeyCode.J] and current_pos < ClientActiveUI.CanvasSize.Y.Offset - 30 then
+				select_pos = select_pos + 1		
+				current_pos = current_pos + 30		
+				ClientActiveUI.CanvasPosition = Vector2.new(0,current_pos)
+				
+			elseif keylogs[Enum.KeyCode.H] then
+				if selection[select_pos] then
+					toggle(selection[select_pos])
+				end
+			end
+		end)
+		services.Input.InputEnded:connect(function(input, procc)
+			keylogs[input.KeyCode],inputlogs[input.UserInputType] = false, false;
+		end)
+		
+		local function GetPlayerFromCharacter(mod)
+			if not mod:IsA('Model') then return end
+			
+			for __, client in next, services.Players:GetPlayers() do
+				if rawequal(string.lower(client['Name']):sub(1,#mod['Name']),mod['Name']:lower()) then
+					return client, client['Name']
+				end
+			end		
+			return nil, 'N/A'
+		end
+		
+		local function Search()
+			local t = {}	
+			for __, child in next, services.World:GetChildren() do
+				local UserFromCharacter = GetPlayerFromCharacter(child)
+				if UserFromCharacter then
+					if child:IsA('Model') and not rawequal(UserFromCharacter,Client) then
+						local h = ffoc(child,'Humanoid')
+						if h and h.Health > 0 then
+							table.insert(t, {child,UserFromCharacter})
+						end
+					end
+				end
+			end
+			return t
+		end
+		
+		local function cast_ray(p0,p1,blacklist)
+			local Part
+			local __=0
+			repeat
+				__=__+1
+				local cond=(p1-p0).magnitude < 999
+				Part,p0=cast(workspace,ray(p0,cond and p1-p0 or (p1-p0).unit*999),blacklist)
+				if Part then
+					if Part.CanCollide==false or Part.Transparency==1 then
+						blacklist[#blacklist+1]=Part
+						Part=nil
+					end
+				elseif cond or __ > 15 then
+					break
+				end
+			until Part
+			return Part,p0
+		end
+		
+		services.Run.RenderStepped:connect(function()
+			local Storage = {}
+			if status['Enabled'] and (inputlogs[Enum.UserInputType.MouseButton2] or status['AutoAim']) then
+				Storage = Search()
+				
+				local dot, face = -1
+				for __, info in next, (Storage) do
+					local h = ffc(info[1],'Humanoid')
+					local skip;
+					
+					if not inputlogs[Enum.UserInputType.MouseButton2] and not status['AutoAim'] then return end
+					if not info[1] or not info[2] or IgnorePlayersNamed[info[2]['Name']] or ffoc(info[1],'ForceField') then skip = true end
+					if not ffc(info[1],'HumanoidRootPart') then skip = true end
+							
+					if h and h['Health'] > 0 then
+						if status['TeamCheck'] then
+							if Client['TeamColor'] == info[2]['TeamColor'] then 
+								skip = true 
+							end
+						end
+						
+						if not skip then
+							local cc = ClientCamera.CFrame
+							local pos = status['HeadsOnly'] and info[1]['Head'].CFrame.p or info[1]['HumanoidRootPart'].Position
+							local HitPart=cast_ray(cc.p,pos,{ClientCamera,ClientModel})
+							
+							if not (status['RayCheck'] and HitPart) or info[1]:IsAncestorOf(HitPart) then
+								local m = (pos-cc.p).unit:Dot(cc.lookVector)
+								if rawequal(m,m) and m > dot then
+									dot, face= m, pos
+								end
+							end
+						end
+					end
+				end
+				if face then
+					ClientCamera.CFrame = CFrame.new(ClientCamera.CFrame.p,face) * CFrame.new(0,0,0.5)
+				end
+			end
+		end)
+		
+	end
+}
+
+Settings = (function()
+	local NewSettings = {
+		--- Chams ---
+		CT = 0; -- Transparency
+		TCO = false; -- Team Chams On
+		ECO = false; -- Enemy Chams On
+		TCC = GetColor(Misc.ChamsColors, 'Grey'); -- Current Team Chams Color
+		ECC = GetColor(Misc.ChamsColors, 'Red'); -- Current Enemy Chams Color
+		
+		--- Fullbright ---	
+		Fullbright = {
+			On = false;
+			Current = 1;
+			Options = {'Max','Half','Default'};
+			OptionDefs = {
+				Max = {
+					Fog = 1000000;
+					Brightness = 10;
+					InAmbience = Color3.new(1, 1, 1);
+					OutAmbience = Color3.new(1, 1, 1);
+				};
+				Half = {
+					Fog = 250;
+					Brightness = 1.5;
+					InAmbience = Color3.new(0.6, 0.6, 0.6);
+					OutAmbience = Color3.new(0.6, 0.6, 0.6);
+				};
+				Default = {
+					Fog = Lighting.FogEnd;
+					Brightness = Lighting.Brightness;
+					InAmbience = Lighting.Ambient;
+					OutAmbience = Lighting.OutdoorAmbient;
+				}
+			}
+		}
+	}
+	
+	for __, option in next, (Settings) do
+		local NewOption = Button:Clone()
+		if option[1] == 'Menu' or option[1] == 'Chams Transparency' then
+			NewOption['Status']['Style'] = 'Custom';
+			NewOption['Key']['TextStrokeColor3'] = Misc.GUIColors.On
+		end
+		
+		NewOption['Text'].Text = option[1]:match('COLOR') and (
+				(option[1]:match('Team') and option[1]:gsub('COLOR', NewSettings.TCC[1])) or
+				(option[1]:match('Enemy') and option[1]:gsub('COLOR', NewSettings.ECC[1]))
+				 ) or option[1]
+		NewOption['Key'].Text = '['.. ((typeof(option[3]) == 'EnumItem' and option[3].Name) or option[3]) .. ']'		
+		NewOption.Parent = Menu['Main']['Buttons']
+		
+		if option[1] == 'Chams Transparency' then
+			NewOption['Name'] = 'Frans'
+		end		
+		
+		local Func, Name = GetFunc(Functions, option[1])
+		if Func then
+			NewOption['Text']['MouseButton1Down']:connect(function()
+				if not option[2] then return end				
+				if NewOption.Status.Style.Name == 'DropShadow' then
+					NewOption.Status.Style = 'Custom'
+				elseif NewOption.Status.Style.Name == 'Custom' then
+					NewOption.Status.Style = 'DropShadow'
+				end
+				
+				if option[1]:match('notaimbot') then
+					Func(NewOption)
+					
+				elseif option[1]:match('Fullbright') then
+					Func(true, NewOption['Key'])
+					
+				else
+					Func()
+				end
+			end)
+			if option[3] == 'Toggle' then
+				if Name:match('Team') then
+					NewOption['Key']['MouseButton1Down']:connect(function()
+						local Tab, Pos = GetColor(Misc.ChamsColors, NewSettings.TCC[2])
+						if (Pos + 1) < #Misc.ChamsColors then
+							NewOption['Text'].Text = NewOption['Text'].Text:gsub(NewSettings.TCC[1], Misc.ChamsColors[Pos + 1][1])
+							NewSettings.TCC = Misc.ChamsColors[Pos + 1]
+						else
+							NewOption['Text'].Text = NewOption['Text'].Text:gsub(NewSettings.TCC[1], Misc.ChamsColors[1][1])
+							NewSettings.TCC = Misc.ChamsColors[1]
+						end
+						
+						GetFunc(Functions, 'Chams Transparency')()
+					end)
+				elseif Name:match('Enemy') then
+					NewOption['Key']['MouseButton1Down']:connect(function()
+						local Tab, Pos = GetColor(Misc.ChamsColors, NewSettings.ECC[2])
+						if (Pos + 1) < #Misc.ChamsColors then
+							NewOption['Text'].Text = NewOption['Text'].Text:gsub(NewSettings.ECC[1], Misc.ChamsColors[Pos + 1][1])
+							NewSettings.ECC = Misc.ChamsColors[Pos + 1]
+						else
+							NewOption['Text'].Text = NewOption['Text'].Text:gsub(NewSettings.ECC[1], Misc.ChamsColors[1][1])
+							NewSettings.ECC = Misc.ChamsColors[1]
+						end
+						
+						GetFunc(Functions, 'Chams Transparency')()
+					end)
+				end
+				
+			elseif option[1] == 'Chams Transparency' then
+				NewOption['Key']['MouseButton1Down']:connect(function()
+					GetFunc(Functions, 'Chams Transparency')(true)
+				end)
+				
+			
+				
+			end
+		end
+	end
+	return NewSettings
+end)()
+
+setmetatable(Misc['CharFunctions'], {
+	__newindex = function(s, i, v)
+		rawset(Misc['CharFunctions'], i, v)
+		for __, player in next, (Players:GetPlayers()) do
+			if player.Character then
+				v(player.Character)
+			end
+		end
+	end
+})
+
+local CharFix = function(char)
+	local Target = Players:GetPlayerFromCharacter(char)
+	local Team = Chams['Team']:FindFirstChild(Target['Name'])
+	local Enemy = Chams['Enemy']:FindFirstChild(Target['Name'])
+	
+	if Team then
+		for __, handle in next, (Team:GetChildren()) do
+			if handle['Adornee'] and not handle['Adornee']:IsDescendantOf(game) then
+				handle['Parent'] = nil
+			end
+		end
+	end
+		
+	if Enemy then
+		for __, handle in next, (Enemy:GetChildren()) do
+			if handle['Adornee'] and not handle['Adornee']:IsDescendantOf(game) then
+				handle['Parent'] = nil
+			end
+		end
+	end
+end
+
+local CharAbuse = function(char) wait()
+	for __, func in next, (Misc['CharFunctions']) do
+		coroutine.wrap(func)(char)
+	end
+	
+	char['Changed']:connect(function(prop)
+		if (prop == 'Parent') then
+			CharFix(char)
+		end
+	end)
+end
+
+for __, player in next, (Players:GetPlayers()) do
+	player['CharacterAdded']:connect(CharAbuse)
+end
+
+Players.PlayerAdded:connect(function(Client)
+	Client['CharacterAdded']:connect(CharAbuse)
+end)
+
+Players.PlayerRemoving:connect(function(Client)
+	local Team = Chams['Team']:FindFirstChild(Client['Name'])
+	local Enemy = Chams['Enemy']:FindFirstChild(Client['Name'])
+	
+	if Team then Team['Parent'] = nil end
+	if Enemy then Enemy['Parent'] = nil end
+end)
+
+Input['InputBegan']:connect(function(input, og)
+	if og then return end
+	
+	if input.UserInputType == Enum.UserInputType.Keyboard then
+		if input.KeyCode == Enum.KeyCode.Delete then
+			Functions['Menu']()
+		end		
+	end
+end)
+
+Menu.Parent = game.CoreGui
+end)
+ 
+Infjump.Name = "Inf jump"
+Infjump.Parent = Mineverseguiframe
+Infjump.BackgroundColor3 = Color3.new(0.921569, 1, 0.564706)
+Infjump.Position = UDim2.new(-0.0463576168, 0, 0.13654618, 0)
+Infjump.Size = UDim2.new(0, 158, 0, 34)
+Infjump.Font = Enum.Font.SourceSans
+Infjump.Text = "Inf jump : f to active"
+Infjump.TextColor3 = Color3.new(0, 0, 0)
+Infjump.TextSize = 14
+Infjump.MouseButton1Down:connect(function()
+-- //~ F to toggle ~\\ --
+
+_G.infinjump = true
+
+local Player = game:GetService("Players").LocalPlayer
+local Mouse = Player:GetMouse()
+Mouse.KeyDown:connect(function(k)
+if _G.infinjump then
+if k:byte() == 32 then
+Humanoid = game:GetService("Players").LocalPlayer.Character:FindFirstChildOfClass("Humanoid")
+Humanoid:ChangeState("Jumping")
+wait(0.1)
+Humanoid:ChangeState("Seated")
+end
+end
+end)
+
+local Player = game:GetService("Players").LocalPlayer
+local Mouse = Player:GetMouse()
+Mouse.KeyDown:connect(function(k)
+k = k:lower()
+if k == "f" then
+if _G.infinjump == true then
+_G.infinjump = false
+else
+_G.infinjump = true
+end
+end
+end)
+end)
+ 
+Altdelete.Name = "Alt delete"
+Altdelete.Parent = Mineverseguiframe
+Altdelete.BackgroundColor3 = Color3.new(0.364706, 1, 1)
+Altdelete.Position = UDim2.new(-0.0463576168, 0, 0.273092359, 0)
+Altdelete.Size = UDim2.new(0, 158, 0, 34)
+Altdelete.Font = Enum.Font.SourceSans
+Altdelete.Text = "Alt delete"
+Altdelete.TextColor3 = Color3.new(0, 0, 0)
+Altdelete.TextSize = 14
+Altdelete.MouseButton1Down:connect(function()
+local Plr = game:GetService("Players").LocalPlayer
+local Mouse = Plr:GetMouse()
+
+Mouse.Button1Down:connect(function()
+if not game:GetService("UserInputService"):IsKeyDown(Enum.KeyCode.LeftAlt) then return end
+if not Mouse.Target then return end
+Mouse.Target:Destroy()
+end)
+
+end)
+ 
+Nofall.Name = "No fall"
+Nofall.Parent = Mineverseguiframe
+Nofall.BackgroundColor3 = Color3.new(0.364706, 1, 1)
+Nofall.Position = UDim2.new(-0.0463576168, 0, 0.409638524, 0)
+Nofall.Size = UDim2.new(0, 158, 0, 34)
+Nofall.Font = Enum.Font.SourceSans
+Nofall.Text = "No fall"
+Nofall.TextColor3 = Color3.new(0, 0, 0)
+Nofall.TextSize = 14
+Nofall.MouseButton1Down:connect(function()
+game.ReplicatedStorage.GameRemotes.RequestDamage:Destroy()
+end)
+ 
+TextBox.Parent = Mineverseguiframe
+TextBox.BackgroundColor3 = Color3.new(1, 0.423529, 0.423529)
+TextBox.Position = UDim2.new(0, 0, 0.546184719, 0)
+TextBox.Size = UDim2.new(0, 151, 0, 29)
+TextBox.Font = Enum.Font.SourceSans
+TextBox.Text = "Hello,will active xray?"
+TextBox.TextColor3 = Color3.new(0, 0, 0)
+TextBox.TextSize = 14
+
+TextBox_2.Parent = Mineverseguiframe
+TextBox_2.BackgroundColor3 = Color3.new(1, 0.423529, 0.423529)
+TextBox_2.Position = UDim2.new(-0.0264900662, 0, 0.662650585, 0)
+TextBox_2.Size = UDim2.new(0, 151, 0, 29)
+TextBox_2.Font = Enum.Font.SourceSans
+TextBox_2.Text = "If you need active"
+TextBox_2.TextColor3 = Color3.new(0, 0, 0)
+TextBox_2.TextSize = 14
+
+TextBox_3.Parent = Mineverseguiframe
+TextBox_3.BackgroundColor3 = Color3.new(1, 0.423529, 0.423529)
+TextBox_3.Position = UDim2.new(-0.0264900662, 0, 0.779116452, 0)
+TextBox_3.Size = UDim2.new(0, 151, 0, 29)
+TextBox_3.Font = Enum.Font.SourceSans
+TextBox_3.Text = "Use alt delete and no fall"
+TextBox_3.TextColor3 = Color3.new(0, 0, 0)
+TextBox_3.TextSize = 14
+
+TextBox_4.Parent = Mineverseguiframe
+TextBox_4.BackgroundColor3 = Color3.new(1, 0.423529, 0.423529)
+TextBox_4.Position = UDim2.new(-0.0264900662, 0, 0.883534133, 0)
+TextBox_4.Size = UDim2.new(0, 155, 0, 29)
+TextBox_4.Font = Enum.Font.SourceSans
+TextBox_4.Text = "Delete block here you stay"
+TextBox_4.TextColor3 = Color3.new(0, 0, 0)
+TextBox_4.TextSize = 14
+
+Openframe.Name = "Open frame"
+Openframe.Parent = Withergui
+Openframe.BackgroundColor3 = Color3.new(1, 0.843137, 0.521569)
+Openframe.Position = UDim2.new(0, 0, 0.490364015, 0)
+Openframe.Size = UDim2.new(0, 149, 0, 18)
+
+TextBox_5.Parent = Openframe
+TextBox_5.BackgroundColor3 = Color3.new(1, 0, 0.0156863)
+TextBox_5.Position = UDim2.new(0.42281878, 0, 1, 0)
+TextBox_5.Size = UDim2.new(0, 86, 0, 50)
+TextBox_5.Font = Enum.Font.SourceSans
+TextBox_5.Text = "Thanks for using"
+TextBox_5.TextColor3 = Color3.new(0, 0, 0)
+TextBox_5.TextSize = 14
+
+Opengui.Name = "Open gui"
+Opengui.Parent = Openframe
+Opengui.BackgroundColor3 = Color3.new(0.411765, 1, 0.45098)
+Opengui.Position = UDim2.new(0.0536912754, 0, 0, 0)
+Opengui.Size = UDim2.new(0, 133, 0, 18)
+Opengui.Font = Enum.Font.SourceSans
+Opengui.Text = "Open"
+Opengui.TextColor3 = Color3.new(0, 0, 0)
+Opengui.TextSize = 14
+Opengui.MouseButton1Down:connect(function()
+Mineverseguiframe.Visible = true
+Openframe.Visible = false
+end)
+ 

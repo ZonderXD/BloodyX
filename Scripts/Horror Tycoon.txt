@@ -1,0 +1,371 @@
+-- Gui to Lua
+-- Version: 3
+
+-- Instances:
+
+local HorrorStoryTycoonHax = Instance.new("ScreenGui")
+local Main = Instance.new("Frame")
+local EZSAS = Instance.new("Frame")
+local InfCash = Instance.new("TextButton")
+local DeleteMap = Instance.new("TextButton")
+local Remotes = Instance.new("TextLabel")
+local Main2 = Instance.new("Frame")
+local EZSAS2 = Instance.new("Frame")
+local Gears = Instance.new("TextLabel")
+local Deagle = Instance.new("TextButton")
+local SegwayHoverBoard = Instance.new("TextButton")
+local BodySwapPotion = Instance.new("TextButton")
+local InfinityGauntlet = Instance.new("TextButton")
+local RocketLauncher = Instance.new("TextButton")
+local RainbowCarpet = Instance.new("TextButton")
+local Boombox = Instance.new("TextButton")
+local GravityCoil = Instance.new("TextButton")
+local AttackDoge = Instance.new("TextButton")
+local Main3 = Instance.new("Frame")
+local EZSAS3 = Instance.new("Frame")
+local Credits = Instance.new("TextLabel")
+local GUI = Instance.new("TextLabel")
+local SCRIPTER = Instance.new("TextLabel")
+local CopyButton = Instance.new("TextButton")
+
+--Properties:
+
+HorrorStoryTycoonHax.Name = "Horror Story Tycoon Hax"
+HorrorStoryTycoonHax.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+
+Main.Name = "Main"
+Main.Parent = HorrorStoryTycoonHax
+Main.BackgroundColor3 = Color3.new(0.258824, 0.258824, 0.258824)
+Main.BorderSizePixel = 0
+Main.Position = UDim2.new(0.123745821, 0, 0.16747573, 0)
+Main.Size = UDim2.new(0, 102, 0, 222)
+Main.Active = true
+Main.Draggable = true
+
+EZSAS.Name = "EZSAS"
+EZSAS.Parent = Main
+EZSAS.BackgroundColor3 = Color3.new(1, 0, 1)
+EZSAS.BorderSizePixel = 0
+EZSAS.Position = UDim2.new(0.0196078438, 0, 0.166666657, 0)
+EZSAS.Size = UDim2.new(0, 100, 0, 1)
+
+InfCash.Name = "Inf Cash"
+InfCash.Parent = Main
+InfCash.BackgroundColor3 = Color3.new(0.258824, 0.258824, 0.258824)
+InfCash.BorderSizePixel = 0
+InfCash.Position = UDim2.new(0.0196078438, 0, 0.202702716, 0)
+InfCash.Size = UDim2.new(0, 100, 0, 66)
+InfCash.Font = Enum.Font.Gotham
+InfCash.Text = "Inf Cash"
+InfCash.TextColor3 = Color3.new(0, 1, 0)
+InfCash.TextScaled = true
+InfCash.TextSize = 14
+InfCash.TextWrapped = true
+InfCash.MouseButton1Down:connect(function()
+	local A_1 = "Cash"
+local A_2 = math.huge
+local Event = game:GetService("ReplicatedStorage").Events.CrateClaim
+Event:FireServer(A_1, A_2)
+end)
+
+DeleteMap.Name = "Delete Map"
+DeleteMap.Parent = Main
+DeleteMap.BackgroundColor3 = Color3.new(0.258824, 0.258824, 0.258824)
+DeleteMap.BorderSizePixel = 0
+DeleteMap.Position = UDim2.new(0.0196078438, 0, 0.608108103, 0)
+DeleteMap.Size = UDim2.new(0, 100, 0, 66)
+DeleteMap.Font = Enum.Font.Gotham
+DeleteMap.Text = "Delete Map"
+DeleteMap.TextColor3 = Color3.new(1, 0.333333, 0)
+DeleteMap.TextScaled = true
+DeleteMap.TextSize = 14
+DeleteMap.TextWrapped = true
+DeleteMap.MouseButton1Down:connect(function()
+	for i,v in pairs(game.Workspace:GetChildren()) do
+                       if not v:IsA("Part") or not v:IsA("Camera") or not v:IsA("Terrain") then
+                           game.ReplicatedStorage.Events.destryObj:FireServer(v)
+                       end
+                   end
+end)
+
+Remotes.Name = "Remotes"
+Remotes.Parent = Main
+Remotes.BackgroundColor3 = Color3.new(0.258824, 0.258824, 0.258824)
+Remotes.BorderSizePixel = 0
+Remotes.Size = UDim2.new(0, 102, 0, 35)
+Remotes.Font = Enum.Font.SourceSansSemibold
+Remotes.Text = "Remotes"
+Remotes.TextColor3 = Color3.new(0.333333, 0.666667, 0.498039)
+Remotes.TextScaled = true
+Remotes.TextSize = 14
+Remotes.TextWrapped = true
+
+Main2.Name = "Main2"
+Main2.Parent = HorrorStoryTycoonHax
+Main2.BackgroundColor3 = Color3.new(0.258824, 0.258824, 0.258824)
+Main2.BorderSizePixel = 0
+Main2.Position = UDim2.new(0.238294318, 0, 0.16747573, 0)
+Main2.Size = UDim2.new(0, 102, 0, 382)
+Main2.Active = true
+Main2.Draggable = true
+
+EZSAS2.Name = "EZSAS2"
+EZSAS2.Parent = Main2
+EZSAS2.BackgroundColor3 = Color3.new(1, 0, 1)
+EZSAS2.BorderSizePixel = 0
+EZSAS2.Position = UDim2.new(0.0196078438, 0, 0.0986038297, 0)
+EZSAS2.Size = UDim2.new(0, 100, 0, 1)
+
+Gears.Name = "Gears"
+Gears.Parent = Main2
+Gears.BackgroundColor3 = Color3.new(0.258824, 0.258824, 0.258824)
+Gears.BorderSizePixel = 0
+Gears.Size = UDim2.new(0, 102, 0, 35)
+Gears.Font = Enum.Font.SourceSansSemibold
+Gears.Text = "Gears"
+Gears.TextColor3 = Color3.new(0.333333, 0.333333, 0.498039)
+Gears.TextScaled = true
+Gears.TextSize = 14
+Gears.TextWrapped = true
+
+Deagle.Name = "Deagle"
+Deagle.Parent = Main2
+Deagle.BackgroundColor3 = Color3.new(0.258824, 0.258824, 0.258824)
+Deagle.BorderSizePixel = 0
+Deagle.Position = UDim2.new(0, 0, 0.117801048, 0)
+Deagle.Size = UDim2.new(0, 102, 0, 38)
+Deagle.Font = Enum.Font.Gotham
+Deagle.Text = "Deagle"
+Deagle.TextColor3 = Color3.new(0.666667, 0.333333, 0)
+Deagle.TextScaled = true
+Deagle.TextSize = 14
+Deagle.TextWrapped = true
+Deagle.MouseButton1Down:connect(function()
+	local A_1 = "Gear"
+local A_2 = game:GetService("ReplicatedStorage").BoxItems.Deagle
+local Event = game:GetService("ReplicatedStorage").Events.CrateClaim
+Event:FireServer(A_1, A_2)
+end)
+
+SegwayHoverBoard.Name = "SegwayHoverBoard"
+SegwayHoverBoard.Parent = Main2
+SegwayHoverBoard.BackgroundColor3 = Color3.new(0.258824, 0.258824, 0.258824)
+SegwayHoverBoard.BorderSizePixel = 0
+SegwayHoverBoard.Position = UDim2.new(0, 0, 0.217277497, 0)
+SegwayHoverBoard.Size = UDim2.new(0, 102, 0, 38)
+SegwayHoverBoard.Font = Enum.Font.Gotham
+SegwayHoverBoard.Text = "Segway HoverBoard"
+SegwayHoverBoard.TextColor3 = Color3.new(1, 0, 0)
+SegwayHoverBoard.TextScaled = true
+SegwayHoverBoard.TextSize = 14
+SegwayHoverBoard.TextWrapped = true
+SegwayHoverBoard.MouseButton1Down:connect(function()
+	local A_1 = "Gear"
+local A_2 = game:GetService("Lighting").SegwayHoverboard
+local Event = game:GetService("ReplicatedStorage").Events.CrateClaim
+Event:FireServer(A_1, A_2)
+end)
+
+BodySwapPotion.Name = "BodySwapPotion"
+BodySwapPotion.Parent = Main2
+BodySwapPotion.BackgroundColor3 = Color3.new(0.258824, 0.258824, 0.258824)
+BodySwapPotion.BorderSizePixel = 0
+BodySwapPotion.Position = UDim2.new(0, 0, 0.316753924, 0)
+BodySwapPotion.Size = UDim2.new(0, 102, 0, 38)
+BodySwapPotion.Font = Enum.Font.Gotham
+BodySwapPotion.Text = "BodySwap Potion"
+BodySwapPotion.TextColor3 = Color3.new(1, 0.666667, 0.498039)
+BodySwapPotion.TextScaled = true
+BodySwapPotion.TextSize = 14
+BodySwapPotion.TextWrapped = true
+BodySwapPotion.MouseButton1Down:connect(function()
+	local A_1 = "Gear"
+local A_2 = game:GetService("Lighting").BodySwapPotion
+local Event = game:GetService("ReplicatedStorage").Events.CrateClaim
+Event:FireServer(A_1, A_2)
+end)
+
+InfinityGauntlet.Name = "InfinityGauntlet"
+InfinityGauntlet.Parent = Main2
+InfinityGauntlet.BackgroundColor3 = Color3.new(0.258824, 0.258824, 0.258824)
+InfinityGauntlet.BorderSizePixel = 0
+InfinityGauntlet.Position = UDim2.new(0, 0, 0.416230381, 0)
+InfinityGauntlet.Size = UDim2.new(0, 102, 0, 38)
+InfinityGauntlet.Font = Enum.Font.Gotham
+InfinityGauntlet.Text = "Infinity Gauntlet"
+InfinityGauntlet.TextColor3 = Color3.new(1, 0.666667, 1)
+InfinityGauntlet.TextScaled = true
+InfinityGauntlet.TextSize = 14
+InfinityGauntlet.TextWrapped = true
+InfinityGauntlet.MouseButton1Down:connect(function()
+	local A_1 = "Gear"
+local A_2 = game:GetService("Lighting").InfinityGauntlet
+local Event = game:GetService("ReplicatedStorage").Events.CrateClaim
+Event:FireServer(A_1, A_2)
+end)
+
+RocketLauncher.Name = "RocketLauncher"
+RocketLauncher.Parent = Main2
+RocketLauncher.BackgroundColor3 = Color3.new(0.258824, 0.258824, 0.258824)
+RocketLauncher.BorderSizePixel = 0
+RocketLauncher.Position = UDim2.new(0, 0, 0.515706837, 0)
+RocketLauncher.Size = UDim2.new(0, 102, 0, 38)
+RocketLauncher.Font = Enum.Font.Gotham
+RocketLauncher.Text = "Rocket Launcher"
+RocketLauncher.TextColor3 = Color3.new(0.333333, 0.666667, 1)
+RocketLauncher.TextScaled = true
+RocketLauncher.TextSize = 14
+RocketLauncher.TextWrapped = true
+RocketLauncher.MouseButton1Down:connect(function()
+	local A_1 = "Gear"
+local A_2 = game:GetService("Lighting").BigRocketLauncher
+local Event = game:GetService("ReplicatedStorage").Events.CrateClaim
+Event:FireServer(A_1, A_2)
+end)
+
+RainbowCarpet.Name = "RainbowCarpet"
+RainbowCarpet.Parent = Main2
+RainbowCarpet.BackgroundColor3 = Color3.new(0.258824, 0.258824, 0.258824)
+RainbowCarpet.BorderSizePixel = 0
+RainbowCarpet.Position = UDim2.new(0, 0, 0.615183294, 0)
+RainbowCarpet.Size = UDim2.new(0, 102, 0, 38)
+RainbowCarpet.Font = Enum.Font.Gotham
+RainbowCarpet.Text = "Rainbow Carpet"
+RainbowCarpet.TextColor3 = Color3.new(1, 0.333333, 0.498039)
+RainbowCarpet.TextScaled = true
+RainbowCarpet.TextSize = 14
+RainbowCarpet.TextWrapped = true
+RainbowCarpet.MouseButton1Down:connect(function()
+	local A_1 = "Gear"
+local A_2 = game:GetService("Lighting").RainbowMagicCarpet
+local Event = game:GetService("ReplicatedStorage").Events.CrateClaim
+Event:FireServer(A_1, A_2)
+end)
+
+Boombox.Name = "Boombox"
+Boombox.Parent = Main2
+Boombox.BackgroundColor3 = Color3.new(0.258824, 0.258824, 0.258824)
+Boombox.BorderSizePixel = 0
+Boombox.Position = UDim2.new(0, 0, 0.71465975, 0)
+Boombox.Size = UDim2.new(0, 102, 0, 38)
+Boombox.Font = Enum.Font.Gotham
+Boombox.Text = "Boombox"
+Boombox.TextColor3 = Color3.new(1, 1, 0)
+Boombox.TextScaled = true
+Boombox.TextSize = 14
+Boombox.TextWrapped = true
+Boombox.MouseButton1Down:connect(function()
+	local A_1 = "Gear"
+local A_2 = game:GetService("Lighting").SuperFlyGoldBoombox
+local Event = game:GetService("ReplicatedStorage").Events.CrateClaim
+Event:FireServer(A_1, A_2)
+end)
+
+GravityCoil.Name = "GravityCoil"
+GravityCoil.Parent = Main2
+GravityCoil.BackgroundColor3 = Color3.new(0.258824, 0.258824, 0.258824)
+GravityCoil.BorderSizePixel = 0
+GravityCoil.Position = UDim2.new(0, 0, 0.814136207, 0)
+GravityCoil.Size = UDim2.new(0, 102, 0, 38)
+GravityCoil.Font = Enum.Font.Gotham
+GravityCoil.Text = "Gravity Coil"
+GravityCoil.TextColor3 = Color3.new(0, 0, 1)
+GravityCoil.TextScaled = true
+GravityCoil.TextSize = 14
+GravityCoil.TextWrapped = true
+GravityCoil.MouseButton1Down:connect(function()
+	local A_1 = "Gear"
+local A_2 = game:GetService("Lighting").Coil
+local Event = game:GetService("ReplicatedStorage").Events.CrateClaim
+Event:FireServer(A_1, A_2)
+end)
+
+AttackDoge.Name = "AttackDoge"
+AttackDoge.Parent = Main2
+AttackDoge.BackgroundColor3 = Color3.new(0.258824, 0.258824, 0.258824)
+AttackDoge.BorderSizePixel = 0
+AttackDoge.Position = UDim2.new(0, 0, 0.913612664, 0)
+AttackDoge.Size = UDim2.new(0, 102, 0, 32)
+AttackDoge.Font = Enum.Font.Gotham
+AttackDoge.Text = "Attack Doge"
+AttackDoge.TextColor3 = Color3.new(1, 0.666667, 0)
+AttackDoge.TextScaled = true
+AttackDoge.TextSize = 14
+AttackDoge.TextWrapped = true
+AttackDoge.MouseButton1Down:connect(function()
+	local A_1 = "Gear"
+local A_2 = game:GetService("Lighting").AttackDoge
+local Event = game:GetService("ReplicatedStorage").Events.CrateClaim
+Event:FireServer(A_1, A_2)
+end)
+
+Main3.Name = "Main3"
+Main3.Parent = HorrorStoryTycoonHax
+Main3.BackgroundColor3 = Color3.new(0.258824, 0.258824, 0.258824)
+Main3.BorderSizePixel = 0
+Main3.Position = UDim2.new(0.376254201, 0, 0.16747573, 0)
+Main3.Size = UDim2.new(0, 102, 0, 267)
+Main3.Active = true
+Main3.Draggable = true
+
+EZSAS3.Name = "EZSAS3"
+EZSAS3.Parent = Main3
+EZSAS3.BackgroundColor3 = Color3.new(1, 0, 1)
+EZSAS3.BorderSizePixel = 0
+EZSAS3.Position = UDim2.new(0.0196078438, 0, 0.132311702, 0)
+EZSAS3.Size = UDim2.new(0, 100, 0, 1)
+
+Credits.Name = "Credits"
+Credits.Parent = Main3
+Credits.BackgroundColor3 = Color3.new(0.258824, 0.258824, 0.258824)
+Credits.BorderSizePixel = 0
+Credits.Position = UDim2.new(-2.99191953e-07, 0, 0, 0)
+Credits.Size = UDim2.new(0, 102, 0, 32)
+Credits.Font = Enum.Font.SourceSansSemibold
+Credits.Text = "Credits"
+Credits.TextColor3 = Color3.new(0.666667, 0, 1)
+Credits.TextScaled = true
+Credits.TextSize = 14
+Credits.TextWrapped = true
+
+GUI.Name = "GUI"
+GUI.Parent = Main3
+GUI.BackgroundColor3 = Color3.new(0.258824, 0.258824, 0.258824)
+GUI.BorderSizePixel = 0
+GUI.Position = UDim2.new(-2.99191953e-07, 0, 0.19850187, 0)
+GUI.Size = UDim2.new(0, 102, 0, 50)
+GUI.Font = Enum.Font.SourceSansSemibold
+GUI.Text = "GUI: Joper#2362"
+GUI.TextColor3 = Color3.new(0.666667, 0.333333, 1)
+GUI.TextScaled = true
+GUI.TextSize = 14
+GUI.TextWrapped = true
+
+SCRIPTER.Name = "SCRIPTER"
+SCRIPTER.Parent = Main3
+SCRIPTER.BackgroundColor3 = Color3.new(0.258824, 0.258824, 0.258824)
+SCRIPTER.BorderSizePixel = 0
+SCRIPTER.Position = UDim2.new(-2.99191953e-07, 0, 0.505617976, 0)
+SCRIPTER.Size = UDim2.new(0, 102, 0, 50)
+SCRIPTER.Font = Enum.Font.SourceSansSemibold
+SCRIPTER.Text = "SCRIPTER: SUMER#9501"
+SCRIPTER.TextColor3 = Color3.new(0.666667, 0.333333, 1)
+SCRIPTER.TextScaled = true
+SCRIPTER.TextSize = 14
+SCRIPTER.TextWrapped = true
+
+CopyButton.Name = "CopyButton"
+CopyButton.Parent = Main3
+CopyButton.BackgroundColor3 = Color3.new(0.258824, 0.258824, 0.258824)
+CopyButton.BorderSizePixel = 0
+CopyButton.Position = UDim2.new(-2.99191953e-07, 0, 0.782771528, 0)
+CopyButton.Size = UDim2.new(0, 102, 0, 42)
+CopyButton.Font = Enum.Font.Gotham
+CopyButton.Text = "Copy YouTube Dinosaur XxX"
+CopyButton.TextColor3 = Color3.new(0.666667, 0.333333, 1)
+CopyButton.TextScaled = true
+CopyButton.TextSize = 14
+CopyButton.TextWrapped = true
+CopyButton.MouseButton1Down:connect(function()
+	setclipboard("https://www.youtube.com/channel/UChD-JuvnGqY3PB-0aEUurpA?view_as=subscriber")
+end)

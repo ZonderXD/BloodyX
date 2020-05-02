@@ -1,0 +1,520 @@
+-- Farewell Infortality.
+-- Version: 2.82
+-- Instances:
+local onepieceGrandTrail = Instance.new("ScreenGui")
+local Frame = Instance.new("Frame")
+local TextLabel = Instance.new("TextLabel")
+local TextLabel_2 = Instance.new("TextLabel")
+local TextLabel_3 = Instance.new("TextLabel")
+local TextLabel_4 = Instance.new("TextLabel")
+local autofarm = Instance.new("TextButton")
+local kick = Instance.new("TextButton")
+local clicktp = Instance.new("TextButton")
+local autojoingamme = Instance.new("TextButton")
+local admin = Instance.new("TextButton")
+local title = Instance.new("TextButton")
+local title_2 = Instance.new("TextButton")
+local title_3 = Instance.new("TextButton")
+local darkdevs = Instance.new("TextButton")
+local killeneimes = Instance.new("TextButton")
+local skiddfarm = Instance.new("TextButton")
+local title_4 = Instance.new("TextButton")
+--Properties:
+onepieceGrandTrail.Name = "one piece Grand Trail"
+onepieceGrandTrail.Parent = game.CoreGui
+onepieceGrandTrail.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+Frame.Parent = onepieceGrandTrail
+Frame.BackgroundColor3 = Color3.new(0.666667, 0.333333, 0)
+Frame.BackgroundTransparency = 0.5
+Frame.BorderColor3 = Color3.new(0, 0, 0)
+Frame.BorderSizePixel = 5
+Frame.Position = UDim2.new(0.168431774, 0, 0.31122449, 0)
+Frame.Size = UDim2.new(0, 638, 0, 263)
+Frame.Active = true
+Frame.Draggable = true
+
+TextLabel.Parent = Frame
+TextLabel.BackgroundColor3 = Color3.new(1, 1, 1)
+TextLabel.BackgroundTransparency = 1
+TextLabel.Position = UDim2.new(-0.0351663269, 0, -0.0275978632, 0)
+TextLabel.Size = UDim2.new(0, 98, 0, 50)
+TextLabel.Font = Enum.Font.Fantasy
+TextLabel.Text = "R"
+TextLabel.TextColor3 = Color3.new(0.666667, 0, 0)
+TextLabel.TextSize = 50
+
+TextLabel_2.Parent = Frame
+TextLabel_2.BackgroundColor3 = Color3.new(1, 1, 1)
+TextLabel_2.BackgroundTransparency = 1
+TextLabel_2.Position = UDim2.new(0.0689635575, 0, -0.0275978632, 0)
+TextLabel_2.Size = UDim2.new(0, 98, 0, 50)
+TextLabel_2.Font = Enum.Font.Fantasy
+TextLabel_2.Text = "oblox"
+TextLabel_2.TextColor3 = Color3.new(0, 0, 0)
+TextLabel_2.TextSize = 50
+
+TextLabel_3.Parent = Frame
+TextLabel_3.BackgroundColor3 = Color3.new(1, 1, 1)
+TextLabel_3.BackgroundTransparency = 1
+TextLabel_3.Position = UDim2.new(0.857901812, 0, -0.0275978632, 0)
+TextLabel_3.Size = UDim2.new(0, 98, 0, 50)
+TextLabel_3.Font = Enum.Font.Fantasy
+TextLabel_3.Text = "ain"
+TextLabel_3.TextColor3 = Color3.new(0, 0, 0)
+TextLabel_3.TextSize = 50
+
+TextLabel_4.Parent = Frame
+TextLabel_4.BackgroundColor3 = Color3.new(1, 1, 1)
+TextLabel_4.BackgroundTransparency = 1
+TextLabel_4.Position = UDim2.new(0.784785867, 0, -0.0275978632, 0)
+TextLabel_4.Size = UDim2.new(0, 98, 0, 50)
+TextLabel_4.Font = Enum.Font.Fantasy
+TextLabel_4.Text = "P"
+TextLabel_4.TextColor3 = Color3.new(0.666667, 0, 0)
+TextLabel_4.TextSize = 50
+
+autofarm.Name = "autofarm"
+autofarm.Parent = Frame
+autofarm.BackgroundColor3 = Color3.new(1, 0.666667, 0.498039)
+autofarm.BorderColor3 = Color3.new(0, 0, 0)
+autofarm.BorderSizePixel = 5
+autofarm.Position = UDim2.new(0.0305984635, 0, 0.186242342, 0)
+autofarm.Size = UDim2.new(0, 171, 0, 27)
+autofarm.Font = Enum.Font.Fantasy
+autofarm.Text = "AutoFarm"
+autofarm.TextColor3 = Color3.new(0, 0, 0)
+autofarm.TextSize = 20
+autofarm.TextStrokeColor3 = Color3.new(0.666667, 0.333333, 0.498039)
+autofarm.MouseButton1Down:connect(function() 
+-- Won't Break And Won't Stop Until All Enemies Are Killed In The Dungeon
+-- Modilfy It If You Want
+_G.farm = true -- false to stop
+local plr = game.Players.LocalPlayer.Character.HumanoidRootPart 
+local sword = game:GetService("Workspace")[game.Players.LocalPlayer.Name]:FindFirstChildOfClass('Accessory')
+while _G.farm do
+wait()
+for _,v in pairs(game.Workspace:GetDescendants()) do
+if v:FindFirstChild("enemyNameplate") and v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") then
+plr.CFrame = CFrame.new(v.HumanoidRootPart.Position + Vector3.new(0,1,5),v.HumanoidRootPart.Position) 
+-- Reverse This To Spawn Them Infront Of You Instead Going Towards Them!
+local Path = sword.swing
+Path:FireServer()
+-- [[ local Path = game:GetService("Workspace")[game.Players.LocalPlayer.Name]:FindFirstChild('Fireball');Path.fireballShootEvent:FireServer() ]]
+end
+end
+end
+end)
+
+kick.Name = "kick"
+kick.Parent = Frame
+kick.BackgroundColor3 = Color3.new(1, 0.666667, 0.498039)
+kick.BorderColor3 = Color3.new(0, 0, 0)
+kick.BorderSizePixel = 5
+kick.Position = UDim2.new(0.361319363, 0, 0.357344985, 0)
+kick.Size = UDim2.new(0, 171, 0, 27)
+kick.Font = Enum.Font.Fantasy
+kick.Text = "Anti-AFK"
+kick.TextColor3 = Color3.new(0, 0, 0)
+kick.TextSize = 20
+kick.TextStrokeColor3 = Color3.new(0.666667, 0.333333, 0.498039)
+kick.MouseButton1Down:connect(function() 
+local getrawmetatable = getrawmetatable or debug.getmetatable
+local make_writeable = make_writeable or setreadonly or changereadonly or change_writeable
+make_writeable(getrawmetatable(game), false)
+local backup = getrawmetatable(game).__namecall
+getrawmetatable(game).__namecall = function(u, ...)
+   local m = ({...})[select('#', ...)]
+   local packed = {...}
+   local a = {}
+   for i = 1, #packed - 1 do
+       a[i] = packed[i]
+   end
+   if m == 'Kick' then
+       warn('Kick attempt at ' .. os.time() .. ' (' .. tostring(unpack(a)) .. ')')
+       return true
+   end
+   return backup and backup(u, ...) or u[m](u, unpack(a))
+end
+end)
+
+clicktp.Name = "click tp"
+clicktp.Parent = Frame
+clicktp.BackgroundColor3 = Color3.new(1, 0.666667, 0.498039)
+clicktp.BorderColor3 = Color3.new(0, 0, 0)
+clicktp.BorderSizePixel = 5
+clicktp.Position = UDim2.new(0.0305984318, 0, 0.35665369, 0)
+clicktp.Size = UDim2.new(0, 171, 0, 27)
+clicktp.Font = Enum.Font.Fantasy
+clicktp.Text = "Click TP"
+clicktp.TextColor3 = Color3.new(0, 0, 0)
+clicktp.TextSize = 20
+clicktp.TextStrokeColor3 = Color3.new(0.666667, 0.333333, 0.498039)
+clicktp.MouseButton1Down:connect(function() 
+local Player = game.Players.LocalPlayer
+local Mouse = Player:GetMouse()
+local UserInputService = game:GetService('UserInputService')
+
+local HoldingControl = false
+
+Mouse.Button1Down:connect(function()
+if HoldingControl then
+Player.Character:MoveTo(Mouse.Hit.p)
+end
+end)
+
+UserInputService.InputBegan:connect(function(Input, Processed)
+if Input.UserInputType == Enum.UserInputType.Keyboard then
+if Input.KeyCode == Enum.KeyCode.LeftControl then
+HoldingControl = true
+elseif Input.KeyCode == Enum.KeyCode.RightControl then
+HoldingControl = true 
+end
+end
+end)
+
+UserInputService.InputEnded:connect(function(Input, Processed)
+if Input.UserInputType == Enum.UserInputType.Keyboard then
+if Input.KeyCode == Enum.KeyCode.LeftControl then
+HoldingControl = false
+elseif Input.KeyCode == Enum.KeyCode.RightControl then
+HoldingControl = false
+end
+end
+end)
+end)
+
+autojoingamme.Name = "auto join gamme"
+autojoingamme.Parent = Frame
+autojoingamme.BackgroundColor3 = Color3.new(1, 0.666667, 0.498039)
+autojoingamme.BorderColor3 = Color3.new(0, 0, 0)
+autojoingamme.BorderSizePixel = 5
+autojoingamme.Position = UDim2.new(0.361319512, 0, 0.185551018, 0)
+autojoingamme.Size = UDim2.new(0, 171, 0, 27)
+autojoingamme.Font = Enum.Font.Fantasy
+autojoingamme.Text = "Auto Join Game"
+autojoingamme.TextColor3 = Color3.new(0, 0, 0)
+autojoingamme.TextSize = 20
+autojoingamme.TextStrokeColor3 = Color3.new(0.666667, 0.333333, 0.498039)
+autojoingamme.MouseButton1Down:connect(function() 
+--[[ 
+i love black men
+--]]
+
+wait(3)local a=game.Players.LocalPlayer;local b=a.leaderstats.Level.Value;local c=game:GetService('ReplicatedStorage').remotes.createLobby;local d=game.ReplicatedStorage.remotes.startDungeon;local e=game:GetService("ReplicatedStorage").remotes:FindFirstChild('changeStartValue')local function f(b)if b>=55 then c:InvokeServer('Winter Outpost','Nightmare',0,true,false)d:FireServer()elseif b>=33 then c:InvokeServer('Winter Outpost','Insane',0,true,false)d:FireServer()c:InvokeServer('Winter Outpost','Hard',0,true,false)d:FireServer()c:InvokeServer('Winter Outpost','Medium',0,true,false)d:FireServer()c:InvokeServer('Winter Outpost','Easy',0,true,false)d:FireServer()elseif b>=27 then c:InvokeServer('Desert Temple','Nightmare',0,true,false)d:FireServer()elseif b>=0 then c:InvokeServer('Desert Temple','Insane',0,true,false)d:FireServer()c:InvokeServer('Desert Temple','Hard',0,true,false)d:FireServer()c:InvokeServer('Desert Temple','Medium',0,true,false)d:FireServer()c:InvokeServer('Desert Temple','Easy',0,true,false)d:FireServer()end end;if workspace:FindFirstChild('games')then f(b)end;wait()local function g()if workspace:FindFirstChild('dungeon')then local h;local g=2e9;for i,j in pairs(workspace.dungeon:GetDescendants())do if j:FindFirstChild('Head')and j:FindFirstChild('Humanoid')then local k=(j.Head.Position-a.Character.HumanoidRootPart.Position).magnitude;if k<g then h=j;g=k end end end;return h end end;local function l()for i,j in next,workspace.dungeon:GetDescendants()do if j:FindFirstChild('Humanoid')and j:FindFirstChild('LeftUpperArm')and j:FindFirstChild('RightUpperArm')and j:FindFirstChild('RightLowerArm')and j:FindFirstChild('LeftLowerArm')and j:FindFirstChild('RightHand')and j:FindFirstChild('LeftHand')then j.LeftUpperArm:Destroy()j.RightUpperArm:Destroy()j.LeftLowerArm:Destroy()j.RightLowerArm:Destroy()j.LeftHand:Destroy()j.RightHand:Destroy()wait()end end end;local function m()if workspace:FindFirstChild('start')and workspace:FindFirstChild('start').Value==false then e:FireServer()l()wait()m()elseif workspace:FindFirstChild('start')and workspace:FindFirstChild('start').Value==true then game:GetService("RunService").RenderStepped:connect(function()if a.Character and a.Character:FindFirstChild('HumanoidRootPart')and a.Character:FindFirstChild(a.weaponEquipped.Value)then a.Character.HumanoidRootPart.CFrame=CFrame.new(g().HumanoidRootPart.Position-(6+0.25*1)*g().HumanoidRootPart.CFrame.lookVector+0.5*1*g().HumanoidRootPart.CFrame.upVector,g().HumanoidRootPart.Position)l()a.Character[a.weaponEquipped.Value].swing:FireServer()end end)end end;m()local n=game:GetService("TeleportService")while wait()do if workspace:FindFirstChild('dungeonProgress')and workspace:FindFirstChild('dungeonProgress').Value=='bossKilled'then wait(5)n:Teleport(2414851778,player)end;endwait(3)local o=game.Players.LocalPlayer;local p=o.leaderstats.Level.Value;local q=game:GetService('ReplicatedStorage').remotes.createLobby;local r=game.ReplicatedStorage.remotes.startDungeon;local s=game:GetService("ReplicatedStorage").remotes:FindFirstChild('changeStartValue')local function t(p)if p>=34 then q:InvokeServer('Winter Outpost','Insane',0,false,false)r:FireServer()q:InvokeServer('Winter Outpost','Hard',0,false,false)r:FireServer()q:InvokeServer('Winter Outpost','Medium',0,false,false)r:FireServer()q:InvokeServer('Winter Outpost','Easy',0,false,false)r:FireServer()elseif p>=27 then q:InvokeServer('Desert Temple','Nightmare',0,true,false)r:FireServer()elseif p>=0 then q:InvokeServer('Desert Temple','Insane',0,true,false)r:FireServer()q:InvokeServer('Desert Temple','Hard',0,true,false)r:FireServer()q:InvokeServer('Desert Temple','Medium',0,true,false)r:FireServer()q:InvokeServer('Desert Temple','Easy',0,true,false)r:FireServer()end end;if workspace:FindFirstChild('games')then t(p)end;wait()local function u()if workspace:FindFirstChild('dungeon')then local v;local u=2e9;for w,x in pairs(workspace.dungeon:GetDescendants())do if x:FindFirstChild('Head')and x:FindFirstChild('Humanoid')then local y=(x.Head.Position-o.Character.HumanoidRootPart.Position).magnitude;if y<u then v=x;u=y end end end;return v end end;local function z()for w,x in next,workspace.dungeon:GetDescendants()do if x:FindFirstChild('Humanoid')and x:FindFirstChild('LeftUpperArm')and x:FindFirstChild('RightUpperArm')and x:FindFirstChild('RightLowerArm')and x:FindFirstChild('LeftLowerArm')and x:FindFirstChild('RightHand')and x:FindFirstChild('LeftHand')then x.LeftUpperArm:Destroy()x.RightUpperArm:Destroy()x.LeftLowerArm:Destroy()x.RightLowerArm:Destroy()x.LeftHand:Destroy()x.RightHand:Destroy()wait()end end end;local function A()if workspace:FindFirstChild('start')and workspace:FindFirstChild('start').Value==false then s:FireServer()z()wait()A()elseif workspace:FindFirstChild('start')and workspace:FindFirstChild('start').Value==true then game:GetService("RunService").RenderStepped:connect(function()if o.Character and o.Character:FindFirstChild('HumanoidRootPart')and o.Character:FindFirstChild(o.weaponEquipped.Value)then o.Character.HumanoidRootPart.CFrame=CFrame.new(u().HumanoidRootPart.Position-(6+0.25*1)*u().HumanoidRootPart.CFrame.lookVector+0.5*1*u().HumanoidRootPart.CFrame.upVector,u().HumanoidRootPart.Position)z()o.Character[o.weaponEquipped.Value].swing:FireServer()end end)end end;A()local B=game:GetService("TeleportService")while wait()do if workspace:FindFirstChild('dungeonProgress')and workspace:FindFirstChild('dungeonProgress').Value=='bossKilled'then wait(5)B:Teleport(2414851778,player)end end end 
+end)
+
+admin.Name = "admin"
+admin.Parent = Frame
+admin.BackgroundColor3 = Color3.new(1, 0.666667, 0.498039)
+admin.BorderColor3 = Color3.new(0, 0, 0)
+admin.BorderSizePixel = 5
+admin.Position = UDim2.new(0.696742654, 0, 0.183461994, 0)
+admin.Size = UDim2.new(0, 171, 0, 27)
+admin.Font = Enum.Font.Fantasy
+admin.Text = "Admin"
+admin.TextColor3 = Color3.new(0, 0, 0)
+admin.TextSize = 20
+admin.TextStrokeColor3 = Color3.new(0.666667, 0.333333, 0.498039)
+
+title.Name = "title"
+title.Parent = Frame
+title.BackgroundColor3 = Color3.new(1, 0.666667, 0.498039)
+title.BackgroundTransparency = 1
+title.BorderColor3 = Color3.new(0, 0, 0)
+title.BorderSizePixel = 5
+title.Position = UDim2.new(0.361319512, 0, 0.805322886, 0)
+title.Size = UDim2.new(0, 171, 0, 27)
+title.Font = Enum.Font.Fantasy
+title.Text = "UNGEON QUEST"
+title.TextColor3 = Color3.new(0, 0, 0)
+title.TextSize = 80
+title.TextStrokeColor3 = Color3.new(0.666667, 0.333333, 0.498039)
+
+title_2.Name = "title"
+title_2.Parent = Frame
+title_2.BackgroundColor3 = Color3.new(1, 0.666667, 0.498039)
+title_2.BackgroundTransparency = 1
+title_2.BorderColor3 = Color3.new(0, 0, 0)
+title_2.BorderSizePixel = 5
+title_2.Position = UDim2.new(-0.1041978, 0, 0.805322886, 0)
+title_2.Size = UDim2.new(0, 171, 0, 27)
+title_2.Font = Enum.Font.Fantasy
+title_2.Text = "D"
+title_2.TextColor3 = Color3.new(0.666667, 0, 0)
+title_2.TextSize = 80
+title_2.TextStrokeColor3 = Color3.new(0.666667, 0.333333, 0.498039)
+
+title_3.Name = "title"
+title_3.Parent = Frame
+title_3.BackgroundColor3 = Color3.new(1, 0.666667, 0.498039)
+title_3.BackgroundTransparency = 1
+title_3.BorderColor3 = Color3.new(0, 0, 0)
+title_3.BorderSizePixel = 5
+title_3.Position = UDim2.new(0.381695688, 0, 0.0579866767, 0)
+title_3.Size = UDim2.new(0, 171, 0, 27)
+title_3.Font = Enum.Font.Fantasy
+title_3.Text = "Mass Firing More Rest More Firing"
+title_3.TextColor3 = Color3.new(0, 1, 1)
+title_3.TextSize = 20
+title_3.TextStrokeColor3 = Color3.new(0.666667, 0.333333, 0.498039)
+
+darkdevs.Name = "Po_kex"
+darkdevs.Parent = Frame
+darkdevs.BackgroundColor3 = Color3.new(1, 0.666667, 0.498039)
+darkdevs.BorderColor3 = Color3.new(0, 0, 0)
+darkdevs.BorderSizePixel = 5
+darkdevs.Position = UDim2.new(0.696742713, 0, 0.36045593, 0)
+darkdevs.Size = UDim2.new(0, 171, 0, 27)
+darkdevs.Font = Enum.Font.Fantasy
+darkdevs.Text = "Tab Gui"
+darkdevs.TextColor3 = Color3.new(0, 0, 0)
+darkdevs.TextSize = 20
+darkdevs.TextStrokeColor3 = Color3.new(0.666667, 0.333333, 0.498039)
+darkdevs.MouseButton1Down:connect(function() 
+
+
+game:GetService("StarterGui"):SetCore("SendNotification", {Title = "ThotScripter On V3rm", Text = "This Is Just An Un-Official Verison!"})
+local gui = Instance.new("ScreenGui")
+local Main = Instance.new("Frame")
+local main2 = Instance.new("Frame")
+local aura = Instance.new("TextButton")
+local upgrade = Instance.new("TextButton")
+local mobs = Instance.new("TextButton")
+local lobby = Instance.new("TextButton")
+local name = Instance.new("TextLabel")
+local name_2 = Instance.new("TextLabel")
+local credit = Instance.new("TextLabel")
+
+gui.Name = "gui"
+gui.Parent = game.CoreGui
+
+Main.Name = "Main"
+Main.Active = true
+Main.Draggable = true
+Main.Parent = gui
+Main.BackgroundColor3 = Color3.new(0.223529, 0.223529, 0.223529)
+Main.Position = UDim2.new(0.431293875, 0, 0.410358638, 0)
+Main.Size = UDim2.new(0, 245, 0, 161)
+
+main2.Name = "main2"
+main2.Parent = Main
+main2.BackgroundColor3 = Color3.new(0.141176, 0.141176, 0.141176)
+main2.Position = UDim2.new(0.0244897958, 0, 0.20184648, 0)
+main2.Size = UDim2.new(0, 233, 0, 122)
+
+aura.Name = "aura"
+aura.Parent = main2
+aura.BackgroundColor3 = Color3.new(0.184314, 0.184314, 0.184314)
+aura.BorderSizePixel = 0
+aura.Position = UDim2.new(0.0600858368, 0, 0.0921052694, 0)
+aura.Size = UDim2.new(0, 202, 0, 15)
+aura.Font = Enum.Font.Fantasy
+aura.Text = "Attack Aura | Sword"
+aura.TextColor3 = Color3.new(1, 1, 1)
+aura.TextSize = 14
+
+upgrade.Name = "upgrade"
+upgrade.Parent = main2
+upgrade.BackgroundColor3 = Color3.new(0.184314, 0.184314, 0.184314)
+upgrade.BorderSizePixel = 0
+upgrade.Position = UDim2.new(0.0600858331, 0, 0.331967205, 0)
+upgrade.Size = UDim2.new(0, 202, 0, 15)
+upgrade.Font = Enum.Font.Fantasy
+upgrade.Text = "Auto Upgrade"
+upgrade.TextColor3 = Color3.new(1, 1, 1)
+upgrade.TextSize = 14
+
+mobs.Name = "mobs"
+mobs.Parent = main2
+mobs.BackgroundColor3 = Color3.new(0.184314, 0.184314, 0.184314)
+mobs.BorderSizePixel = 0
+mobs.Position = UDim2.new(0.0600858331, 0, 0.562122524, 0)
+mobs.Size = UDim2.new(0, 202, 0, 15)
+mobs.Font = Enum.Font.Fantasy
+mobs.Text = "Kill All Mobs | Dungeon"
+mobs.TextColor3 = Color3.new(1, 1, 1)
+mobs.TextSize = 14
+
+lobby.Name = "lobby"
+lobby.Parent = main2
+lobby.BackgroundColor3 = Color3.new(0.184314, 0.184314, 0.184314)
+lobby.BorderSizePixel = 0
+lobby.Position = UDim2.new(0.0600858331, 0, 0.782355487, 0)
+lobby.Size = UDim2.new(0, 202, 0, 15)
+lobby.Font = Enum.Font.Fantasy
+lobby.Text = "Auto Create Lobby | Start"
+lobby.TextColor3 = Color3.new(1, 1, 1)
+lobby.TextSize = 14
+
+name.Name = "name"
+name.Parent = Main
+name.BackgroundColor3 = Color3.new(1, 1, 1)
+name.BackgroundTransparency = 1
+name.Size = UDim2.new(0, 26, 0, 26)
+name.Font = Enum.Font.GothamBold
+name.Text = "D"
+name.TextColor3 = Color3.new(0.705882, 0, 0.0117647)
+name.TextSize = 18
+
+name_2.Name = "name"
+name_2.Parent = Main
+name_2.BackgroundColor3 = Color3.new(1, 1, 1)
+name_2.BackgroundTransparency = 1
+name_2.Position = UDim2.new(0.0816326514, 0, 0, 0)
+name_2.Size = UDim2.new(0, 78, 0, 26)
+name_2.Font = Enum.Font.GothamBold
+name_2.Text = "ark Devs"
+name_2.TextColor3 = Color3.new(0.635294, 0.631373, 0.631373)
+name_2.TextSize = 18
+name_2.TextXAlignment = Enum.TextXAlignment.Left
+
+credit.Name = "credit"
+credit.Parent = Main
+credit.BackgroundColor3 = Color3.new(1, 1, 1)
+credit.BackgroundTransparency = 1
+credit.Position = UDim2.new(0.612244904, 0, 0.059459459, 0)
+credit.Size = UDim2.new(0, 95, 0, 15)
+credit.Font = Enum.Font.SourceSans
+credit.Text = "Created By FunTratOr"
+credit.TextColor3 = Color3.new(1, 1, 1)
+credit.TextSize = 10
+
+upgrade.MouseButton1Down:connect(function()
+	while true do
+		wait()
+local Arg1 = "weapon"
+local Arg2 = 1
+local Arg3 = "physical"
+local Path = game:GetService("ReplicatedStorage").remotes.upgradeItem
+Path:FireServer(Arg1, Arg2, Arg3)
+end
+end)
+
+lobby.MouseButton1Down:connect(function()
+	local Arg1 = "Desert Temple"
+local lobby = "Easy" -- Medium, Hard, Insane
+local Arg3 = 1 -- level needed to join
+local Arg4 = false -- if want it private, make this true
+local Arg5 = false
+local Path = game:GetService("ReplicatedStorage").remotes.createLobby
+Path:InvokeServer(Arg1, lobby, Arg3, Arg4, Arg5)
+wait(2) -- change the wait to more if you want some people to join you!
+local Event = game:GetService("ReplicatedStorage").remotes.startDungeon
+Event:FireServer()
+end)
+
+aura.MouseButton1Down:connect(function()
+	game:GetService('RunService').RenderStepped:connect(function()
+		wait()
+	local sword = game:GetService("Workspace")[game.Players.LocalPlayer.Name]:FindFirstChildOfClass('Accessory')
+local Path = sword.swing
+Path:FireServer() end)
+end)
+
+mobs.MouseButton1Down:connect(function()
+	-- Won't Break And Won't Stop Until All Enemies Are Killed In The Dungeon
+-- Modilfy It If You Want
+_G.farm = true -- false to stop
+local plr = game.Players.LocalPlayer.Character.HumanoidRootPart 
+local sword = game:GetService("Workspace")[game.Players.LocalPlayer.Name]:FindFirstChildOfClass('Accessory')
+while _G.farm do
+wait()
+for _,v in pairs(game.Workspace:GetDescendants()) do
+if v:FindFirstChild("enemyNameplate") and v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") then
+plr.CFrame = CFrame.new(v.HumanoidRootPart.Position + Vector3.new(0,1,5),v.HumanoidRootPart.Position) 
+-- Reverse This To Spawn Them Infront Of You Instead Going Towards Them!
+local Path = sword.swing
+Path:FireServer()
+-- [[ local Path = game:GetService("Workspace")[game.Players.LocalPlayer.Name]:FindFirstChild('Fireball');Path.fireballShootEvent:FireServer() ]]
+end
+end
+end
+end)
+end)
+
+killeneimes.Name = "kill eneimes"
+killeneimes.Parent = Frame
+killeneimes.BackgroundColor3 = Color3.new(1, 0.666667, 0.498039)
+killeneimes.BorderColor3 = Color3.new(0, 0, 0)
+killeneimes.BorderSizePixel = 5
+killeneimes.Position = UDim2.new(0.696742713, 0, 0.523954093, 0)
+killeneimes.Size = UDim2.new(0, 171, 0, 27)
+killeneimes.Font = Enum.Font.Fantasy
+killeneimes.Text = "Kill Enimies (Z)"
+killeneimes.TextColor3 = Color3.new(0, 0, 0)
+killeneimes.TextSize = 20
+killeneimes.TextStrokeColor3 = Color3.new(0.666667, 0.333333, 0.498039)
+killeneimes.MouseButton1Down:connect(function() 
+local uis = game:GetService("UserInputService")
+game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 40
+
+uis.InputBegan:Connect(function(k, gp)
+    if k.KeyCode == Enum.KeyCode.Z and not gp then
+        for i,v in pairs(workspace:GetDescendants()) do
+            if v:FindFirstChild("Humanoid") and v ~= game.Players.LocalPlayer.Character then
+                local myPart = game.Players.LocalPlayer.Character.UpperTorso
+                local enemyPart = v:FindFirstChildWhichIsA("BasePart")
+                enemyPart.Anchored = true
+                local offset = Vector3.new(1.5, 1, -4)
+                spawn(function()
+                    while wait(.1) do
+                        if v.PrimaryPart and v.PrimaryPart:IsDescendantOf(workspace) then
+                            v:SetPrimaryPartCFrame(myPart.CFrame * CFrame.new(offset))
+                        else
+                            break
+                        end
+                    end
+                end)
+            end
+        end
+    end
+end)
+end)
+
+skiddfarm.Name = " UhFarm Every Mob?"
+skiddfarm.Parent = Frame
+skiddfarm.BackgroundColor3 = Color3.new(1, 0.666667, 0.498039)
+skiddfarm.BorderColor3 = Color3.new(0, 0, 0)
+skiddfarm.BorderSizePixel = 5
+skiddfarm.Position = UDim2.new(0.364454299, 0, 0.523954093, 0)
+skiddfarm.Size = UDim2.new(0, 171, 0, 27)
+skiddfarm.Font = Enum.Font.Fantasy
+skiddfarm.Text = "skidd auto farm"
+skiddfarm.TextColor3 = Color3.new(0, 0, 0)
+skiddfarm.TextSize = 20
+skiddfarm.TextStrokeColor3 = Color3.new(0.666667, 0.333333, 0.498039)
+skiddfarm.MouseButton1Down:connect(function() 
+-- Won't Break And Won't Stop Until All Enemies Are Killed In The Dungeon
+-- Modilfy It If You Want
+_G.farm = true -- false to stop
+local plr = game.Players.LocalPlayer.Character.HumanoidRootPart 
+local sword = game:GetService("Workspace")[game.Players.LocalPlayer.Name]:FindFirstChildOfClass('Accessory')
+while _G.farm do
+wait()
+for _,v in pairs(game.Workspace:GetDescendants()) do
+if v:FindFirstChild("enemyNameplate") and v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") then
+plr.CFrame = CFrame.new(v.HumanoidRootPart.Position + Vector3.new(0,1,5),v.HumanoidRootPart.Position) 
+-- Reverse This To Spawn Them Infront Of You Instead Going Towards Them!
+local Path = sword.swing
+Path:FireServer()
+-- [[ local Path = game:GetService("Workspace")[game.Players.LocalPlayer.Name]:FindFirstChild('Fireball');Path.fireballShootEvent:FireServer() ]]
+end
+end
+end
+end)
+
+title_4.Name = "title"
+title_4.Parent = Frame
+title_4.BackgroundColor3 = Color3.new(1, 0.666667, 0.498039)
+title_4.BackgroundTransparency = 1
+title_4.BorderColor3 = Color3.new(0, 0, 0)
+title_4.Position = UDim2.new(0.0102223456, 0, 0.573383749, 0)
+title_4.Rotation = 35
+title_4.Size = UDim2.new(0, 171, 0, 27)
+title_4.Font = Enum.Font.Fantasy
+title_4.Text = "ENJOY!!"
+title_4.TextColor3 = Color3.new(1, 0, 0)
+title_4.TextSize = 20
+title_4.TextStrokeColor3 = Color3.new(0.666667, 0.333333, 0.498039)
+-- Scripts:

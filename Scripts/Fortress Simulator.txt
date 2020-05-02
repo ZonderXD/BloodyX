@@ -1,0 +1,603 @@
+-- Gui to Lua
+-- Version: 3.1
+
+-- Instances:
+
+local FortressSimulatorGUI = Instance.new("ScreenGui")
+local DRAG = Instance.new("Frame")
+local Main = Instance.new("ImageLabel")
+local Top = Instance.new("ImageLabel")
+local AName1 = Instance.new("TextLabel")
+local AName2 = Instance.new("TextLabel")
+local Line = Instance.new("Frame")
+local AAclose = Instance.new("TextLabel")
+local terminate = Instance.new("TextButton")
+local FortressSimulator = Instance.new("ImageLabel")
+local info = Instance.new("TextLabel")
+local KillNZ = Instance.new("TextButton")
+local KillPirZ = Instance.new("TextButton")
+local StuffMenuBut = Instance.new("TextButton")
+local Welcome = Instance.new("TextLabel")
+local term = Instance.new("Frame")
+local Yesterminate = Instance.new("TextButton")
+local Noterminate = Instance.new("TextButton")
+local doterminate = Instance.new("TextLabel")
+local NotThisGame = Instance.new("TextLabel")
+local KillAZ = Instance.new("TextButton")
+local KillPZ = Instance.new("TextButton")
+local KillMZ = Instance.new("TextButton")
+local KillKZ = Instance.new("TextButton")
+local KillOZ = Instance.new("TextButton")
+local KillTZ = Instance.new("TextButton")
+local StuffMENU = Instance.new("ImageLabel")
+local AddMoney = Instance.new("TextButton")
+local MoneyValue = Instance.new("TextBox")
+local ItemName = Instance.new("TextBox")
+local AddItem = Instance.new("TextButton")
+local HowMany = Instance.new("TextBox")
+local plrn = game.Players.LocalPlayer.Name
+local ttem = game.Players.LocalPlayer.Team.Name
+
+--Properties:
+
+FortressSimulatorGUI.Name = "FortressSimulatorGUI"
+FortressSimulatorGUI.Parent = game.CoreGui
+FortressSimulatorGUI.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+DRAG.Name = "DRAG"
+DRAG.Parent = FortressSimulatorGUI
+DRAG.Active = true
+DRAG.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+DRAG.BackgroundTransparency = 1.000
+DRAG.Position = UDim2.new(0.249096438, 0, 0.294444442, 0)
+DRAG.Selectable = true
+DRAG.Size = UDim2.new(0, 563, 0, 42)
+DRAG.Draggable = true
+
+Main.Name = "Main"
+Main.Parent = DRAG
+Main.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Main.BackgroundTransparency = 1.000
+Main.Position = UDim2.new(-0.0016009016, 0, -0.0109615326, 0)
+Main.Size = UDim2.new(0, 566, 0, 433)
+Main.Image = "rbxassetid://2851926732"
+Main.ImageColor3 = Color3.fromRGB(121, 116, 113)
+Main.ScaleType = Enum.ScaleType.Slice
+Main.SliceCenter = Rect.new(10, 10, 10, 10)
+
+Top.Name = "Top"
+Top.Parent = Main
+Top.Active = true
+Top.BackgroundColor3 = Color3.fromRGB(234, 234, 234)
+Top.BackgroundTransparency = 1.000
+Top.BorderColor3 = Color3.fromRGB(153, 153, 153)
+Top.Position = UDim2.new(0.000153558416, 0, -0.000786338584, 0)
+Top.Size = UDim2.new(0, 565, 0, 42)
+Top.Image = "rbxassetid://2851926732"
+Top.ImageColor3 = Color3.fromRGB(255, 119, 0)
+Top.ScaleType = Enum.ScaleType.Slice
+Top.SliceCenter = Rect.new(15, 15, 15, 15)
+
+AName1.Name = "AName1"
+AName1.Parent = Top
+AName1.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+AName1.BackgroundTransparency = 1.000
+AName1.BorderColor3 = Color3.fromRGB(255, 255, 255)
+AName1.Position = UDim2.new(0.00944295805, 0, 0.0582197569, 0)
+AName1.Size = UDim2.new(0, 115, 0, 36)
+AName1.Text = "FS"
+AName1.TextColor3 = Color3.fromRGB(255, 255, 255)
+AName1.TextScaled = true
+AName1.TextSize = 20.000
+AName1.TextWrapped = true
+
+AName2.Name = "AName2"
+AName2.Parent = Top
+AName2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+AName2.BackgroundTransparency = 1.000
+AName2.BorderColor3 = Color3.fromRGB(255, 255, 255)
+AName2.Position = UDim2.new(0.124473974, 0, 0.499433994, 0)
+AName2.Rotation = 10.000
+AName2.Selectable = true
+AName2.Size = UDim2.new(0, 28, 0, 17)
+AName2.SizeConstraint = Enum.SizeConstraint.RelativeXX
+AName2.Font = Enum.Font.ArialBold
+AName2.Text = "GUI"
+AName2.TextColor3 = Color3.fromRGB(198, 0, 0)
+AName2.TextScaled = true
+AName2.TextSize = 15.000
+AName2.TextWrapped = true
+
+Line.Name = "Line"
+Line.Parent = Top
+Line.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Line.BorderSizePixel = 0
+Line.Position = UDim2.new(0.0302161872, 0, 0.904195905, 0)
+Line.Size = UDim2.new(0, 92, 0, 3)
+
+AAclose.Name = "AAclose"
+AAclose.Parent = Top
+AAclose.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+AAclose.BackgroundTransparency = 1.000
+AAclose.BorderColor3 = Color3.fromRGB(255, 255, 255)
+AAclose.Position = UDim2.new(0.307581365, 0, 0.0582195446, 0)
+AAclose.Size = UDim2.new(0, 236, 0, 36)
+AAclose.Text = "Press LCtrl to open/close"
+AAclose.TextColor3 = Color3.fromRGB(255, 255, 255)
+AAclose.TextSize = 16.000
+AAclose.TextScaled = true
+AAclose.TextWrapped = true
+
+terminate.Name = "terminate"
+terminate.Parent = Top
+terminate.BackgroundColor3 = Color3.fromRGB(87, 91, 122)
+terminate.BackgroundTransparency = 0.600
+terminate.Position = UDim2.new(0.91271311, 0, 0.167047411, 0)
+terminate.Size = UDim2.new(0, 36, 0, 26)
+terminate.Font = Enum.Font.SourceSans
+terminate.Text = "X"
+terminate.TextColor3 = Color3.fromRGB(255, 0, 4)
+terminate.TextScaled = true
+terminate.TextSize = 14.000
+terminate.TextWrapped = true
+terminate.MouseButton1Down:Connect(function()
+	term.Visible = true
+	KillAZ.Visible = false
+	KillKZ.Visible = false
+	KillMZ.Visible = false
+	KillNZ.Visible = false
+	Welcome.Visible = false
+	KillOZ.Visible = false
+	KillPirZ.Visible = false
+	KillPZ.Visible = false
+	StuffMenuBut.Visible = false
+	KillTZ.Visible = false
+end)
+
+FortressSimulator.Name = "Fortress Simulator"
+FortressSimulator.Parent = Top
+FortressSimulator.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+FortressSimulator.BackgroundTransparency = 1.000
+FortressSimulator.Position = UDim2.new(0.147736788, 0, 2.01274943, 0)
+FortressSimulator.Size = UDim2.new(0, 401, 0, 276)
+FortressSimulator.Image = "http://www.roblox.com/asset/?id=4621565679"
+
+info.Name = "info"
+info.Parent = Main
+info.BackgroundColor3 = Color3.fromRGB(87, 91, 122)
+info.BackgroundTransparency = 0.800
+info.Position = UDim2.new(0.0173620209, 0, 0.913066745, 0)
+info.Size = UDim2.new(0, 541, 0, 37)
+info.Font = Enum.Font.SourceSansSemibold
+info.Text = "Everything on this gui was made by: Fako#8762"
+info.TextColor3 = Color3.fromRGB(0, 0, 0)
+info.TextScaled = true
+info.TextSize = 14.000
+info.TextWrapped = true
+
+KillNZ.Name = "KillNZ"
+KillNZ.Parent = Main
+KillNZ.BackgroundColor3 = Color3.fromRGB(1, 244, 208)
+KillNZ.Position = UDim2.new(0.00792998821, 0, 0.271585166, 0)
+KillNZ.Size = UDim2.new(0, 189, 0, 45)
+KillNZ.Font = Enum.Font.SourceSans
+KillNZ.Text = "Kill Normal Z"
+KillNZ.TextColor3 = Color3.fromRGB(0, 0, 0)
+KillNZ.TextSize = 35.000
+KillNZ.TextWrapped = true
+KillNZ.MouseButton1Down:Connect(function()
+	local nz = workspace.Enemies[ttem]:FindFirstChild("Zombie")
+	game.ReplicatedStorage.Damage:FireServer(nz.Humanoid,1000)
+	wait(0.01)
+	nz:Destroy()
+end)
+
+KillPirZ.Name = "KillPirZ"
+KillPirZ.Parent = Main
+KillPirZ.BackgroundColor3 = Color3.fromRGB(1, 244, 208)
+KillPirZ.Position = UDim2.new(0.654285431, 0, 0.269275755, 0)
+KillPirZ.Size = UDim2.new(0, 189, 0, 45)
+KillPirZ.Font = Enum.Font.SourceSans
+KillPirZ.Text = "Kill Pirate Z"
+KillPirZ.TextColor3 = Color3.fromRGB(0, 0, 0)
+KillPirZ.TextSize = 35.000
+KillPirZ.TextWrapped = true
+KillPirZ.MouseButton1Down:Connect(function()
+	local pirz = workspace.Enemies[ttem]:FindFirstChild("Pirate Zombie")
+	game.ReplicatedStorage.Damage:FireServer(pirz.Humanoid,1000)
+	wait(0.01)
+	pirz:Destroy()
+end)
+
+StuffMenuBut.Name = "StuffMenuBut"
+StuffMenuBut.Parent = Main
+StuffMenuBut.BackgroundColor3 = Color3.fromRGB(65, 167, 10)
+StuffMenuBut.Position = UDim2.new(0.331792533, 0, 0.8069368, 0)
+StuffMenuBut.Size = UDim2.new(0, 189, 0, 45)
+StuffMenuBut.Font = Enum.Font.SourceSans
+StuffMenuBut.Text = "Open Stuff Menu"
+StuffMenuBut.TextColor3 = Color3.fromRGB(0, 0, 0)
+StuffMenuBut.TextScaled = true
+StuffMenuBut.TextSize = 35.000
+StuffMenuBut.TextWrapped = true
+StuffMenuBut.MouseButton1Down:Connect(function()
+	if StuffMENU.Visible == true then
+		StuffMenuBut.Text = "Open Stuff Menu"
+		StuffMENU.Visible = false
+		StuffMenuBut.BackgroundColor3 = Color3.fromRGB(65, 167, 10)
+	else
+		StuffMenuBut.Text = "Close Stuff Menu"
+		StuffMENU.Visible = true
+		StuffMenuBut.BackgroundColor3 = Color3.fromRGB(167, 0, 0)
+	end
+end)
+
+Welcome.Name = "Welcome"
+Welcome.Parent = Main
+Welcome.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Welcome.BackgroundTransparency = 1.000
+Welcome.Position = UDim2.new(0.0173619669, 0, 0.118172377, 0)
+Welcome.Size = UDim2.new(0, 550, 0, 67)
+Welcome.Font = Enum.Font.ArialBold
+Welcome.Text = "Welcome, "..plrn
+Welcome.TextColor3 = Color3.fromRGB(0, 0, 0)
+Welcome.TextSize = 40.000
+Welcome.TextWrapped = true
+
+term.Name = "term"
+term.Parent = Main
+term.BackgroundColor3 = Color3.fromRGB(59, 0, 0)
+term.BackgroundTransparency = 0.400
+term.Position = UDim2.new(0.0173619147, 0, 0.120092377, 0)
+term.Size = UDim2.new(0, 548, 0, 343)
+term.Visible = false
+
+Yesterminate.Name = "Yesterminate"
+Yesterminate.Parent = term
+Yesterminate.BackgroundColor3 = Color3.fromRGB(0, 141, 9)
+Yesterminate.Position = UDim2.new(0.0230922494, 0, 0.508198321, 0)
+Yesterminate.Size = UDim2.new(0, 178, 0, 54)
+Yesterminate.Text = "Yes"
+Yesterminate.TextColor3 = Color3.fromRGB(0, 0, 0)
+Yesterminate.TextScaled = true
+Yesterminate.TextSize = 14.000
+Yesterminate.TextWrapped = true
+Yesterminate.MouseButton1Down:Connect(function()
+	FortressSimulatorGUI:Destroy()
+end)
+
+Noterminate.Name = "Noterminate"
+Noterminate.Parent = term
+Noterminate.BackgroundColor3 = Color3.fromRGB(141, 0, 0)
+Noterminate.Position = UDim2.new(0.649937093, 0, 0.508198321, 0)
+Noterminate.Size = UDim2.new(0, 178, 0, 54)
+Noterminate.Text = "No"
+Noterminate.TextColor3 = Color3.fromRGB(0, 0, 0)
+Noterminate.TextScaled = true
+Noterminate.TextSize = 14.000
+Noterminate.TextWrapped = true
+Noterminate.MouseButton1Down:Connect(function()
+	if game.PlaceId == 4513114459 then
+	KillAZ.Visible = true
+	term.Visible = false
+	KillKZ.Visible = true
+	KillMZ.Visible = true
+	StuffMenuBut.Visible = true
+	KillNZ.Visible = true
+	Welcome.Visible = true
+	KillOZ.Visible = true
+	KillPirZ.Visible = true
+	KillPZ.Visible = true
+	KillTZ.Visible = true
+	NotThisGame.Visible = false
+else
+	KillAZ.Visible = false
+	KillKZ.Visible = false
+	term.Visible = false
+	KillMZ.Visible = false
+	Welcome.Visible = true
+	KillNZ.Visible = false
+	StuffMenuBut.Visible = false
+	KillOZ.Visible = false
+	KillPirZ.Visible = false
+	KillPZ.Visible = false
+	KillTZ.Visible = false
+	NotThisGame.Visible = true
+end
+end)
+
+doterminate.Name = "doterminate"
+doterminate.Parent = term
+doterminate.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+doterminate.BackgroundTransparency = 0.900
+doterminate.Position = UDim2.new(0.00339590642, 0, 0.0174927115, 0)
+doterminate.Size = UDim2.new(0, 543, 0, 67)
+doterminate.Font = Enum.Font.SourceSansBold
+doterminate.Text = "Are you sure you want to terminate gui?"
+doterminate.TextColor3 = Color3.fromRGB(255, 59, 0)
+doterminate.TextSize = 32.000
+doterminate.TextWrapped = true
+
+NotThisGame.Name = "NotThisGame"
+NotThisGame.Parent = Main
+NotThisGame.BackgroundColor3 = Color3.fromRGB(255, 81, 0)
+NotThisGame.BackgroundTransparency = 0.700
+NotThisGame.Position = UDim2.new(0.000153558416, 0, 0.279835194, 0)
+NotThisGame.Size = UDim2.new(0, 564, 0, 221)
+NotThisGame.Visible = false
+NotThisGame.Font = Enum.Font.SourceSans
+NotThisGame.Text = "Sorry to hear that but this is wrong game :("
+NotThisGame.TextColor3 = Color3.fromRGB(0, 0, 0)
+NotThisGame.TextScaled = true
+NotThisGame.TextSize = 14.000
+NotThisGame.TextWrapped = true
+
+KillAZ.Name = "KillAZ"
+KillAZ.Parent = Main
+KillAZ.BackgroundColor3 = Color3.fromRGB(1, 244, 208)
+KillAZ.Position = UDim2.new(0.332730651, 0, 0.375511318, 0)
+KillAZ.Size = UDim2.new(0, 189, 0, 45)
+KillAZ.Font = Enum.Font.SourceSans
+KillAZ.Text = "Kill Army Z"
+KillAZ.TextColor3 = Color3.fromRGB(0, 0, 0)
+KillAZ.TextSize = 35.000
+KillAZ.TextWrapped = true
+KillAZ.MouseButton1Down:Connect(function()
+	local az = workspace.Enemies[ttem]:FindFirstChild("Army Zombie")
+	game.ReplicatedStorage.Damage:FireServer(az.Humanoid,1000)
+	wait(0.01)
+	az:Destroy()
+end)
+
+KillPZ.Name = "KillPZ"
+KillPZ.Parent = Main
+KillPZ.BackgroundColor3 = Color3.fromRGB(1, 244, 208)
+KillPZ.Position = UDim2.new(0.654285431, 0, 0.479437411, 0)
+KillPZ.Size = UDim2.new(0, 189, 0, 45)
+KillPZ.Font = Enum.Font.SourceSans
+KillPZ.Text = "Kill Police Z"
+KillPZ.TextColor3 = Color3.fromRGB(0, 0, 0)
+KillPZ.TextSize = 35.000
+KillPZ.TextWrapped = true
+KillPZ.MouseButton1Down:Connect(function()
+	local pz = workspace.Enemies[ttem]:FindFirstChild("Police Zombie")
+	game.ReplicatedStorage.Damage:FireServer(pz.Humanoid,1000)
+	wait(0.01)
+	pz:Destroy()
+end)
+
+KillMZ.Name = "KillMZ"
+KillMZ.Parent = Main
+KillMZ.BackgroundColor3 = Color3.fromRGB(1, 244, 208)
+KillMZ.Position = UDim2.new(0.0094090905, 0, 0.479437411, 0)
+KillMZ.Size = UDim2.new(0, 189, 0, 45)
+KillMZ.Font = Enum.Font.SourceSans
+KillMZ.Text = "Kill Mafia Z"
+KillMZ.TextColor3 = Color3.fromRGB(0, 0, 0)
+KillMZ.TextSize = 35.000
+KillMZ.TextWrapped = true
+KillMZ.MouseButton1Down:Connect(function()
+	local mz = workspace.Enemies[ttem]:FindFirstChild("Mafia Zombie")
+	game.ReplicatedStorage.Damage:FireServer(mz.Humanoid,1000)
+	wait(0.01)
+	mz:Destroy()
+end)
+
+KillKZ.Name = "KillKZ"
+KillKZ.Parent = Main
+KillKZ.BackgroundColor3 = Color3.fromRGB(1, 244, 208)
+KillKZ.Position = UDim2.new(0.336264223, 0, 0.583363473, 0)
+KillKZ.Size = UDim2.new(0, 189, 0, 45)
+KillKZ.Font = Enum.Font.SourceSans
+KillKZ.Text = "Kill Knight Z"
+KillKZ.TextColor3 = Color3.fromRGB(0, 0, 0)
+KillKZ.TextSize = 35.000
+KillKZ.TextWrapped = true
+KillKZ.MouseButton1Down:Connect(function()
+	local kz = workspace.Enemies[ttem]:FindFirstChild("Knight Zombie")
+	game.ReplicatedStorage.Damage:FireServer(kz.Humanoid,1000)
+	wait(0.01)
+	kz:Destroy()
+end)
+
+KillOZ.Name = "KillOZ"
+KillOZ.Parent = Main
+KillOZ.BackgroundColor3 = Color3.fromRGB(1, 244, 208)
+KillOZ.Position = UDim2.new(0.654285431, 0, 0.687289596, 0)
+KillOZ.Size = UDim2.new(0, 189, 0, 45)
+KillOZ.Font = Enum.Font.SourceSans
+KillOZ.Text = "Kill Overseer Z"
+KillOZ.TextColor3 = Color3.fromRGB(0, 0, 0)
+KillOZ.TextSize = 35.000
+KillOZ.TextWrapped = true
+KillOZ.MouseButton1Down:Connect(function()
+	local oz = workspace.Enemies[ttem]:FindFirstChild("Overseer Zombie")
+	game.ReplicatedStorage.Damage:FireServer(oz.Humanoid,1000)
+	wait(0.01)
+	oz:Destroy()
+end)
+
+
+KillTZ.Name = "KillTZ"
+KillTZ.Parent = Main
+KillTZ.BackgroundColor3 = Color3.fromRGB(1, 244, 208)
+KillTZ.Position = UDim2.new(0.00940912962, 0, 0.687289596, 0)
+KillTZ.Size = UDim2.new(0, 189, 0, 45)
+KillTZ.Font = Enum.Font.SourceSans
+KillTZ.Text = "Kill Tiki Z"
+KillTZ.TextColor3 = Color3.fromRGB(0, 0, 0)
+KillTZ.TextSize = 35.000
+KillTZ.TextWrapped = true
+KillTZ.MouseButton1Down:Connect(function()
+	local tz = workspace.Enemies[ttem]:FindFirstChild("Tiki Zombie")
+	game.ReplicatedStorage.Damage:FireServer(tz.Humanoid,1000)
+	wait(0.01)
+	tz:Destroy()
+end)
+
+StuffMENU.Name = "StuffMENU"
+StuffMENU.Parent = DRAG
+StuffMENU.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+StuffMENU.BackgroundTransparency = 1.000
+StuffMENU.Position = UDim2.new(-0.00355239841, 0, 10.7857141, 0)
+StuffMENU.Size = UDim2.new(0, 565, 0, 172)
+StuffMENU.Image = "rbxassetid://2851926732"
+StuffMENU.ImageColor3 = Color3.fromRGB(107, 95, 95)
+StuffMENU.ScaleType = Enum.ScaleType.Slice
+StuffMENU.SliceCenter = Rect.new(15, 15, 15, 15)
+StuffMENU.Visible = false
+
+AddMoney.Name = "AddMoney"
+AddMoney.Parent = StuffMENU
+AddMoney.BackgroundColor3 = Color3.fromRGB(62, 255, 33)
+AddMoney.Position = UDim2.new(0.017699115, 0, 0.662790656, 0)
+AddMoney.Size = UDim2.new(0, 200, 0, 50)
+AddMoney.Font = Enum.Font.SourceSans
+AddMoney.Text = "Add money"
+AddMoney.TextColor3 = Color3.fromRGB(0, 0, 0)
+AddMoney.TextScaled = true
+AddMoney.TextSize = 14.000
+AddMoney.TextWrapped = true
+AddMoney.MouseButton1Down:Connect(function()
+	game.ReplicatedStorage.AddGold:FireServer(MoneyValue.Text)
+end)
+
+MoneyValue.Name = "MoneyValue"
+MoneyValue.Parent = StuffMENU
+MoneyValue.BackgroundColor3 = Color3.fromRGB(76, 140, 135)
+MoneyValue.Position = UDim2.new(0.017699115, 0, 0.220930234, 0)
+MoneyValue.Size = UDim2.new(0, 200, 0, 50)
+MoneyValue.Font = Enum.Font.SourceSans
+MoneyValue.PlaceholderColor3 = Color3.fromRGB(83, 83, 83)
+MoneyValue.PlaceholderText = "Money Value"
+MoneyValue.Text = ""
+MoneyValue.TextColor3 = Color3.fromRGB(0, 0, 0)
+MoneyValue.TextScaled = true
+MoneyValue.TextSize = 20.000
+MoneyValue.TextWrapped = true
+
+ItemName.Name = "ItemName"
+ItemName.Parent = StuffMENU
+ItemName.BackgroundColor3 = Color3.fromRGB(76, 140, 135)
+ItemName.Position = UDim2.new(0.623008847, 0, 0.0406976715, 0)
+ItemName.Size = UDim2.new(0, 200, 0, 50)
+ItemName.Font = Enum.Font.SourceSans
+ItemName.PlaceholderColor3 = Color3.fromRGB(83, 83, 83)
+ItemName.PlaceholderText = "Item Name"
+ItemName.Text = ""
+ItemName.TextColor3 = Color3.fromRGB(0, 0, 0)
+ItemName.TextScaled = true
+ItemName.TextSize = 20.000
+ItemName.TextWrapped = true
+
+HowMany.Name = "HowMany"
+HowMany.Parent = StuffMENU
+HowMany.BackgroundColor3 = Color3.fromRGB(76, 140, 135)
+HowMany.Position = UDim2.new(0.653848231, 0, 0.354651153, 0)
+HowMany.Size = UDim2.new(0, 165, 0, 50)
+HowMany.Font = Enum.Font.SourceSans
+HowMany.PlaceholderColor3 = Color3.fromRGB(83, 83, 83)
+HowMany.PlaceholderText = "How many"
+HowMany.Text = ""
+HowMany.TextColor3 = Color3.fromRGB(0, 0, 0)
+HowMany.TextScaled = true
+HowMany.TextSize = 20.000
+HowMany.TextWrapped = true
+
+AddItem.Name = "AddItem"
+AddItem.Parent = StuffMENU
+AddItem.BackgroundColor3 = Color3.fromRGB(62, 255, 33)
+AddItem.Position = UDim2.new(0.607079625, 0, 0.662790656, 0)
+AddItem.Size = UDim2.new(0, 200, 0, 50)
+AddItem.Font = Enum.Font.SourceSans
+AddItem.Text = "Add item"
+AddItem.TextColor3 = Color3.fromRGB(0, 0, 0)
+AddItem.TextScaled = true
+AddItem.TextSize = 14.000
+AddItem.TextWrapped = true
+AddItem.MouseButton1Down:Connect(function()
+	game.ReplicatedStorage.AddItems:FireServer(ItemName.Text, HowMany.Text)
+end)
+
+-- Scripts:
+
+
+function onKeyPress(inputObject, gameProcessedEvent)
+	if inputObject.KeyCode == Enum.KeyCode.LeftControl then
+		if DRAG.Visible == true then
+			DRAG.Visible = false
+		else
+			DRAG.Visible = true
+		end
+	end
+end
+ 
+game:GetService("UserInputService").InputBegan:connect(onKeyPress)
+
+
+
+wait(0.01)
+
+game.StarterGui:SetCore("SendNotification", {
+Title = "FortressSimulatorGUI activated";
+Text = "Gui and scripts made by:Fako#8762";
+Duration = 20; 
+})
+
+
+if game.PlaceId == 4513114459 then
+	KillAZ.Visible = true
+	KillKZ.Visible = true
+	KillMZ.Visible = true
+	KillNZ.Visible = true
+	StuffMenuBut.Visible = true
+	KillOZ.Visible = true
+	KillPirZ.Visible = true
+	KillPZ.Visible = true
+	KillTZ.Visible = true
+	NotThisGame.Visible = false
+else
+	KillAZ.Visible = false
+	KillKZ.Visible = false
+	KillMZ.Visible = false
+	KillNZ.Visible = false
+	KillOZ.Visible = false
+	StuffMenuBut.Visible = false
+	KillPirZ.Visible = false
+	KillPZ.Visible = false
+	KillTZ.Visible = false
+	NotThisGame.Visible = true
+end
+
+local function NBSITW_fake_script() -- AName2.LocalScript 
+	local script = Instance.new('LocalScript', AName2)
+
+	while wait() do
+		script.Parent.TextColor3 = Color3.new(1,0,0)
+		for i=1,15 do
+			game:GetService("RunService").RenderStepped:wait(2)
+			script.Parent.TextColor3 = Color3.new(script.Parent.TextColor3.r,script.Parent.TextColor3.g+(17/255),script.Parent.TextColor3.b)
+		end
+		for i=1,15 do
+			game:GetService("RunService").RenderStepped:wait(2)
+			script.Parent.TextColor3 = Color3.new(script.Parent.TextColor3.r-(17/255),script.Parent.TextColor3.g,script.Parent.TextColor3.b)
+		end
+		for i=1,15 do
+			game:GetService("RunService").RenderStepped:wait(2)
+			script.Parent.TextColor3 = Color3.new(script.Parent.TextColor3.r,script.Parent.TextColor3.g,script.Parent.TextColor3.b+(17/255))
+		end
+		for i=1,15 do
+			game:GetService("RunService").RenderStepped:wait(2)
+			script.Parent.TextColor3 = Color3.new(script.Parent.TextColor3.r,script.Parent.TextColor3.g-(17/255),script.Parent.TextColor3.b)
+		end
+		for i=1,15 do
+			game:GetService("RunService").RenderStepped:wait(2)
+			script.Parent.TextColor3 = Color3.new(script.Parent.TextColor3.r+(17/255),script.Parent.TextColor3.g,script.Parent.TextColor3.b)
+		end
+		for i=1,15 do
+			game:GetService("RunService").RenderStepped:wait(2)
+			script.Parent.TextColor3 = Color3.new(script.Parent.TextColor3.r,script.Parent.TextColor3.g,script.Parent.TextColor3.b-(17/255))
+		end
+	end
+end
+coroutine.wrap(NBSITW_fake_script)()

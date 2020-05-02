@@ -1,0 +1,31 @@
+--Variable
+local player = game:GetService("Players").LocalPlayer
+
+
+for i,v in pairs(game:GetService("Workspace").Plots:GetChildren())do
+    if v.OwnerName.Value == player.Name then
+        plot = v
+    end
+end
+
+
+spawn(function()
+while true do
+    if plot then
+        for i,v in pairs(plot.MergeGrid:GetChildren())do
+            for i2,v2 in pairs(plot.MergeGrid:GetChildren())do
+                if v2 ~= v and v:FindFirstChild("Merger") and v2:FindFirstChild("Merger") and v.Merger:FindFirstChild("Level") and v2.Merger:FindFirstChild("Level") and v2.Merger.Level.Value == v.Merger.Level.Value then
+                    game:GetService("ReplicatedStorage").RPC.Merge:FireServer(v.Merger,v2.Merger)
+                end
+            end
+        end
+    end
+wait()
+end
+end)
+
+spawn(function()
+game:GetService("RunService").RenderStepped:Connect(function()
+game:GetService("ReplicatedStorage").RPC.SpawnMerger:FireServer()
+end)
+end)

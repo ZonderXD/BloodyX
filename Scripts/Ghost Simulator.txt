@@ -1,0 +1,200 @@
+local GhostATrash = Instance.new("ScreenGui")
+local Open = Instance.new("TextButton")
+local SecondGUI = Instance.new("Frame")
+local TextLabel = Instance.new("TextLabel")
+local Board = Instance.new("TextButton")
+local Magnet = Instance.new("TextButton")
+local Unbox = Instance.new("TextButton")
+local Drops = Instance.new("TextButton")
+local Start = Instance.new("TextButton")
+local TextLabel_2 = Instance.new("TextLabel")
+local TextLabel_3 = Instance.new("TextLabel")
+local TextLabel_4 = Instance.new("TextLabel")
+local Board_2 = Instance.new("TextButton")
+
+GhostATrash.Name = "GhostATrash"
+GhostATrash.Parent = game.CoreGui
+GhostATrash.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+Open.Name = "Open"
+Open.Parent = GhostATrash
+Open.BackgroundColor3 = Color3.new(0.196078, 0.196078, 0.196078)
+Open.BorderSizePixel = 0
+Open.Position = UDim2.new(0.0617298745, 0, 0.964695036, 0)
+Open.Size = UDim2.new(0, 95, 0, 37)
+Open.Visible = false
+Open.Font = Enum.Font.Cartoon
+Open.Text = "Open"
+Open.TextColor3 = Color3.new(1, 1, 1)
+Open.TextSize = 20
+Open.MouseButton1Click:connect (function ()
+	SecondGUI.Visible = true
+	Open.Visible = false
+end)
+
+SecondGUI.Name = "Second GUI"
+SecondGUI.Parent = GhostATrash
+SecondGUI.BackgroundColor3 = Color3.new(0.196078, 0.196078, 0.196078)
+SecondGUI.BorderSizePixel = 0
+SecondGUI.Position = UDim2.new(0.407031059, 0, 0.211302206, 0)
+SecondGUI.Size = UDim2.new(0, 142, 0, 305)
+SecondGUI.Active = true
+SecondGUI.Draggable = true
+
+TextLabel.Parent = SecondGUI
+TextLabel.BackgroundColor3 = Color3.new(0.156863, 0.156863, 0.156863)
+TextLabel.BackgroundTransparency = 0.03999999910593
+TextLabel.BorderSizePixel = 0
+TextLabel.Position = UDim2.new(-0.0733053759, 0, -0.0242610741, 0)
+TextLabel.Size = UDim2.new(0, 161, 0, 33)
+TextLabel.Font = Enum.Font.Cartoon
+TextLabel.Text = "Ghost-A-Trash"
+TextLabel.TextColor3 = Color3.new(1, 1, 1)
+TextLabel.TextSize = 20
+
+Board.Name = "Board"
+Board.Parent = SecondGUI
+Board.BackgroundColor3 = Color3.new(0.196078, 0.196078, 0.196078)
+Board.BorderSizePixel = 0
+Board.Position = UDim2.new(0, 0, 0.193508998, 0)
+Board.Size = UDim2.new(0, 142, 0, 29)
+Board.Font = Enum.Font.Cartoon
+Board.Text = "Unlock Board"
+Board.TextColor3 = Color3.new(1, 1, 1)
+Board.TextSize = 17
+Board.MouseButton1Click:connect (function ()
+	game.Players.LocalPlayer.Stats.BoardsUnlocked.Value = true
+end)
+
+Magnet.Name = "Magnet"
+Magnet.Parent = SecondGUI
+Magnet.BackgroundColor3 = Color3.new(0.196078, 0.196078, 0.196078)
+Magnet.BorderSizePixel = 0
+Magnet.Position = UDim2.new(0, 0, 0.285865158, 0)
+Magnet.Size = UDim2.new(0, 142, 0, 29)
+Magnet.Font = Enum.Font.Cartoon
+Magnet.Text = "Unlock Magnet"
+Magnet.TextColor3 = Color3.new(1, 1, 1)
+Magnet.TextSize = 17
+Magnet.MouseButton1Click:connect (function ()
+	game.Players.LocalPlayer.Stats.MagnetismUnlocked.Value = true
+end)
+
+Unbox.Name = "Unbox"
+Unbox.Parent = SecondGUI
+Unbox.BackgroundColor3 = Color3.new(0.196078, 0.196078, 0.196078)
+Unbox.BorderSizePixel = 0
+Unbox.Position = UDim2.new(0, 0, 0.391336083, 0)
+Unbox.Size = UDim2.new(0, 142, 0, 29)
+Unbox.Font = Enum.Font.Cartoon
+Unbox.Text = "Quick Unbox"
+Unbox.TextColor3 = Color3.new(1, 1, 1)
+Unbox.TextSize = 17
+Unbox.MouseButton1Click:connect (function ()
+	game.Players.LocalPlayer.Stats.AppliedPasses.QuickUnbox.Value = true
+end)
+
+Drops.Name = "Drops"
+Drops.Parent = SecondGUI
+Drops.BackgroundColor3 = Color3.new(0.196078, 0.196078, 0.196078)
+Drops.BorderSizePixel = 0
+Drops.Position = UDim2.new(0, 0, 0.483692259, 0)
+Drops.Size = UDim2.new(0, 142, 0, 29)
+Drops.Font = Enum.Font.Cartoon
+Drops.Text = "100% Drops"
+Drops.TextColor3 = Color3.new(1, 1, 1)
+Drops.TextSize = 17
+Drops.MouseButton1Click:connect (function ()
+	game.Players.LocalPlayer.Stats.GemDropFactor.Value = 9999999999999999999
+end)
+
+Start.Name = "Start"
+Start.Parent = SecondGUI
+Start.BackgroundColor3 = Color3.new(0.196078, 0.196078, 0.196078)
+Start.BorderSizePixel = 0
+Start.Position = UDim2.new(0, 0, 0.751962721, 0)
+Start.Size = UDim2.new(0, 142, 0, 29)
+Start.Font = Enum.Font.Cartoon
+Start.Text = "Start"
+Start.TextColor3 = Color3.new(1, 1, 1)
+Start.TextSize = 17
+Start.MouseButton1Click:connect (function ()
+		_G.Farm = true
+while _G.Farm == true do 
+	wait()
+local tbl_main = 
+{
+}
+game:GetService("ReplicatedStorage").Network.ToServer.Requests.StartUseVacuum:FireServer(unpack(tbl_main))
+
+for _,v in pairs(game:GetService("Workspace").Ghosts:GetChildren()) do
+
+if v:FindFirstChild("Body") ~= nil and (v.Body.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude < 100 then
+for _,c in pairs(game:GetService("ReplicatedStorage").GhostEntries:GetDescendants()) do 
+if c.Name == 'GhostName' then 
+if c.Value == v.Name then 
+if c.Parent.Parent.Stats.AntennaLevel.Value <= game.Players.LocalPlayer.Stats.AntennaLevel.Value then 
+
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.Body.CFrame
+wait(.2)
+local A_1  = v
+local Event = game:GetService("ReplicatedStorage").Network.ToServer.Requests.VacuumEnemy
+Event:FireServer(A_1)
+repeat 
+wait()
+game.Workspace.ScriptParts.EctoplasmConverters.Converter.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+for _,v in pairs(game.Workspace.Drops:GetChildren()) do 
+v.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+end
+until v:FindFirstChild("Body") == nil 
+end;end;end;end;end;end;end
+end)
+
+TextLabel_2.Parent = SecondGUI
+TextLabel_2.BackgroundColor3 = Color3.new(0.156863, 0.156863, 0.156863)
+TextLabel_2.BackgroundTransparency = 99
+TextLabel_2.BorderSizePixel = 0
+TextLabel_2.Position = UDim2.new(0, 0, 0.0839356482, 0)
+TextLabel_2.Size = UDim2.new(0, 140, 0, 33)
+TextLabel_2.Font = Enum.Font.Cartoon
+TextLabel_2.Text = "Functions"
+TextLabel_2.TextColor3 = Color3.new(1, 0.780392, 0.419608)
+TextLabel_2.TextSize = 19
+
+TextLabel_3.Parent = SecondGUI
+TextLabel_3.BackgroundColor3 = Color3.new(0.156863, 0.156863, 0.156863)
+TextLabel_3.BackgroundTransparency = 99
+TextLabel_3.BorderSizePixel = 0
+TextLabel_3.Position = UDim2.new(0, 0, 0.641312659, 0)
+TextLabel_3.Size = UDim2.new(0, 140, 0, 33)
+TextLabel_3.Font = Enum.Font.Cartoon
+TextLabel_3.Text = "Auto-Farm"
+TextLabel_3.TextColor3 = Color3.new(1, 0.780392, 0.419608)
+TextLabel_3.TextSize = 19
+
+TextLabel_4.Parent = SecondGUI
+TextLabel_4.BackgroundColor3 = Color3.new(0.156863, 0.156863, 0.156863)
+TextLabel_4.BackgroundTransparency = 99
+TextLabel_4.BorderSizePixel = 0
+TextLabel_4.Position = UDim2.new(0, 0, 0.84459132, 0)
+TextLabel_4.Size = UDim2.new(0, 140, 0, 33)
+TextLabel_4.Font = Enum.Font.Cartoon
+TextLabel_4.Text = "Attacks Monsters in your area!"
+TextLabel_4.TextColor3 = Color3.new(0.670588, 1, 0.945098)
+TextLabel_4.TextSize = 15
+TextLabel_4.TextWrapped = true
+
+Board_2.Name = "Board"
+Board_2.Parent = SecondGUI
+Board_2.BackgroundColor3 = Color3.new(0.196078, 0.196078, 0.196078)
+Board_2.BorderSizePixel = 0
+Board_2.Position = UDim2.new(0, 0, 0.973836899, 0)
+Board_2.Size = UDim2.new(0, 142, 0, 14)
+Board_2.Font = Enum.Font.Cartoon
+Board_2.Text = "Close"
+Board_2.TextColor3 = Color3.new(1, 1, 1)
+Board_2.TextSize = 15
+Board_2.MouseButton1Click:connect (function()
+	SecondGUI.Visible = false
+	Open.Visible = true
+end)
