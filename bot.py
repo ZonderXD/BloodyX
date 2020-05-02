@@ -227,7 +227,7 @@ async def music(ctx, *, arg: int = None):
 
 @bot.command()
 async def scripts(ctx):
-    await ctx.send(embed = discord.Embed(description = f'**Вот тебе `.rar` файл со скриптами! Если некоторые скрипты не работаю сообщите об этом создателю сервера.**', color=0x6fdb9e))
+    await ctx.send(embed = discord.Embed(description = f'**Вот тебе `.rar` файл со скриптами! Если некоторые скрипты не работают сообщите об этом создателю сервера.**', color=0x6fdb9e))
     await ctx.send(file=discord.File(fp = 'Scripts.rar'))
 
 @bot.command()
