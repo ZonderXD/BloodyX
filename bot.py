@@ -191,6 +191,7 @@ async def help(ctx):
 	
 	emb.add_field(name='💎 Базовые:', value='``.user [@user]`` - Узнать информацию о пользователе 🎭\n ``.server`` - Узнать информацию о сервере 🧿\n `.bot` - Информация о боте 🤖\n`.avatar [@user]` - Аватар пользователя 🖼\n `.suggest (text)` - Предложить идею', inline = False)
 	emb.add_field(name='🎶 Роблокс музыка:', value='`.music` - Коды для музыки 💨', inline = False)
+	emb.add_field(name='🥥 Скрипты:', value='`.scripts` - Скрипты для игр 🍕', inline = False)
 	emb.add_field(name='🎉 Весёлости:', value='``.ran_color`` - Рандомный цвет в формате HEX 🩸\n ``.coin`` - Бросить монетку 🌈\n ``.math (2*2/2+2-2)`` - Решить пример :infinity:\n `.8ball (question)` - Волшебный шар 🔮\n `.password (10 10)` - Рандомный пароль 🎩\n `.meme` - Рандомный мем 🤣',inline = False)
 	emb.add_field(name='💋 Некос:', value='\n `.hug (@user)` - Обнять 😜\n `.slap (@user)` - Ударить 😡\n `.ran_avatar` - Рандом. аватар 🤯\n `.kill [@user]` - Убить 🔪\n `.dog` - Собака :dog:\n `.goose` - Гусь :duck:',inline = False)
 	emb.add_field(name='♥ Для создателя:', value='`.owner_help` - Навигация по всем командам 👑',inline = False)
@@ -226,9 +227,13 @@ async def music(ctx, *, arg: int = None):
     await ctx.send(embed = discord.Embed(description = f'**`7.` Грустный реп - `4518984639`\n `8.` Реальный Flesh - `3766039768`\n `9.` Ракета - `3666410231`\n `10.` Убьют за нас - `3134163814`\n `11.` Хубба Бубба - `4502015210`\n `12.` Надо Поле Притоптать - `1170717899`**', color=0x6fdb9e))
 
 @bot.command()
-async def scripts(ctx):
-    await ctx.send(embed = discord.Embed(description = f'**Вот тебе `.rar` файл со скриптами! Если некоторые скрипты не работают сообщите об этом создателю сервера.**', color=0x6fdb9e))
-    await ctx.send(file=discord.File(fp = 'Scripts.rar'))
+async def scripts(ctx, *, arg: int = None):
+    if arg == None:
+        await ctx.send(embed = discord.Embed(description = f'**Напишите `.scripts 1` или `.scripts 2`**\n ***P.S Это страницы.***', color=0x6fdb9e))
+    elif arg == 1:
+        await ctx.send(embed = discord.Embed(description = f'**Страница 1\n\n `1` - Break In\n `2` - Pet Ranch 2 Simulator\n `3` - Arsenal\n `4` - Build a Boat\n `5` - Fishing Simulator\n `6` - Flood Escape 2\n `7` - Bee Swarm Simulator\n `8` - Pizza Factory Tycoon\n `9` - Work At A Pizza Place\n `10` - Texting Simulator\n `11` - CB:RO\n `12` - Mad City**', color=0x6fdb9e))
+    elif arg == 2:
+	await ctx.send(embed = discord.Embed(description = f'**Страница 2\n\n `13` - Ghost Simulator\n `14` - Speed Run 4\n `15` - Ro-Ghoul\n `16` - RoCitizens\n `17` - Muscle Legends\n `18` - Bubble Gum Simulator\n `19` - BIG Paintball\n `20` - MeepCity\n `21` - Mineverse\n `22` - Soda Simulator\n `23` - Destruction Simulator\n `24` - Lumber Tycoon 2**', color=0x6fdb9e))
 
 @bot.command()
 async def user(ctx, Member: discord.Member = None ):
