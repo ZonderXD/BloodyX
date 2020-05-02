@@ -236,6 +236,11 @@ async def scripts(ctx, *, arg: int = None):
     await ctx.send(embed = discord.Embed(description = f'**Страница 2\n\n `13` - Ghost Simulator\n `14` - Speed Run 4\n `15` - Ro-Ghoul\n `16` - RoCitizens\n `17` - Muscle Legends\n `18` - Bubble Gum Simulator\n `19` - BIG Paintball\n `20` - MeepCity\n `21` - Mineverse\n `22` - Soda Simulator\n `23` - Destruction Simulator\n `24` - Lumber Tycoon 2**', color=0x6fdb9e))
 
 @bot.command()
+async def script(ctx, *, arg: int = None):
+  if arg == 1:
+    await ctx.send(embed = discord.Embed(description = f'**Команда не доступна!**', color=0x6fdb9e))
+
+@bot.command()
 async def user(ctx, Member: discord.Member = None ):
     if not Member:
         Member = ctx.author
