@@ -226,10 +226,7 @@ async def music(ctx, *, arg: int = None):
     await ctx.send(embed = discord.Embed(description = f'**`7.` Грустный реп - `4518984639`\n `8.` Реальный Flesh - `3766039768`\n `9.` Ракета - `3666410231`\n `10.` Убьют за нас - `3134163814`\n `11.` Хубба Бубба - `4502015210`\n `12.` Надо Поле Притоптать - `1170717899`**', color=0x6fdb9e))
 
 @bot.command()
-async def scripts(ctx, *, arg: int = None):
-  if arg == None:
-      await ctx.send(embed = discord.Embed(description = f"**{ctx.author.mention}, Пожалуйста напишите `.scripts rar`, чтобы получить", color=0x6fdb9e))
-  elif arg == rar:
+async def scripts(ctx):
     await ctx.send(embed = discord.Embed(description = f'**Вот тебе `.rar` файл со скриптами! Если некоторые скрипты не работаю сообщите об этом создателю сервера.**', color=0x6fdb9e))
     await ctx.send(file=discord.File(fp = 'Scripts.rar'))
 
