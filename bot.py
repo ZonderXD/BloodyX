@@ -91,7 +91,7 @@ async def on_member_join( member ):
 async def botinfo(ctx):
     embed = discord.Embed(title=f"{ctx.guild.name}", description="Информация о боте **Bloody X#7002**.\n Бот был написан специально для проекта **`Bloody X`**,\n Подробнее о командах: **`.help`**", color = 0x00ffff)
     embed.add_field(name=f'**Меня создал:**', value="๖̶̶̶ζ͜͡𝔻𝕣𝕒𝕘𝕠𝕟 𝔽𝕖𝕤𝕙#8992(<@668325441224048641>)", inline=False)  # Создает строку
-    embed.add_field(name=f'**Помощь в создании:**', value="Joper#2362 (<@342317507991961602>)", inline=False)  # Создает строку
+    embed.add_field(name=f'**Помощь в создании:**', value="Satana#2362 (<@342317507991961602>)", inline=False)  # Создает строку
     embed.add_field(name=f'**Лицензия:**', value="LD-v7", inline=False)  # Создает строку
     embed.add_field(name=f'**Я написан на:**', value="Discord.py", inline=False)  # Создает строку
     embed.add_field(name=f'**Версия:**', value="V.3.0.1", inline=False)  # Создает строку
