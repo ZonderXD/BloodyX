@@ -287,8 +287,8 @@ async def script(ctx, *, arg: int = None):
   elif arg == 23:
     await ctx.send(file=discord.File(fp = 'Scripts/Destruction_Simulator.txt'))
   elif arg == 24:
-    await ctx.send(file=discord.File(fp = 'Horrific Housing.txt'))
-    await ctx.send(file=discord.File(fp = 'Horrific Housing 2.txt'))
+    await ctx.send(file=discord.File(fp = 'Scripts/Horrific Housing.txt'))
+    await ctx.send(file=discord.File(fp = 'Scripts/Horrific Housing 2.txt'))
 
 @bot.command()
 async def user(ctx, Member: discord.Member = None ):
