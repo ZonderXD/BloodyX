@@ -233,11 +233,13 @@ async def scripts(ctx, *, arg: int = None):
   elif arg == 1:
     await ctx.send(embed = discord.Embed(description = f'**Страница 1\n\n `1` - Break In\n `2` - Pet Ranch 2 Simulator\n `3` - Arsenal\n `4` - Build a Boat\n `5` - Fishing Simulator\n `6` - Flood Escape 2\n `7` - Bee Swarm Simulator\n `8` - Pizza Factory Tycoon\n `9` - Work At A Pizza Place\n `10` - Texting Simulator\n `11` - CB:RO\n `12` - Mad City**', color=0x6fdb9e))
   elif arg == 2:
-    await ctx.send(embed = discord.Embed(description = f'**Страница 2\n\n `13` - Ghost Simulator\n `14` - Speed Run 4\n `15` - Ro-Ghoul\n `16` - RoCitizens\n `17` - Muscle Legends\n `18` - Bubble Gum Simulator\n `19` - BIG Paintball\n `20` - MeepCity\n `21` - Mineverse\n `22` - Soda Simulator\n `23` - Destruction Simulator\n `24` - Lumber Tycoon 2**', color=0x6fdb9e))
+    await ctx.send(embed = discord.Embed(description = f'**Страница 2\n\n `13` - Ghost Simulator\n `14` - Speed Run 4\n `15` - Ro-Ghoul\n `16` - RoCitizens\n `17` - Muscle Legends\n `18` - Bubble Gum Simulator\n `19` - BIG Paintball\n `20` - MeepCity\n `21` - Mineverse\n `22` - Soda Simulator\n `23` - Destruction Simulator\n `24` - Horrific Housing**', color=0x6fdb9e))
 
 @bot.command()
 async def script(ctx, *, arg: int = None):
-  if arg == 1:
+  if arg == None:
+    await ctx.send(embed = discord.Embed(description = f'**Укажите номер скрипта.**', color=0x6fdb9e))
+  elif arg == 1:
     await ctx.send(file=discord.File(fp = 'Scripts/Break_in_GUI.txt'))
   elif arg == 2:
     await ctx.send(file=discord.File(fp = 'Scripts/Pet_Racnh_2_script.txt'))
@@ -247,6 +249,46 @@ async def script(ctx, *, arg: int = None):
     await ctx.send(file=discord.File(fp = 'Scripts/build_a_bot_for_treasure_gui.txt'))
   elif arg == 5:
     await ctx.send(file=discord.File(fp = 'Scripts/Fishing.txt'))
+  elif arg == 6:
+    await ctx.send(file=discord.File(fp = 'Scripts/Flood Escape 2.txt'))
+  elif arg == 7:
+    await ctx.send(file=discord.File(fp = 'Scripts/Bee Swarm Simulator.txt'))
+  elif arg == 8:
+    await ctx.send(file=discord.File(fp = 'Scripts/Pizza_Factory_Tycoon.txt'))
+  elif arg == 9:
+    await ctx.send(file=discord.File(fp = 'Scripts/Work_At_A_Pizza_Place.txt'))
+  elif arg == 10:
+    await ctx.send(file=discord.File(fp = 'Scripts/Texting_Simulator.txt'))
+  elif arg == 11:
+    await ctx.send(file=discord.File(fp = 'Scripts/CB:RO.txt'))
+  elif arg == 12:
+    await ctx.send(file=discord.File(fp = 'Scripts/MAD_LADS.txt'))
+    await ctx.send(file=discord.File(fp = 'Scripts/Auto_Rob.txt'))
+  elif arg == 13:
+    await ctx.send(file=discord.File(fp = 'Scripts/Ghost Simulator.txt'))
+  elif arg == 14:
+    await ctx.send(file=discord.File(fp = 'Scripts/Speed_Run_4.txt'))
+  elif arg == 15:
+    await ctx.send(file=discord.File(fp = 'Scripts/Ro-Ghoul.txt'))
+  elif arg == 16:
+    await ctx.send(file=discord.File(fp = 'Scripts/RoCitizens.txt'))
+  elif arg == 17:
+    await ctx.send(file=discord.File(fp = 'Scripts/Muscle_Legends.txt'))
+  elif arg == 18:
+    await ctx.send(file=discord.File(fp = 'Scripts/Bubble Gum Simulator.txt'))
+  elif arg == 19:
+    await ctx.send(file=discord.File(fp = 'Scripts/BIG Paintball.txt'))
+  elif arg == 20:
+    await ctx.send(file=discord.File(fp = 'Scripts/MeepCity.txt'))
+  elif arg == 21:
+    await ctx.send(file=discord.File(fp = 'Scripts/Mineverse.txt'))
+  elif arg == 22:
+    await ctx.send(file=discord.File(fp = 'Scripts/Soda_Simulator.txt'))
+  elif arg == 23:
+    await ctx.send(file=discord.File(fp = 'Scripts/Destruction_Simulator.txt'))
+  elif arg == 24:
+    await ctx.send(file=discord.File(fp = 'Horrific Housing.txt'))
+    await ctx.send(file=discord.File(fp = 'Horrific Housing 2.txt'))
 
 @bot.command()
 async def user(ctx, Member: discord.Member = None ):
