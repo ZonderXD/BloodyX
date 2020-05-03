@@ -91,7 +91,7 @@ async def on_member_join( member ):
 async def botinfo(ctx):
     embed = discord.Embed(title=f"{ctx.guild.name}", description="Информация о боте **Bloody X#7002**.\n Бот был написан специально для проекта **`Bloody X`**,\n Подробнее о командах: **`.help`**", color = 0x00ffff)
     embed.add_field(name=f'**Меня создал:**', value="๖̶̶̶ζ͜͡𝔻𝕣𝕒𝕘𝕠𝕟 𝔽𝕖𝕤𝕙#8992(<@668325441224048641>)", inline=False)  # Создает строку
-    embed.add_field(name=f'**Помощь в создании:**', value="Satana#2362 (<@342317507991961602>)", inline=False)  # Создает строку
+    embed.add_field(name=f'**Помощь в создании:**', value="Satana★#2362 (<@342317507991961602>)", inline=False)  # Создает строку
     embed.add_field(name=f'**Лицензия:**', value="LD-v7", inline=False)  # Создает строку
     embed.add_field(name=f'**Я написан на:**', value="Discord.py", inline=False)  # Создает строку
     embed.add_field(name=f'**Версия:**', value="V.3.0.1", inline=False)  # Создает строку
@@ -238,7 +238,15 @@ async def scripts(ctx, *, arg: int = None):
 @bot.command()
 async def script(ctx, *, arg: int = None):
   if arg == 1:
-    await ctx.send(embed = discord.Embed(description = f'**Команда не доступна!**', color=0x6fdb9e))
+    await ctx.send(file=discord.File(fp = 'Scripts/Break_in_GUI.txt'))
+  elif arg == 2:
+    await ctx.send(file=discord.File(fp = 'Scripts/Pet_Racnh_2_script.txt'))
+  elif arg == 3:
+    await ctx.send(file=discord.File(fp = 'Scripts/Arsenal_Op_GUI.txt'))
+  elif arg == 4:
+    await ctx.send(file=discord.File(fp = 'Scripts/build_a_bot_for_treasure_gui.txt'))
+  elif arg == 5:
+    await ctx.send(file=discord.File(fp = 'Scripts/Fishing.txt'))
 
 @bot.command()
 async def user(ctx, Member: discord.Member = None ):
