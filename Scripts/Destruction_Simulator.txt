@@ -1,0 +1,38 @@
+--AutoSell
+local sell = coroutine.wrap(function()
+while wait() do
+    game:GetService("ReplicatedStorage").Remotes.sellBricks:FireServer()
+end
+end)
+sell()
+
+--Auto Farm
+
+local shitman = coroutine.wrap(function()
+while wait() do
+    for i,v in pairs(game.workspace.BoardsForceLoad:GetChildren()) do
+        if string.find(v.Name, "Area") then
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame * CFrame.new(0,0,20)
+            wait(0.1)
+        end
+    end
+end
+end)
+shitman()
+while wait() do
+for i,v in pairs(game.workspace.Areas:GetChildren()) do
+    if v:IsA("Folder") then
+        for i,x in pairs(v:GetChildren()) do
+            if x:IsA("Model") then
+                if x:FindFirstChildWhichIsA("Part") then
+                    --game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = x:FindFirstChildWhichIsA("Part").CFrame
+                    if game:GetService("Players").LocalPlayer.Character:FindFirstChild("Launcher") then
+                        game:GetService("ReplicatedStorage").Remotes.explodeRocket:FireServer(1583347100.3684, game:GetService("Players").LocalPlayer.Character.Launcher.Stats, x:FindFirstChildWhichIsA("Part").Position, game:GetService("Players").LocalPlayer.Character.Launcher.Assets.Rocket.Boom)
+                    end
+                end
+            end
+        end
+    end
+end
+wait(1)
+end
