@@ -159,12 +159,12 @@ async def hug(ctx, member : discord.Member): # Название команды �
 async def kill(ctx, member : discord.Member = None):
 	if member == None:
 		emb = discord.Embed(description= f'{ctx.message.author.mention} Прыгает с крыши.', color=0x6fdb9e) # Переменная ембеда и описание
-		emb.set_image(url='https://cdn.discordapp.com/attachments/702533257534898248/704731742946459708/BIty.gif')
+		emb.set_image(url='https://pa1.narvii.com/7081/7f5f49cf4e6c0a06614d7cda9bd5954b257a2151r1-500-296_hq.gif')
 		
 		await ctx.send(embed=emb)
 	else:
 		emb = discord.Embed(description= f'{member.mention}, Вас убил(-а) {ctx.message.author.mention}.', color=0x6fdb9e) # Переменная ембеда и описание
-		emb.set_image(url='https://cdn.discordapp.com/attachments/702533257534898248/704733276136276078/3j0F.gif') # Ищем картинку и ставим её в ембед
+		emb.set_image(url='https://cdn.discordapp.com/attachments/693515715646324796/707578928327295046/gun.gif') # Ищем картинку и ставим её в ембед
  	
 		await ctx.send(embed=emb) # Отпрвака ембед
 
