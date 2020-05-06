@@ -164,7 +164,7 @@ async def kill(ctx, member : discord.Member = None):
 		await ctx.send(embed=emb)
 	else:
 		emb = discord.Embed(description= f'{member.mention}, Вас убил(-а) {ctx.message.author.mention}.', color=0x6fdb9e) # Переменная ембеда и описание
-		emb.set_image(url='https://tenor.com/view/assasination-classrom-gun-shooting-anime-gif-12494509') # Ищем картинку и ставим её в ембед
+		emb.set_image(url='https://tenor.com/view/shots-fired-anime-gif-5106447') # Ищем картинку и ставим её в ембед
  	
 		await ctx.send(embed=emb) # Отпрвака ембед
 
