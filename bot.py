@@ -63,6 +63,13 @@ def random_meme():
     return picked_meme
 
 @bot.command()
+async def cat(ctx):
+    meow = random.randint(1, 100000)
+    embed = discord.Embed(title='**Вот тебе кот:**' ,colour=0x00ffff)
+    embed.set_image(url = f'https://cataas.com/cat?{meow}')
+    await ctx.send(embed=embed)
+
+@bot.command()
 async def meme(ctx):
     emb = discord.Embed(description = f"**Вот тебе мем:**", color = 0xda4a)
     emb.set_image(url= random_meme())
@@ -193,7 +200,7 @@ async def help(ctx):
 	emb.add_field(name='🎶 Роблокс музыка:', value='`.music` - Коды для музыки 💨', inline = False)
 	emb.add_field(name='🥥 Скрипты:', value='`.scripts` - Скрипты для игр 🍕', inline = False)
 	emb.add_field(name='🎉 Весёлости:', value='``.ran_color`` - Рандомный цвет в формате HEX 🩸\n ``.coin`` - Бросить монетку 🌈\n ``.math (2*2/2+2-2)`` - Решить пример :infinity:\n `.8ball (question)` - Волшебный шар 🔮\n `.password (10 10)` - Рандомный пароль 🎩\n `.meme` - Рандомный мем 🤣',inline = False)
-	emb.add_field(name='💋 Некос:', value='\n `.hug (@user)` - Обнять 😜\n `.slap (@user)` - Ударить 😡\n `.ran_avatar` - Рандом. аватар 🤯\n `.kill [@user]` - Убить 🔪\n `.dog` - Собака :dog:\n `.goose` - Гусь :duck:',inline = False)
+	emb.add_field(name='💋 Некос:', value='\n `.hug (@user)` - Обнять 😜\n `.slap (@user)` - Ударить 😡\n `.ran_avatar` - Рандом. аватар 🤯\n `.kill [@user]` - Убить 🔪\n `.dog` - Собака :dog:\n `.goose` - Гусь :duck:\n `.cat` - Кот 🐱',inline = False)
 	emb.add_field(name='♥ Для создателя:', value='`.owner_help` - Навигация по всем командам 👑',inline = False)
 	emb.set_thumbnail(url=ctx.guild.icon_url)
 	emb.set_footer(text='ζ͜͡𝔻𝕣𝕒𝕘𝕠𝕟 𝔽𝕖𝕤𝕙#8992 © | Все права защищены', icon_url='https://cdn.discordapp.com/avatars/668325441224048641/8c31407c2e8c98b98b112f315b4c82b6.webp?size=1024')
@@ -210,7 +217,7 @@ async def owner_help(ctx):
 	emb.add_field(name='🎶 Роблокс музыка:', value='`.music` - Коды для музыки 💨', inline = False)
 	emb.add_field(name='🥥 Скрипты:', value='`.scripts` - Скрипты для игр 🍕', inline = False)
 	emb.add_field(name='🎉 Весёлости:', value='``.ran_color`` - Рандомный цвет в формате HEX 🩸\n ``.coin`` - Бросить монетку 🌈\n ``.math (2*2/2+2-2)`` - Решить пример :infinity:\n `.8ball (question)` - Волшебный шар 🔮\n `.password (10 10)` - Рандомный пароль 🎩\n `.meme` - Рандомный мем 🤣',inline = False)
-	emb.add_field(name='💋 Некос:', value='\n `.hug (@user)` - Обнять 😜\n `.slap (@user)` - Ударить 😡\n `.ran_avatar` - Рандом. аватар 🤯\n `.kill [@user]` - Убить 🔪\n `.dog` - Собака :dog:\n `.goose` - Гусь :duck:',inline = False)
+	emb.add_field(name='💋 Некос:', value='\n `.hug (@user)` - Обнять 😜\n `.slap (@user)` - Ударить 😡\n `.ran_avatar` - Рандом. аватар 🤯\n `.kill [@user]` - Убить 🔪\n `.dog` - Собака :dog:\n `.goose` - Гусь :duck:\n `.cat` - Кот 🐱',inline = False)
 	emb.add_field(name='♥ Для создателя:', value='`.opros (text)` - Сделать опрос 🎓\n `.say (text)` - Сообщение от лица бота 🎨\n `.leave (id)` - Выйти с сервера 🧥\n `.servers` - Список серверов 🎒\n `.emoji (id) (emoji)` - Добавить эмоджи 🔊',inline = False)
 	emb.set_thumbnail(url=ctx.guild.icon_url)
 	emb.set_footer(text='ζ͜͡𝔻𝕣𝕒𝕘𝕠𝕟 𝔽𝕖𝕤𝕙#8992 © | Все права защищены', icon_url='https://cdn.discordapp.com/avatars/668325441224048641/8c31407c2e8c98b98b112f315b4c82b6.webp?size=1024')
