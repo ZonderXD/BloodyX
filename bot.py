@@ -10,6 +10,7 @@ import sqlite3
 import time
 from discord.ext import commands
 from discord.utils import get
+from Cybernator import Paginator
 
 bot = commands.Bot(command_prefix='.')
 bot.remove_command('help')
@@ -45,6 +46,17 @@ async def suggest( ctx , * , agr ):
         message = await suggest_chanell.send(embed=embed)
         await message.add_reaction('✅')
         await message.add_reaction('❎')
+
+@bot.command()
+async def test(ctx):
+    embed1 = discord.Embed(title="Страница 1", description='test 1')
+    embed2 = discord.Embed(title="Страница 2", description='test 2')
+    embed3 = discord.Embed(title="Страница 3", description='test 3')
+    embed4 = discord.Embed(title="Страница 4", description='test 4')
+    embeds = [embed1, embed2, embed3, embed4]
+    message = await ctx.send(embed=embed1)
+    page = Paginator(bot, message, author=ctx, use_more=False, embeds=embeds)
+    await page.start()
 
 @bot.command()
 @commands.check(is_owner)
