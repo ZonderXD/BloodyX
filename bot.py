@@ -203,7 +203,7 @@ async def help(ctx):
     embed6 = discord.Embed(title ='💋 Некос:', description='**`.hug (@user)` - Обнять 😜\n `.slap (@user)` - Ударить 😡\n `.ran_avatar` - Рандом. аватар 🤯\n `.kill [@user]` - Убить 🔪\n `.dog` - Собака :dog:\n `.goose` - Гусь :duck:\n `.cat` - Кот 🐱**', color=0x6fdb9e)
     embed7 = discord.Embed(title ='♥ Для создателя:', description='**`.owner_help` - Навигация по всем командам 👑**', color=0x6fdb9e)
     embeds = [embed1, embed2, embed3, embed4, embed5, embed6, embed7]
-    message = await ctx..send(embed=embed1)
+    message = await ctx.send(embed=embed1)
     page = Paginator(bot, message, author=ctx, use_more=False, embeds=embeds)
     await page.start()
 
@@ -217,7 +217,7 @@ async def owner_help(ctx):
     embed6 = discord.Embed(title ='💋 Некос:', description='**`.hug (@user)` - Обнять 😜\n `.slap (@user)` - Ударить 😡\n `.ran_avatar` - Рандом. аватар 🤯\n `.kill [@user]` - Убить 🔪\n `.dog` - Собака :dog:\n `.goose` - Гусь :duck:\n `.cat` - Кот 🐱**', color=0x6fdb9e)
     embed7 = discord.Embed(title ='♥ Для создателя:', description='**`.opros (text)` - Сделать опрос 🎓\n `.say (text)` - Сообщение от лица бота 🎨\n `.leave (id)` - Выйти с сервера 🧥\n `.servers` - Список серверов 🎒\n `.emoji (id) (emoji)` - Добавить эмоджи 🔊**', color=0x6fdb9e)
     embeds = [embed1, embed2, embed3, embed4, embed5, embed6, embed7]
-    message = await ctx.send(embed=embed1)
+    message = await ctx.author.send(embed=embed1)
     page = Paginator(bot, message, author=ctx, use_more=False, embeds=embeds)
     await page.start()
 
