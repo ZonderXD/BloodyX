@@ -194,7 +194,7 @@ async def password(ctx, lenght: int = None, number: int = None):
         return
 
 @bot.command()
-@commands.check(is_owner)
+@commands.is_owner()
 async def test(ctx):
     if not commands.NotOwner:
         await ctx.send(f"Отказано в доступе!")
