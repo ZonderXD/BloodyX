@@ -194,14 +194,6 @@ async def password(ctx, lenght: int = None, number: int = None):
         return
 
 @bot.command()
-@commands.is_owner()
-async def test(ctx):
-    if not commands.NotOwner:
-        await ctx.send(f"Отказано в доступе!")
-    else:
-        await ctx.send("Команда осуществленна!")
-
-@bot.command()
 async def help(ctx):
     embed1 = discord.Embed(title = '⚙ Навигация по командам:\n ❗ Обязательные параметры: `()`\n ❓ Необязательные параметры: `[]`', color=0x6fdb9e )
     embed2 = discord.Embed(title ='💎 Базовые:', description='**``.user [@user]`` - Узнать информацию о пользователе 🎭\n ``.server`` - Узнать информацию о сервере 🧿\n `.bot` - Информация о боте 🤖\n`.avatar [@user]` - Аватар пользователя 🖼\n `.suggest (text)` - Предложить идею ✉**', color=0x6fdb9e )
