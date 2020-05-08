@@ -196,31 +196,16 @@ async def password(ctx, lenght: int = None, number: int = None):
 @bot.command()
 async def help(ctx):
     embed1 = discord.Embed(title = '⚙ Навигация по командам:\n ❗ Обязательные параметры: `()`\n ❓ Необязательные параметры: `[]`', color=0x6fdb9e )
-    embed2 = discord.Embed(title ='💎 Базовые:', description='``.user [@user]`` - Узнать информацию о пользователе 🎭\n ``.server`` - Узнать информацию о сервере 🧿\n `.bot` - Информация о боте 🤖\n`.avatar [@user]` - Аватар пользователя 🖼\n `.suggest (text)` - Предложить идею', color=0x6fdb9e )
-    embed3 = discord.Embed(title ='🎶 Роблокс музыка:', description='`.music` - Коды для музыки 💨', color = 0x6fdb9e)
-    embed4 = discord.Embed(title ='🥥 Скрипты:', description='`.scripts` - Скрипты для игр 🍕', color = 0x6fdb9e)
-    embed5 = discord.Embed(title ='🎉 Весёлости:', description='``.ran_color`` - Рандомный цвет в формате HEX 🩸\n ``.coin`` - Бросить монетку 🌈\n ``.math (2*2/2+2-2)`` - Решить пример :infinity:\n `.8ball (question)` - Волшебный шар 🔮\n `.password (10 10)` - Рандомный пароль 🎩\n `.meme` - Рандомный мем 🤣', color=0x6fdb9e)
-    embed6 = discord.Embed(title ='💋 Некос:', description='`.hug (@user)` - Обнять 😜\n `.slap (@user)` - Ударить 😡\n `.ran_avatar` - Рандом. аватар 🤯\n `.kill [@user]` - Убить 🔪\n `.dog` - Собака :dog:\n `.goose` - Гусь :duck:\n `.cat` - Кот 🐱', color=0x6fdb9e)
-    embed7 = discord.Embed(title ='♥ Для создателя:', description='`.owner_help` - Навигация по всем командам 👑',inline = False)
+    embed2 = discord.Embed(title ='💎 Базовые:', description='**``.user [@user]`` - Узнать информацию о пользователе 🎭\n ``.server`` - Узнать информацию о сервере 🧿\n `.bot` - Информация о боте 🤖\n`.avatar [@user]` - Аватар пользователя 🖼\n `.suggest (text)` - Предложить идею**', color=0x6fdb9e )
+    embed3 = discord.Embed(title ='🎶 Роблокс музыка:', description='**`.music` - Коды для музыки 💨**', color = 0x6fdb9e)
+    embed4 = discord.Embed(title ='🥥 Скрипты:', description='**`.scripts` - Скрипты для игр 🍕**', color = 0x6fdb9e)
+    embed5 = discord.Embed(title ='🎉 Весёлости:', description='**``.ran_color`` - Рандомный цвет в формате HEX 🩸\n ``.coin`` - Бросить монетку 🌈\n ``.math (2*2/2+2-2)`` - Решить пример :infinity:\n `.8ball (question)` - Волшебный шар 🔮\n `.password (10 10)` - Рандомный пароль 🎩\n `.meme` - Рандомный мем 🤣**', color=0x6fdb9e)
+    embed6 = discord.Embed(title ='💋 Некос:', description='**`.hug (@user)` - Обнять 😜\n `.slap (@user)` - Ударить 😡\n `.ran_avatar` - Рандом. аватар 🤯\n `.kill [@user]` - Убить 🔪\n `.dog` - Собака :dog:\n `.goose` - Гусь :duck:\n `.cat` - Кот 🐱**', color=0x6fdb9e)
+    embed7 = discord.Embed(title ='♥ Для создателя:', description='**`.owner_help` - Навигация по всем командам 👑**', color=0x6fdb9e)
     embeds = [embed1, embed2, embed3, embed4, embed5, embed6, embed7]
-    message = await ctx.author.send(embed=embed1)
+    message = await ctx..send(embed=embed1)
     page = Paginator(bot, message, author=ctx, use_more=False, embeds=embeds)
     await page.start()
-
-@bot.command()
-async def heh(ctx):
-	emb = discord.Embed( title = '⚙ Навигация по командам:\n ❗ Обязательные параметры: `()`\n ❓ Необязательные параметры: `[]`', color=0x6fdb9e )
-	
-	emb.add_field(name='💎 Базовые:', value='``.user [@user]`` - Узнать информацию о пользователе 🎭\n ``.server`` - Узнать информацию о сервере 🧿\n `.bot` - Информация о боте 🤖\n`.avatar [@user]` - Аватар пользователя 🖼\n `.suggest (text)` - Предложить идею', inline = False)
-	emb.add_field(name='🎶 Роблокс музыка:', value='`.music` - Коды для музыки 💨', inline = False)
-	emb.add_field(name='🥥 Скрипты:', value='`.scripts` - Скрипты для игр 🍕', inline = False)
-	emb.add_field(name='🎉 Весёлости:', value='``.ran_color`` - Рандомный цвет в формате HEX 🩸\n ``.coin`` - Бросить монетку 🌈\n ``.math (2*2/2+2-2)`` - Решить пример :infinity:\n `.8ball (question)` - Волшебный шар 🔮\n `.password (10 10)` - Рандомный пароль 🎩\n `.meme` - Рандомный мем 🤣',inline = False)
-	emb.add_field(name='💋 Некос:', value='\n `.hug (@user)` - Обнять 😜\n `.slap (@user)` - Ударить 😡\n `.ran_avatar` - Рандом. аватар 🤯\n `.kill [@user]` - Убить 🔪\n `.dog` - Собака :dog:\n `.goose` - Гусь :duck:\n `.cat` - Кот 🐱',inline = False)
-	emb.add_field(name='♥ Для создателя:', value='`.owner_help` - Навигация по всем командам 👑',inline = False)
-	emb.set_thumbnail(url=ctx.guild.icon_url)
-	emb.set_footer(text='ζ͜͡𝔻𝕣𝕒𝕘𝕠𝕟 𝔽𝕖𝕤𝕙#8992 © | Все права защищены', icon_url='https://cdn.discordapp.com/avatars/668325441224048641/8c31407c2e8c98b98b112f315b4c82b6.webp?size=1024')
-	
-	await ctx.send( embed = emb )
 
 @bot.command()
 async def owner_help(ctx):
@@ -230,7 +215,7 @@ async def owner_help(ctx):
     embed4 = discord.Embed(title ='🥥 Скрипты:', description='`.scripts` - Скрипты для игр 🍕', color = 0x6fdb9e)
     embed5 = discord.Embed(title ='🎉 Весёлости:', description='``.ran_color`` - Рандомный цвет в формате HEX 🩸\n ``.coin`` - Бросить монетку 🌈\n ``.math (2*2/2+2-2)`` - Решить пример :infinity:\n `.8ball (question)` - Волшебный шар 🔮\n `.password (10 10)` - Рандомный пароль 🎩\n `.meme` - Рандомный мем 🤣', color=0x6fdb9e)
     embed6 = discord.Embed(title ='💋 Некос:', description='`.hug (@user)` - Обнять 😜\n `.slap (@user)` - Ударить 😡\n `.ran_avatar` - Рандом. аватар 🤯\n `.kill [@user]` - Убить 🔪\n `.dog` - Собака :dog:\n `.goose` - Гусь :duck:\n `.cat` - Кот 🐱', color=0x6fdb9e)
-    embed7 = discord.Embed(title ='♥ Для создателя:', description='`.opros (text)` - Сделать опрос 🎓\n `.say (text)` - Сообщение от лица бота 🎨\n `.leave (id)` - Выйти с сервера 🧥\n `.servers` - Список серверов 🎒\n `.emoji (id) (emoji)` - Добавить эмоджи 🔊',inline = False)
+    embed7 = discord.Embed(title ='♥ Для создателя:', description='`.opros (text)` - Сделать опрос 🎓\n `.say (text)` - Сообщение от лица бота 🎨\n `.leave (id)` - Выйти с сервера 🧥\n `.servers` - Список серверов 🎒\n `.emoji (id) (emoji)` - Добавить эмоджи 🔊', color=0x6fdb9e)
     embeds = [embed1, embed2, embed3, embed4, embed5, embed6, embed7]
     message = await ctx.send(embed=embed1)
     page = Paginator(bot, message, author=ctx, use_more=False, embeds=embeds)
