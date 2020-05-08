@@ -201,8 +201,7 @@ async def help(ctx):
     embed4 = discord.Embed(title ='🥥 Скрипты:', description='**`.scripts` - Скрипты для игр 🍕**', color = 0x6fdb9e)
     embed5 = discord.Embed(title ='🎉 Весёлости:', description='**``.ran_color`` - Рандомный цвет в формате HEX 🩸\n ``.coin`` - Бросить монетку 🌈\n ``.math (2*2/2+2-2)`` - Решить пример :infinity:\n `.8ball (question)` - Волшебный шар 🔮\n `.password (10 10)` - Рандомный пароль 🎩\n `.meme` - Рандомный мем 🤣**', color=0x6fdb9e)
     embed6 = discord.Embed(title ='💋 Некос:', description='**`.hug (@user)` - Обнять 😜\n `.slap (@user)` - Ударить 😡\n `.ran_avatar` - Рандом. аватар 🤯\n `.kill [@user]` - Убить 🔪\n `.dog` - Собака :dog:\n `.goose` - Гусь :duck:\n `.cat` - Кот 🐱**', color=0x6fdb9e)
-    embed7 = discord.Embed(title ='♥ Для создателя:', description='**`.owner_help` - Навигация по всем командам 👑**', color=0x6fdb9e)
-    embeds = [embed1, embed2, embed3, embed4, embed5, embed6, embed7]
+    embeds = [embed1, embed2, embed3, embed4, embed5, embed6]
     message = await ctx.send(embed=embed1)
     page = Paginator(bot, message, author=ctx, use_more=False, embeds=embeds)
     await page.start()
