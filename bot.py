@@ -194,6 +194,20 @@ async def password(ctx, lenght: int = None, number: int = None):
         return
 
 @bot.command()
+async def test(ctx):
+    embed1 = discord.Embed(title="Страница 1", description='test 1')
+    embed21 = discord.Embed(title="Страница 2.1", description='test 2.1')
+    embed22 = discord.Embed(title="Страница 2.2", description='test 2.2')
+    embed31 = discord.Embed(title="Страница 3.1", description='test 3.1')
+    embed32 = discord.Embed(title="Страница 3.2", description='test 3.2')
+    embed33 = discord.Embed(title="Страница 3.3", description='test 3.3')
+    embed34 = discord.Embed(title="Страница 3.4", description='test 3.4')
+    embeds = [embed1, [embed21, embed22], [embed31, embed32, embed33, embed34]]
+    message = await ctx.send(embed=embed1)
+    page = Paginator(bot, message, author=ctx, use_more=True, embeds=embeds)
+    await page.start()
+
+@bot.command()
 async def help(ctx):
     embed1 = discord.Embed(title = '⚙ Навигация по командам:\n ❗ Обязательные параметры: `()`\n ❓ Необязательные параметры: `[]`', color=0x6fdb9e )
     embed2 = discord.Embed(title ='💎 Базовые:', description='**``.user [@user]`` - Узнать информацию о пользователе 🎭\n ``.server`` - Узнать информацию о сервере 🧿\n `.bot` - Информация о боте 🤖\n`.avatar [@user]` - Аватар пользователя 🖼\n `.suggest (text)` - Предложить идею ✉**', color=0x6fdb9e )
