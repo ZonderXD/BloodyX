@@ -3,3 +3,4 @@ asyncio
 datetime
 nekos.py
 Cybernator
+wikipedia
