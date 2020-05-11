@@ -196,7 +196,7 @@ async def password(ctx, lenght: int = None, number: int = None):
 @bot.command()
 async def help(ctx):
     embed1 = discord.Embed(title = '⚙ Навигация по командам:\n ❗ Обязательные параметры: `()`\n ❓ Необязательные параметры: `[]`', color=0x6fdb9e )
-    embed2 = discord.Embed(title ='💎 Базовые:', description='**``.user [@user]`` - Узнать информацию о пользователе 🎭\n ``.server`` - Узнать информацию о сервере 🧿\n `.bot` - Информация о боте 🤖\n`.avatar [@user]` - Аватар пользователя 🖼\n `.suggest (text)` - Предложить идею ✉**', color=0x6fdb9e )
+    embed2 = discord.Embed(title ='💎 Базовые:', description='**``.user [@user]`` - Узнать информацию о пользователе 🎭\n ``.server`` - Узнать информацию о сервере 🧿\n `.bot` - Информация о боте 🤖\n`.avatar [@user]` - Аватар пользователя 🖼\n `.suggest (text)` - Предложить идею ✉\n `.wiki (text)` - Википедия 📖**', color=0x6fdb9e )
     embed3 = discord.Embed(title ='🎶 Роблокс музыка:', description='**`.music` - Коды для музыки 💨**', color = 0x6fdb9e)
     embed4 = discord.Embed(title ='🥥 Скрипты:', description='**`.scripts` - Скрипты для игр 🍕**', color = 0x6fdb9e)
     embed5 = discord.Embed(title ='🎉 Весёлости:', description='**``.ran_color`` - Рандомный цвет в формате HEX 🩸\n ``.coin`` - Бросить монетку 🌈\n ``.math (2*2/2+2-2)`` - Решить пример :infinity:\n `.8ball (question)` - Волшебный шар 🔮\n `.password (10 10)` - Рандомный пароль 🎩\n `.meme` - Рандомный мем 🤣**', color=0x6fdb9e)
@@ -209,7 +209,7 @@ async def help(ctx):
 @bot.command()
 async def music(ctx):
     embed1 = discord.Embed(title ='📋 Страницы:', description='**`1.` - Страница 1 (1-6)\n `2.` - Страница 2 (7-12)\n `3.` - Страница 3 (13-19)**', color = 0x6fdb9e)
-    embed2 = discord.Embed(title ='⚠ Патент:', description='**`❗` Кто сп#здит коды, тому п#зда! `❗`**', color = 0x6fdb9e)
+    embed2 = discord.Embed(title ='⚠ Патент:', description='**`❗❗❗` Кто сп#здит коды, тому п#зда! <@342317507991961602> не касается! `❗❗❗`**', color = 0x6fdb9e)
     embed3 = discord.Embed(title ='📋 Страница 1', description='**`1.` РА-ТА-ТА-ТА-ТА - `4618705402`\n `2.` Копы - `2933225417`\n `3.` Последняя - `4624707819`\n `4.` Чикибамбони - `4570427470`\n `5.` 4 Украинки - `4624707819`\n `6.` Пам пам пам - `2717372934`**', color = 0x6fdb9e)
     embed4 = discord.Embed(title ='📋 Страница 2', description='**`7.` Грустный реп - `4518984639`\n `8.` Реальный Flesh - `3766039768`\n `9.` Ракета - `3666410231`\n `10.` Убьют за нас - `3134163814`\n `11.` Хубба Бубба - `4502015210`\n `12.` Надо Поле Притоптать - `1170717899`**', color = 0x6fdb9e)
     embed5 = discord.Embed(title ='📋 Страница 3', description='**`13.` Паравозик тыр, тыр, тыр - `4244590201`\n `14.` Нейтороксин - `4466370680`\n `15.` Корабль идёт ко дну - `2774380819`\n `16.` Идол - `2941601894`\n `17.` Коронаминус - `4788523402`\n `18.` Попытка номер 5 - `4722362895`\n `19.` Супер друг - `4338357412`**', color = 0x6fdb9e)
@@ -219,13 +219,24 @@ async def music(ctx):
     await page.start()
 
 @bot.command()
-async def scripts(ctx, *, arg: int = None):
-  if arg == None:
-    await ctx.send(embed = discord.Embed(description = f'**Напишите `.scripts 1` или `.scripts 2`**\n ***P.S Это страницы.***', color=0x6fdb9e))
-  elif arg == 1:
-    await ctx.send(embed = discord.Embed(description = f'**Страница 1\n\n `1` - Break In\n `2` - Pet Ranch 2 Simulator\n `3` - Arsenal\n `4` - Build a Boat\n `5` - Fishing Simulator\n `6` - Flood Escape 2\n `7` - Bee Swarm Simulator\n `8` - Pizza Factory Tycoon\n `9` - Work At A Pizza Place\n `10` - Texting Simulator\n `11` - CB:RO\n `12` - Mad City**', color=0x6fdb9e))
-  elif arg == 2:
-    await ctx.send(embed = discord.Embed(description = f'**Страница 2\n\n `13` - Ghost Simulator\n `14` - Speed Run 4\n `15` - Ro-Ghoul\n `16` - RoCitizens\n `17` - Muscle Legends\n `18` - Bubble Gum Simulator\n `19` - BIG Paintball\n `20` - MeepCity\n `21` - Mineverse\n `22` - Soda Simulator\n `23` - Destruction Simulator\n `24` - Horrific Housing**', color=0x6fdb9e))
+async def scripts(ctx):
+    embed1 = discord.Embed(title ='📋 Страницы:', description='**`1.` - Страница 1 (1-12)\n `2.` - Страница 2 (13-24)\n `3.` - Страница 3 (25-37)**', color = 0x6fdb9e)
+    embed2 = discord.Embed(title ='⚠ Патент:', description='**`❗❗❗` Кто сп#здит скрипты, тому п#зда! <@342317507991961602> не касается! `❗❗❗`**', color = 0x6fdb9e)
+    embed3 = discord.Embed(title ='📋 Страница 1', description='**`1` - Break In\n `2` - Pet Ranch 2 Simulator\n `3` - Arsenal\n `4` - Build a Boat\n `5` - Fishing Simulator\n `6` - Flood Escape 2\n `7` - Bee Swarm Simulator\n `8` - Pizza Factory Tycoon\n `9` - Work At A Pizza Place\n `10` - Texting Simulator\n `11` - CB:RO\n `12` - Mad City**', color = 0x6fdb9e)
+    embed4 = discord.Embed(title ='📋 Страница 2', description='**`13` - Ghost Simulator\n `14` - Speed Run 4\n `15` - Ro-Ghoul\n `16` - RoCitizens\n `17` - Muscle Legends\n `18` - Bubble Gum Simulator\n `19` - BIG Paintball\n `20` - MeepCity\n `21` - Mineverse\n `22` - Soda Simulator\n `23` - Destruction Simulator\n `24` - Horrific Housing****', color = 0x6fdb9e)
+    embed5 = discord.Embed(title ='📋 Страница 3', description='**`25` - Shark Bite\n `26` - Piggy\n `27` - Lucky blocks\n `28` - A Wolf Or Other\n `29` - Bloxburg\n `30` - Robot Inc\n `31` - Pizza Factory Tycoon\n `32` - Work at a Pizza Place\n `33` - Tower of Hell\n `34` - A Bizarre Day\n `35` - Bakon\n `36` - Zombie Attack\n `37` -  Knife Ability Test (KAT)**', color = 0x6fdb9e)
+    embeds = [embed1, embed2, embed3, embed4, embed5]
+    message = await ctx.send(embed=embed1)
+    page = Paginator(bot, message, author=ctx, use_more=False, embeds=embeds)
+    await page.start()
+
+@bot.command(pass_context = True)
+async def wiki( ctx,*, amount: str):
+
+    if not amount:
+        await ctx.send("Пожалуйста, используйте такую кострукцию: `.wiki [вики запрос]`")
+    a = '_'.join(amount.split())
+    await ctx.send(f'https://ru.wikipedia.org/wiki/{a}')
 
 @bot.command()
 async def script(ctx, *, arg: int = None):
