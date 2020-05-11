@@ -1,0 +1,533 @@
+--MADE BY fireztron @ V3RMILLION
+--Credit to TrustedCardinal @ v3rmillion for the draggable UI feature)
+ 
+--default values--
+local walkspeed = 14
+local jumppower = 20
+local targetPlayer = Anoffdutyninja -- for streamsniping maybe
+------------------
+ 
+--don't change these vars okay
+local RepStorage = gameGetService('ReplicatedStorage')
+local Plrs = gameGetService('Players')
+local LP = Plrs.LocalPlayer
+local LPchar = LP.Character
+spawn(function()
+  LPchar = LP.CharacterAddedWait()
+  print('LPchar finally defined!')
+end)
+ 
+local WolvesFolder = RepStorage.Wolves
+local HuntersFolder = RepStorage.Hunters
+local WolfPlayer
+local HunterPlayer
+ 
+--gui
+local ScreenGui = Instance.new(ScreenGui)
+local Frame = Instance.new(Frame)
+local WalkSpeedBox = Instance.new(TextBox)
+local KillAllButton = Instance.new(TextButton)
+local TextLabel = Instance.new(TextLabel)
+local Credits = Instance.new(TextLabel)
+local NoClipButton = Instance.new(TextButton)
+local JumpPowerBox = Instance.new(TextBox)
+ 
+ScreenGui.Parent = game.Players.LocalPlayerWaitForChild(PlayerGui)
+ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+ScreenGui.Name = 'Wolf GUI Fucker'
+ 
+Frame.Parent = ScreenGui
+Frame.BackgroundColor3 = Color3.new(0.333333, 0.878431, 1)
+Frame.Position = UDim2.new(0.758273363, 0, 0.450980425, 0)
+Frame.Size = UDim2.new(0.200000003, 0, 0.5, 0)
+ 
+WalkSpeedBox.Parent = Frame
+WalkSpeedBox.AnchorPoint = Vector2.new(0.5, 0.5)
+WalkSpeedBox.BackgroundColor3 = Color3.new(0.729412, 0, 0)
+WalkSpeedBox.Position = UDim2.new(0.5, 0, 0.449999988, 0)
+WalkSpeedBox.Size = UDim2.new(0.800000012, 0, 0.200000003, 0)
+WalkSpeedBox.ZIndex = 3
+WalkSpeedBox.Font = Enum.Font.ArialBold
+WalkSpeedBox.PlaceholderColor3 = Color3.new(0.929412, 1, 0.12549)
+WalkSpeedBox.PlaceholderText = Set WalkSpeed ( .. tostring(walkspeed) .. )
+WalkSpeedBox.Text = 
+WalkSpeedBox.TextColor3 = Color3.new(0.929412, 1, 0.12549)
+WalkSpeedBox.TextSize = 17
+WalkSpeedBox.TextWrapped = true
+ 
+KillAllButton.Parent = Frame
+KillAllButton.AnchorPoint = Vector2.new(0.5, 0.5)
+KillAllButton.BackgroundColor3 = Color3.new(0.729412, 0, 0)
+KillAllButton.Position = UDim2.new(0.5, 0, 0.889999986, 0)
+KillAllButton.Size = UDim2.new(0.800000012, 0, 0.200000003, 0)
+KillAllButton.Font = Enum.Font.ArialBold
+KillAllButton.Text = Kill All (Werewolf)
+KillAllButton.TextColor3 = Color3.new(0.929412, 1, 0.12549)
+KillAllButton.TextSize = 17
+ 
+TextLabel.Parent = Frame
+TextLabel.BackgroundColor3 = Color3.new(0.411765, 1, 0.647059)
+TextLabel.Size = UDim2.new(1, 0, .08, 0)
+TextLabel.Font = Enum.Font.SourceSans
+TextLabel.Text = WOLF OR OTHER GUI (Y to closeopen)
+TextLabel.TextColor3 = Color3.new(0, 0, 0)
+TextLabel.TextSize = 27
+TextLabel.Draggable = true
+ 
+Credits.Parent = Frame
+Credits.AnchorPoint = Vector2.new(0.5, 0.5)
+Credits.BackgroundColor3 = Color3.new(0.411765, 1, 0.647059)
+Credits.Size = UDim2.new(1, 0, .05, 0)
+Credits.Position = UDim2.new(.5, 0, .1, 0)
+Credits.Font = Enum.Font.SourceSans
+Credits.Text = Made by fireztron @v3rmillion
+Credits.TextColor3 = Color3.new(0, 0, 0)
+Credits.TextSize = 15
+ 
+NoClipButton.Parent = Frame
+NoClipButton.AnchorPoint = Vector2.new(0.5, 0.5)
+NoClipButton.BackgroundColor3 = Color3.new(0.729412, 0, 0)
+NoClipButton.Position = UDim2.new(0.5, 0, 0.670000017, 0)
+NoClipButton.Size = UDim2.new(0.800000012, 0, 0.200000003, 0)
+NoClipButton.Font = Enum.Font.ArialBold
+NoClipButton.Text = No Clip (OFF)  (F)
+NoClipButton.TextColor3 = Color3.new(0.929412, 1, 0.12549)
+NoClipButton.TextSize = 17
+ 
+JumpPowerBox.Parent = Frame
+JumpPowerBox.AnchorPoint = Vector2.new(0.5, 0.5)
+JumpPowerBox.BackgroundColor3 = Color3.new(0.729412, 0, 0)
+JumpPowerBox.Position = UDim2.new(0.5, 0, 0.230000004, 0)
+JumpPowerBox.Size = UDim2.new(0.800000012, 0, 0.200000003, 0)
+JumpPowerBox.ZIndex = 3
+JumpPowerBox.Font = Enum.Font.ArialBold
+JumpPowerBox.PlaceholderColor3 = Color3.new(0.929412, 1, 0.12549)
+JumpPowerBox.PlaceholderText = Set JumpPower ( .. tostring(jumppower) .. )
+JumpPowerBox.Text = 
+JumpPowerBox.TextColor3 = Color3.new(0.929412, 1, 0.12549)
+JumpPowerBox.TextSize = 17
+JumpPowerBox.TextWrapped = true
+ 
+--actual scripts
+ 
+ 
+ 
+local function ChangeLPCharWalkSpeed(char)
+  local character = char or LP.Character
+  print(char =, char, ; LPchar =, LPchar, ; character = , character)
+  if character ~= nil then
+    characterWaitForChild('Humanoid').WalkSpeed = walkspeed
+  end
+end
+ 
+local function humWalkSpeedChanged(char)
+  local character = char or LP.Character
+  print(char =, char, ; LPchar =, LPchar, ; character = , character)
+  if character ~= nil then
+    characterWaitForChild('Humanoid')GetPropertyChangedSignal('WalkSpeed')Connect(function()
+      ChangeLPCharWalkSpeed(character)
+    end)
+  end
+end
+ 
+local function ChangeLPCharJumpPower(char)
+  local character = char or LP.Character
+  print(char =, char, ; LPchar =, LPchar, ; character = , character)
+  if character ~= nil then
+    characterWaitForChild('Humanoid').JumpPower = jumppower
+  end
+end
+ 
+local function humJumpPowerChanged(char)
+  local character = char or LP.Character
+  print(char =, char, ; LPchar =, LPchar, ; character = , character)
+  if character ~= nil then
+    characterWaitForChild('Humanoid')GetPropertyChangedSignal('JumpPower')Connect(function()
+      ChangeLPCharJumpPower(character)
+    end)
+  end
+end
+ 
+local function onWalkSpeedTextChanged(enterPressed, inputThatCausedFocusLost)
+      if enterPressed then
+            if tonumber(WalkSpeedBox.Text) then
+                walkspeed = tonumber(WalkSpeedBox.Text)
+                print(Walk Speed now  .. walkspeed)
+                ChangeLPCharWalkSpeed()
+        WalkSpeedBox.PlaceholderText = Set WalkSpeed ( .. tostring(walkspeed) .. )
+            end
+            WalkSpeedBox.Text = 
+      end
+end
+ 
+local function onJumpPowerTextChanged(enterPressed, inputThatCausedFocusLost)
+      if enterPressed then
+            if tonumber(JumpPowerBox.Text) then
+                jumppower = tonumber(JumpPowerBox.Text)
+                print(Jump Power now  .. jumppower)
+                ChangeLPCharJumpPower()
+            JumpPowerBox.PlaceholderText = Set JumpPower ( .. tostring(jumppower) .. )
+            end
+            JumpPowerBox.Text = 
+      end
+end
+ 
+local function findPlayer(name)
+  for _,player in pairs(PlrsGetChildren()) do
+    if player.Name == name then
+      print(player found!  .. player.Name)
+      return player
+    end
+  end
+  print(Problem. findPlayer(.. name .. ))
+  return nil
+end
+ 
+local function createESP(head,text)
+  local billgui = Instance.new('BillboardGui', head)
+  local textlab = Instance.new('TextLabel', billgui)
+ 
+  billgui.Name = ESP
+  billgui.AlwaysOnTop = true
+  billgui.ExtentsOffset = Vector3.new(0, 3, 0)
+  billgui.Size = UDim2.new(0, 5, 0, 5)
+ 
+  textlab.Name = 'Player'
+  textlab.BackgroundColor3 = Color3.new(255, 255, 255)
+  textlab.BackgroundTransparency = 1    
+  textlab.BorderSizePixel = 0
+  textlab.Position = UDim2.new(0, 0, 0, -20)
+  textlab.Size = UDim2.new(1, 0, 10, 0)
+  textlab.Visible = true
+  textlab.ZIndex = 10
+  textlab.Font = 'SciFi'
+  textlab.FontSize = 'Size14'
+  textlab.Text = text
+  textlab.TextTransparency = 0
+  textlab.TextStrokeTransparency = 1
+  textlab.TextColor3 = Color3.new(1,0,0)
+end
+ 
+local function findHeadFromPlayer(plr) --returns nil if not found
+  if plrIsA('Player') then
+    local character = plr.Character
+    if not character or not character.Parent then
+        character = plr.CharacterAddedWait()
+        print('character now defined as', character)
+    end
+    local head = characterWaitForChild('Head')
+    print(head found! head  .. headGetFullName())
+    return head
+  end
+end
+ 
+local function onWolfAdded(child)
+  print(child  .. child.Name ..  added into wolvesfolder!)
+  WolfPlayer = findPlayer(child.Name)
+  local playerHead = findHeadFromPlayer(WolfPlayer)
+  createESP(playerHead, WOLF)
+end
+ 
+local function onHunterAdded(child)
+  print(child  .. child.Name ..  added into huntersfolder!)
+  HunterPlayer = findPlayer(child.Name)
+  local playerHead = findHeadFromPlayer(HunterPlayer)
+  createESP(playerHead, HUNTER)
+end
+ 
+local function FindWolf()
+  for _,child in pairs(WolvesFolderGetChildren()) do
+    print('Found wolfs name using FindWolf()  ' .. child.Name)
+    return child.Name
+  end
+end
+ 
+local function FindHunter()
+  for _,child in pairs(HuntersFolderGetChildren()) do
+    print('Found hunters name using FindWolf()  ' .. child.Name)
+    return child.Name
+  end
+end
+ 
+local function espWOLF()
+  local WolfName = FindWolf()
+  WolfPlayer = findPlayer(WolfName)
+  if WolfPlayer ~= nil then
+    local WolfHead = findHeadFromPlayer(WolfPlayer)
+    print(creating ESP with wolfhead as  .. WolfHead.Name)
+    createESP(WolfHead, WOLF)
+  end
+end
+ 
+local function espHUNTER()
+  local HunterName = FindHunter()
+  HunterPlayer = findPlayer(HunterName)
+  if HunterPlayer ~= nil then
+    local HunterHead = findHeadFromPlayer(HunterPlayer)
+    print(creating ESP with hunterhead as  .. HunterHead.Name)
+    createESP(HunterHead, HUNTER)
+  end
+end
+ 
+local function teleportBow()
+  if game.Workspace.EffectsBinFindFirstChild(Handle) then
+      game.Workspace.EffectsBin.Handle.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+  end
+end
+ 
+local function onBowDropped(instance)
+    if instance.Name == Handle and LPFindFirstChild('Backpack') then
+        while LP.BackpackFindFirstChildOfClass(Tool) == nil and LP.CharacterFindFirstChildOfClass(Tool) == nil do
+          wait()
+          teleportBow()
+        end
+    end
+end
+ 
+--Draggable (Credits to TrustedCardinal @v3rmillion for this draggable part)
+local UserInputService = gameGetService(UserInputService)
+ 
+local gui = Frame
+ 
+local dragging
+local dragInput
+local dragStart
+local startPos
+ 
+local function update(input)
+local delta = input.Position - dragStart
+gui.Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
+end
+ 
+gui.InputBeganConnect(function(input)
+if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+dragging = true
+dragStart = input.Position
+startPos = gui.Position
+ 
+input.ChangedConnect(function()
+if input.UserInputState == Enum.UserInputState.End then
+dragging = false
+end
+end)
+end
+end)
+ 
+gui.InputChangedConnect(function(input)
+if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
+dragInput = input
+end
+end)
+ 
+UserInputService.InputChangedConnect(function(input)
+if input == dragInput and dragging then
+update(input)
+end
+end)
+ 
+--
+ 
+local function disableScreenGui()
+    ScreenGui.Enabled = not ScreenGui.Enabled
+end
+ 
+ 
+local noclip = false
+local function noClip()
+    if noclip then
+        while gameGetService('RunService').SteppedWait() do --noclip
+        local character = char or LP.Character
+          if character ~= nil and characterFindFirstChild('Humanoid') then
+            for _, limb in pairs(LP.CharacterGetChildren()) do
+              if limbIsA(BasePart) then
+                limb.CanCollide = false
+        print(limb.CanCollide)
+              end
+            end
+      else
+        noclip = false
+        NoClipButton.Text = (No Clip  .. ((noclip and (ON)) or (OFF)) ..   (F))
+        return
+          end
+    end
+    end
+end
+ 
+local function NoClipClicked()
+    noclip = not noclip
+    NoClipButton.Text = (No Clip  .. ((noclip and (ON)) or (OFF)) ..   (F))
+    print(char =, char, ; LPchar =, LPchar, ; character = , character)
+    noClip()
+end
+ 
+local function InputBegan(input, gameProcessed)
+    if input.UserInputType == Enum.UserInputType.Keyboard then
+        if input.KeyCode == Enum.KeyCode.Y then
+            disableScreenGui()
+        elseif input.KeyCode == Enum.KeyCode.F then
+            noclip = not noclip
+            NoClipButton.Text = (No Clip  .. ((noclip and (ON)) or (OFF)) ..   (F))
+            print(char =, char, ; LPchar =, LPchar, ; character = , character)
+            noClip()
+        end
+    end
+end
+ 
+local function KillAll()
+    if LPFindFirstChild('Backpack') then
+        if LP.CharacterFindFirstChildOfClass(Tool) then
+        for _,player in pairs(PlrsGetChildren()) do
+            if player ~= LP then
+                local character = player.Character
+                print(char =, char, ; LPchar =, LPchar, ; character = , character)
+                if character ~= nil and LP.Character ~= nil then
+                    repeat
+                    LP.Character.HumanoidRootPart.CFrame = character.HumanoidRootPart.CFrame  CFrame.new(0,0,.5)
+                    gameGetService('RunService').SteppedWait()
+                    until not character or not character.Parent
+                end
+            end
+        end
+    elseif LP.BackpackFindFirstChildOfClass(Tool) then
+        LP.BackpackFindFirstChildOfClass(Tool).Parent = LP.Character
+        for _,player in pairs(PlrsGetChildren()) do
+            if player ~= LP then
+                local character = player.Character
+                print(char =, char, ; LPchar =, LPchar, ; character = , character)
+                if character ~= nil and LP.Character ~= nil then
+                    repeat
+                    LP.Character.HumanoidRootPart.CFrame = character.HumanoidRootPart.CFrame  CFrame.new(0,0,.5)
+                    gameGetService('RunService').HeartbeatWait()
+                    until not character or not character.Parent
+                end
+            end
+        end
+    end
+    end
+end
+--MADE BY fireztron @ V3RMILLION
+--UserInputs
+KillAllButton.MouseButton1ClickConnect(KillAll)
+NoClipButton.MouseButton1ClickConnect(NoClipClicked)
+UserInputService.InputBeganConnect(InputBegan)
+ 
+--walkspeed code
+WalkSpeedBox.FocusLostConnect(onWalkSpeedTextChanged)
+LP.CharacterAddedConnect(ChangeLPCharWalkSpeed)
+LP.CharacterAddedConnect(humWalkSpeedChanged)
+ 
+--jumppower code
+JumpPowerBox.FocusLostConnect(onJumpPowerTextChanged)
+LP.CharacterAddedConnect(ChangeLPCharJumpPower)
+LP.CharacterAddedConnect(humJumpPowerChanged)
+ 
+--esp those fucking children
+espWOLF()
+espHUNTER()
+ 
+--teleport that bow yeah baby
+teleportBow()
+ 
+--oh yeah make sure to esp those children when they join
+WolvesFolder.ChildAddedConnect(onWolfAdded)
+HuntersFolder.ChildAddedConnect(onHunterAdded)
+ 
+--teleport that bow constantly oh yes baby
+workspace.EffectsBin.ChildAddedConnect(onBowDropped)
+ 
+ 
+--esp
+ 
+local ScreenGui = Instance.new(ScreenGui,gameGetService('Players').LocalPlayer.PlayerGui)
+local ESPLocation = Instance.new(Folder,ScreenGui)
+ 
+ 
+local Targets = {  
+        HumanoidRootPart,
+        LeftUpperLeg,
+        LowerTorso,
+        Head,
+        UpperTorso,
+        LeftUpperArm,
+        LeftLowerArm,
+        LeftHand,
+        RightUpperArm,
+        RightLowerArm,
+        RightHand,
+        LeftLowerLeg,
+        LeftFoot,
+        RightUpperLeg,
+        RightLowerLeg,
+        RightFoot,
+    }
+ 
+function espPart(part,player)
+    local esp = Instance.new(BoxHandleAdornment,ESPLocation)
+    esp.Adornee = part
+    esp.AlwaysOnTop = true
+    esp.ZIndex = 1
+    esp.Transparency = 0.5
+    esp.Size = part.Size -- - Vector3.new(0,1,0)
+    if part.Name == LeftHand or part.Name == RightHand then
+        esp.Size = part.Size - Vector3.new(0,1,0)
+    end
+    esp.Color3 = Color3.fromRGB(255,255,255)
+    if player.Name == targetPlayer then
+        esp.Size = part.Size + Vector3.new(1,1,1)
+        esp.Color3 = Color3.fromRGB(255,0,0)
+    end
+    esp.MouseEnterConnect(function()
+        if player.Team ~= gameGetService('Players').LocalPlayer.Team then
+            local currentFrame = esp
+        end
+    end)
+   
+    player.CharacterRemovingConnect(function()
+        espDestroy()
+    end)
+end
+ 
+function espPlayer(player)
+    if player.Character ~= nil then
+        for _,part in pairs(player.CharacterGetChildren())do
+            if partIsA(BasePart) and part.Name ~= Head and part.Name ~= HumanoidRootPart then
+                espPart(part,player)
+            end
+        end
+    end
+end
+ 
+function ESP()
+    ESPLocationClearAllChildren()
+    for _,player in pairs(gameGetService('Players')GetPlayers())do
+        if player ~= gameGetService('Players').LocalPlayer then
+            espPlayer(player)
+        end
+    end
+end
+ 
+ESP()
+ 
+local function WaitUntilCharacterLoaded(Char)
+    for _,Part in pairs(Targets)do
+        CharWaitForChild(Part)
+    end
+end
+ 
+gameGetService('Players').PlayerAddedConnect(function(Player)
+    Player.CharacterAddedConnect(function(Char)
+        WaitUntilCharacterLoaded(Char)
+        espPlayer(Player)
+    end)
+end)
+ 
+for _,Player in pairs(gameGetService('Players')GetPlayers())do
+    Player.CharacterAddedConnect(function(Char)
+        if Player ~= LP then
+            WaitUntilCharacterLoaded(Char)
+        espPlayer(Player)
+    end
+    end)
+end
+--MADE BY fireztron @ V3RMILLION
+warn('LOADED WOLF OR OTHER FUCKER')
