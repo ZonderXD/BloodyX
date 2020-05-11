@@ -5,6 +5,7 @@ import random as r
 import random
 import io
 import os
+import wikipedia
 import nekos
 import sqlite3
 import time
