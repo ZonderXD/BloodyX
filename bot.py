@@ -230,13 +230,19 @@ async def scripts(ctx):
     page = Paginator(bot, message, author=ctx, use_more=False, embeds=embeds)
     await page.start()
 
-@bot.command(pass_context = True)
-async def wiki( ctx,*, amount: str):
+@bot.command()
+async def wiki(ctx, *, text):
+    wikipedia.set_lang("ru")
+    new_page = wikipedia.page(text)
+    summ = wikipedia.summary(text)
+    emb = discord.Embed(
+        title= new_page.title,
+        description= summ,
+        color = 0x00ffff
+    )
+    emb.set_author(name= 'Больше информации тут! Кликай!', url= new_page.url, icon_url= 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Wikipedia-logo-v2.svg/1200px-Wikipedia-logo-v2.svg.png')
 
-    if not amount:
-        await ctx.send("Пожалуйста, используйте такую кострукцию: `.wiki [вики запрос]`")
-    a = '_'.join(amount.split())
-    await ctx.send(f'https://ru.wikipedia.org/wiki/{a}')
+    await ctx.send(embed=emb)
 
 @bot.command()
 async def script(ctx, *, arg: int = None):
