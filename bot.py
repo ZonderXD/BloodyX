@@ -299,6 +299,33 @@ async def script(ctx, *, arg: int = None):
   elif arg == 24:
     await ctx.send(file=discord.File(fp = 'Scripts/Horrific Housing.txt'))
     await ctx.send(file=discord.File(fp = 'Scripts/Horrific Housing 2.txt'))
+  elif arg == 25:
+    await ctx.send(file=discord.File(fp = 'Scripts/Horrific Housing.txt'))
+    await ctx.send(file=discord.File(fp = 'Scripts/Horrific Housing 2.txt'))
+  elif arg == 26:
+    await ctx.send(file=discord.File(fp = 'Scripts/Piggy Give Item.txt'))
+  elif arg == 27:
+    await ctx.send(file=discord.File(fp = 'Scripts/Lucky Block.txt'))
+  elif arg == 28:
+    await ctx.send(file=discord.File(fp = 'Scripts/A Wolf Of Others.txt'))
+  elif arg == 29:
+    await ctx.send(file=discord.File(fp = 'Scripts/Blox Burg.txt'))
+  elif arg == 30:
+    await ctx.send(file=discord.File(fp = 'Scripts/Robot Inc.txt'))
+  elif arg == 31:
+    await ctx.send(file=discord.File(fp = 'Scripts/Pizza_Factory_Tycoon.txt'))
+  elif arg == 32:
+    await ctx.send(file=discord.File(fp = 'Scripts/Work_At_A_Pizza_Place.txt'))
+  elif arg == 33:
+    await ctx.send(file=discord.File(fp = 'Scripts/Tower_of_Hell.txt'))
+  elif arg == 34:
+    await ctx.send(file=discord.File(fp = 'Scripts/A Bizarre Day MODDED MINI GUI.txt'))
+  elif arg == 35:
+    await ctx.send(file=discord.File(fp = 'Scripts/Bakon GUI.txt'))
+  elif arg == 36:
+    await ctx.send(file=discord.File(fp = 'Scripts/Zombie Attack.txt'))
+  elif arg == 37:
+    await ctx.send(file=discord.File(fp = 'Scripts/KAT_Press_2.txt'))
 
 @bot.command()
 async def user(ctx, Member: discord.Member = None ):
