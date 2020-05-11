@@ -300,8 +300,7 @@ async def script(ctx, *, arg: int = None):
     await ctx.send(file=discord.File(fp = 'Scripts/Horrific Housing.txt'))
     await ctx.send(file=discord.File(fp = 'Scripts/Horrific Housing 2.txt'))
   elif arg == 25:
-    await ctx.send(file=discord.File(fp = 'Scripts/Horrific Housing.txt'))
-    await ctx.send(file=discord.File(fp = 'Scripts/Horrific Housing 2.txt'))
+    await ctx.send(file=discord.File(fp = 'Scripts/Shark Bite.txt'))
   elif arg == 26:
     await ctx.send(file=discord.File(fp = 'Scripts/Piggy Give Item.txt'))
   elif arg == 27:
