@@ -225,7 +225,7 @@ async def music(ctx):
 
 @bot.command()
 async def scripts(ctx):
-    embed1 = discord.Embed(title ='📋 Страницы:', description='**`1.` - Страница 1 (1-12)\n `2.` - Страница 2 (13-24)\n `3.` - Страница 3 (25-37)**', color = 0x6fdb9e)
+    embed1 = discord.Embed(title ='📋 Страницы:', description='**`1.` - Страница 1 (1-12)\n `2.` - Страница 2 (13-24)\n `3.` - Страница 3 (25-37)\n\n F.A.Q.\n ```Если вам выдадут бан в роблоксе, мы не будем причастны к этому так как мы просто даём скрипты!```**', color = 0x6fdb9e)
     embed2 = discord.Embed(title ='⚠ Патент:', description='**`❗❗❗` Кто сп#здит скрипты, тому п#зда! <@342317507991961602> не касается! `❗❗❗`**', color = 0x6fdb9e)
     embed3 = discord.Embed(title ='📋 Страница 1', description='**`1` - Break In\n `2` - Pet Ranch 2 Simulator\n `3` - Arsenal\n `4` - Build a Boat\n `5` - Fishing Simulator\n `6` - Flood Escape 2\n `7` - Bee Swarm Simulator\n `8` - Pizza Factory Tycoon\n `9` - Work At A Pizza Place\n `10` - Texting Simulator\n `11` - CB:RO\n `12` - Mad City**', color = 0x6fdb9e)
     embed4 = discord.Embed(title ='📋 Страница 2', description='**`13` - Ghost Simulator\n `14` - Speed Run 4\n `15` - Ro-Ghoul\n `16` - RoCitizens\n `17` - Muscle Legends\n `18` - Bubble Gum Simulator\n `19` - BIG Paintball\n `20` - MeepCity\n `21` - Mineverse\n `22` - Soda Simulator\n `23` - Destruction Simulator\n `24` - Horrific Housing**', color = 0x6fdb9e)
