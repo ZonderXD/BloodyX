@@ -50,8 +50,8 @@ async def suggest( ctx , * , agr ):
         await message.add_reaction('✅')
         await message.add_reaction('❎')
 
-@bot.command(aliases=['коронавирус', 'ковид'])
-async def covid(self, ctx, country):
+@bot.command()
+async def covid(ctx, country):
     for item in json.loads(requests.get("https://corona.lmao.ninja/v2/countries").text):
         if item['country'] == country: 
             embed = discord.Embed(title=f'Статистика Коронавируса | {country}')
