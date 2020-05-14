@@ -51,24 +51,6 @@ async def suggest( ctx , * , agr ):
         await message.add_reaction('❎')
 
 @bot.command()
-async def covid(ctx, country):
-    for item in json.loads(requests.get("https://corona.lmao.ninja/v2/countries").text):
-        if item['country'] == country: 
-            embed = discord.Embed(title=f'Статистика Коронавируса | {country}')
-            embed.add_field(name='Выздоровело:',          value=f'{item["recovered"]} человек')
-            embed.add_field(name='Заболеваний:',          value=f'{item["cases"]} человек')
-            embed.add_field(name='Погибло:',              value=f'{item["deaths"]} человек')
-            embed.add_field(name='Заболеваний за сутки:', value=f'+{item["todayCases"]} человек')
-            embed.add_field(name='Погибло за сутки:',     value=f'+{item["todayDeaths"]} человек')
-            embed.add_field(name='Проведено тестов:',     value=f'{item["tests"]} человек')
-            embed.add_field(name='Активные зараженные:',  value=f'{item["active"]} человек')
-            embed.add_field(name='В тяжелом состоянии:',  value=f'{item["critical"]} человек')
-            embed.set_thumbnail(url=item["countryInfo"]['flag'])
-            embed.set_footer(text="© Copyright 2020 ๖̶̶̶ζ͜͡𝔻𝕣𝕒𝕘𝕠𝕟 𝔽𝕖𝕤𝕙#8992 | Все права загрызаны")
-
-            return await ctx.send(embed=embed)
-
-@bot.command()
 @commands.check(is_owner)
 async def opros(ctx, *, arg):
 	await ctx.message.delete()
