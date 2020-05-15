@@ -67,7 +67,7 @@ async def on_message(msg):
                     pass
                 else:
                     await msg.delete()
-                    await msg.channel.send(emded = discord.Embed(desciption = f"**{author.mention}, нельзя говорить плохие слова!**", color=0x75218f))
+                    await msg.channel.send(f"**{author.mention}, нельзя говорить плохие слова!**")
     mat.close()
 
 @bot.command()
