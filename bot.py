@@ -74,7 +74,7 @@ async def on_message(msg):
         mat.close()
 
 @bot.command()
-async def bet(ctx, num):
+async def fight(ctx, num):
     cursor.execute(f"SELECT money FROM users WHERE id = {ctx.message.author.id}")
     if num == 'all':
         num = cursor.fetchone()[0]
@@ -110,7 +110,6 @@ async def bet(ctx, num):
 
 @bot.command()
 async def ballance(ctx):
-    cursor.execute(f"SELECT money FROM users WHERE id = {ctx.message.author.id}")
     for row in cursor.execute('SELECT money FROM users WHERE id = {ctx.message.author.id}'):
         bal = row[0]
         await ctx.send(embed = discord.Embed(description = f'**Твой баланс: `{row[0]}` монет**', color=0x75218f))
