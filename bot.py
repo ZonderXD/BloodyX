@@ -55,7 +55,7 @@ async def suggest( ctx , * , agr ):
 
 @bot.event
 async def on_message(msg):
-    await bot.process_commands( message )
+    await bot.process_commands( msg )
     if msg.author.bot or msg.author.id == 668325441224048641 or msg.author.id == 342317507991961602 or msg.author.id == 491928659599425537:
         pass
     else:
