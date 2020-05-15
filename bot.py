@@ -74,6 +74,48 @@ async def on_message(msg):
         mat.close()
 
 @bot.command()
+async def bet(ctx, num):
+    cursor.execute(f"SELECT money FROM users WHERE id = {ctx.message.author.id}")
+    if num == 'all':
+        num = cursor.fetchone()[0]
+    else:
+        num = int(num)
+
+    cursor.execute(f"SELECT money FROM users WHERE id = {ctx.message.author.id}")
+    if num > cursor.fetchone()[0]:
+        await ctx.send('У тебя нет столько денег!')
+
+    else:
+        if num >= 20:
+            l = [0, 1]
+            r = random.choice(l)
+            if r == 0:
+                cursor.execute(f"SELECT money FROM users WHERE id = {ctx.message.author.id}")
+                new_balance = cursor.fetchone()[0] - num
+
+                cursor.execute(f"UPDATE users SET money = {new_balance} WHERE id = {ctx.message.author.id}")
+                conn.commit()
+                await ctx.send(f'{ctx.message.author.mention} ты проиграл {num} монет!')
+
+            else:
+                cursor.execute(f"SELECT money FROM users WHERE id = {ctx.message.author.id}")
+                r = random.randint(num, num * 2)
+                new_balance = cursor.fetchone()[0] + r
+
+                cursor.execute(f"UPDATE users SET money = {new_balance} WHERE id = {ctx.message.author.id}")
+                conn.commit()
+                await ctx.send(f'{ctx.message.author.mention} ты выиграл {r} монет!')
+        else:
+            await ctx.send(embed = discord.Embed(description = f'**{ctx.author.mention}, пожалуйста укажите ставку больше 20 (или 20)**', color=0x75218f))
+
+@bot.command()
+async def ballance(ctx):
+    cursor.execute(f"SELECT money FROM users WHERE id = {ctx.message.author.id}")
+    for row in cursor.execute('SELECT money FROM users WHERE id = {ctx.message.author.id}'):
+        bal = row[0]
+        await ctx.send(embed = discord.Embed(description = f'**Твой баланс: `{row[0]}` монет**', color=0x75218f))
+
+@bot.command()
 @commands.check(is_owner)
 async def opros(ctx, *, arg):
 	await ctx.message.delete()
