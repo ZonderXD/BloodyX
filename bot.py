@@ -69,6 +69,7 @@ async def on_message(msg):
                     await msg.delete()
                     await msg.channel.send(f"**{author.mention}, ты произнёс запрещённое слово!**")
                     print(f"**{author.mention}, произнёс слово `{msg.content}!**")
+    
     mat.close()
 
 @bot.command()
