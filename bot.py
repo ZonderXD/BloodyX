@@ -11,6 +11,9 @@ import sqlite3
 import json
 import requests
 import time
+import sys
+import traceback
+from mod import *
 from discord.ext import commands
 from discord.utils import get
 from Cybernator import Paginator
@@ -49,6 +52,23 @@ async def suggest( ctx , * , agr ):
         message = await suggest_chanell.send(embed=embed)
         await message.add_reaction('✅')
         await message.add_reaction('❎')
+
+@bot.event()
+async def on_message(self, msg):
+    if msg.author.bot:
+        pass
+    else:
+        mes = msg.content.lower()
+        author = msg.author
+        mat = open('mat.txt', 'r', encoding='utf-8')
+        for line in mat:
+            if mes.find(line[0:-1]) != -1:
+                if msg.author.bot:
+                    pass
+                else:
+                    await msg.delete()
+                    await msg.channel.send(f"**{author.mention}, нельзя говорить плохие слова!**")
+    mat.close()
 
 @bot.command()
 @commands.check(is_owner)
