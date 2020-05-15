@@ -67,7 +67,7 @@ async def on_message(msg):
                     pass
                 else:
                     await msg.delete()
-                    await msg.channel.send(f"**{author.mention}, Вы произнесли запрещённое слово!**")
+                    await msg.channel.send(embed = discord.Embed(description= f"**{author.mention}, Вы написали сообщение в котором есть запрещённое слово!**", color = 0x75218f))
                     print(f"⊱ {author.name}, произнёс слово [{msg.content}] ⊰")
     
         mat.close()
@@ -157,7 +157,7 @@ async def ran_avatar(ctx): # Название команды
 @bot.command() # Декоратор команды
 async def slap(ctx, member : discord.Member): # Название команды и аргумент
     if member == ctx.message.author: # Проверка кого упомянули
-        await ctx.send('Вы не можете убить сами себя.')
+        await ctx.send('Вы не можете ударить сами себя.')
     else:
         emb = discord.Embed(description= f'{member.mention}, Вас ударил(-а) {ctx.message.author.mention}.', color=0x6fdb9e) # Переменная ембеда и описание
         emb.set_image(url=nekos.img('slap')) # Ищем картинку и ставим её в ембед
