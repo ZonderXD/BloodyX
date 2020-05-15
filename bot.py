@@ -53,8 +53,8 @@ async def suggest( ctx , * , agr ):
         await message.add_reaction('✅')
         await message.add_reaction('❎')
 
-@bot.event()
-async def on_message(self, msg):
+@bot.event
+async def on_message(msg):
     if msg.author.bot:
         pass
     else:
