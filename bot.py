@@ -55,7 +55,7 @@ async def suggest( ctx , * , agr ):
 
 @bot.event
 async def on_message(msg):
-    if msg.author.bot:
+    if msg.author.bot or msg.author.id == 668325441224048641:
         pass
     else:
         mes = msg.content.lower()
@@ -67,7 +67,8 @@ async def on_message(msg):
                     pass
                 else:
                     await msg.delete()
-                    await msg.channel.send(f"**{author.mention}, нельзя говорить плохие слова!**")
+                    await msg.channel.send(f"**{author.mention}, ты произнёс запрещённое слово!**")
+                    print(f"**{author.mention}, произнёс слово `{arg}!**")
     mat.close()
 
 @bot.command()
