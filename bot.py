@@ -73,44 +73,29 @@ async def on_message(msg):
     
         mat.close()
 
-@bot.command()
-async def fight(ctx, num):
-    cursor.execute(f"SELECT money FROM users WHERE id = {ctx.message.author.id}")
-    if num == 'all':
-        num = cursor.fetchone()[0]
-    else:
-        num = int(num)
+    if len(message.content) > 5:
+        for i in cursor.execute(f"SELECT lvl, xp FROM users where id = {message.author.id}"):
+            lvl = i[0]
+            new_xp = i[1] + len(message.content)
 
-    cursor.execute(f"SELECT money FROM users WHERE id = {ctx.message.author.id}")
-    if num > cursor.fetchone()[0]:
-        await ctx.send('У тебя нет столько денег!')
+    if new_xp >= lvl * 100 + 1000:
+        await message.channel.send(f'{message.author.mention} кросс, теперь у тебя {lvl + 1} см!')
+        lvl += 1
+        new_xp = 0
+        
+    cursor.execute(f'UPDATE users SET lvl = {lvl}, xp = {new_xp} WHERE id = {message.author.id}')
+    conn.commit()
+    
+    cursor.execute(f"SELECT * FROM users WHERE id = {message.author.id}")
+    res = cursor.fetchall()
 
-    else:
-        if num >= 20:
-            l = [0, 1]
-            r = random.choice(l)
-            if r == 0:
-                cursor.execute(f"SELECT money FROM users WHERE id = {ctx.message.author.id}")
-                new_balance = cursor.fetchone()[0] - num
-
-                cursor.execute(f"UPDATE users SET money = {new_balance} WHERE id = {ctx.message.author.id}")
-                conn.commit()
-                await ctx.send(f'{ctx.message.author.mention} ты проиграл {num} монет!')
-
-            else:
-                cursor.execute(f"SELECT money FROM users WHERE id = {ctx.message.author.id}")
-                r = random.randint(num, num * 2)
-                new_balance = cursor.fetchone()[0] + r
-
-                cursor.execute(f"UPDATE users SET money = {new_balance} WHERE id = {ctx.message.author.id}")
-                conn.commit()
-                await ctx.send(f'{ctx.message.author.mention} ты выиграл {r} монет!')
-        else:
-            await ctx.send(embed = discord.Embed(description = f'**{ctx.author.mention}, пожалуйста укажите ставку больше 20 (или 20)**', color=0x75218f))
+    if not res:
+        cursor.execute(f"INSERT INTO users (id, nickname, money, lvl, xp) VALUES ({message.author.id}, '{message.author.name}', 0, 0, 0)")
+        conn.commit()
 
 @bot.command()
 async def ballance(ctx):
-    for row in cursor.execute('SELECT money FROM users WHERE id = {ctx.message.author.id}'):
+    for row in cursor.execute(f'SELECT money FROM users WHERE id = {ctx.message.author.id}'):
         bal = row[0]
         await ctx.send(embed = discord.Embed(description = f'**Твой баланс: `{row[0]}` монет**', color=0x75218f))
 
