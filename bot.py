@@ -154,7 +154,7 @@ async def giveaway( ctx, seconds: int, *, text ):
     time_end = time_end_form(seconds)
     await message.delete()
     message = await ctx.send(embed = discord.Embed(
-        description = f"**Разыгрывается : `{text}`\nЗавершится через: `{time_end}` \n\nОрганизатор: {author.mention} \nДля участия нажмите на реакцию ниже.**",
+        description = f"**Разыгрывается : `{text}`\nЗавершится через: `{time_end}` \n\nОрганизатор: {author.mention} \nДля участия нажмите на реакцию <:bloody_x_verify:705059287449468949>.**",
         colour = 0x75218f).set_footer(
         text = 'ζ͜͡𝔻𝕣𝕒𝕘𝕠𝕟 𝔽𝕖𝕤𝕙#8992 © | Все права защищены',
         icon_url = ctx.message.author.avatar_url))
@@ -162,7 +162,7 @@ async def giveaway( ctx, seconds: int, *, text ):
     while seconds > -1:
         time_end = time_end_form(seconds)
         text_message = discord.Embed(
-            description = f"**Разыгрывается: `{text}`\nЗавершится через: `{time_end}` \n\nОрганизатор: {author.mention} \nДля участия нажмите на реакцию ниже.**",
+            description = f"**Разыгрывается: `{text}`\nЗавершится через: `{time_end}` \n\nОрганизатор: {author.mention} \nДля участия нажмите на реакцию <:bloody_x_verify:705059287449468949>.**",
             colour = 0x75218f).set_footer(
             text = 'ζ͜͡𝔻𝕣𝕒𝕘𝕠𝕟 𝔽𝕖𝕤𝕙#8992 © | Все права защищены',
             icon_url = ctx.message.author.avatar_url)
