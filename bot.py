@@ -87,6 +87,28 @@ async def ballance(ctx):
         await ctx.send(embed = discord.Embed(description = f'**Твой баланс: `{row[0]}`<:bloody_x_coin:705353020895920168> **', color=0x75218f))
 
 @bot.command()
+async def bonus(ctx):
+    time_now = time.time()
+    print(time_now)
+
+    for row in cursor.execute(f'SELECT money, bonus FROM users WHERE id={ctx.author.id}'):
+        bonus = row[1]
+        LVL = row[0]
+    
+    if int(time_now) - bonus >= 10800:
+        amount = random.randint(50, 300)
+        await ctx.send(embed=discord.Embed(description=f'Вы получили свой бонус в размере {amount}!', color = 0xff7373))
+        
+
+        LVL += amount
+        bonus += int(time_now)
+
+        cursor.execute(f"UPDATE users SET money = {LVL}, bonus = {bonus} WHERE id={ctx.author.id}")
+        conn.commit()
+    else:
+        await ctx.send(embed = discord.Embed(description = f'**{ctx.author.name}, эту команду можно использовать только раз в 3 часа!**', color = 0xff7373))    
+
+@bot.command()
 @commands.check(is_owner)
 async def opros(ctx, *, arg):
 	await ctx.message.delete()
