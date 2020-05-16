@@ -77,7 +77,7 @@ async def on_message(msg):
     res = cursor.fetchall()
 
     if not res:
-        cursor.execute(f"INSERT INTO main (id, nickname, money, lvl, xp, bonus) VALUES ({msg.author.id}, '{msg.author.name}', 0, 0, 0)")
+        cursor.execute(f"INSERT INTO main (id, nickname, money, lvl, xp, bonus) VALUES ({msg.author.id}, '{msg.author.name}', 0, 0, 0, 0)")
         conn.commit()
 
 @bot.command()
