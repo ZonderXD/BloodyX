@@ -134,6 +134,77 @@ async def cat(ctx):
     await ctx.send(embed=embed)
 
 @bot.command()
+@commands.cooldown(1, 10, commands.BucketType.user)
+async def giveaway( ctx, seconds: int, *, text ):
+    def time_end_form( seconds ):
+        h = seconds//3600
+        m = (seconds - h*3600)//60
+        s = seconds%60
+        if h < 10:
+            h = f"0{h}"
+        if m < 10:
+            m = f"0{m}"
+        if s < 10:
+            s = f"0{s}"
+        time_reward = f"{h} : {m} : {s}"
+        return time_reward
+
+    author = ctx.message.author
+    time_end = time_end_form(seconds)
+    message = await ctx.send(embed = discord.Embed(
+        description = f"**Розыгрыш!\nРазыгрывается : {text}\n\nЗавершится через {time_end} \nОрганизатор: {author.mention} \nДля участия нажмите на реакцию ниже.**",
+        colour = ctx.message.author.color).set_footer(
+        text = 'ζ͜͡𝔻𝕣𝕒𝕘𝕠𝕟 𝔽𝕖𝕤𝕙#8992 © | Все права защищены',
+        icon_url = ctx.message.author.avatar_url))
+    await message.add_reaction("🎲")
+    while seconds > -1:
+        time_end = time_end_form(seconds)
+        text_message = discord.Embed(
+            description = f"**Розыгрыш!\nРазыгрывается : {text}\n\nЗавершится через {time_end} \nОрганизатор: {author.mention} \nДля участия нажмите на реакцию ниже.**",
+            colour = ctx.message.author.color).set_footer(
+            text = 'ζ͜͡𝔻𝕣𝕒𝕘𝕠𝕟 𝔽𝕖𝕤𝕙#8992 © | Все права защищены',
+            icon_url = ctx.message.author.avatar_url)
+        await message.edit(embed = text_message)
+        await asyncio.sleep(1)
+        seconds -= 1
+        if seconds < -1:
+            break
+    channel = message.channel
+    message_id = message.id
+    message = await channel.fetch_message(message_id)
+    reaction = message.reactions[ 0 ]
+
+    users = await reaction.users().flatten()
+
+    def winners():
+        global win
+
+        user_win = choice(users)
+
+        if reaction.count == 1:
+            win = discord.Embed(
+                description = f'**Никто не победил!**',
+                colour = ctx.message.author.color).set_footer(
+                text = 'ζ͜͡𝔻𝕣𝕒𝕘𝕠𝕟 𝔽𝕖𝕤𝕙#8992 © | Все права защищены',
+                icon_url = ctx.message.author.avatar_url)
+        elif str(user_win.id) == str(bot_id):
+            winners()
+        else:
+            win = discord.Embed(
+                description = f'**Победа!\nПобедитель розыгрыша - {user_win.mention}!\nНапишите организатору {author.mention}, чтобы получить награду.**',
+                colour = ctx.message.author.color).set_footer(
+                text = 'ζ͜͡𝔻𝕣𝕒𝕘𝕠𝕟 𝔽𝕖𝕤𝕙#8992 © | Все права защищены',
+                icon_url = ctx.message.author.avatar_url)
+
+    winners()
+    global win
+    await message.edit(embed = win)
+    await author.send(embed = discord.Embed(description = f'**Ваш розыгрыш закончился.**',
+                                            colour = ctx.message.author.color).set_footer(
+        text = 'ζ͜͡𝔻𝕣𝕒𝕘𝕠𝕟 𝔽𝕖𝕤𝕙#8992 © | Все права защищены',
+        icon_url = ctx.message.author.avatar_url))
+
+@bot.command()
 async def meme(ctx):
     emb = discord.Embed(description = f"**Вот тебе мем:**", color = 0xda4a)
     emb.set_image(url= random_meme())
