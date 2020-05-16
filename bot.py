@@ -21,7 +21,7 @@ from Cybernator import Paginator
 bot = commands.Bot(command_prefix='.')
 bot.remove_command('help')
 
-conn = sqlite3.connect("database.db") #например: C:/Users/z3r0x/Desktop/LionBot/database.db
+conn = sqlite3.connect("database.sqlite")
 cursor = conn.cursor()
 
 @bot.event
