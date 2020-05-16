@@ -73,16 +73,16 @@ async def on_message(msg):
     
         mat.close()
     
-    cursor.execute(f"SELECT * FROM users WHERE id = {msg.author.id}")
+    cursor.execute(f"SELECT * FROM main WHERE id = {msg.author.id}")
     res = cursor.fetchall()
 
     if not res:
-        cursor.execute(f"INSERT INTO users (id, nickname, money, lvl, xp, bonus) VALUES ({msg.author.id}, '{msg.author.name}', 0, 0, 0)")
+        cursor.execute(f"INSERT INTO main (id, nickname, money, lvl, xp, bonus) VALUES ({msg.author.id}, '{msg.author.name}', 0, 0, 0)")
         conn.commit()
 
 @bot.command()
 async def balance(ctx):
-    for row in cursor.execute(f'SELECT money FROM users WHERE id = {ctx.message.author.id}'):
+    for row in cursor.execute(f'SELECT money FROM main WHERE id = {ctx.message.author.id}'):
         bal = row[0]
         await ctx.send(embed = discord.Embed(description = f'**Твой баланс: `{row[0]}`<:bloody_x_coin:705353020895920168> **', color=0x75218f))
 
@@ -91,7 +91,7 @@ async def bonus(ctx):
     time_now = time.time()
     print(time_now)
 
-    for row in cursor.execute(f'SELECT money, bonus FROM users WHERE id={ctx.author.id}'):
+    for row in cursor.execute(f'SELECT money, bonus FROM main WHERE id={ctx.author.id}'):
         bonus = row[1]
         LVL = row[0]
     
@@ -103,7 +103,7 @@ async def bonus(ctx):
         LVL += amount
         bonus += int(time_now)
 
-        cursor.execute(f"UPDATE users SET money = {LVL}, bonus = {bonus} WHERE id={ctx.author.id}")
+        cursor.execute(f"UPDATE main SET money = {LVL}, bonus = {bonus} WHERE id={ctx.author.id}")
         conn.commit()
     else:
         await ctx.send(embed = discord.Embed(description = f'**{ctx.author.name}, эту команду можно использовать только раз в 3 часа!**', color = 0xff7373))    
