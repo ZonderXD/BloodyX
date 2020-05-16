@@ -96,7 +96,7 @@ async def bonus(ctx):
         LVL = row[0]
     
     if int(time_now) - bonus >= 10800:
-        amount = random.randint(50, 300)
+        amount = random.randint(100, 1000)
         await ctx.send(embed=discord.Embed(description=f'Вы получили свой бонус в размере {amount}<:bloody_x_coin:705353020895920168>!', color = 0xff7373))
         
 
