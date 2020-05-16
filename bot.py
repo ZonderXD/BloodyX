@@ -152,7 +152,7 @@ async def giveaway( ctx, seconds: int, *, text ):
     author = ctx.message.author
     time_end = time_end_form(seconds)
     message = await ctx.send(embed = discord.Embed(
-        description = f"**Розыгрыш!\nРазыгрывается : {text}\n\nЗавершится через {time_end} \nОрганизатор: {author.mention} \nДля участия нажмите на реакцию ниже.**",
+        description = f"**Розыгрыш!\nРазыгрывается : `{text}`\n\nЗавершится через: `{time_end}` \nОрганизатор: {author.mention} \nДля участия нажмите на реакцию ниже.**",
         colour = ctx.message.author.color).set_footer(
         text = 'ζ͜͡𝔻𝕣𝕒𝕘𝕠𝕟 𝔽𝕖𝕤𝕙#8992 © | Все права защищены',
         icon_url = ctx.message.author.avatar_url))
@@ -187,7 +187,7 @@ async def giveaway( ctx, seconds: int, *, text ):
                 colour = ctx.message.author.color).set_footer(
                 text = 'ζ͜͡𝔻𝕣𝕒𝕘𝕠𝕟 𝔽𝕖𝕤𝕙#8992 © | Все права защищены',
                 icon_url = ctx.message.author.avatar_url)
-        elif str(user_win.id) == str(bot_id):
+        elif str(user_win.id) == str(bot.user.id):
             winners()
         else:
             win = discord.Embed(
