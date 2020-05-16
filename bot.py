@@ -134,6 +134,7 @@ async def cat(ctx):
     await ctx.send(embed=embed)
 
 @bot.command()
+@commands.check(is_owner)
 @commands.cooldown(1, 10, commands.BucketType.user)
 async def giveaway( ctx, seconds: int, *, text ):
     def time_end_form( seconds ):
@@ -151,12 +152,13 @@ async def giveaway( ctx, seconds: int, *, text ):
 
     author = ctx.message.author
     time_end = time_end_form(seconds)
+    await message.delete()
     message = await ctx.send(embed = discord.Embed(
         description = f"**Разыгрывается : `{text}`\nЗавершится через: `{time_end}` \n\nОрганизатор: {author.mention} \nДля участия нажмите на реакцию ниже.**",
         colour = 0x75218f).set_footer(
         text = 'ζ͜͡𝔻𝕣𝕒𝕘𝕠𝕟 𝔽𝕖𝕤𝕙#8992 © | Все права защищены',
         icon_url = ctx.message.author.avatar_url))
-    await message.add_reaction("🎲")
+    await message.add_reaction("<:bloody_x_verify:705059287449468949>")
     while seconds > -1:
         time_end = time_end_form(seconds)
         text_message = discord.Embed(
