@@ -77,7 +77,7 @@ async def on_message(msg):
     res = cursor.fetchall()
 
     if not res:
-        cursor.execute(f"INSERT INTO users (id, nickname, money, lvl, xp) VALUES ({msg.author.id}, '{msg.author.name}', 0, 0, 0)")
+        cursor.execute(f"INSERT INTO users (id, nickname, money, lvl, xp, bonus) VALUES ({msg.author.id}, '{msg.author.name}', 0, 0, 0)")
         conn.commit()
 
 @bot.command()
@@ -97,7 +97,7 @@ async def bonus(ctx):
     
     if int(time_now) - bonus >= 10800:
         amount = random.randint(50, 300)
-        await ctx.send(embed=discord.Embed(description=f'Вы получили свой бонус в размере {amount}!', color = 0xff7373))
+        await ctx.send(embed=discord.Embed(description=f'Вы получили свой бонус в размере {amount}<:bloody_x_coin:705353020895920168>!', color = 0xff7373))
         
 
         LVL += amount
