@@ -13,7 +13,6 @@ import requests
 import time
 import sys
 import traceback
-import choice
 from mod import *
 from discord.ext import commands
 from discord.utils import get
@@ -180,7 +179,7 @@ async def giveaway( ctx, seconds: int, *, text ):
     def winners():
         global win
 
-        user_win = choice(users)
+        user_win = random.choice(users)
 
         if reaction.count == 1:
             win = discord.Embed(
