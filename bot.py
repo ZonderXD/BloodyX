@@ -152,7 +152,7 @@ async def giveaway( ctx, seconds: int, *, text ):
 
     author = ctx.message.author
     time_end = time_end_form(seconds)
-    await message.delete()
+    await ctx.message.delete()
     message = await ctx.send(embed = discord.Embed(
         description = f"**Разыгрывается : `{text}`\nЗавершится через: `{time_end}` \n\nОрганизатор: {author.mention} \nДля участия нажмите на реакцию <:bloody_x_verify:705059287449468949>.**",
         colour = 0x75218f).set_footer(
