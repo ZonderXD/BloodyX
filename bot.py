@@ -27,7 +27,7 @@ cursor = conn.cursor()
 @bot.event
 async def on_ready():
     print(f'          [Bloody X]')
-    await bot.change_presence(status = discord.Status.idle, activity = discord.Game('Bloody X'))
+    await bot.change_presence(status = discord.Status.idle, activity = discord.Game('⊱ Prefix: . ⊰'))
     print(f"[Bloody X] Bot successfully launched!;")
     print(f"[Bloody X] Name: [{bot.user}];")
     print(f'[Bloody X] ID: [{bot.user.id}]')
