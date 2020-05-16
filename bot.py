@@ -81,7 +81,7 @@ async def on_message(msg):
         conn.commit()
 
 @bot.command()
-async def ballance(ctx):
+async def balance(ctx):
     for row in cursor.execute(f'SELECT money FROM users WHERE id = {ctx.message.author.id}'):
         bal = row[0]
         await ctx.send(embed = discord.Embed(description = f'**Твой баланс: `{row[0]}`<:bloody_x_coin:705353020895920168> **', color=0x75218f))
