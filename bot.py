@@ -22,7 +22,7 @@ bot = commands.Bot(command_prefix='.')
 bot.remove_command('help')
 
 conn = sqlite3.connect("database.sqlite")
-cursor = con.cursor()
+cursor = conn.cursor()
 
 @bot.event
 async def on_ready():
@@ -78,7 +78,7 @@ async def on_message(msg):
 
     if not res:
         cursor.execute(f"INSERT INTO main (id, nickname, money, lvl, xp, bonus) VALUES ({msg.author.id}, '{msg.author.name}', 0, 0, 0, 0)")
-        con.commit()
+        conn.commit()
 
 @bot.command()
 async def balance(ctx):
@@ -104,7 +104,7 @@ async def bonus(ctx):
         bonus += int(time_now)
 
         cursor.execute(f"UPDATE main SET money = {LVL}, bonus = {bonus} WHERE id={ctx.author.id}")
-        con.commit()
+        conn.commit()
     else:
         await ctx.send(embed = discord.Embed(description = f'**{ctx.author.name}, эту команду можно использовать только раз в 3 часа!**', color = 0xff7373))    
 
