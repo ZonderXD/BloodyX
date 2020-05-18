@@ -234,14 +234,14 @@ async def on_member_join( member ):
 @bot.command(aliases=['bot'])
 async def botinfo(ctx):
     embed = discord.Embed(title=f"{ctx.guild.name}", description="Информация о боте **Bloody X#7002**.\n Бот был написан специально для проекта **`Bloody X`**,\n Подробнее о командах: **`.help`**", color = 0x00ffff)
-    embed.add_field(name=f'**Меня создал:**', value="๖̶̶̶ζ͜͡𝔻𝕣𝕒𝕘𝕠𝕟 𝔽𝕖𝕤𝕙#8992(<@668325441224048641>)", inline=False)  # Создает строку
+    embed.add_field(name=f'**Меня создал:**', value="Ｓㄚ 么  乙  ツ#8992(<@668325441224048641>)", inline=False)  # Создает строку
     embed.add_field(name=f'**Помощь в создании:**', value="Satana★#2362 (<@342317507991961602>)", inline=False)  # Создает строку
     embed.add_field(name=f'**Лицензия:**', value="LD-v7", inline=False)  # Создает строку
     embed.add_field(name=f'**Я написан на:**', value="Discord.py", inline=False)  # Создает строку
     embed.add_field(name=f'**Версия:**', value="V.3.0.1", inline=False)  # Создает строку
     embed.add_field(name=f'**Патч:**', value="10", inline=False)  # Создает строку
     embed.set_thumbnail( url = bot.user.avatar_url)
-    embed.set_footer(text=f"ζ͜͡𝔻𝕣𝕒𝕘𝕠𝕟 𝔽𝕖𝕤𝕙#8992 © | Все права защищены", icon_url='https://cdn.discordapp.com/avatars/668325441224048641/8c31407c2e8c98b98b112f315b4c82b6.webp?size=1024') # создаение футера
+    embed.set_footer(text=f"Ｓㄚ 么  乙  ツ#8992 © | Все права защищены", icon_url='https://cdn.discordapp.com/attachments/696322643758022661/712032107471306822/avatar.png') # создаение футера
     await ctx.send(embed=embed)
 
 @bot.command()
