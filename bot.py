@@ -233,7 +233,7 @@ async def on_member_join( member ):
 
 @bot.command(aliases=['bot'])
 async def botinfo(ctx):
-    embed = discord.Embed(title=f"{ctx.guild.name}", description="Информация о боте **Bloody X#7002**.\n Бот был написан специально для проекта **`Bloody X`**,\n Подробнее о командах: **`.help`**", color = 0x00ffff)
+    embed = discord.Embed(title=f"{ctx.guild.name}", description="Информация о боте **𝐖𝐨𝐨𝐟 𝐗#7002**.\n Бот был написан специально для проекта **`Woof X`**,\n Подробнее о командах: **`.help`**", color = 0x00ffff)
     embed.add_field(name=f'**Меня создал:**', value="Ｓㄚ 么  乙  ツ#8992(<@668325441224048641>)", inline=False)  # Создает строку
     embed.add_field(name=f'**Помощь в создании:**', value="Satana★#2362 (<@342317507991961602>)", inline=False)  # Создает строку
     embed.add_field(name=f'**Лицензия:**', value="LD-v7", inline=False)  # Создает строку
