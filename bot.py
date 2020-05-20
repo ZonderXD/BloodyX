@@ -242,13 +242,6 @@ async def on_member_join( member ):
     channel = bot.get_channel( 696322644106281032 ) # Айди канала куда будет писатся сообщение
     await channel.send( embed = emb )
 
-    after.channel.id == 712715325358997594:
-        for guild in bot.guilds:
-            if guild.id == 696322642747064380:
-                mainCategory = discord.utils.get(guild.categories, id=712715020173180968)
-                members = await guild.voice_channel(id = 712715325358997594, category=mainCategory)
-                await member.edit(name =  f"╔🔮╗Участники : {ctx.guild.member_count}")
-
 @bot.command(aliases=['bot'])
 async def botinfo(ctx):
     embed = discord.Embed(title=f"{ctx.guild.name}", description="Информация о боте **𝐖𝐨𝐨𝐟 𝐗#7002**.\n Бот был написан специально для проекта **`Woof X`**,\n Подробнее о командах: **`.help`**", color = 0x00ffff)
