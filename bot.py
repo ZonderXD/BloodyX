@@ -81,7 +81,7 @@ async def on_message(msg):
         conn.commit()
 @bot.event
 async def on_voice_state_update(member,before,after):
-    if after.channel.id == 712629884119416944:
+    if after.channel != None and after.channel.id == 712629884119416944:
         for guild in bot.guilds:
             if guild.id == 696322642747064380:
                 mainCategory = discord.utils.get(guild.categories, id=712629625049579561)
