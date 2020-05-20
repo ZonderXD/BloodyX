@@ -87,7 +87,6 @@ async def on_voice_state_update(member,before,after):
                 mainCategory = discord.utils.get(guild.categories, id=712629625049579561)
                 channel2 = await guild.create_voice_channel(name=f"🌄 | {member.display_name}",category=mainCategory, user_limit=1)
                 await member.move_to(channel2)
-                await channel2.set_permissions(member,manage_channels=True)
                 def check(a,b,c):
                     return len(channel2.members) == 0
                 await bot.wait_for('voice_state_update', check=check)
