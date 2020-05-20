@@ -170,7 +170,7 @@ async def giveaway( ctx, seconds: int, *, text ):
     message = await ctx.send(embed = discord.Embed(
         description = f"**Разыгрывается : `{text}`\nЗавершится через: `{time_end}` \n\nОрганизатор: {author.mention} \nДля участия нажмите на реакцию ниже.**",
         colour = 0x75218f).set_footer(
-        text = 'ζ͜͡𝔻𝕣𝕒𝕘𝕠𝕟 𝔽𝕖𝕤𝕙#8992 © | Все права защищены',
+        text = 'Ｓㄚ 么  乙  ツ#8992 © | Все права защищены',
         icon_url = ctx.message.author.avatar_url))
     await message.add_reaction("<:bloody_x_verify:705059287449468949>")
     while seconds > -1:
@@ -178,7 +178,7 @@ async def giveaway( ctx, seconds: int, *, text ):
         text_message = discord.Embed(
             description = f"**Разыгрывается: `{text}`\nЗавершится через: `{time_end}` \n\nОрганизатор: {author.mention} \nДля участия нажмите на реакцию ниже.**",
             colour = 0x75218f).set_footer(
-            text = 'ζ͜͡𝔻𝕣𝕒𝕘𝕠𝕟 𝔽𝕖𝕤𝕙#8992 © | Все права защищены',
+            text = 'Ｓㄚ 么  乙  ツ#8992 © | Все права защищены',
             icon_url = ctx.message.author.avatar_url)
         await message.edit(embed = text_message)
         await asyncio.sleep(1)
@@ -201,7 +201,7 @@ async def giveaway( ctx, seconds: int, *, text ):
             win = discord.Embed(
                 description = f'**В этом розыгрыше нет победителя!**',
                 colour = 0x75218f).set_footer(
-                text = 'ζ͜͡𝔻𝕣𝕒𝕘𝕠𝕟 𝔽𝕖𝕤𝕙#8992 © | Все права защищены',
+                text = 'Ｓㄚ 么  乙  ツ#8992 © | Все права защищены',
                 icon_url = ctx.message.author.avatar_url)
         elif str(user_win.id) == str(bot.user.id):
             winners()
@@ -209,7 +209,7 @@ async def giveaway( ctx, seconds: int, *, text ):
             win = discord.Embed(
                 description = f'**Победитель розыгрыша: {user_win.mention}!\nНапишите организатору {author.mention}, чтобы получить награду.**',
                 colour = 0x75218f).set_footer(
-                text = 'ζ͜͡𝔻𝕣𝕒𝕘𝕠𝕟 𝔽𝕖𝕤𝕙#8992 © | Все права защищены',
+                text = 'Ｓㄚ 么  乙  ツ#8992 © | Все права защищены',
                 icon_url = ctx.message.author.avatar_url)
 
     winners()
@@ -217,7 +217,7 @@ async def giveaway( ctx, seconds: int, *, text ):
     await message.edit(embed = win)
     await author.send(embed = discord.Embed(description = f'**Ваш розыгрыш закончился.**',
                                             colour = 0x75218f).set_footer(
-        text = 'ζ͜͡𝔻𝕣𝕒𝕘𝕠𝕟 𝔽𝕖𝕤𝕙#8992 © | Все права защищены',
+        text = 'Ｓㄚ 么  乙  ツ#8992 © | Все права защищены',
         icon_url = ctx.message.author.avatar_url))
 
 @bot.command()
