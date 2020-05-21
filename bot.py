@@ -233,6 +233,7 @@ async def neko(ctx):
 
 @bot.command()
 @commands.cooldown(1, 1500, commands.BucketType.user)
+@commands.check(is_owner)
 async def nswf(ctx):
     number = random.randint(1,3)
     if (number == 1): 
