@@ -217,6 +217,16 @@ async def giveaway( ctx, seconds: int, *, text ):
         text = 'Ｓㄚ 么  乙  ツ#8992 © | Все права защищены',
         icon_url = ctx.message.author.avatar_url))
 
+@bot.event
+async def on_role_delete(ctx, role, member):
+    log_chanell = bot.get_channel(696322643758022665)
+    embed = discord.Embed(title=f"Была удалена роль:", description=f"**Название: {ctx.role.mention}\n Кто удалил: {ctx.member.mention}**", color=0xDC143C)
+
+    embed.set_footer(text='Woof X всё видит')
+    embed.set_thumbnail(url='https://cdn.discordapp.com/attachments/693515715646324796/712437169108811857/woof.png')
+
+    await log_chanell.send(embed=embed)
+
 @bot.command()
 async def neko(ctx):
     number = random.randint(1,3)
