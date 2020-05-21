@@ -218,6 +218,21 @@ async def giveaway( ctx, seconds: int, *, text ):
         icon_url = ctx.message.author.avatar_url))
 
 @bot.command()
+async def neko(ctx):
+    number = random.randint(1,2)
+    if (number == 1): 
+        embed = discord.Embed(
+            description = f"{ctx.author.mention} вот тебе гиф!", 
+            colour = 0xff0000)
+            embed.set_image(url=nekos.img('neko'))
+    if (number == 2):
+        embed = discord.Embed(
+            description = f"{ctx.author.mention} дружески обнял(а) {member.mention}",
+            colour = 0xff0000)
+            embed.set_image(url=nekos.img('fox_girl'))
+    await ctx.send(embed = embed)
+
+@bot.command()
 async def meme(ctx):
     emb = discord.Embed(description = f"**Вот тебе мем:**", color = 0xda4a)
     emb.set_image(url= random_meme())
