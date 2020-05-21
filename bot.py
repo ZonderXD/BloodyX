@@ -232,7 +232,7 @@ async def neko(ctx):
     await ctx.send(embed = embed)
 
 @bot.command()
-@commands.cooldown(2, 25, commands.BucketType.user)
+@commands.cooldown(1, 1500, commands.BucketType.user)
 async def nswf(ctx):
     number = random.randint(1,3)
     if (number == 1): 
@@ -246,9 +246,11 @@ async def nswf(ctx):
         embed.set_image(url=nekos.img('nsfw_avatar'))
     await ctx.author.send(embed = embed)
     await ctx.message.add_reaction('✅')
-    
-    else:
-        await ctx.send(embed = discord.Embed(description = f'**Ты можешь использовать эту команду через 25 минут!**'))
+
+@nswf_error.error()
+async def nswf_error(error., ctx):
+    if isinstance(error, commands.CommandOnCooldown):
+        await ctx.send(embed = discord.Embed(description = f'**{ctx.author.name}, эту команду можно использовать только раз в 25 минут!**', color=0xef5350))
 
 @bot.command()
 async def meme(ctx):
