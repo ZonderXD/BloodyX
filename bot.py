@@ -228,7 +228,7 @@ async def neko(ctx):
         embed.set_image(url=nekos.img('fox_girl'))
     if (number == 3):
         embed = discord.Embed(description = f"{ctx.author.mention} Вот тебе класик:", colour = 0xff0000)
-        embed.set_image(url=nekos.img('classic'))
+        embed.set_image(url=nekos.img('avatar'))
     await ctx.send(embed = embed)
 
 @bot.command()
