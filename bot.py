@@ -226,7 +226,7 @@ async def meme(ctx):
 @bot.command()
 @commands.check(is_owner)
 async def rainbow(ctx, role: discord.Role):
-    bot.get_role.id == 712878211037659157:
+    role = role.id == 712878211037659157:
         await ctx.send(embed = discord.Embed(description = f'**Указанная роль теперь радужная!**', color=0x0000FF))
         while True:
             await asyncio.sleep(0.5)
