@@ -250,7 +250,7 @@ async def nswf(ctx):
 @nswf.error
 async def nswf_error(error, ctx):
     if isinstance(error, commands.CommandOnCooldown):
-        await ctx.message.add_reaction('❌)
+        await ctx.message.add_reaction('❌')
         await ctx.author.send(embed = discord.Embed(description = f'**{ctx.author.name}, эту команду можно использовать только раз в 25 минут!**', color=0xef5350))
 
 @bot.command()
