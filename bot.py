@@ -232,6 +232,25 @@ async def neko(ctx):
     await ctx.send(embed = embed)
 
 @bot.command()
+@commands.cooldown(2, 25, commands.BucketType.user)
+async def nswf(ctx):
+    number = random.randint(1,3)
+    if (number == 1): 
+        embed = discord.Embed(description = f"{ctx.author.mention} вот тебе 18+:", colour = 0xff0000)
+        embed.set_image(url=nekos.img('random_hentai_gif'))
+    if (number == 2):
+        embed = discord.Embed(description = f"{ctx.author.mention} Вот тебе nswf:", colour = 0xff0000)
+        embed.set_image(url=nekos.img('classic'))
+    if (number == 3):
+        embed = discord.Embed(description = f"{ctx.author.mention} Вот тебе 18+ аватарка:", colour = 0xff0000)
+        embed.set_image(url=nekos.img('nsfw_avatar'))
+    await ctx.author.send(embed = embed)
+    await ctx.message.add_reaction('✅')
+    
+    else:
+        await ctx.send(embed = discord.Embed(description = f'**Ты можешь использовать эту команду через 25 минут!**'))
+
+@bot.command()
 async def meme(ctx):
     emb = discord.Embed(description = f"**Вот тебе мем:**", color = 0xda4a)
     emb.set_image(url= random_meme())
