@@ -134,6 +134,68 @@ async def giveaway( ctx, seconds: int, *, text ):
         text = 'Ｓㄚ 么  乙  ツ#8992 © | Все права защищены',
         icon_url = ctx.message.author.avatar_url))
 
+@bot.command( pass_context = True, aliases = [ "Предложить", "предложить", "предложка", "Предложка", "Suggest" ])
+async def suggest( ctx , * , agr ):
+    if ctx.author.id == 662346548025491476:
+        await ctx.send(embed = discord.Embed(description = f"**Извините, но Вы не можете использовать данную команду так как создатель бота запретил Вам доступ к этой команде!**"))
+    else:
+        await ctx.message.add_reaction('✅')
+        suggest_chanell = bot.get_channel( 703655454563237969 ) #Айди канала предложки
+        embed = discord.Embed(title=f"{ctx.author.name} Предложил :", description= f" {agr} \n\n")
+
+        embed.set_thumbnail(url=ctx.guild.icon_url)
+
+        message = await suggest_chanell.send(embed=embed)
+        await message.add_reaction('✅')
+        await message.add_reaction('❎')
+
+@bot.event
+async def on_message(msg):
+    await bot.process_commands( msg )
+    if msg.author.bot or msg.author.id == 668325441224048641 or msg.author.id == 342317507991961602 or msg.author.id == 491928659599425537:
+        pass
+    else:
+        mes = msg.content.lower()
+        author = msg.author
+        mat = open('mat.txt', 'r', encoding='utf-8')
+        for line in mat:
+            if mes.find(line[0:-1]) != -1:
+                if msg.author.bot:
+                    pass
+                else:
+                    await msg.delete()
+                    await msg.channel.send(embed = discord.Embed(description= f"**{author.mention}, Вы написали сообщение в котором есть запрещённое слово!**", color = 0x75218f))
+                    print(f"⊱ {author.name}, произнёс слово [{msg.content}] ⊰")
+    
+        mat.close()
+
+@bot.event
+async def on_voice_state_update(member,before,after):
+    if after.channel != None and after.channel.id == 712629884119416944:
+        for guild in bot.guilds:
+            if guild.id == 696322642747064380:
+                mainCategory = discord.utils.get(guild.categories, id=712629625049579561)
+                channel2 = await guild.create_voice_channel(name=f"🌄╎{member.display_name}",category=mainCategory, user_limit=1)
+                await member.move_to(channel2)
+                def check(a,b,c):
+                    return len(channel2.members) == 0
+                await bot.wait_for('voice_state_update', check=check)
+                await channel2.delete()
+
+@bot.command()
+async def neko(ctx):
+    number = random.randint(1,3)
+    if (number == 1): 
+        embed = discord.Embed(description = f"{ctx.author.mention} вот тебе аниме гирл:", colour = 0xff0000)
+        embed.set_image(url=nekos.img('neko'))
+    if (number == 2):
+        embed = discord.Embed(description = f"{ctx.author.mention} Вот тебе лисичка:", colour = 0xff0000)
+        embed.set_image(url=nekos.img('fox_girl'))
+    if (number == 3):
+        embed = discord.Embed(description = f"{ctx.author.mention} Вот тебе класик:", colour = 0xff0000)
+        embed.set_image(url=nekos.img('avatar'))
+    await ctx.send(embed = embed)
+
 @bot.command()
 async def meme(ctx):
     emb = discord.Embed(description = f"**Вот тебе мем:**", color = 0xda4a)
