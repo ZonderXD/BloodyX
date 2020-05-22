@@ -36,90 +36,7 @@ async def on_ready():
 
 @bot.event
 async def is_owner(ctx):
-    return ctx.author.id == 668325441224048641 # Айди создателя бота
-
-@bot.command( pass_context = True, aliases = [ "Предложить", "предложить", "предложка", "Предложка", "Suggest" ])
-async def suggest( ctx , * , agr ):
-    if ctx.author.id == 662346548025491476:
-        await ctx.send(embed = discord.Embed(description = f"**Извините, но Вы не можете использовать данную команду так как создатель бота запретил Вам доступ к этой команде!**"))
-    else:
-        await ctx.message.add_reaction('✅')
-        suggest_chanell = bot.get_channel( 703655454563237969 ) #Айди канала предложки
-        embed = discord.Embed(title=f"{ctx.author.name} Предложил :", description= f" {agr} \n\n")
-
-        embed.set_thumbnail(url=ctx.guild.icon_url)
-
-        message = await suggest_chanell.send(embed=embed)
-        await message.add_reaction('✅')
-        await message.add_reaction('❎')
-
-@bot.event
-async def on_message(msg):
-    await bot.process_commands( msg )
-    if msg.author.bot or msg.author.id == 668325441224048641 or msg.author.id == 342317507991961602 or msg.author.id == 491928659599425537:
-        pass
-    else:
-        mes = msg.content.lower()
-        author = msg.author
-        mat = open('mat.txt', 'r', encoding='utf-8')
-        for line in mat:
-            if mes.find(line[0:-1]) != -1:
-                if msg.author.bot:
-                    pass
-                else:
-                    await msg.delete()
-                    await msg.channel.send(embed = discord.Embed(description= f"**{author.mention}, Вы написали сообщение в котором есть запрещённое слово!**", color = 0x75218f))
-                    print(f"⊱ {author.name}, произнёс слово [{msg.content}] ⊰")
-    
-        mat.close()
-    
-    cursor.execute(f"SELECT * FROM main WHERE id = {msg.author.id}")
-    res = cursor.fetchall()
-
-    if not res:
-        cursor.execute(f"INSERT INTO main (id, nickname, money, lvl, xp, bonus) VALUES ({msg.author.id}, '{msg.author.name}', 0, 0, 0, 0)")
-        conn.commit()
-@bot.event
-async def on_voice_state_update(member,before,after):
-    if after.channel != None and after.channel.id == 712629884119416944:
-        for guild in bot.guilds:
-            if guild.id == 696322642747064380:
-                mainCategory = discord.utils.get(guild.categories, id=712629625049579561)
-                channel2 = await guild.create_voice_channel(name=f"🌄╎{member.display_name}",category=mainCategory, user_limit=1)
-                await member.move_to(channel2)
-                def check(a,b,c):
-                    return len(channel2.members) == 0
-                await bot.wait_for('voice_state_update', check=check)
-                await channel2.delete()
-@bot.command()
-@commands.check(is_owner)
-async def balance(ctx):
-    for row in cursor.execute(f'SELECT money FROM main WHERE id = {ctx.message.author.id}'):
-        bal = row[0]
-        await ctx.send(embed = discord.Embed(description = f'**Твой баланс: `{row[0]}`<:bloody_x_coin:705353020895920168> **', color=0x75218f))
-
-@bot.command()
-@commands.check(is_owner)
-async def bonus(ctx):
-    time_now = time.time()
-    print(time_now)
-
-    for row in cursor.execute(f'SELECT money, bonus FROM main WHERE id={ctx.author.id}'):
-        bonus = row[1]
-        LVL = row[0]
-    
-    if int(time_now) - bonus >= 10800:
-        amount = random.randint(100, 1000)
-        await ctx.send(embed=discord.Embed(description=f'Вы получили свой бонус в размере {amount}<:bloody_x_coin:705353020895920168>!', color = 0xff7373))
-        
-
-        LVL += amount
-        bonus += int(time_now)
-
-        cursor.execute(f"UPDATE main SET money = {LVL}, bonus = {bonus} WHERE id={ctx.author.id}")
-        conn.commit()
-    else:
-        await ctx.send(embed = discord.Embed(description = f'**{ctx.author.name}, эту команду можно использовать только раз в 3 часа!**', color = 0xff7373))    
+    return ctx.author.id == 668325441224048641 or  ctx.author.id == 491928659599425537 # Айди создателя бота
 
 @bot.command()
 @commands.check(is_owner)
@@ -218,85 +135,10 @@ async def giveaway( ctx, seconds: int, *, text ):
         icon_url = ctx.message.author.avatar_url))
 
 @bot.command()
-async def neko(ctx):
-    number = random.randint(1,3)
-    if (number == 1): 
-        embed = discord.Embed(description = f"{ctx.author.mention} вот тебе аниме гирл:", colour = 0xff0000)
-        embed.set_image(url=nekos.img('neko'))
-    if (number == 2):
-        embed = discord.Embed(description = f"{ctx.author.mention} Вот тебе лисичка:", colour = 0xff0000)
-        embed.set_image(url=nekos.img('fox_girl'))
-    if (number == 3):
-        embed = discord.Embed(description = f"{ctx.author.mention} Вот тебе класик:", colour = 0xff0000)
-        embed.set_image(url=nekos.img('avatar'))
-    await ctx.send(embed = embed)
-
-@bot.command()
-@commands.cooldown(1, 1500, commands.BucketType.user)
-@commands.check(is_owner)
-async def nswf(ctx):
-    number = random.randint(1,3)
-    if (number == 1): 
-        embed = discord.Embed(description = f"{ctx.author.mention} вот тебе 18+:", colour = 0xff0000)
-        embed.set_image(url=nekos.img('random_hentai_gif'))
-    if (number == 2):
-        embed = discord.Embed(description = f"{ctx.author.mention} Вот тебе nswf:", colour = 0xff0000)
-        embed.set_image(url=nekos.img('classic'))
-    if (number == 3):
-        embed = discord.Embed(description = f"{ctx.author.mention} Вот тебе 18+ аватарка:", colour = 0xff0000)
-        embed.set_image(url=nekos.img('nsfw_avatar'))
-    await ctx.author.send(embed = embed)
-    await ctx.message.add_reaction('✅')
-
-@nswf.error
-async def nswf_error(error, ctx):
-    if isinstance(error, commands.CommandOnCooldown):
-        await ctx.message.add_reaction('❌')
-        await ctx.author.send(embed = discord.Embed(description = f'**{ctx.author.name}, эту команду можно использовать только раз в 25 минут!**', color=0xef5350))
-
-@bot.command()
 async def meme(ctx):
     emb = discord.Embed(description = f"**Вот тебе мем:**", color = 0xda4a)
     emb.set_image(url= random_meme())
     await ctx.send(embed=emb)
-
-@bot.command()
-@commands.check(is_owner)
-async def rainbow(ctx, role: discord.Role):
-    await ctx.send(embed = discord.Embed(description = f'**Указанная роль теперь радужная!**', color=0x0000FF))
-    while True:
-        await asyncio.sleep(0.5)
-        await role.edit(colour = discord.Colour(0x8B0000))
-        await asyncio.sleep(0.5)
-        await role.edit(colour = discord.Colour(0xB22222))
-        await asyncio.sleep(0.5)
-        await role.edit(colour = discord.Colour(0xFF0000))
-        await asyncio.sleep(0.5)
-        await role.edit(colour = discord.Colour(0xDC143C))
-        await asyncio.sleep(0.5)
-        await role.edit(colour = discord.Colour(0xFFA07A))
-        await asyncio.sleep(0.5)
-        await role.edit(colour = discord.Colour(0xE9967A))
-        await asyncio.sleep(0.5)
-        await role.edit(colour = discord.Colour(0xFA8072))
-        await asyncio.sleep(0.5)
-        await role.edit(colour = discord.Colour(0xF08080))
-        await asyncio.sleep(0.5)
-        await role.edit(colour = discord.Colour(0xCD5C5C))
-        await asyncio.sleep(0.5)
-        await role.edit(colour = discord.Colour(0xADFF2F))
-        await asyncio.sleep(0.5)
-        await role.edit(colour = discord.Colour(0x00FF00))
-        await asyncio.sleep(0.5)
-        await role.edit(colour = discord.Colour(0x32CD32))
-        await asyncio.sleep(0.5)
-        await role.edit(colour = discord.Colour(0x98FB98))
-        await asyncio.sleep(0.5)
-        await role.edit(colour = discord.Colour(0x00FA9A))
-        await asyncio.sleep(0.5)
-        await role.edit(colour = discord.Colour(0x00FF7F))
-        await asyncio.sleep(0.5)
-        await role.edit(colour = discord.Colour(0x2E8B57))
 
 @bot.command()
 @commands.has_permissions( administrator = True)
@@ -321,7 +163,6 @@ async def on_member_join( member ):
 async def botinfo(ctx):
     embed = discord.Embed(title=f"{ctx.guild.name}", description="Информация о боте **𝐖𝐨𝐨𝐟 𝐗#7002**.\n Бот был написан специально для проекта **`Woof X`**,\n Подробнее о командах: **`.help`**", color = 0x00ffff)
     embed.add_field(name=f'**Меня создал:**', value="Ｓㄚ 么  乙  ツ#8992(<@668325441224048641>)", inline=False)  # Создает строку
-    embed.add_field(name=f'**Помощь в создании:**', value="Satana★#2362 (<@342317507991961602>)", inline=False)  # Создает строку
     embed.add_field(name=f'**Лицензия:**', value="LD-v7", inline=False)  # Создает строку
     embed.add_field(name=f'**Я написан на:**', value="Discord.py", inline=False)  # Создает строку
     embed.add_field(name=f'**Версия:**', value="V.3.0.1", inline=False)  # Создает строку
