@@ -330,6 +330,18 @@ async def help(ctx):
     page = Paginator(bot, message, author=ctx, use_more=False, embeds=embeds)
     await page.start()
 
+
+@bot.command()
+async def test(ctx):
+    embed1 = discord.Embed(title="Страница 1", description='test 1')
+    embed2 = discord.Embed(title="Страница 2", description='test 2')
+    embed3 = discord.Embed(title="Страница 3", description='test 3')
+    embed4 = discord.Embed(title="Страница 4", description='test 4')
+    embeds = [embed1, embed2, embed3, embed4]
+    message = await ctx.send(embed=embed1)
+    page = Paginator(bot, message, only=ctx.author, use_more=False, embeds=embeds)
+    await page.start()
+
 @bot.command()
 async def music(ctx):
     embed1 = discord.Embed(title ='📋 Страницы:', description='**`1.` - Страница 1 (1-6)\n `2.` - Страница 2 (7-12)\n `3.` - Страница 3 (13-19)**', color = 0x6fdb9e)
