@@ -328,7 +328,7 @@ async def help(ctx):
     embed5 = discord.Embed(title ='💋 Некос:', description='**`.hug (@user)` - Обнять 😜\n `.slap (@user)` - Ударить 😡\n `.ran_avatar` - Рандом. аватар 🤯\n `.kill [@user]` - Убить 🔪\n `.dog` - Собака :dog:\n `.goose` - Гусь :duck:\n `.cat` - Кот 🐱\n `.neko` - Рандомная аватарка в стиле аниме ✨**', color=0x6fdb9e)
     embeds = [embed1, embed2, embed3, embed4, embed5]
     message = await ctx.send(embed=embed1)
-    page = Paginator(bot, message, only=ctx.author, use_more=False, embeds=embeds, reactions=['<a:woof_x_right:713825800440512694>', '<a:woof_x_left:713825760099565698>'])
+    page = Paginator(bot, message, only=ctx.author, use_more=False, embeds=embeds, reactions=['<a:woof_x_left:713825760099565698>', '<a:woof_x_right:713825800440512694>'])
     await page.start()
 
 @bot.command()
@@ -340,7 +340,7 @@ async def music(ctx):
     embed5 = discord.Embed(title ='📋 Страница 3', description='**`13.` Паравозик тыр, тыр, тыр - `4244590201`\n `14.` Нейтороксин - `4466370680`\n `15.` Корабль идёт ко дну - `2774380819`\n `16.` Идол - `2941601894`\n `17.` Коронаминус - `4788523402`\n `18.` Попытка номер 5 - `4722362895`\n `19.` Супер друг - `4338357412`**', color = 0x6fdb9e)
     embeds = [embed1, embed2, embed3, embed4, embed5]
     message = await ctx.send(embed=embed1)
-    page = Paginator(bot, message,  only=ctx.author, use_more=False, embeds=embeds)
+    page = Paginator(bot, message,  only=ctx.author, use_more=False, embeds=embeds, reactions=['<a:woof_x_left:713825760099565698>', '<a:woof_x_right:713825800440512694>'])
     await page.start()
 
 @bot.command()
@@ -352,7 +352,7 @@ async def scripts(ctx):
     embed5 = discord.Embed(title ='📋 Страница 3', description='**`25` - Shark Bite\n `26` - Piggy\n `27` - Lucky blocks\n `28` - A Wolf Or Other\n `29` - Jailbreak\n `30` - Robot Inc\n `31` - Pizza Factory Tycoon\n `32` - Work at a Pizza Place\n `33` - Tower of Hell\n `34` - A Bizarre Day\n `35` - Bakon\n `36` - Zombie Attack\n `37` -  Knife Ability Test (KAT)**', color = 0x6fdb9e)
     embeds = [embed1, embed2, embed3, embed4, embed5]
     message = await ctx.send(embed=embed1)
-    page = Paginator(bot, message, only=ctx.author, use_more=False, embeds=embeds)
+    page = Paginator(bot, message, only=ctx.author, use_more=False, embeds=embeds, reactions=['<a:woof_x_left:713825760099565698>', '<a:woof_x_right:713825800440512694>'])
     await page.start()
 
 @bot.command()
