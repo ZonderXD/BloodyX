@@ -587,5 +587,5 @@ async def servers(ctx):
         description += f'{counter}) **`{guild.name}`** - **`{len(guild.members)}`** участников. ID: **`{guild.id}`** \n'
         await ctx.send(embed = discord.Embed(title = 'Сервера, на которых я нахожусь', description = description, color = 0x00ffff))
 
-token = os.environ.get("Token")
+token = os.environ.get("BotToken")
 bot.run(str(token))
