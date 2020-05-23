@@ -328,7 +328,7 @@ async def help(ctx):
     embed5 = discord.Embed(title ='💋 Некос:', description='**`.hug (@user)` - Обнять 😜\n `.slap (@user)` - Ударить 😡\n `.ran_avatar` - Рандом. аватар 🤯\n `.kill [@user]` - Убить 🔪\n `.dog` - Собака :dog:\n `.goose` - Гусь :duck:\n `.cat` - Кот 🐱\n `.neko` - Рандомная аватарка в стиле аниме ✨**', color=0x6fdb9e)
     embeds = [embed1, embed2, embed3, embed4, embed5]
     message = await ctx.send(embed=embed1)
-    page = Paginator(bot, message, only=ctx.author, use_more=False, embeds=embeds, reactions=['<a:right:713825800440512694>', '<a:left:713825760099565698>'])
+    page = Paginator(bot, message, only=ctx.author, use_more=False, embeds=embeds, reactions=['<a:woof_x_left:713825760099565698>', '<a:woof_x_right:713825800440512694>'])
     await page.start()
 
 @bot.command()
