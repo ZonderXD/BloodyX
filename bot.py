@@ -134,6 +134,34 @@ async def giveaway( ctx, seconds: int, *, text ):
         text = '💦 𝙎𝘼𝙈𝙐𝙍𝘼𝙄 ツ#8992 © | Все права защищены',
         icon_url = ctx.message.author.avatar_url))
 
+@bot.event
+async def on_raw_reaction_add(payload):
+    if payload.message_id == 714560313697239044: # ID Сообщения
+        guild = bot.get_guild(payload.guild_id)
+        role = None
+
+        if str(payload.emoji) == '✅': # Emoji для реакций
+            role = guild.get_role(713846336595689552) # ID Ролей для выдачи
+
+        if role:
+            member = guild.get_member(payload.user_id)
+            if member:
+                await member.add_roles(role)
+
+@bot.event
+async def on_raw_reaction_remove(payload):
+    if payload.message_id == 703665890083995829: # ID Сообщения
+        guild = bot.get_guild(payload.guild_id)
+        role = None
+
+        if str(payload.emoji) == '✅': # Emoji для реакций
+            role = guild.get_role(713846336595689552) # ID Ролей для выдачи
+
+        if role:
+            member = guild.get_member(payload.user_id)
+            if member:
+                await member.remove_roles(role)
+
 @bot.command( pass_context = True, aliases = [ "Предложить", "предложить", "предложка", "Предложка", "Suggest" ])
 async def suggest( ctx , * , agr ):
     if ctx.author.id == 662346548025491476:
