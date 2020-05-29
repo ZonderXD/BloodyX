@@ -26,11 +26,11 @@ cursor = conn.cursor()
 
 @bot.event
 async def on_ready():
-    print(f'          [Bloody X]')
+    print(f'          [Woof X]')
     await bot.change_presence(status = discord.Status.idle, activity = discord.Game('⊱ Prefix: . ⊰'))
-    print(f"[Bloody X] Bot successfully launched!;")
-    print(f"[Bloody X] Name: [{bot.user}];")
-    print(f'[Bloody X] ID: [{bot.user.id}]')
+    print(f"[Woof X] Bot successfully launched!;")
+    print(f"[Woof X] Name: [{bot.user}];")
+    print(f'[Woof X] ID: [{bot.user.id}]')
     print('[------------------------------]')
     print(f'          [Other]')
 
@@ -84,7 +84,7 @@ async def giveaway( ctx, seconds: int, *, text ):
     message = await ctx.send(embed = discord.Embed(
         description = f"**Разыгрывается : `{text}`\nЗавершится через: `{time_end}` \n\nОрганизатор: {author.mention} \nДля участия нажмите на реакцию ниже.**",
         colour = 0x75218f).set_footer(
-        text = '𝓓𝓮𝓐𝓭𝓜𝓪𝓝🥀#8992 © | Все права защищены',
+        text = '!                    𝐃𝐚𝐫𝐤𝐌𝐨𝐨𝐧🌙#8992 © | Все права защищены',
         icon_url = ctx.message.author.avatar_url))
     await message.add_reaction("<:bloody_x_verify:705059287449468949>")
     while seconds > -1:
@@ -92,7 +92,7 @@ async def giveaway( ctx, seconds: int, *, text ):
         text_message = discord.Embed(
             description = f"**Разыгрывается: `{text}`\nЗавершится через: `{time_end}` \n\nОрганизатор: {author.mention} \nДля участия нажмите на реакцию ниже.**",
             colour = 0x75218f).set_footer(
-            text = '𝓓𝓮𝓐𝓭𝓜𝓪𝓝🥀#8992 © | Все права защищены',
+            text = '!                    𝐃𝐚𝐫𝐤𝐌𝐨𝐨𝐧🌙#8992 © | Все права защищены',
             icon_url = ctx.message.author.avatar_url)
         await message.edit(embed = text_message)
         await asyncio.sleep(1)
@@ -115,7 +115,7 @@ async def giveaway( ctx, seconds: int, *, text ):
             win = discord.Embed(
                 description = f'**В этом розыгрыше нет победителя!**',
                 colour = 0x75218f).set_footer(
-                text = '𝓓𝓮𝓐𝓭𝓜𝓪𝓝🥀#8992 © | Все права защищены',
+                text = '!                    𝐃𝐚𝐫𝐤𝐌𝐨𝐨𝐧🌙#8992 © | Все права защищены',
                 icon_url = ctx.message.author.avatar_url)
         elif str(user_win.id) == str(bot.user.id):
             winners()
@@ -123,7 +123,7 @@ async def giveaway( ctx, seconds: int, *, text ):
             win = discord.Embed(
                 description = f'**Победитель розыгрыша: {user_win.mention}!\nНапишите организатору {author.mention}, чтобы получить награду.**',
                 colour = 0x75218f).set_footer(
-                text = '𝓓𝓮𝓐𝓭𝓜𝓪𝓝🥀#8992 © | Все права защищены',
+                text = '!                    𝐃𝐚𝐫𝐤𝐌𝐨𝐨𝐧🌙#8992 © | Все права защищены',
                 icon_url = ctx.message.author.avatar_url)
 
     winners()
@@ -131,7 +131,7 @@ async def giveaway( ctx, seconds: int, *, text ):
     await message.edit(embed = win)
     await author.send(embed = discord.Embed(description = f'**Ваш розыгрыш закончился.**',
                                             colour = 0x75218f).set_footer(
-        text = '𝓓𝓮𝓐𝓭𝓜𝓪𝓝🥀#8992 © | Все права защищены',
+        text = '!                    𝐃𝐚𝐫𝐤𝐌𝐨𝐨𝐧🌙#8992 © | Все права защищены',
         icon_url = ctx.message.author.avatar_url))
 
 @bot.event
@@ -252,14 +252,14 @@ async def on_member_join( member ):
 @bot.command(aliases=['bot'])
 async def botinfo(ctx):
     embed = discord.Embed(title=f"{ctx.guild.name}", description="Информация о боте **𝐖𝐨𝐨𝐟 𝐗#7002**.\n Бот был написан специально для проекта **`Woof X`**,\n Подробнее о командах: **`.help`**", color = 0x00ffff)
-    embed.add_field(name=f'**Меня создал:**', value="`𝓓𝓮𝓐𝓭𝓜𝓪𝓝🥀#8992`(<@668325441224048641>)", inline=False)  # Создает строку
+    embed.add_field(name=f'**Меня создал:**', value="`!                    𝐃𝐚𝐫𝐤𝐌𝐨𝐨𝐧🌙#8992`(<@668325441224048641>)", inline=False)  # Создает строку
     embed.add_field(name=f'**Помощь в создании:**', value="`Satana★#2362`(<@342317507991961602>)", inline=False)  # Создает строку
     embed.add_field(name=f'**Лицензия:**', value="LD-v7", inline=False)  # Создает строку
     embed.add_field(name=f'**Я написан на:**', value="Discord.py", inline=False)  # Создает строку
     embed.add_field(name=f'**Версия:**', value="V.3.0.1", inline=False)  # Создает строку
     embed.add_field(name=f'**Патч:**', value="10", inline=False)  # Создает строку
     embed.set_thumbnail( url = bot.user.avatar_url)
-    embed.set_footer(text=f"𝓓𝓮𝓐𝓭𝓜𝓪𝓝🥀#8992 © | Все права защищены", icon_url='https://cdn.discordapp.com/avatars/668325441224048641/35c209140cdefe1485466d33aa3a1ce1.webp?size=1024') # создаение футера
+    embed.set_footer(text=f"!                    𝐃𝐚𝐫𝐤𝐌𝐨𝐨𝐧🌙#8992 © | Все права защищены", icon_url='https://cdn.discordapp.com/avatars/668325441224048641/35c209140cdefe1485466d33aa3a1ce1.webp?size=1024') # создаение футера
     await ctx.send(embed=embed)
 
 @bot.command()
