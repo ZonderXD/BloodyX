@@ -259,7 +259,7 @@ async def botinfo(ctx):
     embed.add_field(name=f'**Версия:**', value="V.3.0.1", inline=False)  # Создает строку
     embed.add_field(name=f'**Патч:**', value="10", inline=False)  # Создает строку
     embed.set_thumbnail( url = bot.user.avatar_url)
-    embed.set_footer(text=f"!                    𝐃𝐚𝐫𝐤𝐌𝐨𝐨𝐧🌙#8992 © | Все права защищены", icon_url='https://cdn.discordapp.com/avatars/668325441224048641/35c209140cdefe1485466d33aa3a1ce1.webp?size=1024') # создаение футера
+    embed.set_footer(text=f"!                    𝐃𝐚𝐫𝐤𝐌𝐨𝐨𝐧🌙#8992 © | Все права защищены", icon_url='https://cdn.discordapp.com/avatars/668325441224048641/65d9718244f96a5131f137072d91647c.webp?size=1024') # создаение футера
     await ctx.send(embed=embed)
 
 @bot.command()
