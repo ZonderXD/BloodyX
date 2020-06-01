@@ -684,7 +684,7 @@ async def say(ctx, *, arg):
 
 @bot.command()
 @commands.check(is_owner)
-async def leave(ctx, server_id: int):
+async def sleave(ctx, server_id: int):
     to_leave = bot.get_guild(server_id)
 
     await ctx.send(embed = discord.Embed(description = f'**Я успешно прекратил обслуживание данного сервера.**', color=0x0c0c0c))
