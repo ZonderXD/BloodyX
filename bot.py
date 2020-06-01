@@ -134,34 +134,6 @@ async def giveaway( ctx, seconds: int, *, text ):
         text = '𝘾𝙮𝙗𝙚𝙧𝙎𝙚𝙘𝙪𝙧𝙞𝙩𝙮ツ#9691 © | Все права защищены',
         icon_url = ctx.message.author.avatar_url))
 
-@bot.event
-async def on_raw_reaction_add(payload):
-    if payload.message_id == 714560313697239044: # ID Сообщения
-        guild = bot.get_guild(payload.guild_id)
-        role = None
-
-        if str(payload.emoji) == '✅': # Emoji для реакций
-            role = guild.get_role(713846336595689552) # ID Ролей для выдачи
-
-        if role:
-            member = guild.get_member(payload.user_id)
-            if member:
-                await member.add_roles(role)
-
-@bot.event
-async def on_raw_reaction_remove(payload):
-    if payload.message_id == 714560313697239044: # ID Сообщения
-        guild = bot.get_guild(payload.guild_id)
-        role = None
-
-        if str(payload.emoji) == '✅': # Emoji для реакций
-            role = guild.get_role(713846336595689552) # ID Ролей для выдачи
-
-        if role:
-            member = guild.get_member(payload.user_id)
-            if member:
-                await member.remove_roles(role)
-
 @bot.command( pass_context = True, aliases = [ "Предложить", "предложить", "предложка", "Предложка", "Suggest" ])
 async def suggest( ctx , * , agr ):
     if ctx.author.id == 662346548025491476:
@@ -180,7 +152,7 @@ async def suggest( ctx , * , agr ):
 @bot.event
 async def on_message(msg):
     await bot.process_commands( msg )
-    if msg.author.bot or msg.author.id == 668325441224048641 or msg.author.id == 342317507991961602 or msg.author.id == 491928659599425537:
+    if msg.author.bot or msg.author.id == 716724192065749075 or msg.author.id == 491928659599425537:
         pass
     else:
         mes = msg.content.lower()
@@ -242,12 +214,24 @@ async def clear(ctx, amount:int=None):
 
 @bot.event
 async def on_member_join( member ):
-    emb = discord.Embed( description = f"**Приветствую тебя {member.mention}. Ты попал на сервер `{member.guild.name}`. Удачи тебе на сервере! 😜**", color = 0xda4a )
-    role = discord.utils.get( member.guild.roles, id = 696322642747064383 ) # Айди роли которая будет выдаватся когда человек зашёл на сервер
+    emb = discord.Embed( description = f"**Привет {member.mention}! 💯\nТы на сервере `{member.guild.name}`. 🍕\nОзнакомься с правилами нашего сервера. 🧊\nНадеюсь тебе понравиться наш сервер. 🍭\nВесь отряд команды старался над сервером! ✨**", color = 0xda4a )
+    emb.set_footer(text=f"𝘾𝙮𝙗𝙚𝙧𝙎𝙚𝙘𝙪𝙧𝙞𝙩𝙮ツ#9691 © | Все права защищены", icon_url='https://cdn.discordapp.com/avatars/716724192065749075/b498ce487d437b64029fa2cfedea24e3.webp?size=1024')
+    role = discord.utils.get( member.guild.roles, id = 716770621886824467 ) # Айди роли которая будет выдаватся когда человек зашёл на сервер
 
     await member.add_roles( role )
-    channel = bot.get_channel( 696322644106281032 ) # Айди канала куда будет писатся сообщение
+    channel = bot.get_channel( 716770621920510009 ) # Айди канала куда будет писатся сообщение
     await channel.send( embed = emb )
+
+@bot.event
+async def on_member_leave( member ):
+    emb = discord.Embed( description = f"**Пока {member.mention}. 😭\nМы будем тебя ждать тут. 🥳**", color = 0xda4a )
+    emb.set_footer(text=f"𝘾𝙮𝙗𝙚𝙧𝙎𝙚𝙘𝙪𝙧𝙞𝙩𝙮ツ#9691 © | Все права защищены", icon_url='https://cdn.discordapp.com/avatars/716724192065749075/b498ce487d437b64029fa2cfedea24e3.webp?size=1024')
+    role = discord.utils.get( member.guild.roles, id = 716770621886824467 ) # Айди роли которая будет выдаватся когда человек зашёл на сервер
+
+    await member.remove_roles( role )
+    channel = bot.get_channel( 716770621920510010 ) # Айди канала куда будет писатся сообщение
+    await channel.send( embed = emb )
+
 
 @bot.command(aliases=['bot'])
 async def botinfo(ctx):
