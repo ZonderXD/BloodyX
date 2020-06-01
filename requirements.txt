@@ -5,3 +5,7 @@ nekos.py
 Cybernator
 wikipedia
 mod
+youtube_dl
+yandex-music
+PyNaCl
+discord.py[voice]
