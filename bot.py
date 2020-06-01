@@ -215,7 +215,7 @@ async def clear(ctx, amount:int=None):
 @bot.event
 async def on_member_join( member ):
     emb = discord.Embed( description = f"**Привет {member.mention}! 💯\nТы на сервере `{member.guild.name}`. 🍕\nОзнакомься с правилами нашего сервера. 🧊\nНадеюсь тебе понравиться наш сервер. 🍭\nВесь отряд команды старался над сервером! ✨**", color = 0xda4a )
-    emb.set_footer(text=f"𝐂𝐲𝐛𝐞𝐫𝐬𝐩𝐚𝐜𝐞 ツ#9691 © | Все права защищены", icon_url='https://cdn.discordapp.com/avatars/716724192065749075/b498ce487d437b64029fa2cfedea24e3.webp?size=1024')
+    emb.set_footer(text=f"𝐂𝐲𝐛𝐞𝐫𝐬𝐩𝐚𝐜𝐞 ツ#9691 © | Все права защищены", icon_url='https://cdn.discordapp.com/avatars/716724192065749075/718938457363c9e89a2a4faeafe39d11.webp?size=1024')
     role = discord.utils.get( member.guild.roles, id = 716770621886824467 ) # Айди роли которая будет выдаватся когда человек зашёл на сервер
 
     await member.add_roles( role )
@@ -225,10 +225,8 @@ async def on_member_join( member ):
 @bot.event
 async def on_member_remove( member ):
     emb = discord.Embed( description = f"**Пока {member.mention}. 😭\nМы будем тебя ждать тут. 🥳**", color = 0xda4a )
-    emb.set_footer(text=f"𝐂𝐲𝐛𝐞𝐫𝐬𝐩𝐚𝐜𝐞 ツ#9691 © | Все права защищены", icon_url='https://cdn.discordapp.com/avatars/716724192065749075/b498ce487d437b64029fa2cfedea24e3.webp?size=1024')
-    role = discord.utils.get( member.guild.roles, id = 716770621886824467 ) # Айди роли которая будет выдаватся когда человек зашёл на сервер
+    emb.set_footer(text=f"𝐂𝐲𝐛𝐞𝐫𝐬𝐩𝐚𝐜𝐞 ツ#9691 © | Все права защищены", icon_url='https://cdn.discordapp.com/avatars/716724192065749075/718938457363c9e89a2a4faeafe39d11.webp?size=1024')
 
-    await member.remove_roles( role )
     channel = bot.get_channel( 716770621920510010 ) # Айди канала куда будет писатся сообщение
     await channel.send( embed = emb )
 
@@ -243,7 +241,7 @@ async def botinfo(ctx):
     embed.add_field(name=f'**Версия:**', value="V.3.0.1", inline=False)  # Создает строку
     embed.add_field(name=f'**Патч:**', value="10", inline=False)  # Создает строку
     embed.set_thumbnail( url = bot.user.avatar_url)
-    embed.set_footer(text=f"𝘾𝙮𝙗𝙚𝙧𝙎𝙚𝙘𝙪𝙧𝙞𝙩𝙮ツ#9691 © | Все права защищены", icon_url='https://cdn.discordapp.com/avatars/716724192065749075/b498ce487d437b64029fa2cfedea24e3.webp?size=1024') # создаение футера
+    embed.set_footer(text=f"𝘾𝙮𝙗𝙚𝙧𝙎𝙚𝙘𝙪𝙧𝙞𝙩𝙮ツ#9691 © | Все права защищены", icon_url='https://cdn.discordapp.com/avatars/716724192065749075/718938457363c9e89a2a4faeafe39d11.webp?size=1024') # создаение футера
     await ctx.send(embed=embed)
 
 @bot.command()
