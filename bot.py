@@ -145,7 +145,7 @@ async def play_s(ctx, url: str):
 
     else:
 
-        await ctx.send(embed = discord.Embed(descriprion = f"{ctx.author.mention}, я не подключён к голосовому каналу!"))
+       await ctx.send(embed = discord.Embed(descriprion = f"{ctx.author.mention}, я не подключён к голосовому каналу!"))
 
 
 @bot.command()
