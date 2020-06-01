@@ -387,7 +387,7 @@ async def wiki(ctx, *, text):
 @bot.command()
 async def blacklist(ctx):
   emb = discord.Embed(title ='📋 Сервера в чёрном списке:', color = 0x6fdb9e)
-  emb.add_field(value="\n\n**Пусто...**", inline=False)
+  emb.add_field(name=f'\n\n**🎓 Название сервера с ID:**', value="\n**Пусто...**", inline=False)
   emb.set_image(url='https://cdn.discordapp.com/attachments/705488180710998127/717125585918492692/D7KfkHIWkAA9m8j.jpg')
 
   await ctx.send(embed=emb)
