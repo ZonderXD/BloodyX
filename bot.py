@@ -88,8 +88,7 @@ async def play_s(ctx, url: str):
 
         except PermissionError:
 
-
-        await ctx.send(embed = discord.Embed(descriprion = f"{ctx.author.mention}, я загружаю музыку, ждите!"))
+                await ctx.send(embed = discord.Embed(descriprion = f"{ctx.author.mention}, я загружаю музыку, ждите!"))
 
 
 
@@ -145,7 +144,7 @@ async def play_s(ctx, url: str):
 
     else:
 
-       await ctx.send(embed = discord.Embed(descriprion = f"{ctx.author.mention}, я не подключён к голосовому каналу!"))
+        await ctx.send(embed = discord.Embed(descriprion = f"{ctx.author.mention}, я не подключён к голосовому каналу!"))
 
 
 @bot.command()
