@@ -141,7 +141,7 @@ async def suggest( ctx , * , agr ):
     else:
         await ctx.message.add_reaction('✅')
         suggest_chanell = bot.get_channel( 716770622553718879 ) #Айди канала предложки
-        embed = discord.Embed(title=f"{ctx.author.mention} Предложил :", description= f" {agr} \n\n")
+        embed = discord.Embed(title=f"Новое предложение:", description= f"{ctx.author.mention} предложил: **{agr}** \n\n")
 
         embed.set_thumbnail(url=ctx.guild.icon_url)
 
