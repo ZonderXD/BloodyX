@@ -337,7 +337,7 @@ async def password(ctx, lenght: int = None, number: int = None):
 @bot.command()
 async def help(ctx):
     embed1 = discord.Embed(title = '⚙ Навигация по командам:\n ❗ Обязательные параметры: `()`\n ❓ Необязательные параметры: `[]`', color=0x6fdb9e )
-    embed2 = discord.Embed(title ='💎 Базовые:', description='**``.user [@user]`` - Узнать информацию о пользователе 🎭\n ``.server`` - Узнать информацию о сервере 🧿\n `.bot` - Информация о боте 🤖\n`.avatar [@user]` - Аватар пользователя 🖼\n `.suggest (text)` - Предложить идею ✉\n `.wiki (text)` - Википедия 📖**', color=0x6fdb9e )
+    embed2 = discord.Embed(title ='💎 Базовые:', description='**``.user [@user]`` - Узнать информацию о пользователе 🎭\n ``.server`` - Узнать информацию о сервере 🧿\n `.bot` - Информация о боте 🤖\n`.avatar [@user]` - Аватар пользователя 🖼\n `.suggest (text)` - Предложить идею ✉\n `.wiki (text)` - Википедия 📖\n `.blacklist` - Узнать сервера в чёрном списке 🎱**', color=0x6fdb9e )
     embed3 = discord.Embed(title ='✨ Роблокс:', description='**`.music` - Коды для музыки 💨\n `.scripts` - Скрипты для читерства 🧨\n `.script (number)` - Получить сам скрипт 💡**', color = 0x6fdb9e)
     embed4 = discord.Embed(title ='🎉 Весёлости:', description='**``.ran_color`` - Рандомный цвет в формате HEX 🩸\n ``.coin`` - Бросить монетку 🌈\n ``.math (2*2/2+2-2)`` - Решить пример :infinity:\n `.8ball (question)` - Волшебный шар 🔮\n `.password (10 10)` - Рандомный пароль 🎩\n `.meme` - Рандомный мем 🤣**', color=0x6fdb9e)
     embed5 = discord.Embed(title ='💋 Некос:', description='**`.hug (@user)` - Обнять 😜\n `.slap (@user)` - Ударить 😡\n `.ran_avatar` - Рандом. аватар 🤯\n `.kill [@user]` - Убить 🔪\n `.dog` - Собака :dog:\n `.goose` - Гусь :duck:\n `.cat` - Кот 🐱\n `.neko` - Рандомная аватарка в стиле аниме ✨**', color=0x6fdb9e)
@@ -383,6 +383,14 @@ async def wiki(ctx, *, text):
     emb.set_author(name= 'Больше информации тут! Кликай!', url= new_page.url, icon_url= 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Wikipedia-logo-v2.svg/1200px-Wikipedia-logo-v2.svg.png')
 
     await ctx.send(embed=emb)
+
+@bot.command()
+async def blacklist(ctx):
+  emb = discord.Embed(title ='📋 Сервера в чёрном списке:', color = 0x6fdb9e)
+  emb.add_field(name=f'**🎈 Сервера:**', value="**Пусто...**", inline=False)
+  emb.set_image(url=https://cdn.discordapp.com/attachments/705488180710998127/717125585918492692/D7KfkHIWkAA9m8j.jpg)
+
+  await ctx.send(embed=emb)
 
 @bot.command()
 async def script(ctx, *, arg: int = None):
