@@ -386,8 +386,8 @@ async def wiki(ctx, *, text):
 
 @bot.command()
 async def blacklist(ctx):
-  emb = discord.Embed(title ='📋 Сервера в чёрном списке:', color = 0x6fdb9e)
-  emb.add_field(name=f'\n\n**🎓 Название сервера с ID:**', value="\n**Пусто...**", inline=False)
+  emb = discord.Embed(title ='📋 Чёрный список:', description = '\n\n**Сервера:\nПусто...\n\nУчастники:\n Пусто...\n\n', color = 0x6fdb9e)
+  emb.add_field(name=f'**🎩 Как снять чс:**', value="**Напишите в лс <@716724192065749075>: ```Здравствуйте, я хочу снять чёрный список. Буду ждать вашего ответа.``` И ждите когда создатель Вам ответит.", inline=False)
   emb.set_image(url='https://cdn.discordapp.com/attachments/705488180710998127/717125585918492692/D7KfkHIWkAA9m8j.jpg')
 
   await ctx.send(embed=emb)
