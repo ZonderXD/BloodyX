@@ -140,8 +140,8 @@ async def suggest( ctx , * , agr ):
         await ctx.send(embed = discord.Embed(description = f"**Извините, но Вы не можете использовать данную команду так как создатель бота запретил Вам доступ к этой команде!**"))
     else:
         await ctx.message.add_reaction('✅')
-        suggest_chanell = bot.get_channel( 703655454563237969 ) #Айди канала предложки
-        embed = discord.Embed(title=f"{ctx.author.name} Предложил :", description= f" {agr} \n\n")
+        suggest_chanell = bot.get_channel( 716770622553718879 ) #Айди канала предложки
+        embed = discord.Embed(title=f"{ctx.author.mention} Предложил :", description= f" {agr} \n\n")
 
         embed.set_thumbnail(url=ctx.guild.icon_url)
 
