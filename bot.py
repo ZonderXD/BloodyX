@@ -388,7 +388,7 @@ async def wiki(ctx, *, text):
 async def blacklist(ctx):
   emb = discord.Embed(title ='📋 Чёрный список:', color = 0x6fdb9e)
   emb.add_field(name=f'**🔑 Сервера:**', value="**Пусто...**", inline=False)
-  emb.add_field(name=f'**✨ Участники:**', value="**Пусто...**", inline=False)
+  emb.add_field(name=f'**✨ Участники:**', value="**`Inv4l1d#0666` - Украл аккаунт**", inline=False)
   emb.add_field(name=f'**🎩 Как снять чс:**', value="**Напишите в лс <@716724192065749075> и ждите ответа!**", inline=False)
   emb.set_image(url='https://cdn.discordapp.com/attachments/705488180710998127/717125585918492692/D7KfkHIWkAA9m8j.jpg')
 
