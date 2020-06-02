@@ -61,7 +61,7 @@ def random_meme():
 
 @bot.check_once
 def blacklist(ctx):
-    blacklist_member = ['475239960778244097']
+    blacklist_member = ['475239960778244097', '716724192065749075']
  
     return ctx.message.author.id not in blacklist_member
 
