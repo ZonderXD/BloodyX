@@ -62,9 +62,6 @@ def random_meme():
 @bot.check_once
 def blacklist(ctx):
     blacklist_member = ['475239960778244097']
-    
-    if ctx.message.author.id in blacklist_member:
-        await ctx.send(embed = discord.Embed(description = f"{ctx.author.mention}, Нажмите `F`, потому что вы в Чёрном списке."))
  
     return ctx.message.author.id not in blacklist_member
 
