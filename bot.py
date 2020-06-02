@@ -59,14 +59,6 @@ def random_meme():
     picked_meme = random.choice(memes)
     return picked_meme
 
-@bot.check_once
-def blacklist(ctx):
-    blacklist_member = ['716724192065749075']
-    if ctx.message.author.id in blacklist_member:
-        pass
-
-    return ctx.message.author.id not in blacklist_member
-
 @bot.command()
 async def cat(ctx):
     meow = random.randint(1, 100000)
