@@ -142,7 +142,7 @@ async def giveaway( ctx, seconds: int, *, text ):
 @bot.command( pass_context = True, aliases = [ "Предложить", "предложить", "предложка", "Предложка", "Suggest" ])
 async def suggest( ctx , * , agr ):
     if ctx.author.id == 662346548025491476:
-        await ctx.send(embed = discord.Embed(description = f"**Извините, но Вы не можете использовать данную команду так как создатель бота запретил Вам доступ к этой команде!**"))
+        await ctx.send(embed = discord.Embed(description = f"**<a:WX_No:717442781945004125> Извините, но Вы не можете использовать данную команду так как создатель бота запретил Вам доступ к этой команде!**"))
     else:
         await ctx.message.add_reaction('✅')
         suggest_chanell = bot.get_channel( 716770622553718879 ) #Айди канала предложки
@@ -273,7 +273,7 @@ async def ran_avatar(ctx): # Название команды
 @bot.command() # Декоратор команды
 async def slap(ctx, member : discord.Member): # Название команды и аргумент
     if member == ctx.message.author: # Проверка кого упомянули
-        await ctx.send('Вы не можете ударить сами себя.')
+        await ctx.send('<a:WX_No:717442781945004125> Вы не можете ударить сами себя.')
     else:
         emb = discord.Embed(description= f'{member.mention}, Вас ударил(-а) {ctx.message.author.mention}.', color=0x6fdb9e) # Переменная ембеда и описание
         emb.set_image(url=nekos.img('slap')) # Ищем картинку и ставим её в ембед
@@ -297,7 +297,7 @@ async def dog(ctx): # Название команды и аргумент
 @bot.command() # Декоратор команды
 async def hug(ctx, member : discord.Member): # Название команды и аргумент
     if member == ctx.message.author: # Проверка кого упомянули
-        await ctx.send('Вы не можете обнять сами себя.')
+        await ctx.send('<a:WX_No:717442781945004125> Вы не можете обнять сами себя.')
     else:
         emb = discord.Embed(description= f'{member.mention}, Вас обнял(-а) {ctx.message.author.mention}.', color=0x6fdb9e) # Переменная ембеда и описание
         emb.set_image(url=nekos.img('hug')) # Ищем картинку и ставим её в ембед
@@ -321,7 +321,7 @@ async def kill(ctx, member : discord.Member = None):
 async def password(ctx, lenght: int = None, number: int = None):
 
     if not lenght or not number:
-        await ctx.send(embed = discord.Embed(description = f'Пожалуйста, укажите длину пароля и количество символов в нем.', color=0x0c0c0c)) 
+        await ctx.send(embed = discord.Embed(description = f'<a:WX_No:717442781945004125> Пожалуйста, укажите длину пароля и количество символов в нем.', color=0x0c0c0c)) 
 
     chars = 'abcdefghijklnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890'
     for x in range(number):
@@ -343,7 +343,7 @@ async def help(ctx):
     embed5 = discord.Embed(title ='💋 Некос:', description='**`.hug (@user)` - Обнять 😜\n `.slap (@user)` - Ударить 😡\n `.ran_avatar` - Рандом. аватар 🤯\n `.kill [@user]` - Убить 🔪\n `.dog` - Собака :dog:\n `.goose` - Гусь :duck:\n `.cat` - Кот 🐱\n `.neko` - Рандомная аватарка в стиле аниме ✨**', color=0x6fdb9e)
     embeds = [embed1, embed2, embed3, embed4, embed5]
     message = await ctx.send(embed=embed1)
-    page = Paginator(bot, message, only=ctx.author, use_more=False, embeds=embeds)
+    page = Paginator(bot, message, only=ctx.author, use_more=False, embeds=embeds, reactions = ['<a:WX_Left:717442875255816295>', '<a:WX_Right:717442913973567519>'])
     await page.start()
 
 @bot.command()
@@ -355,7 +355,7 @@ async def music(ctx):
     embed5 = discord.Embed(title ='📋 Страница 3', description='**`13.` Паравозик тыр, тыр, тыр - `4244590201`\n `14.` Нейтороксин - `4466370680`\n `15.` Корабль идёт ко дну - `2774380819`\n `16.` Идол - `2941601894`\n `17.` Коронаминус - `4788523402`\n `18.` Попытка номер 5 - `4722362895`\n `19.` Супер друг - `4338357412`**', color = 0x6fdb9e)
     embeds = [embed1, embed2, embed3, embed4, embed5]
     message = await ctx.send(embed=embed1)
-    page = Paginator(bot, message,  only=ctx.author, use_more=False, embeds=embeds)
+    page = Paginator(bot, message,  only=ctx.author, use_more=False, embeds=embeds, reactions = ['<a:WX_Left:717442875255816295>', '<a:WX_Right:717442913973567519>'])
     await page.start()
 
 @bot.command()
@@ -367,7 +367,7 @@ async def scripts(ctx):
     embed5 = discord.Embed(title ='📋 Страница 3', description='**`25` - Shark Bite\n `26` - Piggy\n `27` - Lucky blocks\n `28` - A Wolf Or Other\n `29` - Jailbreak\n `30` - Robot Inc\n `31` - Pizza Factory Tycoon\n `32` - Work at a Pizza Place\n `33` - Tower of Hell\n `34` - A Bizarre Day\n `35` - Bakon\n `36` - Zombie Attack\n `37` -  Knife Ability Test (KAT)**', color = 0x6fdb9e)
     embeds = [embed1, embed2, embed3, embed4, embed5]
     message = await ctx.send(embed=embed1)
-    page = Paginator(bot, message, only=ctx.author, use_more=False, embeds=embeds)
+    page = Paginator(bot, message, only=ctx.author, use_more=False, embeds=embeds, reactions = ['<a:WX_Left:717442875255816295>', '<a:WX_Right:717442913973567519>'])
     await page.start()
 
 @bot.command()
