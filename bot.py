@@ -46,12 +46,12 @@ async def opros(ctx, *, arg):
 	await ctx.message.delete()
 	embed = discord.Embed(title=f"Опрос:", color = 0x00ffff)
 	embed.add_field(name=f'**Вопрос:**', value=f"**{arg}**\n", inline=False)  # Создает строку
-	embed.add_field(name=f'**Решение:**', value="**-=-=- Да - ❤ -=-=-\n -=-=- Нет - 💔 -=-=-**\n\n", inline=False)  # Создает строку
+	embed.add_field(name=f'**Решение:**', value="**-=-=- Да - <a:WX_Yes:717442828363366511> -=-=-\n -=-=- Нет - <a:WX_No:717442781945004125> -=-=-**\n\n", inline=False)  # Создает строку
 	embed.add_field(name=f'**Инфо:**', value="**Голосование будет длиться 1 минуту!**", inline=False)  # Создает строку
 	opros = await ctx.send(embed=embed)
 	
-	await opros.add_reaction("❤")
-	await opros.add_reaction("💔")
+	await opros.add_reaction("<a:WX_Yes:717442828363366511>")
+	await opros.add_reaction("<a:WX_No:717442781945004125>")
 
 def random_meme():
     with open('memes_data.txt', 'r') as file:
@@ -144,15 +144,15 @@ async def suggest( ctx , * , agr ):
     if ctx.author.id == 662346548025491476:
         await ctx.send(embed = discord.Embed(description = f"**<a:WX_No:717442781945004125> Извините, но Вы не можете использовать данную команду так как создатель бота запретил Вам доступ к этой команде!**"))
     else:
-        await ctx.message.add_reaction('✅')
+        await ctx.message.add_reaction('<a:WX_Yes:717442828363366511>')
         suggest_chanell = bot.get_channel( 716770622553718879 ) #Айди канала предложки
         embed = discord.Embed(title=f"Новое предложение:", description= f"{ctx.author.mention} предложил: **{agr}** \n\n")
 
         embed.set_thumbnail(url=ctx.guild.icon_url)
 
         message = await suggest_chanell.send(embed=embed)
-        await message.add_reaction('✅')
-        await message.add_reaction('❎')
+        await message.add_reaction('<a:WX_Yes:717442828363366511>')
+        await message.add_reaction('<a:WX_No:717442781945004125>')
 
 @bot.event
 async def on_message(msg):
@@ -255,7 +255,7 @@ async def edit(ctx, message_id: int = None, new_content: str = None):
         message = await ctx.message.channel.fetch_message(message_id)
         
         await message.edit(content = new_content)
-        await ctx.message.add_reaction('✅')
+        await ctx.message.add_reaction('<a:WX_No:717442781945004125>')
 
 @bot.command()
 @commands.check(is_owner)
