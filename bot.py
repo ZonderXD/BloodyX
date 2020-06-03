@@ -246,7 +246,7 @@ async def botinfo(ctx):
     embed.add_field(name=f'**Версия:**', value="V.3.0.1", inline=False)  # Создает строку
     embed.add_field(name=f'**Патч:**', value="10", inline=False)  # Создает строку
     embed.set_thumbnail( url = bot.user.avatar_url)
-    embed.set_footer(text=f"𝙵𝚛𝚒𝚍ツ#9691 © | Все права защищены", icon_url='https://cdn.discordapp.com/attachments/717814116911415367/717845094727942264/tumblr_static_bhpsef9h1bswgkgoooc0cc0o4_2048_v2.gif') # создаение футера
+    embed.set_footer(text=f"𝙵𝚛𝚒𝚍ツ#9691 © | Все права защищены", icon_url='https://cdn.discordapp.com/avatars/716724192065749075/4bf146f16ef794b7f5512438ca0970a7.webp?size=1024') # создаение футера
     await ctx.send(embed=embed)
 
 @bot.command()
