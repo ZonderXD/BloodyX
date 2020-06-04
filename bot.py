@@ -568,20 +568,20 @@ async def server(ctx):
     allroles = len(ctx.guild.roles)
     embed = discord.Embed(title=f"Сервер: `{ctx.guild.name}`", color=0xff0000, timestamp=ctx.message.created_at)
     embed.description=(
-        f":timer: **Сервер создали: `{ctx.guild.created_at.strftime('%A, %b %#d %Y')}`**\n\n"
-        f":flag_white: **Регион: `{ctx.guild.region}`**\n\n"
-        f":cowboy:  **Глава сервера: `{ctx.guild.owner}`**\n\n"
-        f":tools: **Ботов на сервере: `{len([m for m in members if m.bot])}`**\n\n"
-        f":green_circle: **Онлайн: `{online}`**\n\n"
-        f":black_circle: **Оффлайн: `{offline}`**\n\n"
-        f":yellow_circle: **Отошли: `{idle}`**\n\n"
-        f":red_circle: **Не трогать: `{dnd}`**\n\n"
-        f":shield: **Уровень верификации: `{ctx.guild.verification_level}`**\n\n"
-        f":musical_keyboard: **Всего каналов: `{allchannels}`**\n\n"
-        f":loud_sound: **Голосовых каналов: `{allvoice}`**\n\n"
-        f":keyboard: **Текстовых каналов: `{alltext}`**\n\n"
-        f":briefcase: **Всего ролей: `{allroles}`**\n\n"
-        f":slight_smile: **Людей на сервере: `{ctx.guild.member_count}`**\n\n"
+        f"<a:WX_Time:718017015402463273> **Сервер создали: `{ctx.guild.created_at.strftime('%A, %b %#d %Y')}`**\n\n"
+        f"<:WX_Region:718016938370007080> **Регион: `{ctx.guild.region}`**\n\n"
+        f"<:WX_Owner:718017201881350144> **Глава сервера: `{ctx.guild.owner}`**\n\n"
+        f"<:WX_Bot:718007334441451621> **Ботов на сервере: `{len([m for m in members if m.bot])}`**\n\n"
+        f"<:WX_Online:718007051342839851> **Онлайн: `{online}`**\n\n"
+        f"<:WX_Offline:718007252577026048> **Оффлайн: `{offline}`**\n\n"
+        f"<:WX_Idle:718007113842032712> **Отошли: `{idle}`**\n\n"
+        f"<:WX_Dnd:718007199208833034> **Не трогать: `{dnd}`**\n\n"
+        f"<:WX_Shield:718018805976006656> **Уровень верификации: `{ctx.guild.verification_level}`**\n\n"
+        f"<:WX_Channels:718017152841416745> **Всего каналов: `{allchannels}`**\n\n"
+        f"<:WX_VoiceChannel:718007579325890600> **Голосовых каналов: `{allvoice}`**\n\n"
+        f"<:WX_TextChannel:718007411532628008> **Текстовых каналов: `{alltext}`**\n\n"
+        f"<a:WX_Roles:718020466484314184> **Всего ролей: `{allroles}`**\n\n"
+        f"<:WX_Members:718013549120847914> **Людей на сервере: `{ctx.guild.member_count}`**\n\n"
     )
 
     embed.set_thumbnail(url=ctx.guild.icon_url)
