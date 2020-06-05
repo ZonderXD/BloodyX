@@ -237,6 +237,12 @@ async def neko(ctx):
     await ctx.send(embed = embed)
 
 @bot.command()
+async def nswf(ctx):
+  embed = discord.Embed(description = f"{ctx.author.mention} вот тебе порнуха:", colour = 0xff0000)
+  embed.set_image(url=nekos.img('hentai', bool = True))
+  await ctx.send(embed = embed)
+
+@bot.command()
 async def meme(ctx):
     emb = discord.Embed(description = f"**Вот тебе мем:**", color = 0xda4a)
     emb.set_image(url= random_meme())
