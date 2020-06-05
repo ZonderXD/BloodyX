@@ -237,13 +237,13 @@ async def neko(ctx):
     await ctx.send(embed = embed)
 
 @bot.command()
-@commands.cooldown(1, 360, commands.BucketType.user)
+@commands.cooldown(3, 180, commands.BucketType.user)
 async def nsfw(ctx):
     if ctx.message.channel.is_nsfw() == False:
         await ctx.send(embed = discord.Embed(description = f"**{ctx.author.mention}, ты ахуел? Используй в NSWF канале!**", colour = 0xff0000))
         return
 
-        await ctx.message.add_reaction('<a:EL_Yes:717442828363366511>')
+    await ctx.message.add_reaction('<a:EL_Yes:717442828363366511>')
 
     embed = discord.Embed(description = f"**{ctx.author.mention} вот тебе порнуха:**", colour = 0xff0000)
     category = 'hentai'
