@@ -237,6 +237,7 @@ async def neko(ctx):
     await ctx.send(embed = embed)
 
 @bot.command()
+@commands.cooldown(1, 360, commands.BucketType.user)
 async def nsfw(ctx):
     if ctx.message.channel.is_nsfw() == False:
         await ctx.send(embed = discord.Embed(description = f"**{ctx.author.mention}, ты ахуел? Используй в NSWF канале!**", colour = 0xff0000))
@@ -246,6 +247,13 @@ async def nsfw(ctx):
     category = 'hentai'
     embed.set_image(url= nekos.img(category))
     await ctx.author.send(embed = embed)
+
+@nsfw.error
+async def mine_error(ctx, error):
+    if isinstance(error, commands.CommandOnCooldown):
+        await ctx.message.add_reaction('<a:WX_No:717442781945004125>')
+    else:
+        raise error
 
 @bot.command()
 async def meme(ctx):
