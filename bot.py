@@ -156,25 +156,14 @@ async def suggest( ctx , * , agr ):
 
 @bot.event
 async def on_raw_reaction_add(payload):
-    if payload.message_id == 718580329073344542: # ID Сообщения
+    if payload.message_id == 718589050264748104: # ID Сообщения
         guild = bot.get_guild(payload.guild_id)
         role = None
         
-        if str(payload.emoji) == '☣': # Emoji для реакций
+        if str(payload.emoji) == '🤢': # Emoji для реакций
             role = guild.get_role(718514508859179099)
-        elif str(payload.emoji) == '🍑':
+        elif str(payload.emoji) == '💋':
             role = guild.get_role(718516949054652477)
-        elif str(payload.emoji) == '🎩':
-            role = guild.get_role(718581501989748838)
-
-        elif str(payload.emoji) == '🌴':
-            role = guild.get_role(718581502199463977)
-        elif str(payload.emoji) == '🍒':
-            role = guild.get_role(718581503239389284)
-        elif str(payload.emoji) == '🚀':
-            role = guild.get_role(718581503239389284)
-        elif str(payload.emoji) == '💯':
-            role = guild.get_role(718581488270180455)
 
         if role:
             member = guild.get_member(payload.user_id)
@@ -183,24 +172,14 @@ async def on_raw_reaction_add(payload):
 
 @bot.event
 async def on_raw_reaction_remove(payload):
-    if payload.message_id == 718580329073344542: # ID Сообщения
+    if payload.message_id == 718589050264748104: # ID Сообщения
         guild = bot.get_guild(payload.guild_id)
         role = None
 
-        if str(payload.emoji) == '☣': # Emoji для реакций
+        if str(payload.emoji) == '🤢': # Emoji для реакций
             role = guild.get_role(718514508859179099)
-        elif str(payload.emoji) == '🍑':
+        elif str(payload.emoji) == '💋':
             role = guild.get_role(718516949054652477)
-        elif str(payload.emoji) == '🎩':
-            role = guild.get_role(718581501989748838)
-        elif str(payload.emoji) == '🌴':
-            role = guild.get_role(718581502199463977)
-        elif str(payload.emoji) == '🍒':
-            role = guild.get_role(718581503239389284)
-        elif str(payload.emoji) == '🚀':
-            role = guild.get_role(718581503239389284)
-        elif str(payload.emoji) == '💯':
-            role = guild.get_role(718581488270180455)
 
         if role:
             member = guild.get_member(payload.user_id)
