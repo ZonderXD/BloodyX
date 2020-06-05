@@ -170,6 +170,19 @@ async def on_raw_reaction_add(payload):
             if member:
                 await member.add_roles(role)
 
+    if payload.message_id == 718593212851159111: # ID Сообщения
+        guild = bot.get_guild(payload.guild_id)
+        role = None
+        
+        if str(payload.emoji) == '😋': # Emoji для реакций
+            role = guild.get_role(718590587112259735)
+
+        if role:
+            member = guild.get_member(payload.user_id)
+            if member:
+                await member.add_roles(role)
+
+
 @bot.event
 async def on_raw_reaction_remove(payload):
     if payload.message_id == 718589050264748104: # ID Сообщения
@@ -186,6 +199,17 @@ async def on_raw_reaction_remove(payload):
             if member:
                 await member.remove_roles(role)
 
+    if payload.message_id == 718593212851159111: # ID Сообщения
+        guild = bot.get_guild(payload.guild_id)
+        role = None
+        
+        if str(payload.emoji) == '😋': # Emoji для реакций
+            role = guild.get_role(718590587112259735)
+
+        if role:
+            member = guild.get_member(payload.user_id)
+            if member:
+                await member.remove_roles(role)
 
 @bot.event
 async def on_message(msg):
