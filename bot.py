@@ -50,8 +50,8 @@ async def opros(ctx, *, arg):
 	embed.add_field(name=f'**Инфо:**', value="**Голосование будет длиться 1 минуту!**", inline=False)  # Создает строку
 	opros = await ctx.send(embed=embed)
 	
-	await opros.add_reaction("<a:WX_Yes:717442828363366511>")
-	await opros.add_reaction("<a:WX_No:717442781945004125>")
+	await opros.add_reaction("<a:EL_Yes:717442828363366511>")
+	await opros.add_reaction("<a:EL_No:717442781945004125>")
 
 def random_meme():
     with open('memes_data.txt', 'r') as file:
@@ -142,7 +142,7 @@ async def giveaway( ctx, seconds: int, *, text ):
 @bot.command( pass_context = True, aliases = [ "Предложить", "предложить", "предложка", "Предложка", "Suggest" ])
 async def suggest( ctx , * , agr ):
     if ctx.author.id == 662346548025491476:
-        await ctx.send(embed = discord.Embed(description = f"**<a:WX_No:717442781945004125> Извините, но Вы не можете использовать данную команду так как создатель бота запретил Вам доступ к этой команде!**"))
+        await ctx.send(embed = discord.Embed(description = f"**<a:EL_No:717442781945004125> Извините, но Вы не можете использовать данную команду так как создатель бота запретил Вам доступ к этой команде!**"))
     else:
         await ctx.message.add_reaction('<a:WX_Yes:717442828363366511>')
         suggest_chanell = bot.get_channel( 716770622553718879 ) #Айди канала предложки
@@ -151,8 +151,8 @@ async def suggest( ctx , * , agr ):
         embed.set_thumbnail(url=ctx.guild.icon_url)
 
         message = await suggest_chanell.send(embed=embed)
-        await message.add_reaction('<a:WX_Yes:717442828363366511>')
-        await message.add_reaction('<a:WX_No:717442781945004125>')
+        await message.add_reaction('<a:EL_Yes:717442828363366511>')
+        await message.add_reaction('<a:EL_No:717442781945004125>')
 
 @bot.event
 async def on_raw_reaction_add(payload):
@@ -243,6 +243,8 @@ async def nsfw(ctx):
         await ctx.send(embed = discord.Embed(description = f"**{ctx.author.mention}, ты ахуел? Используй в NSWF канале!**", colour = 0xff0000))
         return
 
+        await ctx.message.add_reaction('<a:EL_Yes:717442828363366511>')
+
     embed = discord.Embed(description = f"**{ctx.author.mention} вот тебе порнуха:**", colour = 0xff0000)
     category = 'hentai'
     embed.set_image(url= nekos.img(category))
@@ -251,7 +253,7 @@ async def nsfw(ctx):
 @nsfw.error
 async def mine_error(ctx, error):
     if isinstance(error, commands.CommandOnCooldown):
-        await ctx.message.add_reaction('<a:WX_No:717442781945004125>')
+        await ctx.message.add_reaction('<a:EL_No:717442781945004125>')
     else:
         raise error
 
@@ -622,20 +624,20 @@ async def server(ctx):
     allroles = len(ctx.guild.roles)
     embed = discord.Embed(title=f"Сервер: `{ctx.guild.name}`", color=0xff0000, timestamp=ctx.message.created_at)
     embed.description=(
-        f"<a:WX_Time:718017015402463273> **Сервер создали: `{ctx.guild.created_at.strftime('%A, %b %#d %Y')}`**\n\n"
-        f"<:WX_Region:718016938370007080> **Регион: `{ctx.guild.region}`**\n\n"
-        f"<:WX_Owner:718017201881350144> **Глава сервера: `{ctx.guild.owner}`**\n\n"
-        f"<:WX_Bot:718007334441451621> **Ботов на сервере: `{len([m for m in members if m.bot])}`**\n\n"
-        f"<:WX_Online:718007051342839851> **Онлайн: `{online}`**\n\n"
-        f"<:WX_Offline:718007252577026048> **Оффлайн: `{offline}`**\n\n"
-        f"<:WX_Idle:718007113842032712> **Отошли: `{idle}`**\n\n"
-        f"<:WX_Dnd:718007199208833034> **Не трогать: `{dnd}`**\n\n"
-        f"<:WX_Shield:718018805976006656> **Уровень верификации: `{ctx.guild.verification_level}`**\n\n"
-        f"<:WX_Channels:718017152841416745> **Всего каналов: `{allchannels}`**\n\n"
-        f"<:WX_VoiceChannel:718007579325890600> **Голосовых каналов: `{allvoice}`**\n\n"
-        f"<:WX_TextChannel:718007411532628008> **Текстовых каналов: `{alltext}`**\n\n"
-        f"<a:WX_Roles:718020466484314184> **Всего ролей: `{allroles}`**\n\n"
-        f"<:WX_Members:718013549120847914> **Людей на сервере: `{ctx.guild.member_count}`**\n\n"
+        f"<a:EL_Time:718017015402463273> **Сервер создали: `{ctx.guild.created_at.strftime('%A, %b %#d %Y')}`**\n\n"
+        f"<:EL_Region:718016938370007080> **Регион: `{ctx.guild.region}`**\n\n"
+        f"<:EL_Owner:718017201881350144> **Глава сервера: `{ctx.guild.owner}`**\n\n"
+        f"<:EL_Bot:718007334441451621> **Ботов на сервере: `{len([m for m in members if m.bot])}`**\n\n"
+        f"<:EL_Online:718007051342839851> **Онлайн: `{online}`**\n\n"
+        f"<:EL_Offline:718007252577026048> **Оффлайн: `{offline}`**\n\n"
+        f"<:EL_Idle:718007113842032712> **Отошли: `{idle}`**\n\n"
+        f"<:EL_Dnd:718007199208833034> **Не трогать: `{dnd}`**\n\n"
+        f"<:EL_Shield:718018805976006656> **Уровень верификации: `{ctx.guild.verification_level}`**\n\n"
+        f"<:EL_Channels:718017152841416745> **Всего каналов: `{allchannels}`**\n\n"
+        f"<:EL_VoiceChannel:718007579325890600> **Голосовых каналов: `{allvoice}`**\n\n"
+        f"<:EL_TextChannel:718007411532628008> **Текстовых каналов: `{alltext}`**\n\n"
+        f"<a:EL_Roles:718020466484314184> **Всего ролей: `{allroles}`**\n\n"
+        f"<:EL_Members:718013549120847914> **Людей на сервере: `{ctx.guild.member_count}`**\n\n"
     )
 
     embed.set_thumbnail(url=ctx.guild.icon_url)
