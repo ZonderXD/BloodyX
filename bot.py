@@ -294,7 +294,7 @@ async def on_member_remove( member ):
 
 @bot.command(aliases=['bot'])
 async def botinfo(ctx):
-    embed = discord.Embed(title=f"{ctx.guild.name}", description="Информация о боте **𝐄 𝐋 𝐄 𝐊 𝐒 𝐈 𝐑#4705**.\n Бот был написан специально для проекта **`Woof X`**,\n Подробнее о командах: **`.help`**", color = 0x00ffff)
+    embed = discord.Embed(title=f"{ctx.guild.name}", description="Информация о боте **𝐄 𝐋 𝐄 𝐊 𝐒 𝐈 𝐑#4705**.\n Бот был написан специально для проекта **`🌙 𝐄 𝐋 𝐄 𝐊 𝐒 𝐈 𝐑`**,\n Подробнее о командах: **`.help`**", color = 0x00ffff)
     embed.add_field(name=f'**Меня создал:**', value="`! 𝐑 𝐘 𝐍 Ξ 𝐗#9691`(<@716724192065749075>)", inline=False)  # Создает строку
     embed.add_field(name=f'**Помощь в создании:**', value="`Satana★#2362`(<@342317507991961602>)", inline=False)  # Создает строку
     embed.add_field(name=f'**Лицензия:**', value="LD-v7", inline=False)  # Создает строку
