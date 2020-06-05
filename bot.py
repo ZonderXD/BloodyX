@@ -160,7 +160,7 @@ async def on_raw_reaction_add(payload):
         guild = bot.get_guild(payload.guild_id)
         role = None
         
-	if str(payload.emoji) == '☣': # Emoji для реакций
+        if str(payload.emoji) == '☣': # Emoji для реакций
             role = guild.get_role(718514508859179099)
         elif str(payload.emoji) == '🍑':
             role = guild.get_role(718516949054652477)
