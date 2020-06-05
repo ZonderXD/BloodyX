@@ -164,6 +164,10 @@ async def on_raw_reaction_add(payload):
             role = guild.get_role(718514508859179099)
         elif str(payload.emoji) == '💋':
             role = guild.get_role(718516949054652477)
+	elif str(payload.emoji) == '👧':
+            role = guild.get_role(718597763725787186)
+	elif str(payload.emoji) == '👦':
+            role = guild.get_role(718597752795168846)
 
         if role:
             member = guild.get_member(payload.user_id)
@@ -193,6 +197,10 @@ async def on_raw_reaction_remove(payload):
             role = guild.get_role(718514508859179099)
         elif str(payload.emoji) == '💋':
             role = guild.get_role(718516949054652477)
+	elif str(payload.emoji) == '👧':
+            role = guild.get_role(718597763725787186)
+	elif str(payload.emoji) == '👦':
+            role = guild.get_role(718597752795168846)
 
         if role:
             member = guild.get_member(payload.user_id)
