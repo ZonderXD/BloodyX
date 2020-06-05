@@ -159,7 +159,7 @@ async def on_message(msg):
     await bot.process_commands( msg )
     if msg.author.bot or msg.author.id == 716724192065749075 or msg.author.id == 491928659599425537:
         pass
-    elif msg.channel.id = 718507600794222653:
+    elif msg.channel.id == 718507600794222653:
         pass
     else:
         mes = msg.content.lower()
