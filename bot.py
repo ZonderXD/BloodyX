@@ -239,13 +239,13 @@ async def neko(ctx):
 @bot.command()
 async def nswf(ctx):
     if ctx.message.channel.is_nsfw() == False:
-        await ctx.send(description = f"**{ctx.author.mention}, ты ахуел? Используй в NSWF канале!**", colour = 0xff0000)
+        await ctx.send(embed = discord.Embed(description = f"**{ctx.author.mention}, ты ахуел? Используй в NSWF канале!**", colour = 0xff0000))
         return
 
-  embed = discord.Embed(description = f"**{ctx.author.mention} вот тебе порнуха:**", colour = 0xff0000)
-  category = 'hentai'
-  embed.set_image(url= nekos.img(category))
-  await ctx.send(embed = embed)
+    embed = discord.Embed(description = f"**{ctx.author.mention} вот тебе порнуха:**", colour = 0xff0000)
+    category = 'hentai'
+    embed.set_image(url= nekos.img(category))
+    await ctx.send(embed = embed)
 
 @bot.command()
 async def meme(ctx):
