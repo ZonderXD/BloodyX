@@ -155,6 +155,39 @@ async def suggest( ctx , * , agr ):
         await message.add_reaction('<a:WX_No:717442781945004125>')
 
 @bot.event
+async def on_raw_reaction_add(payload):
+    if payload.message_id == 718515884250890340: # ID Сообщения
+        guild = bot.get_guild(payload.guild_id)
+        role = None
+
+        if str(payload.emoji) == '🤢': # Emoji для реакций
+            role = guild.get_role(718514508859179099)
+        elif str(payload.emoji) == '🍑':
+            role = guild.get_role(718516949054652477)
+
+        if role:
+            member = guild.get_member(payload.user_id)
+            if member:
+                await member.add_roles(role)
+
+@bot.event
+async def on_raw_reaction_remove(payload):
+    if payload.message_id == 718515884250890340: # ID Сообщения
+        guild = bot.get_guild(payload.guild_id)
+        role = None
+
+        if str(payload.emoji) == '🤢': # Emoji для реакций
+            role = guild.get_role(718514508859179099)
+        elif str(payload.emoji) == '🍑':
+            role = guild.get_role(718516949054652477)
+
+        if role:
+            member = guild.get_member(payload.user_id)
+            if member:
+                await member.remove_roles(role)
+
+
+@bot.event
 async def on_message(msg):
     await bot.process_commands( msg )
     if msg.author.bot or msg.author.id == 716724192065749075 or msg.author.id == 491928659599425537:
