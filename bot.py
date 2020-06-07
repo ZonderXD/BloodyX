@@ -203,7 +203,7 @@ async def clown_kill(ctx, member : discord.Member):
         await ctx.send(embed = discord.Embed(description = f'**{member.mention}, Вас убил(-а) {ctx.message.author.mention}. Вы сможете очнутся только через 5 минут!'))
         
         mute_role = discord.utils.get( ctx.message.guild.roles, id = 716890559712591923 )
-        
+    
         await member.add_roles(mute_role)
         
         await asyncio.sleep(300.0)
@@ -214,7 +214,7 @@ async def clown_kill(ctx, member : discord.Member):
 async def mine_error(ctx, error):
     if isinstance(error, commands.CommandOnCooldown):
         await ctx.message.add_reaction('<a:EL_No:717442781945004125>')
-	await ctx.send('**Прости клоун, но ты уже убил человека. И поэтому жди следущий день!**')
+        await ctx.send('**Прости клоун, но ты уже убил человека. И поэтому жди следущий день!**')
     else:
         raise error
 
