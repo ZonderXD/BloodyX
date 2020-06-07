@@ -193,7 +193,30 @@ async def on_raw_reaction_add(payload):
             member = guild.get_member(payload.user_id)
             if member:
                 await member.add_roles(role)
+@bot.command()
+@commands.cooldown(1, 1440, commands.BucketType.user)
+@commands.has_any_role('719273271807180820')
+async def clown_kill(ctx, , member : discord.Member):
+    if member == ctx.message.author:
+        await ctx.send('**Клоун одумайся, зачем ты хочешь убить самого себя, лучше убей других!')
+    else:
+        await ctx.send(embed = discord.Embed(description = f'**{member.mention}, Вас убил(-а) {ctx.message.author.mention}. Вы сможете очнутся только через 5 минут!'))
+        
+        mute_role = discord.utils.get( ctx.message.guild.roles, id = 716890559712591923 )
+        
+        await member.add_roles(mute_role)
+        
+        await asyncio.sleep(300.0)
+        
+        await member.remove_roles( mute_role )
 
+@clown_kill.error
+async def mine_error(ctx, error):
+    if isinstance(error, commands.CommandOnCooldown):
+        await ctx.message.add_reaction('<a:EL_No:717442781945004125>')
+	await ctx.send('**Прости клоун, но ты уже убил человека. И поэтому жди следущий день!**')
+    else:
+        raise error
 
 @bot.event
 async def on_raw_reaction_remove(payload):
@@ -234,7 +257,7 @@ async def on_raw_reaction_remove(payload):
             member = guild.get_member(payload.user_id)
             if member:
                 await member.remove_roles(role)
-
+	
 @bot.event
 async def on_message(msg):
     await bot.process_commands( msg )
