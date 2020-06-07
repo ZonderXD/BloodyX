@@ -46,7 +46,7 @@ async def opros(ctx, *, arg):
 	await ctx.message.delete()
 	embed = discord.Embed(title=f"Опрос:", color = 0x00ffff)
 	embed.add_field(name=f'**Вопрос:**', value=f"**{arg}**\n", inline=False)  # Создает строку
-	embed.add_field(name=f'**Решение:**', value="**-=-=- Да - <a:EL_Yes:717442828363366511> -=-=-\n -=-=- Нет - <a:EL_No:717442781945004125> -=-=-**\n\n", inline=False)  # Создает строку
+	embed.add_field(name=f'**Решение:**', value="**Да - <a:EL_Yes:717442828363366511>\nНет - <a:EL_No:717442781945004125>**\n\n", inline=False)  # Создает строку
 	embed.add_field(name=f'**Инфо:**', value="**Голосование будет длиться 1 минуту!**", inline=False)  # Создает строку
 	opros = await ctx.send(embed=embed)
 	
