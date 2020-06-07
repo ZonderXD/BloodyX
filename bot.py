@@ -196,7 +196,7 @@ async def on_raw_reaction_add(payload):
 @bot.command()
 @commands.cooldown(1, 1440, commands.BucketType.user)
 @commands.has_any_role('719273271807180820')
-async def clown_kill(ctx, , member : discord.Member):
+async def clown_kill(ctx, member : discord.Member):
     if member == ctx.message.author:
         await ctx.send('**Клоун одумайся, зачем ты хочешь убить самого себя, лучше убей других!')
     else:
