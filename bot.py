@@ -28,17 +28,17 @@ cursor = conn.cursor()
 
 @bot.event
 async def on_ready():
-    print(f'          [Woof X]')
+    print(f'          [Eleksir]')
     await bot.change_presence(status = discord.Status.idle, activity = discord.Game('⊱ Prefix: . ⊰'))
-    print(f"[Woof X] Bot successfully launched!;")
-    print(f"[Woof X] Name: [{bot.user}];")
-    print(f'[Woof X] ID: [{bot.user.id}]')
+    print(f"[Eleksir] Bot successfully launched!;")
+    print(f"[Eleksir] Name: [{bot.user}];")
+    print(f'[Eleksir] ID: [{bot.user.id}]')
     print('[------------------------------]')
     print(f'          [Other]')
 
 @bot.event
 async def is_owner(ctx):
-    return ctx.author.id == 716724192065749075 or  ctx.author.id == 491928659599425537# Айди создателя бота
+    return ctx.author.id == 719605055547768894 or  ctx.author.id == 491928659599425537# Айди создателя бота
 
 @bot.command()
 @commands.check(is_owner)
@@ -46,12 +46,12 @@ async def opros(ctx, *, arg):
 	await ctx.message.delete()
 	embed = discord.Embed(title=f"Опрос:", color = 0x00ffff)
 	embed.add_field(name=f'**Вопрос:**', value=f"**{arg}**\n", inline=False)  # Создает строку
-	embed.add_field(name=f'**Решение:**', value="**Да - <a:EL_Yes:717442828363366511>\nНет - <a:EL_No:717442781945004125>**\n\n", inline=False)  # Создает строку
+	embed.add_field(name=f'**Решение:**', value="**Да - <a:EL_Yes:719995062095839366>\nНет - <a:EL_No:719995078059229336>**\n\n", inline=False)  # Создает строку
 	embed.add_field(name=f'**Инфо:**', value="**Голосование будет длиться 1 минуту!**", inline=False)  # Создает строку
 	opros = await ctx.send(embed=embed)
 	
-	await opros.add_reaction("<a:EL_Yes:717442828363366511>")
-	await opros.add_reaction("<a:EL_No:717442781945004125>")
+	await opros.add_reaction("<a:EL_Yes:719995062095839366>")
+	await opros.add_reaction("<a:EL_No:719995078059229336>")
 
 def random_meme():
     with open('memes_data.txt', 'r') as file:
@@ -156,38 +156,38 @@ async def suggest( ctx , * , agr ):
 
 @bot.event
 async def on_raw_reaction_add(payload):
-    if payload.message_id == 718589050264748104: # ID Сообщения
+    if payload.message_id == 719990131255410769: # ID Сообщения
         guild = bot.get_guild(payload.guild_id)
         role = None
         
         if str(payload.emoji) == '🤢': # Emoji для реакций
-            role = guild.get_role(718514508859179099)
+            role = guild.get_role(719939324795289703)
         elif str(payload.emoji) == '💋':
-            role = guild.get_role(718516949054652477)
+            role = guild.get_role(719939324795289702)
         elif str(payload.emoji) == '👧':
-            role = guild.get_role(718597763725787186)
+            role = guild.get_role(719939324774449201)
         elif str(payload.emoji) == '👦':
-            role = guild.get_role(718597752795168846)
+            role = guild.get_role(719939324795289701)
         elif str(payload.emoji) == '🎉':
-            role = guild.get_role(719160937747316837)
+            role = guild.get_role(719939324774449199)
         elif str(payload.emoji) == '🔔':
-            role = guild.get_role(719172799629099043)
+            role = guild.get_role(719939324774449200)
         elif str(payload.emoji) == '📢':
-            role = guild.get_role(719160938758012939)
+            role = guild.get_role(719939324774449198)
         elif str(payload.emoji) == '⚔':
-            role = guild.get_role(719160939521376286)
+            role = guild.get_role(719939324774449197)
 
         if role:
             member = guild.get_member(payload.user_id)
             if member:
                 await member.add_roles(role)
 
-    if payload.message_id == 718593212851159111: # ID Сообщения
+    if payload.message_id == 719989264015818772: # ID Сообщения
         guild = bot.get_guild(payload.guild_id)
         role = None
         
-        if str(payload.emoji) == '😋': # Emoji для реакций
-            role = guild.get_role(718590587112259735)
+        if str(payload.emoji) == '✅': # Emoji для реакций
+            role = guild.get_role(719939324795289704)
 
         if role:
             member = guild.get_member(payload.user_id)
@@ -196,38 +196,38 @@ async def on_raw_reaction_add(payload):
 
 @bot.event
 async def on_raw_reaction_remove(payload):
-    if payload.message_id == 718589050264748104: # ID Сообщения
+    if payload.message_id == 719990131255410769: # ID Сообщения
         guild = bot.get_guild(payload.guild_id)
         role = None
 
         if str(payload.emoji) == '🤢': # Emoji для реакций
-            role = guild.get_role(718514508859179099)
+            role = guild.get_role(719939324795289703)
         elif str(payload.emoji) == '💋':
-            role = guild.get_role(718516949054652477)
+            role = guild.get_role(719939324795289702)
         elif str(payload.emoji) == '👧':
-            role = guild.get_role(718597763725787186)
+            role = guild.get_role(719939324774449201)
         elif str(payload.emoji) == '👦':
-            role = guild.get_role(718597752795168846)
+            role = guild.get_role(719939324795289701)
         elif str(payload.emoji) == '🎉':
-            role = guild.get_role(719160937747316837)
+            role = guild.get_role(719939324774449199)
         elif str(payload.emoji) == '🔔':
-            role = guild.get_role(719172799629099043)
+            role = guild.get_role(719939324774449200)
         elif str(payload.emoji) == '📢':
-            role = guild.get_role(719160938758012939)
+            role = guild.get_role(719939324774449198)
         elif str(payload.emoji) == '⚔':
-            role = guild.get_role(719160939521376286)
+            role = guild.get_role(719939324774449197)
 
         if role:
             member = guild.get_member(payload.user_id)
             if member:
                 await member.remove_roles(role)
 
-    if payload.message_id == 718593212851159111: # ID Сообщения
+    if payload.message_id == 719989264015818772: # ID Сообщения
         guild = bot.get_guild(payload.guild_id)
         role = None
         
-        if str(payload.emoji) == '😋': # Emoji для реакций
-            role = guild.get_role(718590587112259735)
+        if str(payload.emoji) == '✅': # Emoji для реакций
+            role = guild.get_role(719939324795289704)
 
         if role:
             member = guild.get_member(payload.user_id)
@@ -341,15 +341,15 @@ async def on_member_remove( member ):
 
 @bot.command(aliases=['bot'])
 async def botinfo(ctx):
-    embed = discord.Embed(title=f"{ctx.guild.name}", description="Информация о боте **𝐄 𝐋 𝐄 𝐊 𝐒 𝐈 𝐑#4705**.\n Бот был написан специально для проекта **`🌙 𝐄 𝐋 𝐄 𝐊 𝐒 𝐈 𝐑`**,\n Подробнее о командах: **`.help`**", color = 0x00ffff)
-    embed.add_field(name=f'**Меня создал:**', value="`! 𝐑 𝐘 𝐍 Ξ 𝐗#9691`(<@716724192065749075>)", inline=False)  # Создает строку
-    embed.add_field(name=f'**Помощь в создании:**', value="`Satana★#2362`(<@342317507991961602>)", inline=False)  # Создает строку
+    embed = discord.Embed(title=f"{ctx.guild.name}", description="Информация о боте **𝐄 𝐋 𝐄 𝐊 𝐒 𝐈 𝐑#6265**.\n Бот был написан специально для проекта **`🌙 𝐄 𝐋 𝐄 𝐊 𝐒 𝐈 𝐑`**,\n Подробнее о командах: **`.help`**", color = 0x00ffff)
+    embed.add_field(name=f'**Меня создал:**', value="`~ 𝚂 𝙰 𝙳 𝙸 𝚂 𝚃 ~#2576`(<@719605055547768894>)", inline=False)  # Создает строку
+    embed.add_field(name=f'**Помощь в создании:**', value="`Joper#2362`(<@342317507991961602>)", inline=False)  # Создает строку
     embed.add_field(name=f'**Лицензия:**', value="LD-v7", inline=False)  # Создает строку
     embed.add_field(name=f'**Я написан на:**', value="Discord.py", inline=False)  # Создает строку
     embed.add_field(name=f'**Версия:**', value="V.3.0.1", inline=False)  # Создает строку
     embed.add_field(name=f'**Патч:**', value="10", inline=False)  # Создает строку
     embed.set_thumbnail( url = bot.user.avatar_url)
-    embed.set_footer(text=f"! 𝐑 𝐘 𝐍 Ξ 𝐗#9691 © | Все права защищены", icon_url='https://cdn.discordapp.com/avatars/716724192065749075/9d9ea47a88a73c325a4317f0b4e06c34.webp?size=1024') # создаение футера
+    embed.set_footer(text=f"~ 𝚂 𝙰 𝙳 𝙸 𝚂 𝚃 ~#2576 © | Все права защищены", icon_url='https://cdn.discordapp.com/avatars/719605055547768894/a640661e8eeeafc556c067138e491187.webp?size=1024') # создаение футера
     await ctx.send(embed=embed)
 
 @bot.command()
@@ -358,7 +358,7 @@ async def edit(ctx, message_id: int = None, new_content: str = None):
         message = await ctx.message.channel.fetch_message(message_id)
         
         await message.edit(content = new_content)
-        await ctx.message.add_reaction('<a:WX_No:717442781945004125>')
+        await ctx.message.add_reaction('<a:EL_Yes:719995062095839366>')
 
 @bot.command()
 @commands.check(is_owner)
@@ -376,7 +376,7 @@ async def ran_avatar(ctx): # Название команды
 @bot.command() # Декоратор команды
 async def slap(ctx, member : discord.Member): # Название команды и аргумент
     if member == ctx.message.author: # Проверка кого упомянули
-        await ctx.send('<a:WX_No:717442781945004125> Вы не можете ударить сами себя.')
+        await ctx.send('<a:EL_No:719995078059229336> Вы не можете ударить сами себя.')
     else:
         emb = discord.Embed(description= f'{member.mention}, Вас ударил(-а) {ctx.message.author.mention}.', color=0x6fdb9e) # Переменная ембеда и описание
         emb.set_image(url=nekos.img('slap')) # Ищем картинку и ставим её в ембед
@@ -400,7 +400,7 @@ async def dog(ctx): # Название команды и аргумент
 @bot.command() # Декоратор команды
 async def hug(ctx, member : discord.Member): # Название команды и аргумент
     if member == ctx.message.author: # Проверка кого упомянули
-        await ctx.send('<a:WX_No:717442781945004125> Вы не можете обнять сами себя.')
+        await ctx.send('<a:EL_No:719995078059229336> Вы не можете обнять сами себя.')
     else:
         emb = discord.Embed(description= f'{member.mention}, Вас обнял(-а) {ctx.message.author.mention}.', color=0x6fdb9e) # Переменная ембеда и описание
         emb.set_image(url=nekos.img('hug')) # Ищем картинку и ставим её в ембед
@@ -424,7 +424,7 @@ async def kill(ctx, member : discord.Member = None):
 async def password(ctx, lenght: int = None, number: int = None):
 
     if not lenght or not number:
-        await ctx.send(embed = discord.Embed(description = f'<a:WX_No:717442781945004125> Пожалуйста, укажите длину пароля и количество символов в нем.', color=0x0c0c0c)) 
+        await ctx.send(embed = discord.Embed(description = f'<a:EL_No:719995078059229336> Пожалуйста, укажите длину пароля и количество символов в нем.', color=0x0c0c0c)) 
 
     chars = 'abcdefghijklnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890'
     for x in range(number):
@@ -672,20 +672,20 @@ async def server(ctx):
     allroles = len(ctx.guild.roles)
     embed = discord.Embed(title=f"Сервер: `{ctx.guild.name}`", color=0xff0000, timestamp=ctx.message.created_at)
     embed.description=(
-        f"<a:EL_Time:718017015402463273> **Сервер создали: `{ctx.guild.created_at.strftime('%A, %b %#d %Y')}`**\n\n"
-        f"<:EL_Region:718016938370007080> **Регион: `{ctx.guild.region}`**\n\n"
-        f"<:EL_Owner:718017201881350144> **Глава сервера: `{ctx.guild.owner}`**\n\n"
-        f"<:EL_Bot:718007334441451621> **Ботов на сервере: `{len([m for m in members if m.bot])}`**\n\n"
-        f"<:EL_Online:718007051342839851> **Онлайн: `{online}`**\n\n"
-        f"<:EL_Offline:718007252577026048> **Оффлайн: `{offline}`**\n\n"
-        f"<:EL_Idle:718007113842032712> **Отошли: `{idle}`**\n\n"
-        f"<:EL_Dnd:718007199208833034> **Не трогать: `{dnd}`**\n\n"
-        f"<:EL_Shield:718018805976006656> **Уровень верификации: `{ctx.guild.verification_level}`**\n\n"
-        f"<:EL_Channels:718017152841416745> **Всего каналов: `{allchannels}`**\n\n"
-        f"<:EL_VoiceChannel:718007579325890600> **Голосовых каналов: `{allvoice}`**\n\n"
-        f"<:EL_TextChannel:718007411532628008> **Текстовых каналов: `{alltext}`**\n\n"
-        f"<a:EL_Roles:718020466484314184> **Всего ролей: `{allroles}`**\n\n"
-        f"<:EL_Members:718013549120847914> **Людей на сервере: `{ctx.guild.member_count}`**\n\n"
+        f"<a:EL_Time:719996484237656215> **Сервер создали: `{ctx.guild.created_at.strftime('%A, %b %#d %Y')}`**\n\n"
+        f"<:EL_Region:719996506857406525> **Регион: `{ctx.guild.region}`**\n\n"
+        f"<:EL_Owner:720001653163425822> **Глава сервера: `{ctx.guild.owner}`**\n\n"
+        f"<:EL_Bot:719996225453162618> **Ботов на сервере: `{len([m for m in members if m.bot])}`**\n\n"
+        f"<:EL_Online:719996334546878494> **Онлайн: `{online}`**\n\n"
+        f"<:EL_Offline:719996377865912342> **Оффлайн: `{offline}`**\n\n"
+        f"<:EL_Idle:719996278196666439> **Отошли: `{idle}`**\n\n"
+        f"<:EL_Dnd:719996257330004019> **Не трогать: `{dnd}`**\n\n"
+        f"<:EL_Shield:719996523823366195> **Уровень верификации: `{ctx.guild.verification_level}`**\n\n"
+        f"<:EL_Channels:719996243228753921> **Всего каналов: `{allchannels}`**\n\n"
+        f"<:EL_VoiceChannel:719996462305509386> **Голосовых каналов: `{allvoice}`**\n\n"
+        f"<:EL_TextChannel:719996437676425358> **Текстовых каналов: `{alltext}`**\n\n"
+        f"<a:EL_Roles:719996398044708945> **Всего ролей: `{allroles}`**\n\n"
+        f"<:EL_Members:719996296827764786> **Людей на сервере: `{ctx.guild.member_count}`**\n\n"
     )
 
     embed.set_thumbnail(url=ctx.guild.icon_url)
