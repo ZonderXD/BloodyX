@@ -322,20 +322,20 @@ async def clear(ctx, amount:int=None):
 
 @bot.event
 async def on_member_join( member ):
-    emb = discord.Embed( description = f"**Привет {member.mention}! <a:EL_Hi:718918804192755824>\nТы на сервере `{member.guild.name}`. <a:EL_Nitro:718917977986170972>\nОзнакомься с правилами нашего сервера и пройди верификацию. <a:EL_Cat:718918032843472977>\nНадеюсь тебе понравиться наш сервер. <a:EL_Wampus:718918705798447228>**", color = 0xda4a )
-    emb.set_footer(text=f"! 𝐑 𝐘 𝐍 Ξ 𝐗#9691 © | Все права защищены", icon_url='https://cdn.discordapp.com/avatars/716724192065749075/9d9ea47a88a73c325a4317f0b4e06c34.webp?size=1024')
-    role = discord.utils.get( member.guild.roles, id = 716770621886824467 ) # Айди роли которая будет выдаватся когда человек зашёл на сервер
+    emb = discord.Embed( description = f"**Привет {member.mention}! <a:EL_Hi:719995020475891724>\nТы на сервере `{member.guild.name}`. <a:EL_Nitro:719995105016021142>\nОзнакомься с правилами нашего сервера и пройди верификацию. <a:EL_Cat:719995005111894118>\nНадеюсь тебе понравиться наш сервер. <a:EL_Wampus:719995193092472963>**", color = 0xda4a )
+    emb.set_footer(text=f"~ 𝚂 𝙰 𝙳 𝙸 𝚂 𝚃 ~#2576 © | Все права защищены", icon_url='https://cdn.discordapp.com/avatars/719605055547768894/a640661e8eeeafc556c067138e491187.webp?size=1024')
+    role = discord.utils.get( member.guild.roles, id = 719939324795289706 ) # Айди роли которая будет выдаватся когда человек зашёл на сервер
 
     await member.add_roles( role )
-    channel = bot.get_channel( 716770621920510009 ) # Айди канала куда будет писатся сообщение
+    channel = bot.get_channel( 719939325361389581 ) # Айди канала куда будет писатся сообщение
     await channel.send( embed = emb )
 
 @bot.event
 async def on_member_remove( member ):
-    emb = discord.Embed( description = f"**Пока {member.mention}. <a:EL_Buy:718918962410291290>\nМы будем тебя ждать тут. <a:EL_Discord:718908720758784150>**", color = 0xda4a )
-    emb.set_footer(text=f"! 𝐑 𝐘 𝐍 Ξ 𝐗#9691 © | Все права защищены", icon_url='https://cdn.discordapp.com/avatars/716724192065749075/9d9ea47a88a73c325a4317f0b4e06c34.webp?size=1024')
+    emb = discord.Embed( description = f"**Пока {member.mention}. <a:EL_Buy:719995089237180497>\nМы будем тебя ждать тут. <a:EL_Discord:719995167096176734>**", color = 0xda4a )
+    emb.set_footer(text=f"~ 𝚂 𝙰 𝙳 𝙸 𝚂 𝚃 ~#2576 © | Все права защищены", icon_url='https://cdn.discordapp.com/avatars/719605055547768894/a640661e8eeeafc556c067138e491187.webp?size=1024')
 
-    channel = bot.get_channel( 716770621920510010 ) # Айди канала куда будет писатся сообщение
+    channel = bot.get_channel( 719939325361389583 ) # Айди канала куда будет писатся сообщение
     await channel.send( embed = emb )
 
 
