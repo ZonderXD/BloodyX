@@ -249,7 +249,16 @@ async def on_raw_reaction_remove(payload):
             member = guild.get_member(payload.user_id)
             if member:
                 await member.remove_roles(role)
-	
+
+@bot.command()
+async def test(ctx):
+    embed = discord.Embed(title=f"Набор на модерацию сервера", color = 0x00ffff)
+    embed.add_field(name=f'Форма заявки:', value="```c\n[ 1. ] [ Ваше имя. ]\n[ 2. ] [ Сколько Вам лет? ]\n[ 3. ] [ Сколько Вы на сервере? ]\n[ 4. ] [ Какой у Вас уровень на сервере? ]\n[ 5. ] [ Что для Вас значит слово "Модератор/Администратор"? ]\n[ 6. ] [ Сколько времени Вы будете уделять серверу? ]\n[ 7. ] [ Что Вы будете делать если Вас "Понизят" или "Снимут" с поста? ]```", inline=False)  # Создает строку
+    embed.add_field(name=f'Форма принятия/отказа/обработки', value="**<a:EL_Yes:717442828363366511> - Принят\n <a:EL_Discord:719995 167096176734> - Обработка\n <a:EL_No:71999 5078059229336> - Отказ**", inline=False)  # Создает строку
+    embed.set_thumbnail( url = bot.user.avatar_url)
+    embed.set_footer(text=f"𝙳𝚎𝚅𝚒𝚒#2576 © | Все права защищены", icon_url='https://cdn.discordapp.com/avatars/719605055547768894/06cc374fb7335fe636748032404ceebc.webp?size=1024') # создаение футера
+    await ctx.send(embed=embed)
+
 @bot.event
 async def on_message(msg):
     await bot.process_commands( msg )
@@ -339,7 +348,7 @@ async def clear(ctx, amount:int=None):
 @bot.event
 async def on_member_join( member ):
     emb = discord.Embed( description = f"**Привет {member.mention}! <a:EL_Hi:719995020475891724>\nТы на сервере `{member.guild.name}`. <a:EL_Nitro:719995105016021142>\nОзнакомься с правилами нашего сервера и пройди верификацию. <a:EL_Cat:719995005111894118>\nНадеюсь тебе понравиться наш сервер. <a:EL_Wampus:719995193092472963>**", color = 0xda4a )
-    emb.set_footer(text=f"~ 𝚂 𝙰 𝙳 𝙸 𝚂 𝚃 ~#2576 © | Все права защищены", icon_url='https://cdn.discordapp.com/avatars/719605055547768894/a640661e8eeeafc556c067138e491187.webp?size=1024')
+    emb.set_footer(text=f"𝙳𝚎𝚅𝚒𝚒#2576 © | Все права защищены", icon_url='https://cdn.discordapp.com/avatars/719605055547768894/06cc374fb7335fe636748032404ceebc.webp?size=1024')
     role = discord.utils.get( member.guild.roles, id = 719939324795289706 ) # Айди роли которая будет выдаватся когда человек зашёл на сервер
 
     await member.add_roles( role )
@@ -349,7 +358,7 @@ async def on_member_join( member ):
 @bot.event
 async def on_member_remove( member ):
     emb = discord.Embed( description = f"**Пока {member.mention}. <a:EL_Buy:719995089237180497>\nМы будем тебя ждать тут. <a:EL_Discord:719995167096176734>**", color = 0xda4a )
-    emb.set_footer(text=f"~ 𝚂 𝙰 𝙳 𝙸 𝚂 𝚃 ~#2576 © | Все права защищены", icon_url='https://cdn.discordapp.com/avatars/719605055547768894/a640661e8eeeafc556c067138e491187.webp?size=1024')
+    emb.set_footer(text=f"𝙳𝚎𝚅𝚒𝚒#2576 © | Все права защищены", icon_url='https://cdn.discordapp.com/avatars/719605055547768894/06cc374fb7335fe636748032404ceebc.webp?size=1024')
 
     channel = bot.get_channel( 719939325361389583 ) # Айди канала куда будет писатся сообщение
     await channel.send( embed = emb )
@@ -358,14 +367,14 @@ async def on_member_remove( member ):
 @bot.command(aliases=['bot'])
 async def botinfo(ctx):
     embed = discord.Embed(title=f"{ctx.guild.name}", description="Информация о боте **𝐄 𝐋 𝐄 𝐊 𝐒 𝐈 𝐑#6265**.\n Бот был написан специально для проекта **`🌙 𝐄 𝐋 𝐄 𝐊 𝐒 𝐈 𝐑`**,\n Подробнее о командах: **`.help`**", color = 0x00ffff)
-    embed.add_field(name=f'**Меня создал:**', value="`~ 𝚂 𝙰 𝙳 𝙸 𝚂 𝚃 ~#2576`(<@719605055547768894>)", inline=False)  # Создает строку
+    embed.add_field(name=f'**Меня создал:**', value="`𝙳𝚎𝚅𝚒𝚒#2576`(<@719605055547768894>)", inline=False)  # Создает строку
     embed.add_field(name=f'**Помощь в создании:**', value="`Joper#2362`(<@342317507991961602>)", inline=False)  # Создает строку
     embed.add_field(name=f'**Лицензия:**', value="LD-v7", inline=False)  # Создает строку
     embed.add_field(name=f'**Я написан на:**', value="Discord.py", inline=False)  # Создает строку
     embed.add_field(name=f'**Версия:**', value="V.3.0.1", inline=False)  # Создает строку
     embed.add_field(name=f'**Патч:**', value="10", inline=False)  # Создает строку
     embed.set_thumbnail( url = bot.user.avatar_url)
-    embed.set_footer(text=f"~ 𝚂 𝙰 𝙳 𝙸 𝚂 𝚃 ~#2576 © | Все права защищены", icon_url='https://cdn.discordapp.com/avatars/719605055547768894/a640661e8eeeafc556c067138e491187.webp?size=1024') # создаение футера
+    embed.set_footer(text=f"𝙳𝚎𝚅𝚒𝚒#2576 © | Все права защищены", icon_url='https://cdn.discordapp.com/avatars/719605055547768894/06cc374fb7335fe636748032404ceebc.webp?size=1024') # создаение футера
     await ctx.send(embed=embed)
 
 @bot.command()
