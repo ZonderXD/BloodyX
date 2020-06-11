@@ -251,12 +251,25 @@ async def on_raw_reaction_remove(payload):
                 await member.remove_roles(role)
 
 @bot.command()
-async def test(ctx):
-    embed = discord.Embed(title=f"Набор на модерацию сервера", color = 0x00ffff)
-    embed.add_field(name=f'Форма заявки:', value='```c\n[ 1. ] [ Ваше имя. ]\n[ 2. ] [ Сколько Вам лет? ]\n[ 3. ] [ Сколько Вы на сервере? ]\n[ 4. ] [ Какой у Вас уровень на сервере? ]\n[ 5. ] [ Что для Вас значит слово "Модератор/Администратор"? ]\n[ 6. ] [ Сколько времени Вы будете уделять серверу? ]\n[ 7. ] [ Что Вы будете делать если Вас "Понизят" или "Снимут" с поста? ]```', inline=False)  # Создает строку
-    embed.add_field(name=f'Форма принятия/отказа/обработки', value="**<a:EL_Yes:719995062095839366> - Принят\n <a:EL_Discord:719995167096176734> - Обработка\n <a:EL_No:719995078059229336> - Отказ**", inline=False)  # Создает строку
-    embed.set_footer(text=f"𝙳𝚎𝚅𝚒𝚒#2576 © | Все права защищены", icon_url='https://cdn.discordapp.com/avatars/719605055547768894/06cc374fb7335fe636748032404ceebc.webp?size=1024') # создаение футера
-    await ctx.send(embed=embed)
+@commands.check(is_owner)
+async def yes(ctx, id:int):
+    await ctx.message.delete()
+    message = await ctx.message.channel.fetch_message(id)
+    await message.add_reaction('<a:EL_Yes:719995062095839366>')
+
+@bot.command()
+@commands.check(is_owner)
+async def no(ctx, id:int):
+    await ctx.message.delete()
+    message = await ctx.message.channel.fetch_message(id)
+    await message.add_reaction('<a:EL_No:719995078059229336>')
+
+@bot.command()
+@commands.check(is_owner)
+async def hm(ctx, id:int):
+    await ctx.message.delete()
+    message = await ctx.message.channel.fetch_message(id)
+    await message.add_reaction('<a:EL_Discord:719995167096176734>')
 
 @bot.event
 async def on_message(msg):
