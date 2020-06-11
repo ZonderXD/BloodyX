@@ -347,7 +347,7 @@ async def nsfw(ctx):
 async def mine_error(ctx, error):
     if isinstance(error, commands.CommandOnCooldown):
         await ctx.message.add_reaction('<a:EL_No:719995078059229336>')
-	await ctx.send('Эй, хватит смотреть порнуху! У тебя кулдовн, 3 раза в 3 минуты. Жди!')
+        await ctx.send('Эй, хватит смотреть порнуху! У тебя кулдовн, 3 раза в 3 минуты. Жди!')
     else:
         raise error
 
