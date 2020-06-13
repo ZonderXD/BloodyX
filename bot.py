@@ -390,11 +390,11 @@ async def on_member_remove( member ):
 async def botinfo(ctx):
     embed = discord.Embed(title=f"{ctx.guild.name}", description="Информация о боте **𝐄 𝐋 𝐄 𝐊 𝐒 𝐈 𝐑#6265**.\n Бот был написан специально для проекта **`🌙 𝐄 𝐋 𝐄 𝐊 𝐒 𝐈 𝐑`**,\n Подробнее о командах: **`.help`**", color = 0x00ffff)
     embed.add_field(name=f'**Меня создал:**', value="`𝙳𝚎𝚅𝚒𝚒#2576`(<@719605055547768894>)", inline=False)  # Создает строку
-    embed.add_field(name=f'**Помощь в создании:**', value="`Joper#2362`(<@342317507991961602>)", inline=False)  # Создает строку
+    embed.add_field(name=f'**Помощь в создании:**', value="`Afton#2362`(<@342317507991961602>)", inline=False)  # Создает строку
     embed.add_field(name=f'**Лицензия:**', value="LD-v7", inline=False)  # Создает строку
     embed.add_field(name=f'**Я написан на:**', value="Discord.py", inline=False)  # Создает строку
-    embed.add_field(name=f'**Версия:**', value="V.3.0.1", inline=False)  # Создает строку
-    embed.add_field(name=f'**Патч:**', value="10", inline=False)  # Создает строку
+    embed.add_field(name=f'**Версия:**', value="V.3.2.4", inline=False)  # Создает строку
+    embed.add_field(name=f'**Патч:**', value="46", inline=False)  # Создает строку
     embed.set_thumbnail( url = bot.user.avatar_url)
     embed.set_footer(text=f"𝙳𝚎𝚅𝚒𝚒#2576 © | Все права защищены", icon_url='https://cdn.discordapp.com/avatars/719605055547768894/06cc374fb7335fe636748032404ceebc.webp?size=1024') # создаение футера
     await ctx.send(embed=embed)
