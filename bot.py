@@ -184,6 +184,14 @@ async def on_raw_reaction_add(payload):
             role = guild.get_role(720600152963809345)
         elif str(payload.emoji) == '🧪':
             role = guild.get_role(720600155866267658)
+        elif str(payload.emoji) == '⚡':
+            role = guild.get_role(722470050103296111)
+        elif str(payload.emoji) == '🌊':
+            role = guild.get_role(722470052040933409)
+        elif str(payload.emoji) == '🖤':
+            role = guild.get_role(722470044532998206)
+        elif str(payload.emoji) == '💨':
+            role = guild.get_role(722470047322472469)
 
         if role:
             member = guild.get_member(payload.user_id)
@@ -232,6 +240,14 @@ async def on_raw_reaction_remove(payload):
             role = guild.get_role(720600152963809345)
         elif str(payload.emoji) == '🧪':
             role = guild.get_role(720600155866267658)
+        elif str(payload.emoji) == '⚡':
+            role = guild.get_role(722470050103296111)
+        elif str(payload.emoji) == '🌊':
+            role = guild.get_role(722470052040933409)
+        elif str(payload.emoji) == '🖤':
+            role = guild.get_role(722470044532998206)
+        elif str(payload.emoji) == '💨':
+            role = guild.get_role(722470047322472469)
 
         if role:
             member = guild.get_member(payload.user_id)
