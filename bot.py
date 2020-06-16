@@ -289,14 +289,15 @@ async def on_message(msg):
 @bot.event
 async def on_voice_state_update(member,before,after):
     if after.channel != None and after.channel.id == 722539761541186101:
-        guild = after.channel.guild
-        mainCategory = discord.utils.get(guild.categories, id=722178779119747192)
-        channel2 = await guild.create_voice_channel(name=f"[🌙] {member.display_name}", category=mainCategory, user_limit=1)
-        await member.move_to(channel2)
-        def check(channel2):
-            return len(channel2.members) == 0
-        await bot.wait_for('voice_state_update', check=check)
-        await channel2.delete()
+        for guild in bot.guilds:
+            if guild.id == 719939324686237737:
+                mainCategory = discord.utils.get(guild.categories, id=722178779119747192)
+                channel2 = await guild.create_voice_channel(name=f"[🌙] {member.display_name}",category=mainCategory, user_limit=1)
+                await member.move_to(channel2)
+                def check(a,b,c):
+                    return len(channel2.members) == 0
+                await bot.wait_for('voice_state_update', check=check)
+                await channel2.delete()
 
 @bot.command()
 async def neko(ctx):
