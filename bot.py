@@ -232,10 +232,10 @@ async def on_raw_reaction_remove(payload):
             role = guild.get_role(720600152963809345)
         elif str(payload.emoji) == '🧪':
 
-        if role:
-            member = guild.get_member(payload.user_id)
-            if member:
-                await member.remove_roles(role)
+    if role:
+        member = guild.get_member(payload.user_id)
+        if member:
+            await member.remove_roles(role)
 
     if payload.message_id == 719989264015818772: # ID Сообщения
         guild = bot.get_guild(payload.guild_id)
