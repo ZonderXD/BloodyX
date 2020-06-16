@@ -240,7 +240,7 @@ async def on_raw_reaction_remove(payload):
     if payload.message_id == 719989264015818772: # ID Сообщения
         guild = bot.get_guild(payload.guild_id)
         role = None
-        
+
         if str(payload.emoji) == '✅': # Emoji для реакций
             role = guild.get_role(719939324795289704)
 
