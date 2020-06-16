@@ -184,14 +184,6 @@ async def on_raw_reaction_add(payload):
             role = guild.get_role(720600152963809345)
         elif str(payload.emoji) == '🧪':
             role = guild.get_role(720600155866267658)
-        elif str(payload.emoji) == '⚡':
-            role = guild.get_role(722470050103296111)
-        elif str(payload.emoji) == '🌊':
-            role = guild.get_role(722470052040933409)
-        elif str(payload.emoji) == '🖤':
-            role = guild.get_role(722470044532998206)
-        elif str(payload.emoji) == '💨':
-            role = guild.get_role(722470047322472469)
 
         if role:
             member = guild.get_member(payload.user_id)
@@ -239,15 +231,6 @@ async def on_raw_reaction_remove(payload):
         elif str(payload.emoji) == '👾':
             role = guild.get_role(720600152963809345)
         elif str(payload.emoji) == '🧪':
-            role = guild.get_role(720600155866267658)
-        elif str(payload.emoji) == '⚡':
-            role = guild.get_role(722470050103296111)
-        elif str(payload.emoji) == '🌊':
-            role = guild.get_role(722470052040933409)
-        elif str(payload.emoji) == '🖤':
-            role = guild.get_role(722470044532998206)
-        elif str(payload.emoji) == '💨':
-            role = guild.get_role(722470047322472469)
 
         if role:
             member = guild.get_member(payload.user_id)
@@ -272,7 +255,7 @@ async def nabor(ctx):
     embed = discord.Embed(title=f"Набор на модерацию сервера", color = 0x00ffff)
     embed.add_field(name=f'Форма заявки:', value='```c\n[ 1. ] [ Ваше имя. ]\n[ 2. ] [ Сколько Вам лет? ]\n[ 3. ] [ На сколько хорошо Вы знаете правила? ]\n[ 4. ] [ Сколько Вы на сервере? ]\n[ 5. ] [ Какой у Вас уровень на сервере? ]\n[ 6. ] [ Что для Вас значит слово "Модератор/Администратор"? ]\n[ 7. ] [ Сколько времени Вы будете уделять серверу? ]\n[ 8. ] [ Что Вы будете делать если Вас "Понизят" или "Снимут" с поста? ]```', inline=False)  # Создает строку
     embed.add_field(name=f'Форма принятия/отказа/обработки:', value="<a:EL_Yes:719995062095839366> - Принят\n<a:EL_Discord:719995167096176734> - Обработка\n<a:EL_No:719995078059229336> - Отказ", inline=False)  # Создает строку
-    embed.set_footer(text=f"𝙳𝚎𝚅𝚒𝚒#2576 © | Все права защищены", icon_url='https://cdn.discordapp.com/avatars/719605055547768894/06cc374fb7335fe636748032404ceebc.webp?size=1024') # создаение футера
+    embed.set_footer(text=f"𝙳𝚎𝚅𝚒𝚒#2576 © | Все права защищены", icon_url='https://cdn.discordapp.com/avatars/719605055547768894/812745a344a780f8927aefd49fb66329.webp?size=1024') # создаение футера
     await ctx.send(embed=embed)
 
 @bot.command()
@@ -320,11 +303,11 @@ async def on_message(msg):
 
 @bot.event
 async def on_voice_state_update(member,before,after):
-    if after.channel != None and after.channel.id == 712629884119416944:
+    if after.channel != None and after.channel.id == 722539761541186101:
         for guild in bot.guilds:
-            if guild.id == 696322642747064380:
-                mainCategory = discord.utils.get(guild.categories, id=712629625049579561)
-                channel2 = await guild.create_voice_channel(name=f"🌄╎{member.display_name}",category=mainCategory, user_limit=1)
+            if guild.id == 719939324686237737:
+                mainCategory = discord.utils.get(guild.categories, id=722178779119747192)
+                channel2 = await guild.create_voice_channel(name=f"│🌙・{member.display_name}",category=mainCategory, user_limit=1)
                 await member.move_to(channel2)
                 def check(a,b,c):
                     return len(channel2.members) == 0
@@ -386,7 +369,7 @@ async def clear(ctx, amount:int=None):
 @bot.event
 async def on_member_join( member ):
     emb = discord.Embed( description = f"**Привет {member.mention}! <a:EL_Hi:719995020475891724>\nТы на сервере `{member.guild.name}`. <a:EL_Nitro:719995105016021142>\nОзнакомься с правилами нашего сервера и пройди верификацию. <a:EL_Cat:719995005111894118>\nНадеюсь тебе понравиться наш сервер. <a:EL_Wampus:719995193092472963>**", color = 0xda4a )
-    emb.set_footer(text=f"𝙳𝚎𝚅𝚒𝚒#2576 © | Все права защищены", icon_url='https://cdn.discordapp.com/avatars/719605055547768894/06cc374fb7335fe636748032404ceebc.webp?size=1024')
+    emb.set_footer(text=f"𝙳𝚎𝚅𝚒𝚒#2576 © | Все права защищены", icon_url='https://cdn.discordapp.com/avatars/719605055547768894/812745a344a780f8927aefd49fb66329.webp?size=1024')
     role = discord.utils.get( member.guild.roles, id = 719939324795289706 ) # Айди роли которая будет выдаватся когда человек зашёл на сервер
 
     await member.add_roles( role )
@@ -396,7 +379,7 @@ async def on_member_join( member ):
 @bot.event
 async def on_member_remove( member ):
     emb = discord.Embed( description = f"**Пока {member.mention}. <a:EL_Buy:719995089237180497>\nМы будем тебя ждать тут. <a:EL_Discord:719995167096176734>**", color = 0xda4a )
-    emb.set_footer(text=f"𝙳𝚎𝚅𝚒𝚒#2576 © | Все права защищены", icon_url='https://cdn.discordapp.com/avatars/719605055547768894/06cc374fb7335fe636748032404ceebc.webp?size=1024')
+    emb.set_footer(text=f"𝙳𝚎𝚅𝚒𝚒#2576 © | Все права защищены", icon_url='https://cdn.discordapp.com/avatars/719605055547768894/812745a344a780f8927aefd49fb66329.webp?size=1024')
 
     channel = bot.get_channel( 719939325361389583 ) # Айди канала куда будет писатся сообщение
     await channel.send( embed = emb )
@@ -412,7 +395,7 @@ async def botinfo(ctx):
     embed.add_field(name=f'**Версия:**', value="V.3.2.4", inline=False)  # Создает строку
     embed.add_field(name=f'**Патч:**', value="46", inline=False)  # Создает строку
     embed.set_thumbnail( url = bot.user.avatar_url)
-    embed.set_footer(text=f"𝙳𝚎𝚅𝚒𝚒#2576 © | Все права защищены", icon_url='https://cdn.discordapp.com/avatars/719605055547768894/06cc374fb7335fe636748032404ceebc.webp?size=1024') # создаение футера
+    embed.set_footer(text=f"𝙳𝚎𝚅𝚒𝚒#2576 © | Все права защищены", icon_url='https://cdn.discordapp.com/avatars/719605055547768894/812745a344a780f8927aefd49fb66329.webp?size=1024') # создаение футера
     await ctx.send(embed=embed)
 
 @bot.command()
