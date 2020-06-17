@@ -28,11 +28,11 @@ cursor = conn.cursor()
 
 @bot.event
 async def on_ready():
-    print(f'          [Eleksir]')
-    await bot.change_presence(status = discord.Status.idle, activity = discord.Game('⊱ Prefix: . ⊰'))
-    print(f"[Eleksir] Bot successfully launched!;")
-    print(f"[Eleksir] Name: [{bot.user}];")
-    print(f'[Eleksir] ID: [{bot.user.id}]')
+    print(f'          [Noxus]')
+    await bot.change_presence(status = discord.Status.idle, activity = discord.Game('Здарова братан, я 𝙽𝚘𝚡𝚞𝚜 и мой префикс ---> .'))
+    print(f"[Noxus] Bot successfully launched!;")
+    print(f"[Noxus] Name: [{bot.user}];")
+    print(f'[Noxus] ID: [{bot.user.id}]')
     print('[------------------------------]')
     print(f'          [Other]')
 
@@ -292,7 +292,7 @@ async def on_voice_state_update(member,before,after):
         for guild in bot.guilds:
             if guild.id == 719939324686237737:
                 mainCategory = discord.utils.get(guild.categories, id=722178779119747192)
-                channel2 = await guild.create_voice_channel(name=f"[🌙] {member.display_name}",category=mainCategory, user_limit=1)
+                channel2 = await guild.create_voice_channel(name=f"〘🐳〙{member.display_name}",category=mainCategory, user_limit=1)
                 await member.move_to(channel2)
                 def check(a,b,c):
                     return len(channel2.members) == 0
@@ -372,7 +372,7 @@ async def on_member_remove( member ):
 
 @bot.command(aliases=['bot'])
 async def botinfo(ctx):
-    embed = discord.Embed(title=f"{ctx.guild.name}", description="Информация о боте **𝐄 𝐋 𝐄 𝐊 𝐒 𝐈 𝐑#6265**.\n Бот был написан специально для проекта **`🌙 𝐄 𝐋 𝐄 𝐊 𝐒 𝐈 𝐑`**,\n Подробнее о командах: **`.help`**", color = 0x00ffff)
+    embed = discord.Embed(title=f"{ctx.guild.name}", description="Информация о боте **𝙽𝚘𝚡𝚞𝚜#6265**.\n Бот был написан специально для проекта **`𝙽𝚘𝚡𝚞𝚜`**,\n Подробнее о командах: **`.help`**", color = 0x00ffff)
     embed.add_field(name=f'**Меня создал:**', value="`𝙳𝚎𝚅𝚒𝚒#2576`(<@719605055547768894>)", inline=False)  # Создает строку
     embed.add_field(name=f'**Помощь в создании:**', value="`Afton#2362`(<@342317507991961602>)", inline=False)  # Создает строку
     embed.add_field(name=f'**Лицензия:**', value="LD-v7", inline=False)  # Создает строку
