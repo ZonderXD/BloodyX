@@ -29,7 +29,7 @@ cursor = conn.cursor()
 @bot.event
 async def on_ready():
     print(f'          [Noxus]')
-    await bot.change_presence(status = discord.Status.idle, activity = discord.Game('Здарова братан, я 𝙽𝚘𝚡𝚞𝚜 и мой префикс ---> .'))
+    await bot.change_presence(status = discord.Status.idle, activity = discord.Game('Здарова братан, я 𝙽𝚘𝚡𝚞𝚜, напиши ".help" и получи список моих команд'))
     print(f"[Noxus] Bot successfully launched!;")
     print(f"[Noxus] Name: [{bot.user}];")
     print(f'[Noxus] ID: [{bot.user.id}]')
