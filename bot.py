@@ -889,9 +889,9 @@ async def servers(ctx):
         description += f'{counter}) **`{guild.name}`** - **`{len(guild.members)}`** участников. ID: **`{guild.id}`** \n'
         await ctx.send(embed = discord.Embed(title = 'Сервера, на которых я нахожусь', description = description, color = 0x00ffff))
 
-for filename in os.listdir('./cogs'): # Цикл перебирающий файлы в cogs
-    if filename.endswith('.py'): # если файл кончается на .py, то это наш ког
-        bot.load_extension(f'cogs.{filename[:-3]}') # командуем боту #загрузить все расширения. Это нужно для того, чтобы вы перезапуская #бота не писали команды загрузки. При наличии этого цикла бот #стартует сразу с полной загрузкой когов 
+for filename in os.listdir('./cogs'):
+    if filename.endswith('.py'):
+        bot.load_extension(f'cogs.{filename[:-3]}')
 
 token = os.environ.get("BotToken")
 bot.run(str(token))
