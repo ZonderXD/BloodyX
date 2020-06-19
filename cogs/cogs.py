@@ -20,7 +20,7 @@ from discord.utils import get
 from yandex_music import Client
 from Cybernator import Paginator
 
-class user(commands.Cog):
+class cogs(commands.Cog):
 
     def init(self, bot):
         self.bot = bot
@@ -36,4 +36,4 @@ class user(commands.Cog):
         print(f'          [Other]')
 
 def setup(bot):
-    bot.add_cog(user(bot))
+    bot.add_cog(cogs(bot))
