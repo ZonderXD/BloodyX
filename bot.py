@@ -327,8 +327,8 @@ async def clear(ctx):
                         async for message in channel.history(limit=200):
                             if message.author == ctx.bot.user:
                                 await message.delete()
-                            except StopAsyncIteration:
-                            pass
+                    except StopAsyncIteration:
+                        pass
     await ctx.send('Успешно `✔️`')
 
 @bot.command( pass_context = True, aliases = [ "Предложить", "предложить", "предложка", "Предложка", "Suggest" ])
