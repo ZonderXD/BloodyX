@@ -265,6 +265,72 @@ async def sapper(ctx):
 
         await msg.edit(embed= emb, content= None)
 
+@bot.group(description = 'Создать пост от имени бота', hidden = True)
+@commands.is_owner()
+async def post(ctx):
+    if ctx.invoked_subcommand is None:
+        await ctx.message.delete()
+        await ctx.send('`Для того чтобы отправить пост выберете категорию:\n 1. --- DM (личные сообщения)\n 2. --- Clear (Очистит личку с ботом у всех пользователей(только сообщения от бота))`')
+    else:
+        pass
+
+@post.command(description = 'Отправит пост с вашим текстом всем участникам серверов на котороых есть ваш бот.')
+async def DM(ctx):
+    await ctx.message.delete()
+    def check(m):
+        return m.author.id == ctx.author.id
+        await ctx.send('**Вы создали пост, пожалуйста, следуйте ниже указанным пунктам:\nВведите заголовок: \n(У вас есть 60 секунд)**')
+        try:
+            p = await stx.bot.wait_for('message', check = check, timeout = 60.0)
+            p = p.content 
+        except TimeoutError:
+            await ctx.send(embed = discord.Embed(title = '**Ошибка**',description ='`Вы не ввели заглавие за указанное время.`', color = discord.Color.red()))
+        else:
+            try:
+                await ctx.send('**Введите текст поста (У вас есть 60 секунд)**')
+                text = await ctx.bot.wait_for('message', check = check, timeout = 60.0)
+                text = text.content
+            except TimeoutError:
+                await ctx.send(embed = discord.Embed(title = '**Ошибка**',description ='`Вы не ввели текст за указанное время.`', color = discord.Color.red()))
+            else:
+                Emb = discord.Embed(title = p, description = text, color = discord.Color.blurple())
+                Emb.set_author(name = ctx.author.name, icon_url= ctx.author.avatar_url)
+                Emb.set_footer(text = f'© Система оповещений {ctx.bot.user}', icon_url= ctx.bot.user.avatar_url)
+
+                for guild in ctx.bot.guilds:
+                    for member in guild.members:
+                        try:
+                            if member == ctx.author or member.bot:
+                                pass
+                            else: await member.send(embed = Emb)
+                        except Exception as e:
+                            print(e)
+                cEmb = discord.Embed(title = 'Успешно `✔️`', description = '**Пост отправлен.**', color = discord.Color.blurple())
+                cEmb.add_field(name = p, value = text, inline = False)
+                cEmb.set_author(name = ctx.author.name, icon_url = ctx.author.avatar_url)
+                cEmb.set_footer(text = f'© Система оповещений {ctx.bot.user}', icon_url= ctx.bot.user.avatar_url)
+                await ctx.send(embed = cEmb)
+
+@post.command(description = 'Очистит все сообщения бота в личках')
+async def clear(ctx):
+    await ctx.message.delete()
+    for guild in ctx.bot.guilds:
+        for member in guild.members:
+            if member.bot:
+                pass
+            else:
+                channel = member.dm_channel
+                if channel is None:
+                    channel = await member.create_dm()
+                else:
+                    try:
+                        async for message in channel.history(limit=200):
+                            if message.author == ctx.bot.user:
+                                await message.delete()
+                            except StopAsyncIteration:
+                            pass
+    await ctx.send('Успешно `✔️`')
+
 @bot.command( pass_context = True, aliases = [ "Предложить", "предложить", "предложка", "Предложка", "Suggest" ])
 async def suggest( ctx , * , agr ):
     if ctx.author.id == 662346548025491476:
