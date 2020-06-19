@@ -22,7 +22,7 @@ from Cybernator import Paginator
 
 class user(commands.Cog):
 
-    def init(self, client):
+    def init(self, bot):
         self.bot = bot
 
     @commands.command()
@@ -34,4 +34,4 @@ class user(commands.Cog):
         print("ready")
 
 def setup(bot):
-    client.add_cog(user(bot))
+    bot.add_cog(user(bot))
