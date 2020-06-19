@@ -33,8 +33,6 @@ async def on_ready():
     print(f"[Noxus] Bot successfully launched!;")
     print(f"[Noxus] Name: [{bot.user}];")
     print(f'[Noxus] ID: [{bot.user.id}]')
-    print('[------------------------------]')
-    print(f'          [Other]')
 
 def owner(ctx):
     return ctx.message.author.id == 719605055547768894
