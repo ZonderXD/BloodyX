@@ -294,7 +294,7 @@ async def bunting(ctx):
             def check(m):
                 return m.content == otvet['answer'] and ctx.channel == ctx.channel
 
-            msg = await client.wait_for('message', check=check)
+            msg = await bot.wait_for('message', check=check)
             em = discord.Embed(title = "Правильный ответ!")
             em.add_field(name = "Ответил:", value = f"{msg.author.mention}")
             em.add_field(name = "Правильный ответ:",value = f"{otvet['answer']}")
