@@ -36,12 +36,11 @@ async def on_ready():
     print('[------------------------------]')
     print(f'          [Other]')
 
-@bot.event
-async def is_owner(ctx):
-    return ctx.author.id == 719605055547768894
+def owner(ctx):
+    return ctx.message.author.id == 719605055547768894
 
 @bot.command()
-@commands.is_owner()
+@commands.check(owner)
 async def load(ctx, extension):
     Bot.load_extension(f'cogs.{extension}')
     if not commands.NotOwner:
@@ -50,7 +49,7 @@ async def load(ctx, extension):
         await ctx.send(f"Модуль **{extension}** успешно загружен!")
 
 @bot.command()
-@commands.is_owner()
+@commands.check(owner)
 async def unload(ctx, extension):
     Bot.unload_extension(f'cogs.{extension}')
     if not commands.NotOwner:
@@ -59,7 +58,7 @@ async def unload(ctx, extension):
         await ctx.send(f"Модуль **{extension}** успешно выгружен!")
 
 @bot.command()
-@commands.is_owner()
+@commands.check(owner)
 async def reload(ctx, extension):
     Bot.reload_extension(f'cogs.{extension}')
     if not commands.NotOwner:
@@ -68,7 +67,7 @@ async def reload(ctx, extension):
         await ctx.send(f"Модуль **{extension}** успешно перезагружен!")
 
 @bot.command()
-@commands.check(is_owner)
+@commands.check(owner)
 async def opros(ctx, *, arg):
 	await ctx.message.delete()
 	embed = discord.Embed(title=f"Опрос:", color = 0x00ffff)
@@ -94,7 +93,7 @@ async def cat(ctx):
     await ctx.send(embed=embed)
 
 @bot.command()
-@commands.check(is_owner)
+@commands.check(owner)
 @commands.cooldown(1, 10, commands.BucketType.user)
 async def giveaway( ctx, seconds: int, *, text ):
     def time_end_form( seconds ):
@@ -388,7 +387,7 @@ async def on_raw_reaction_remove(payload):
                 await member.remove_roles(role)
 
 @bot.command()
-@commands.check(is_owner)
+@commands.check(owner)
 async def nabor(ctx):
     embed = discord.Embed(title=f"Набор на модерацию сервера", color = 0x00ffff)
     embed.add_field(name=f'Форма заявки:', value='```c\n[ 1. ] [ Ваше имя. ]\n[ 2. ] [ Сколько Вам лет? ]\n[ 3. ] [ На сколько хорошо Вы знаете правила? ]\n[ 4. ] [ Сколько Вы на сервере? ]\n[ 5. ] [ Какой у Вас уровень на сервере? ]\n[ 6. ] [ Что для Вас значит слово "Модератор/Администратор"? ]\n[ 7. ] [ Сколько времени Вы будете уделять серверу? ]\n[ 8. ] [ Что Вы будете делать если Вас "Понизят" или "Снимут" с поста? ]```', inline=False)  # Создает строку
@@ -397,21 +396,21 @@ async def nabor(ctx):
     await ctx.send(embed=embed)
 
 @bot.command()
-@commands.check(is_owner)
+@commands.check(owner)
 async def yes(ctx, id:int):
     await ctx.message.delete()
     message = await ctx.message.channel.fetch_message(id)
     await message.add_reaction('<a:N_Yes:719995062095839366>')
 
 @bot.command()
-@commands.check(is_owner)
+@commands.check(owner)
 async def no(ctx, id:int):
     await ctx.message.delete()
     message = await ctx.message.channel.fetch_message(id)
     await message.add_reaction('<a:N_No:719995078059229336>')
 
 @bot.command()
-@commands.check(is_owner)
+@commands.check(owner)
 async def hm(ctx, id:int):
     await ctx.message.delete()
     message = await ctx.message.channel.fetch_message(id)
@@ -537,7 +536,7 @@ async def botinfo(ctx):
     await ctx.send(embed=embed)
 
 @bot.command()
-@commands.check(is_owner)
+@commands.check(owner)
 async def edit(ctx, message_id: int = None, new_content: str = None):
         message = await ctx.message.channel.fetch_message(message_id)
         
@@ -545,7 +544,7 @@ async def edit(ctx, message_id: int = None, new_content: str = None):
         await ctx.message.add_reaction('<a:N_Yes:719995062095839366>')
 
 @bot.command()
-@commands.check(is_owner)
+@commands.check(owner)
 async def emoji(ctx,id:int,reaction:str):
 		await ctx.message.delete()
 		message = await ctx.message.channel.fetch_message(id)
@@ -877,13 +876,13 @@ async def server(ctx):
     await ctx.send(embed=embed)
 
 @bot.command()
-@commands.check(is_owner)
+@commands.check(owner)
 async def say(ctx, *, arg):
     await ctx.message.delete()
     await ctx.send(embed = discord.Embed(description = f'{arg}', color=0xda4a))
 
 @bot.command()
-@commands.check(is_owner)
+@commands.check(owner)
 async def sleave(ctx, server_id: int):
     to_leave = bot.get_guild(server_id)
 
@@ -891,7 +890,7 @@ async def sleave(ctx, server_id: int):
     await to_leave.leave()
 
 @bot.command()
-@commands.check(is_owner)
+@commands.check(owner)
 async def servers(ctx):
     description = ' '
     counter = 0
