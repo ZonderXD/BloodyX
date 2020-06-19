@@ -40,21 +40,32 @@ async def on_ready():
 async def is_owner(ctx):
     return ctx.author.id == 719605055547768894 or  ctx.author.id == 491928659599425537# Айди создателя бота
 
-@bot.command() ## Стандартное объявление комманды
-async def load(ctx, extensions): ## объявление функции
-    bot.load_extension(f'cogs.{extensions}')	## загрузка доплонений
-    await ctx.send("loaded")
+@bot.command()
+@commands.is_owner()
+async def load(ctx, extension):
+    Bot.load_extension(f'cogs.{extension}')
+    if not commands.NotOwner:
+        await ctx.send(f"Ошибка доступа! Недостаточно прав.")
+    else:
+        await ctx.send(f"Модуль **{extension}** успешно загружен!")
 
 @bot.command()
-async def unload(ctx, extensions):
-    bot.unload_extension(f'cogs.{extensions}')
-    await ctx.send('unloaded')
+@commands.is_owner()
+async def unload(ctx, extension):
+    Bot.unload_extension(f'cogs.{extension}')
+    if not commands.NotOwner:
+        await ctx.send(f"Ошибка доступа! Недостаточно прав.")
+    else:
+        await ctx.send(f"Модуль **{extension}** успешно выгружен!")
 
 @bot.command()
-async def reload(ctx, extensions):
-    bot.unload_extension(f'cogs.{extensions}')# отгружаем ког
-    bot.load_extension(f'cogs.{extensions}')# загружаем 
-    await ctx.send('reloaded')
+@commands.is_owner()
+async def reload(ctx, extension):
+    Bot.reload_extension(f'cogs.{extension}')
+    if not commands.NotOwner:
+        await ctx.send(f"Ошибка доступа! Недостаточно прав.")
+    else:
+        await ctx.send(f"Модуль **{extension}** успешно перезагружен!")
 
 @bot.command()
 @commands.check(is_owner)
