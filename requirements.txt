@@ -9,3 +9,4 @@ youtube_dl
 yandex-music
 PyNaCl
 discord.py[voice]
+ffmpeg
