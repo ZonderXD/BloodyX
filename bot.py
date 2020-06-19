@@ -42,29 +42,20 @@ def owner(ctx):
 @bot.command()
 @commands.check(owner)
 async def load(ctx, extension):
-    Bot.load_extension(f'cogs.{extension}')
-    if not commands.NotOwner:
-        await ctx.send(f"Ошибка доступа! Недостаточно прав.")
-    else:
-        await ctx.send(f"Модуль **{extension}** успешно загружен!")
+    bot.load_extension(f'cogs.{extension}')
+    await ctx.send(f"Модуль **{extension}** успешно загружен!")
 
 @bot.command()
 @commands.check(owner)
 async def unload(ctx, extension):
-    Bot.unload_extension(f'cogs.{extension}')
-    if not commands.NotOwner:
-        await ctx.send(f"Ошибка доступа! Недостаточно прав.")
-    else:
-        await ctx.send(f"Модуль **{extension}** успешно выгружен!")
+    bot.unload_extension(f'cogs.{extension}')
+    await ctx.send(f"Модуль **{extension}** успешно выгружен!")
 
 @bot.command()
 @commands.check(owner)
 async def reload(ctx, extension):
-    Bot.reload_extension(f'cogs.{extension}')
-    if not commands.NotOwner:
-        await ctx.send(f"Ошибка доступа! Недостаточно прав.")
-    else:
-        await ctx.send(f"Модуль **{extension}** успешно перезагружен!")
+    bot.reload_extension(f'cogs.{extension}')
+    await ctx.send(f"Модуль **{extension}** успешно перезагружен!")
 
 @bot.command()
 @commands.check(owner)
