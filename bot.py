@@ -614,7 +614,7 @@ async def help(ctx):
     embed1 = discord.Embed(title = '⚙ Навигация по командам:\n ❗ Обязательные параметры: `()`\n ❓ Необязательные параметры: `[]`', color=0x6fdb9e )
     embed2 = discord.Embed(title ='💎 Базовые:', description='**``.user [@user]`` - Узнать информацию о пользователе 🎭\n ``.server`` - Узнать информацию о сервере 🧿\n `.bot` - Информация о боте 🤖\n`.avatar [@user]` - Аватар пользователя 🖼\n `.suggest (text)` - Предложить идею ✉\n `.wiki (text)` - Википедия 📖\n `.blacklist` - Узнать сервера в чёрном списке 🎱**', color=0x6fdb9e )
     embed3 = discord.Embed(title ='✨ Роблокс:', description='**`.music` - Коды для музыки 💨\n `.scripts` - Скрипты для читерства 🧨\n `.script (number)` - Получить сам скрипт 💡**', color = 0x6fdb9e)
-    embed4 = discord.Embed(title ='🎉 Весёлости:', description='**``.ran_color`` - Рандомный цвет в формате HEX 🩸\n ``.coin`` - Бросить монетку 🌈\n ``.math (2*2/2+2-2)`` - Решить пример :infinity:\n `.8ball (question)` - Волшебный шар 🔮\n `.password (10 10)` - Рандомный пароль 🎩\n `.meme` - Рандомный мем 🤣**', color=0x6fdb9e)
+    embed4 = discord.Embed(title ='🎉 Весёлости:', description='**``.ran_color`` - Рандомный цвет в формате HEX 🩸\n ``.coin`` - Бросить монетку 🌈\n ``.math (2*2/2+2-2)`` - Решить пример :infinity:\n `.8ball (question)` - Волшебный шар 🔮\n `.password (10 10)` - Рандомный пароль 🎩\n `.meme` - Рандомный мем 🤣\n `.sapper` - Типичный сапёр ♻\n `.ttt (user)` - Крестики-нолики ⭕**', color=0x6fdb9e)
     embed5 = discord.Embed(title ='💋 Некос:', description='**`.hug (@user)` - Обнять 😜\n `.slap (@user)` - Ударить 😡\n `.ran_avatar` - Рандом. аватар 🤯\n `.kill [@user]` - Убить 🔪\n `.dog` - Собака :dog:\n `.goose` - Гусь :duck:\n `.cat` - Кот 🐱\n `.neko` - Рандомная аватарка в стиле аниме ✨\n `.nsfw` - Запрещённые фото **', color=0x6fdb9e)
     embeds = [embed1, embed2, embed3, embed4, embed5]
     message = await ctx.send(embed=embed1)
@@ -632,18 +632,6 @@ async def music(ctx):
     embeds = [embed1, embed2, embed3, embed4, embed5, embed6]
     message = await ctx.send(embed=embed1)
     page = Paginator(bot, message,  only=ctx.author, use_more=False, embeds=embeds, reactions = ['<a:N_Left:720717981499261008>', '<a:N_Right:720717967343485020>'])
-    await page.start()
-
-@bot.command()
-async def scripts(ctx):
-    embed1 = discord.Embed(title ='📋 Страницы:', description='**`1.` - Страница 1 (1-12)\n `2.` - Страница 2 (13-24)\n `3.` - Страница 3 (25-37)\n\n F.A.Q.\n ```Если вам выдадут бан в роблоксе, мы не будем причастны к этому так как мы просто даём скрипты!```**', color = 0x6fdb9e)
-    embed2 = discord.Embed(title ='⚠ Патент:', description='**`❗❗❗` Кто сп#здит скрипты, тому п#зда! <@342317507991961602> не касается! `❗❗❗`**', color = 0x6fdb9e)
-    embed3 = discord.Embed(title ='📋 Страница 1', description='**`1` - Break In\n `2` - Pet Ranch 2 Simulator\n `3` - Arsenal\n `4` - Build a Boat\n `5` - Fishing Simulator\n `6` - Flood Escape 2\n `7` - Bee Swarm Simulator\n `8` - Pizza Factory Tycoon\n `9` - Work At A Pizza Place\n `10` - Texting Simulator\n `11` - CB:RO\n `12` - Mad City**', color = 0x6fdb9e)
-    embed4 = discord.Embed(title ='📋 Страница 2', description='**`13` - Ghost Simulator\n `14` - Speed Run 4\n `15` - Ro-Ghoul\n `16` - RoCitizens\n `17` - Muscle Legends\n `18` - Bubble Gum Simulator\n `19` - BIG Paintball\n `20` - MeepCity\n `21` - Mineverse\n `22` - Soda Simulator\n `23` - Destruction Simulator\n `24` - Horrific Housing**', color = 0x6fdb9e)
-    embed5 = discord.Embed(title ='📋 Страница 3', description='**`25` - Shark Bite\n `26` - Piggy\n `27` - Lucky blocks\n `28` - A Wolf Or Other\n `29` - Jailbreak\n `30` - Robot Inc\n `31` - Pizza Factory Tycoon\n `32` - Work at a Pizza Place\n `33` - Tower of Hell\n `34` - A Bizarre Day\n `35` - Bakon\n `36` - Zombie Attack\n `37` -  Knife Ability Test (KAT)**', color = 0x6fdb9e)
-    embeds = [embed1, embed2, embed3, embed4, embed5]
-    message = await ctx.send(embed=embed1)
-    page = Paginator(bot, message, only=ctx.author, use_more=False, embeds=embeds, reactions = ['<a:N_Left:720717981499261008>', '<a:N_Right:720717967343485020>'])
     await page.start()
 
 @bot.command()
@@ -669,87 +657,6 @@ async def blacklist(ctx):
   emb.set_image(url='https://cdn.discordapp.com/attachments/705488180710998127/717125585918492692/D7KfkHIWkAA9m8j.jpg')
 
   await ctx.send(embed=emb)
-
-@bot.command()
-async def script(ctx, *, arg: int = None):
-  if arg == None:
-    await ctx.send(embed = discord.Embed(description = f'**Укажите номер скрипта.**', color=0x6fdb9e))
-  elif arg == 1:
-    await ctx.send(file=discord.File(fp = 'Scripts/Break_in_GUI.txt'))
-  elif arg == 2:
-    await ctx.send(file=discord.File(fp = 'Scripts/Pet_Racnh_2_script.txt'))
-  elif arg == 3:
-    await ctx.send(file=discord.File(fp = 'Scripts/Arsenal_Op_GUI.txt'))
-  elif arg == 4:
-    await ctx.send(file=discord.File(fp = 'Scripts/build_a_bot_for_treasure_gui.txt'))
-  elif arg == 5:
-    await ctx.send(file=discord.File(fp = 'Scripts/Fishing.txt'))
-  elif arg == 6:
-    await ctx.send(file=discord.File(fp = 'Scripts/Flood Escape 2.txt'))
-  elif arg == 7:
-    await ctx.send(file=discord.File(fp = 'Scripts/Bee Swarm Simulator.txt'))
-  elif arg == 8:
-    await ctx.send(file=discord.File(fp = 'Scripts/Pizza_Factory_Tycoon.txt'))
-  elif arg == 9:
-    await ctx.send(file=discord.File(fp = 'Scripts/Work_At_A_Pizza_Place.txt'))
-  elif arg == 10:
-    await ctx.send(file=discord.File(fp = 'Scripts/Texting_Simulator.txt'))
-  elif arg == 11:
-    await ctx.send(file=discord.File(fp = 'Scripts/CB:RO.txt'))
-  elif arg == 12:
-    await ctx.send(file=discord.File(fp = 'Scripts/MAD_LADS.txt'))
-    await ctx.send(file=discord.File(fp = 'Scripts/Auto_Rob.txt'))
-  elif arg == 13:
-    await ctx.send(file=discord.File(fp = 'Scripts/Ghost Simulator.txt'))
-  elif arg == 14:
-    await ctx.send(file=discord.File(fp = 'Scripts/Speed_Run_4.txt'))
-  elif arg == 15:
-    await ctx.send(file=discord.File(fp = 'Scripts/Ro-Ghoul.txt'))
-  elif arg == 16:
-    await ctx.send(file=discord.File(fp = 'Scripts/RoCitizens.txt'))
-  elif arg == 17:
-    await ctx.send(file=discord.File(fp = 'Scripts/Muscle_Legends.txt'))
-  elif arg == 18:
-    await ctx.send(file=discord.File(fp = 'Scripts/Bubble Gum Simulator.txt'))
-  elif arg == 19:
-    await ctx.send(file=discord.File(fp = 'Scripts/BIG Paintball.txt'))
-  elif arg == 20:
-    await ctx.send(file=discord.File(fp = 'Scripts/MeepCity.txt'))
-  elif arg == 21:
-    await ctx.send(file=discord.File(fp = 'Scripts/Mineverse.txt'))
-  elif arg == 22:
-    await ctx.send(file=discord.File(fp = 'Scripts/Soda_Simulator.txt'))
-  elif arg == 23:
-    await ctx.send(file=discord.File(fp = 'Scripts/Destruction_Simulator.txt'))
-  elif arg == 24:
-    await ctx.send(file=discord.File(fp = 'Scripts/Horrific Housing.txt'))
-    await ctx.send(file=discord.File(fp = 'Scripts/Horrific Housing 2.txt'))
-  elif arg == 25:
-    await ctx.send(file=discord.File(fp = 'Scripts/Shark Bite.txt'))
-  elif arg == 26:
-    await ctx.send(file=discord.File(fp = 'Scripts/Piggy Give Item.txt'))
-  elif arg == 27:
-    await ctx.send(file=discord.File(fp = 'Scripts/Lucky Block.txt'))
-  elif arg == 28:
-    await ctx.send(file=discord.File(fp = 'Scripts/A Wolf Of Others.txt'))
-  elif arg == 29:
-    await ctx.send(file=discord.File(fp = 'Scripts/AutoRobJail.txt'))
-  elif arg == 30:
-    await ctx.send(file=discord.File(fp = 'Scripts/Robot Inc.txt'))
-  elif arg == 31:
-    await ctx.send(file=discord.File(fp = 'Scripts/Pizza_Factory_Tycoon.txt'))
-  elif arg == 32:
-    await ctx.send(file=discord.File(fp = 'Scripts/Work_At_A_Pizza_Place.txt'))
-  elif arg == 33:
-    await ctx.send(file=discord.File(fp = 'Scripts/Tower_of_Hell.txt'))
-  elif arg == 34:
-    await ctx.send(file=discord.File(fp = 'Scripts/A Bizarre Day MODDED MINI GUI.txt'))
-  elif arg == 35:
-    await ctx.send(file=discord.File(fp = 'Scripts/Bakon GUI.txt'))
-  elif arg == 36:
-    await ctx.send(file=discord.File(fp = 'Scripts/Zombie Attack.txt'))
-  elif arg == 37:
-    await ctx.send(file=discord.File(fp = 'Scripts/KAT_Press_2.txt'))
 
 @bot.command()
 async def user(ctx, Member: discord.Member = None ):
