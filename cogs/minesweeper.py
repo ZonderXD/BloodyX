@@ -6,13 +6,13 @@ from discord.ext import commands
 
 
 
-class minesweeper(commands.Cog):
+class sapper(commands.Cog):
     
-    def __init__(self, Bot):
-        self.Bot = Bot
+    def __init__(self, bot):
+        self.bot = bot
 
     @commands.command()
-    async def сапёр(self, ctx):
+    async def sapper(self, ctx):
         await ctx.message.delete() 
 
         r_list = ['🟩','🟧','🟥']
@@ -21,7 +21,7 @@ class minesweeper(commands.Cog):
         for r in r_list:
             await msg.add_reaction(r)
         try:
-            react, user = await self.Bot.wait_for('reaction_add', timeout= 30.0, check= lambda react, user: user == ctx.author and react.message.channel == ctx.channel and react.emoji in r_list)
+            react, user = await self.bot.wait_for('reaction_add', timeout= 30.0, check= lambda react, user: user == ctx.author and react.message.channel == ctx.channel and react.emoji in r_list)
         except Exception:
             await msg.delete()
         else:
@@ -141,4 +141,3 @@ class minesweeper(commands.Cog):
 
 def setup(Bot):
     Bot.add_cog(minesweeper(Bot))
-    print('[INFO] MINESWEEPER загружен!')
