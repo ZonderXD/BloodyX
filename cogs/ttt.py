@@ -4,7 +4,7 @@ import asyncio
 import datetime
 from discord import Embed
 import random
-currentlyplaying = []
+currentlyplaying = [1]
 currentservers = [719939324686237737]
 current_boxes = {}
 filled_boxes = {}
