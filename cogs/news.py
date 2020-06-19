@@ -26,13 +26,13 @@ class news(commands.Cog):
         self.bot = bot
 
     @commands.group(description = 'Создать пост от имени бота', hidden = True)
-    @commands.check(owner)
     async def post(self, ctx):
-        if ctx.invoked_subcommand is None:
-            await ctx.message.delete()
-            await ctx.send('`Для того чтобы отправить пост выберете категорию:\n 1. --- DM (личные сообщения)\n 2. --- Clear (Очистит личку с ботом у всех пользователей(только сообщения от бота))`')
-        else:
-            pass
+        if ctx.author.id == 719605055547768894:
+            if ctx.invoked_subcommand is None:
+                await ctx.message.delete()
+                await ctx.send('`Для того чтобы отправить пост выберете категорию:\n 1. --- DM (личные сообщения)\n 2. --- Clear (Очистит личку с ботом у всех пользователей(только сообщения от бота))`')
+            else:
+                pass
 
     @post.command(description = 'Отправит пост с вашим текстом всем участникам серверов на котороых есть ваш бот.')
     async def DM(self, ctx):
