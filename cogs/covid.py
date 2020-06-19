@@ -9,10 +9,6 @@ class covid(commands.Cog):
     def init(self, bot):
         self.bot = bot
 
-    @commands.command()
-    async def cog(self,ctx):
-        await ctx.send(f"Коги успешно работают!")
-
     @commands.command(aliases=['коронавирус', 'ковид'])
     async def covid(self, ctx, country):
         for item in json.loads(requests.get("https://corona.lmao.ninja/v2/countries").text):
