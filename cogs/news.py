@@ -25,8 +25,11 @@ class news(commands.Cog):
     def init(self, bot):
         self.bot = bot
 
+    def owner(self,ctx):
+        return ctx.message.author.id == 719605055547768894
+
     @commands.group(description = 'Создать пост от имени бота', hidden = True)
-    @commands.is_owner()
+    @commands.check(owner)
     async def post(self, ctx):
         if ctx.invoked_subcommand is None:
             await ctx.message.delete()
