@@ -277,8 +277,8 @@ async def post(ctx):
 @post.command(description = 'Отправит пост с вашим текстом всем участникам серверов на котороых есть ваш бот.')
 async def DM(ctx):
     await ctx.message.delete()
-    async def check(m):
-        return m.author.id == ctx.author.id
+    async def check(a):
+        return a.author.id == ctx.author.id
         await ctx.send('**Вы создали пост, пожалуйста, следуйте ниже указанным пунктам:\nВведите заголовок: \n(У вас есть 60 секунд)**')
         try:
             p = await stx.bot.wait_for('message', check = check, timeout = 60.0)
