@@ -25,13 +25,13 @@ class user(commands.Cog):
     def __init__(self, client):
         self.bot = bot
 
-@commands.command()
-    async def example(self,ctx):
-        await ctx.send(“work”)
+    @commands.command()
+        async def example(self,ctx):
+            await ctx.send("work")
 
-@commands.Cog.listener()
-    async def on_ready (self):
-        print(“ready”)
+    @commands.Cog.listener()
+        async def on_ready (self):
+            print("ready")
 
 def setup(bot):
     client.add_cog(user(bot))
