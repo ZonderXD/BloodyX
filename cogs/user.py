@@ -26,12 +26,12 @@ class user(commands.Cog):
         self.bot = bot
 
     @commands.command()
-    async def example(self,ctx):
-        await ctx.send("work")
+    async def cog(self,ctx):
+        await ctx.send(f"{self.author.mention} коги успешно работают!")
 
     @commands.Cog.listener()
     async def on_ready (self):
-        print("ready")
+        print("Cogs successfully launched!")
 
 def setup(bot):
     bot.add_cog(user(bot))
