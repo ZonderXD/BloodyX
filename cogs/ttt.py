@@ -5,7 +5,7 @@ import datetime
 from discord import Embed
 import random
 currentlyplaying = []
-currentservers = []
+currentservers = [719939324686237737]
 current_boxes = {}
 filled_boxes = {}
 servercurrentreactions = {}
