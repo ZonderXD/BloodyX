@@ -9,4 +9,3 @@ youtube_dl
 yandex-music
 PyNaCl
 discord.py[voice]
-utils.codes
