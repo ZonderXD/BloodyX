@@ -13,8 +13,6 @@ class sapper(commands.Cog):
 
     @commands.command()
     async def sapper(self, ctx):
-        await ctx.message.delete() 
-
         r_list = ['🟩','🟧','🟥']
 
         msg = await ctx.send(f'Выберете сложность :\n\n{r_list[0]}— Easy\n{r_list[1]}— Medium\n{r_list[2]}— Hard')
