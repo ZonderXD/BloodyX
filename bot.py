@@ -280,6 +280,31 @@ async def sapper(ctx):
 
         await msg.edit(embed= emb, content= None)
 
+@bot.command()
+@commands.cooldown(1, 60*60*24*2, commands.BucketType.member)
+async def bunting(ctx):
+    with open('flags.json','r',encoding='utf8') as f:
+        flags = json.load(f)
+        count = 1
+        while count <= 10:
+            otvet = random.choice(flags['Флаги'])
+            e = discord.Embed(title = f"Флаг {count}")
+            e.set_image(url = otvet['url'])
+            await ctx.send(embed = e)
+            def check(m):
+                return m.content == otvet['answer'] and ctx.channel == ctx.channel
+
+            msg = await client.wait_for('message', check=check)
+            em = discord.Embed(title = "Правильный ответ!")
+            em.add_field(name = "Ответил:", value = f"{msg.author.mention}")
+            em.add_field(name = "Правильный ответ:",value = f"{otvet['answer']}")
+            await ctx.channel.send(embed = em)
+            count = count + 1
+            await asyncio.sleep(1)
+            if count == 11:
+                e = discord.Embed(title = "Конец игры!", description = f"Ивент был проведён {ctx.author.mention}, и мы всем желаем удачи! Спасибо за участие!")
+                await ctx.send(embed = e)
+
 @bot.command( pass_context = True, aliases = [ "Предложить", "предложить", "предложка", "Предложка", "Suggest" ])
 async def suggest( ctx , * , agr ):
     if ctx.author.id == 662346548025491476:
