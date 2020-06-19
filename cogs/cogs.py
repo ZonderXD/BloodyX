@@ -31,7 +31,9 @@ class user(commands.Cog):
 
     @commands.Cog.listener()
     async def on_ready (self):
-        print("Cogs successfully launched!")
+        print('[Noxus] Cogs successfully uploaded!')
+        print('[------------------------------]')
+        print(f'          [Other]')
 
 def setup(bot):
     bot.add_cog(user(bot))
