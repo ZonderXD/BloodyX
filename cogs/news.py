@@ -20,7 +20,7 @@ from discord.utils import get
 from yandex_music import Client
 from Cybernator import Paginator
 
-class user(commands.Cog):
+class news(commands.Cog):
 
     def init(self, bot):
         self.bot = bot
@@ -90,3 +90,6 @@ class user(commands.Cog):
                         except StopAsyncIteration:
                             pass
         await ctx.send('Успешно `✔️`')
+
+def setup(bot):
+    bot.add_cog(news(bot))
