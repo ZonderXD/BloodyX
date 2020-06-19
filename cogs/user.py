@@ -27,7 +27,7 @@ class user(commands.Cog):
 
     @commands.command()
     async def cog(self,ctx):
-        await ctx.send(f"{self.author.mention} коги успешно работают!")
+        await ctx.send(f"{self.user.mention} коги успешно работают!")
 
     @commands.Cog.listener()
     async def on_ready (self):
