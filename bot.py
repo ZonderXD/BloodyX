@@ -41,19 +41,19 @@ def owner(ctx):
 @commands.check(owner)
 async def load(ctx, extension):
     bot.load_extension(f'cogs.{extension}')
-    await ctx.send(f"Модуль **{extension}** успешно загружен!")
+    await ctx.send(embed = discord.Embed(description = f"**{ctx.author.mention}, модуль `{extension}` был успешно загружен!**", color = 0x00ffff))
 
 @bot.command()
 @commands.check(owner)
 async def unload(ctx, extension):
     bot.unload_extension(f'cogs.{extension}')
-    await ctx.send(f"Модуль **{extension}** успешно выгружен!")
+    await ctx.send(embed = discord.Embed(description = f"**{ctx.author.mention}, модуль `{extension}` был успешно выгружен!**", color = 0x00ffff))
 
 @bot.command()
 @commands.check(owner)
 async def reload(ctx, extension):
     bot.reload_extension(f'cogs.{extension}')
-    await ctx.send(f"Модуль **{extension}** успешно перезагружен!")
+    await ctx.send(embed = discord.Embed(description = f"**{ctx.author.mention}, модуль `{extension}` был успешно перезагружен!**", color = 0x00ffff))
 
 @bot.command()
 @commands.check(owner)
