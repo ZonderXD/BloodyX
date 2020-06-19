@@ -18,7 +18,7 @@ class errors(commands.Cog):
     @commands.Cog.listener()
     async def on_command_error(self, ctx, error):
         if isinstance(error, discord.ext.commands.errors.CommandNotFound):
-            await ctx.send(embed=discord.Embed(description=f'**<a:N_No:719995078059229336> Извините, но такой команды не существует\n Посмотрите в `.help` и узнайте все существующие команды.**', color=0xa400fc))
+            await ctx.send(embed=discord.Embed(description=f'**Извините, но такой команды не существует. <a:N_No:719995078059229336>\n Посмотрите в `.help` и узнайте все существующие команды. <a:N_Wampus:719995193092472963>**', color=0xa400fc))
 
 def setup(bot):
     bot.add_cog(errors(bot))
