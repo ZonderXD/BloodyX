@@ -139,5 +139,5 @@ class sapper(commands.Cog):
 
 
 
-def setup(Bot):
-    Bot.add_cog(minesweeper(Bot))
+def setup(bot):
+    bot.add_cog(sapper(bot))
