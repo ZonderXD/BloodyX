@@ -23,7 +23,7 @@ class covid(commands.Cog):
                 embed.add_field(name='Активные зараженные:',  value=f'{item["active"]} человек')
                 embed.add_field(name='В тяжелом состоянии:',  value=f'{item["critical"]} человек')
                 embed.set_thumbnail(url=item["countryInfo"]['flag'])
-                embed.set_footer(text="© Copyright 2020 don#4170 | Все права загрызаны")
+                embed.set_footer(text=f"𝙳𝚎𝚅𝚒𝚒#2576 © | Все права защищены", icon_url='https://cdn.discordapp.com/avatars/719605055547768894/812745a344a780f8927aefd49fb66329.webp?size=1024')
 
                 return await ctx.send(embed=embed)
 
