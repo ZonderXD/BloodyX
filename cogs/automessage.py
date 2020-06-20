@@ -41,15 +41,15 @@ class automessage(commands.Cog):
                     pass
                 else:
                     msgs.append(msg)
-             if len(msgs) == 0:
+                    if len(msgs) == 0:
                 # костыль если не найдет сообщения в текстовом канале
-                msgs.append('Слыш')
-             msg = random.choice(msgs)
+                        msgs.append('Слыш')
+                        msg = random.choice(msgs)
             # симулируем, что бот такой человечный и это он САМ печатает!!
-            async with channel.typing():
-                author = msg.author.mention
-                await asyncio.sleep(random.randint(5, 15))
-                await ctx.channel.send(f'{author} {random.choice(words_list)}')
+                        async with channel.typing():
+                            author = msg.author.mention
+                            await asyncio.sleep(random.randint(5, 15))
+                            await ctx.channel.send(f'{author} {random.choice(words_list)}')
 
 def setup(bot):
     bot.add_cog(automessage(bot))
