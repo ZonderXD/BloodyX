@@ -25,7 +25,7 @@ class tictactoe(commands.Cog):
             if ctx.guild.id in currentservers:
                 await ctx.send("Извините, но только одна игра в крестики-нолики может быть воспроизведена на сервере.")
             elif opponent.id == self.bot.user.id:
-                await ctx.send(f"{opponent.mention} это победитель. Ты даже не заметил.")
+                await ctx.send(f"{opponent.mention} это сам бот, с ним нельзя играть.")
             elif opponent.bot is True:
                 await ctx.send("Вы не можете играть с ботом.")
             else:
