@@ -255,7 +255,7 @@ async def nabor(ctx):
     embed = discord.Embed(title=f"Набор на модерацию сервера", color = 0x00ffff)
     embed.add_field(name=f'Форма заявки:', value='```c\n[ 1. ] [ Ваше имя. ]\n[ 2. ] [ Сколько Вам лет? ]\n[ 3. ] [ На сколько хорошо Вы знаете правила? ]\n[ 4. ] [ Сколько Вы на сервере? ]\n[ 5. ] [ Какой у Вас уровень на сервере? ]\n[ 6. ] [ Что для Вас значит слово "Модератор/Администратор"? ]\n[ 7. ] [ Сколько времени Вы будете уделять серверу? ]\n[ 8. ] [ Что Вы будете делать если Вас "Понизят" или "Снимут" с поста? ]```', inline=False)  # Создает строку
     embed.add_field(name=f'Форма принятия/отказа/обработки:', value="<a:N_Yes:719995062095839366> - Принят\n<a:N_Discord:719995167096176734> - Обработка\n<a:N_No:719995078059229336> - Отказ", inline=False)  # Создает строку
-    embed.set_footer(text=f"𝙳𝚎𝚅𝚒𝚒#2576 © | Все права защищены", icon_url='https://cdn.discordapp.com/avatars/719605055547768894/812745a344a780f8927aefd49fb66329.webp?size=1024') # создаение футера
+    embed.set_footer(text=f"𝙳𝚎𝚅𝚒𝚒#0001 © | Все права защищены", icon_url='https://cdn.discordapp.com/avatars/719605055547768894/a_aa12461027eb531e7207f8e9ac7bbdf7.gif?size=1024') # создаение футера
     await ctx.send(embed=embed)
 
 @bot.command()
@@ -329,28 +329,6 @@ async def neko(ctx):
     await ctx.send(embed = embed)
 
 @bot.command()
-@commands.cooldown(3, 180, commands.BucketType.user)
-async def nsfw(ctx):
-    if ctx.message.channel.is_nsfw() == False:
-        await ctx.send(embed = discord.Embed(description = f"**{ctx.author.mention}, ты ахуел? Используй в NSWF канале!**", colour = 0xff0000))
-        return
-
-    await ctx.message.add_reaction('<a:N_Yes:719995062095839366>')
-
-    embed = discord.Embed(description = f"**{ctx.author.mention} вот тебе порнуха:**", colour = 0xff0000)
-    category = 'hentai'
-    embed.set_image(url= nekos.img(category))
-    await ctx.author.send(embed = embed)
-
-@nsfw.error
-async def mine_error(ctx, error):
-    if isinstance(error, commands.CommandOnCooldown):
-        await ctx.message.add_reaction('<a:N_No:719995078059229336>')
-        await ctx.send('Эй, хватит смотреть порнуху! У тебя кулдовн, 3 раза в 3 минуты. Жди!')
-    else:
-        raise error
-
-@bot.command()
 async def meme(ctx):
     emb = discord.Embed(description = f"**Вот тебе мем:**", color = 0xda4a)
     emb.set_image(url= random_meme())
@@ -369,7 +347,7 @@ async def clear(ctx, amount:int=None):
 @bot.event
 async def on_member_join( member ):
     emb = discord.Embed( description = f"**Привет {member.mention}! <a:N_Hi:719995020475891724>\nТы на сервере `{member.guild.name}`. <a:N_Nitro:719995105016021142>\nОзнакомься с правилами нашего сервера. <a:N_Cat:719995005111894118>\nНадеюсь тебе понравиться наш сервер. <a:N_Wampus:719995193092472963>**", color = 0xda4a )
-    emb.set_footer(text=f"𝙳𝚎𝚅𝚒𝚒#2576 © | Все права защищены", icon_url='https://cdn.discordapp.com/avatars/719605055547768894/812745a344a780f8927aefd49fb66329.webp?size=1024')
+    emb.set_footer(text=f"𝙳𝚎𝚅𝚒𝚒#0001 © | Все права защищены", icon_url='https://cdn.discordapp.com/avatars/719605055547768894/a_aa12461027eb531e7207f8e9ac7bbdf7.gif?size=1024')
     role = discord.utils.get( member.guild.roles, id = 719939324795289706 ) # Айди роли которая будет выдаватся когда человек зашёл на сервер
 
     await member.add_roles( role )
@@ -379,7 +357,7 @@ async def on_member_join( member ):
 @bot.event
 async def on_member_remove( member ):
     emb = discord.Embed( description = f"**Пока {member.mention}. <a:N_Buy:719995089237180497>\nМы будем тебя ждать тут. <a:N_Discord:719995167096176734>**", color = 0xda4a )
-    emb.set_footer(text=f"𝙳𝚎𝚅𝚒𝚒#2576 © | Все права защищены", icon_url='https://cdn.discordapp.com/avatars/719605055547768894/812745a344a780f8927aefd49fb66329.webp?size=1024')
+    emb.set_footer(text=f"𝙳𝚎𝚅𝚒𝚒#0001 © | Все права защищены", icon_url='https://cdn.discordapp.com/avatars/719605055547768894/a_aa12461027eb531e7207f8e9ac7bbdf7.gif?size=1024')
 
     channel = bot.get_channel( 719939325361389583 ) # Айди канала куда будет писатся сообщение
     await channel.send( embed = emb )
@@ -389,13 +367,13 @@ async def on_member_remove( member ):
 async def botinfo(ctx):
     embed = discord.Embed(title=f"{ctx.guild.name}", description="Информация о боте **𝙽𝚘𝚡𝚞𝚜#6265**.\n Бот был написан специально для проекта **`𝙽𝚘𝚡𝚞𝚜`**,\n Подробнее о командах: **`.help`**", color = 0x00ffff)
     embed.add_field(name=f'**Меня создал:**', value="`𝙳𝚎𝚅𝚒𝚒#2576`(<@719605055547768894>)", inline=False)  # Создает строку
-    embed.add_field(name=f'**Помощь в создании:**', value="`Afton#2362`(<@342317507991961602>)", inline=False)  # Создает строку
+    embed.add_field(name=f'**Помощь в создании:**', value="`ⓥⓞⓓⓚⓐ#2362`(<@342317507991961602>)", inline=False)  # Создает строку
     embed.add_field(name=f'**Лицензия:**', value="LD-v7", inline=False)  # Создает строку
     embed.add_field(name=f'**Я написан на:**', value="Discord.py", inline=False)  # Создает строку
     embed.add_field(name=f'**Версия:**', value="V.3.2.4", inline=False)  # Создает строку
     embed.add_field(name=f'**Патч:**', value="46", inline=False)  # Создает строку
     embed.set_thumbnail( url = bot.user.avatar_url)
-    embed.set_footer(text=f"𝙳𝚎𝚅𝚒𝚒#2576 © | Все права защищены", icon_url='https://cdn.discordapp.com/avatars/719605055547768894/812745a344a780f8927aefd49fb66329.webp?size=1024') # создаение футера
+    embed.set_footer(text=f"𝙳𝚎𝚅𝚒𝚒#0001 © | Все права защищены", icon_url='https://cdn.discordapp.com/avatars/719605055547768894/a_aa12461027eb531e7207f8e9ac7bbdf7.gif?size=1024') # создаение футера
     await ctx.send(embed=embed)
 
 @bot.command()
@@ -526,7 +504,7 @@ async def wiki(ctx, *, text):
 async def blacklist(ctx):
   emb = discord.Embed(title ='📋 Чёрный список:', color = 0x6fdb9e)
   emb.add_field(name=f'**🔑 Сервера:**', value="**Пусто...**", inline=False)
-  emb.add_field(name=f'**✨ Участники:**', value="**`Inv4l1d#0666` - Украл аккаунт [ Печать неснимаемости ]\n`《ALT》𝓜𝓸𝓸𝓷𝓵𝓲𝓰𝓱𝓽 ツ#8896` - Пидр [ Печать неснимаемости ]**", inline=False)
+  emb.add_field(name=f'**✨ Участники:**', value="**`Inv4l1d#0666` - Украл аккаунт [ Печать неснимаемости ]**", inline=False)
   emb.add_field(name=f'**🎩 Как снять чс:**', value="**Напишите в лс <@719605055547768894> и ждите ответа!**", inline=False)
   emb.set_image(url='https://cdn.discordapp.com/attachments/705488180710998127/717125585918492692/D7KfkHIWkAA9m8j.jpg')
 
