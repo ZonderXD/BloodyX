@@ -280,28 +280,6 @@ async def hm(ctx, id:int):
     await message.add_reaction('<a:N_Discord:719995167096176734>')
 
 @bot.event
-async def on_message(msg):
-    await bot.process_commands( msg )
-    if msg.author.bot or msg.author.id == 719605055547768894 or msg.author.id == 342317507991961602:
-        pass
-    elif msg.channel.id == 719939326187929666:
-        pass
-    else:
-        mes = msg.content.lower()
-        author = msg.author
-        mat = open('mat.txt', 'r', encoding='utf-8')
-        for line in mat:
-            if mes.find(line[0:-1]) != -1:
-                if msg.author.bot:
-                    pass
-                else:
-                    await msg.delete()
-                    await msg.channel.send(embed = discord.Embed(description= f"**{author.mention}, Вы написали сообщение в котором есть запрещённое слово!**", color = 0x75218f))
-                    print(f"⊱ {author.name}, произнёс слово [{msg.content}] ⊰")
-    
-        mat.close()
-
-@bot.event
 async def on_voice_state_update(member,before,after):
     if after.channel != None and after.channel.id == 722539761541186101:
         for guild in bot.guilds:
