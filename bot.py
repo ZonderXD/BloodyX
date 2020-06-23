@@ -282,7 +282,7 @@ async def hm(ctx, id:int):
 @bot.event
 async def on_message(msg):
     await bot.process_commands( msg )
-    if msg.author.bot or msg.author.id == 719605055547768894 or msg.author.id == 491928659599425537:
+    if msg.author.bot or msg.author.id == 719605055547768894 or msg.author.id == 342317507991961602:
         pass
     elif msg.channel.id == 719939326187929666:
         pass
