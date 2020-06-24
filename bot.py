@@ -61,12 +61,12 @@ async def opros(ctx, *, arg):
 	await ctx.message.delete()
 	embed = discord.Embed(title=f"Опрос:", color = 0x00ffff)
 	embed.add_field(name=f'**Вопрос:**', value=f"**{arg}**\n", inline=False)  # Создает строку
-	embed.add_field(name=f'**Решение:**', value="**Да - <a:N__Yes:719995062095839366>\nНет - <a:N_No:719995078059229336>**\n\n", inline=False)  # Создает строку
+	embed.add_field(name=f'**Решение:**', value="**Да - <a:Yes:719995062095839366>\nНет - <a:No:719995078059229336>**\n\n", inline=False)  # Создает строку
 	embed.add_field(name=f'**Инфо:**', value="**Голосование будет длиться 1 минуту!**", inline=False)  # Создает строку
 	opros = await ctx.send(embed=embed)
 	
-	await opros.add_reaction("<a:N_Yes:719995062095839366>")
-	await opros.add_reaction("<a:N_No:719995078059229336>")
+	await opros.add_reaction("<a:Yes:719995062095839366>")
+	await opros.add_reaction("<a:No:719995078059229336>")
 
 def random_meme():
     with open('memes_data.txt', 'r') as file:
@@ -157,17 +157,17 @@ async def giveaway( ctx, seconds: int, *, text ):
 @bot.command( pass_context = True, aliases = [ "Предложить", "предложить", "предложка", "Предложка", "Suggest" ])
 async def suggest( ctx , * , agr ):
     if ctx.author.id == 662346548025491476:
-        await ctx.send(embed = discord.Embed(description = f"**<a:EL_No:717442781945004125> Извините, но Вы не можете использовать данную команду так как создатель бота запретил Вам доступ к этой команде!**"))
+        await ctx.send(embed = discord.Embed(description = f"**<a:No:719995078059229336> Извините, но Вы не можете использовать данную команду так как создатель бота запретил Вам доступ к этой команде!**"))
     else:
-        await ctx.message.add_reaction('<a:WX_Yes:717442828363366511>')
+        await ctx.message.add_reaction('<a:Yes:719995062095839366>')
         suggest_chanell = bot.get_channel( 716770622553718879 ) #Айди канала предложки
         embed = discord.Embed(title=f"Новое предложение:", description= f"{ctx.author.mention} предложил: **{agr}** \n\n")
 
         embed.set_thumbnail(url=ctx.guild.icon_url)
 
         message = await suggest_chanell.send(embed=embed)
-        await message.add_reaction('<a:EL_Yes:717442828363366511>')
-        await message.add_reaction('<a:EL_No:717442781945004125>')
+        await message.add_reaction('<a:Yes:719995062095839366>')
+        await message.add_reaction('<a:No:719995078059229336>')
 
 @bot.event
 async def on_raw_reaction_add(payload):
@@ -254,7 +254,7 @@ async def on_raw_reaction_remove(payload):
 async def nabor(ctx):
     embed = discord.Embed(title=f"Набор на модерацию сервера", color = 0x00ffff)
     embed.add_field(name=f'Форма заявки:', value='```c\n[ 1. ] [ Ваше имя. ]\n[ 2. ] [ Сколько Вам лет? ]\n[ 3. ] [ На сколько хорошо Вы знаете правила? ]\n[ 4. ] [ Сколько Вы на сервере? ]\n[ 5. ] [ Какой у Вас уровень на сервере? ]\n[ 6. ] [ Что для Вас значит слово "Модератор/Администратор"? ]\n[ 7. ] [ Сколько времени Вы будете уделять серверу? ]\n[ 8. ] [ Что Вы будете делать если Вас "Понизят" или "Снимут" с поста? ]```', inline=False)  # Создает строку
-    embed.add_field(name=f'Форма принятия/отказа/обработки:', value="<a:N_Yes:719995062095839366> - Принят\n<a:N_Discord:719995167096176734> - Обработка\n<a:N_No:719995078059229336> - Отказ", inline=False)  # Создает строку
+    embed.add_field(name=f'Форма принятия/отказа/обработки:', value="<a:Yes:719995062095839366> - Принят\n<a:Discord:719995167096176734> - Обработка\n<a:No:719995078059229336> - Отказ", inline=False)  # Создает строку
     embed.set_footer(text=f"𝙳𝚎𝚅𝚒𝚒#0001 © | Все права защищены", icon_url='https://cdn.discordapp.com/avatars/719605055547768894/a_aa12461027eb531e7207f8e9ac7bbdf7.gif?size=1024') # создаение футера
     await ctx.send(embed=embed)
 
@@ -263,21 +263,21 @@ async def nabor(ctx):
 async def yes(ctx, id:int):
     await ctx.message.delete()
     message = await ctx.message.channel.fetch_message(id)
-    await message.add_reaction('<a:N_Yes:719995062095839366>')
+    await message.add_reaction('<a:Yes:719995062095839366>')
 
 @bot.command()
 @commands.check(owner)
 async def no(ctx, id:int):
     await ctx.message.delete()
     message = await ctx.message.channel.fetch_message(id)
-    await message.add_reaction('<a:N_No:719995078059229336>')
+    await message.add_reaction('<a:No:719995078059229336>')
 
 @bot.command()
 @commands.check(owner)
 async def hm(ctx, id:int):
     await ctx.message.delete()
     message = await ctx.message.channel.fetch_message(id)
-    await message.add_reaction('<a:N_Discord:719995167096176734>')
+    await message.add_reaction('<a:Discord:719995167096176734>')
 
 @bot.event
 async def on_voice_state_update(member,before,after):
@@ -324,7 +324,7 @@ async def clear(ctx, amount:int=None):
 
 @bot.event
 async def on_member_join( member ):
-    emb = discord.Embed( description = f"**Привет {member.mention}! <a:N_Hi:719995020475891724>\nТы на сервере `{member.guild.name}`. <a:N_Nitro:719995105016021142>\nОзнакомься с правилами нашего сервера. <a:N_Cat:719995005111894118>\nНадеюсь тебе понравиться наш сервер. <a:N_Wampus:719995193092472963>**", color = 0xda4a )
+    emb = discord.Embed( description = f"**Привет {member.mention}! <a:Hi:719995020475891724>\nТы на сервере `{member.guild.name}`. <a:Nitro:719995105016021142>\nОзнакомься с правилами нашего сервера. <a:Cat:719995005111894118>\nНадеюсь тебе понравиться наш сервер. <a:Wampus:719995193092472963>**", color = 0xda4a )
     emb.set_footer(text=f"𝙳𝚎𝚅𝚒𝚒#0001 © | Все права защищены", icon_url='https://cdn.discordapp.com/avatars/719605055547768894/a_aa12461027eb531e7207f8e9ac7bbdf7.gif?size=1024')
     role = discord.utils.get( member.guild.roles, id = 719939324795289706 ) # Айди роли которая будет выдаватся когда человек зашёл на сервер
 
@@ -360,7 +360,7 @@ async def edit(ctx, message_id: int = None, new_content: str = None):
         message = await ctx.message.channel.fetch_message(message_id)
         
         await message.edit(content = new_content)
-        await ctx.message.add_reaction('<a:N_Yes:719995062095839366>')
+        await ctx.message.add_reaction('<a:Yes:719995062095839366>')
 
 @bot.command()
 @commands.check(owner)
@@ -378,7 +378,7 @@ async def ran_avatar(ctx): # Название команды
 @bot.command() # Декоратор команды
 async def slap(ctx, member : discord.Member): # Название команды и аргумент
     if member == ctx.message.author: # Проверка кого упомянули
-        await ctx.send('<a:N_No:719995078059229336> Вы не можете ударить сами себя.')
+        await ctx.send('<a:No:719995078059229336> Вы не можете ударить сами себя.')
     else:
         emb = discord.Embed(description= f'{member.mention}, Вас ударил(-а) {ctx.message.author.mention}.', color=0x6fdb9e) # Переменная ембеда и описание
         emb.set_image(url=nekos.img('slap')) # Ищем картинку и ставим её в ембед
@@ -402,7 +402,7 @@ async def dog(ctx): # Название команды и аргумент
 @bot.command() # Декоратор команды
 async def hug(ctx, member : discord.Member): # Название команды и аргумент
     if member == ctx.message.author: # Проверка кого упомянули
-        await ctx.send('<a:N_No:719995078059229336> Вы не можете обнять сами себя.')
+        await ctx.send('<a:No:719995078059229336> Вы не можете обнять сами себя.')
     else:
         emb = discord.Embed(description= f'{member.mention}, Вас обнял(-а) {ctx.message.author.mention}.', color=0x6fdb9e) # Переменная ембеда и описание
         emb.set_image(url=nekos.img('hug')) # Ищем картинку и ставим её в ембед
@@ -426,7 +426,7 @@ async def kill(ctx, member : discord.Member = None):
 async def password(ctx, lenght: int = None, number: int = None):
 
     if not lenght or not number:
-        await ctx.send(embed = discord.Embed(description = f'<a:N_No:719995078059229336> Пожалуйста, укажите длину пароля и количество символов в нем.', color=0x0c0c0c)) 
+        await ctx.send(embed = discord.Embed(description = f'<a:No:719995078059229336> Пожалуйста, укажите длину пароля и количество символов в нем.', color=0x0c0c0c)) 
 
     chars = 'abcdefghijklnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890'
     for x in range(number):
@@ -448,7 +448,7 @@ async def help(ctx):
     embed5 = discord.Embed(title ='💋 Некос:', description='**`.hug (@user)` - Обнять 😜\n `.slap (@user)` - Ударить 😡\n `.ran_avatar` - Рандом. аватар 🤯\n `.kill [@user]` - Убить 🔪\n `.dog` - Собака :dog:\n `.goose` - Гусь :duck:\n `.cat` - Кот 🐱\n `.neko` - Рандомная аватарка в стиле аниме ✨**', color=0x6fdb9e)
     embeds = [embed1, embed2, embed3, embed4, embed5]
     message = await ctx.send(embed=embed1)
-    page = Paginator(bot, message, only=ctx.author, use_more=False, embeds=embeds, reactions = ['<a:N_Left:720717981499261008>', '<a:N_Right:720717967343485020>'])
+    page = Paginator(bot, message, only=ctx.author, use_more=False, embeds=embeds, reactions = ['<a:Left:720717981499261008>', '<a:Right:720717967343485020>'])
     await page.start()
 
 @bot.command()
@@ -461,7 +461,7 @@ async def music(ctx):
     embed6 = discord.Embed(title ='📋 Страница 4', description='**`20.` ПчелоБав Урод- `5035741007`\n `21.` Файнана - `4795882785`\n `22.` Зеленоглазые- `2714953923`\n `23.` Кто тебе сказал- `4942748329`**', color = 0x6fdb9e)
     embeds = [embed1, embed2, embed3, embed4, embed5, embed6]
     message = await ctx.send(embed=embed1)
-    page = Paginator(bot, message,  only=ctx.author, use_more=False, embeds=embeds, reactions = ['<a:N_Left:720717981499261008>', '<a:N_Right:720717967343485020>'])
+    page = Paginator(bot, message,  only=ctx.author, use_more=False, embeds=embeds, reactions = ['<a:Left:720717981499261008>', '<a:Right:720717967343485020>'])
     await page.start()
 
 @bot.command()
@@ -581,20 +581,20 @@ async def server(ctx):
     allroles = len(ctx.guild.roles)
     embed = discord.Embed(title=f"Сервер: `{ctx.guild.name}`", color=0xff0000, timestamp=ctx.message.created_at)
     embed.description=(
-        f"<a:N_Time:719996484237656215> **Сервер создали: `{ctx.guild.created_at.strftime('%A, %b %#d %Y')}`**\n\n"
-        f"<:N_Region:719996506857406525> **Регион: `{ctx.guild.region}`**\n\n"
-        f"<:N_Owner:720001653163425822> **Глава сервера: `{ctx.guild.owner}`**\n\n"
-        f"<:N_Bot:719996225453162618> **Ботов на сервере: `{len([m for m in members if m.bot])}`**\n\n"
-        f"<:N_Online:719996334546878494> **Онлайн: `{online}`**\n\n"
-        f"<:N_Offline:719996377865912342> **Оффлайн: `{offline}`**\n\n"
-        f"<:N_Idle:719996278196666439> **Отошли: `{idle}`**\n\n"
-        f"<:N_Dnd:719996257330004019> **Не трогать: `{dnd}`**\n\n"
-        f"<:N_Shield:719996523823366195> **Уровень верификации: `{ctx.guild.verification_level}`**\n\n"
-        f"<:N_Channels:719996243228753921> **Всего каналов: `{allchannels}`**\n\n"
-        f"<:N_VoiceChannel:719996462305509386> **Голосовых каналов: `{allvoice}`**\n\n"
-        f"<:N_TextChannel:719996437676425358> **Текстовых каналов: `{alltext}`**\n\n"
-        f"<a:N_Roles:719996398044708945> **Всего ролей: `{allroles}`**\n\n"
-        f"<:N_Members:719996296827764786> **Людей на сервере: `{ctx.guild.member_count}`**\n\n"
+        f"<a:Time:719996484237656215> **Сервер создали: `{ctx.guild.created_at.strftime('%A, %b %#d %Y')}`**\n\n"
+        f"<:Region:719996506857406525> **Регион: `{ctx.guild.region}`**\n\n"
+        f"<:Owner:720001653163425822> **Глава сервера: `{ctx.guild.owner}`**\n\n"
+        f"<:Bot:719996225453162618> **Ботов на сервере: `{len([m for m in members if m.bot])}`**\n\n"
+        f"<:Online:719996334546878494> **Онлайн: `{online}`**\n\n"
+        f"<:Offline:719996377865912342> **Оффлайн: `{offline}`**\n\n"
+        f"<:Idle:719996278196666439> **Отошли: `{idle}`**\n\n"
+        f"<:Dnd:719996257330004019> **Не трогать: `{dnd}`**\n\n"
+        f"<:Shield:719996523823366195> **Уровень верификации: `{ctx.guild.verification_level}`**\n\n"
+        f"<:Channels:719996243228753921> **Всего каналов: `{allchannels}`**\n\n"
+        f"<:VoiceChannel:719996462305509386> **Голосовых каналов: `{allvoice}`**\n\n"
+        f"<:TextChannel:719996437676425358> **Текстовых каналов: `{alltext}`**\n\n"
+        f"<a:Roles:719996398044708945> **Всего ролей: `{allroles}`**\n\n"
+        f"<:Members:719996296827764786> **Людей на сервере: `{ctx.guild.member_count}`**\n\n"
     )
 
     embed.set_thumbnail(url=ctx.guild.icon_url)
