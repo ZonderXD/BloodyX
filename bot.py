@@ -35,7 +35,7 @@ async def on_ready():
     print(f'[Noxus] ID: [{bot.user.id}]')
 
 def owner(ctx):
-    return ctx.message.author.id == 719605055547768894
+    return ctx.message.author.id == 662346548025491476
 
 @bot.command()
 @commands.check(owner)
@@ -104,7 +104,7 @@ async def giveaway( ctx, seconds: int, *, text ):
     message = await ctx.send(embed = discord.Embed(
         description = f"**Разыгрывается : `{text}`\nЗавершится через: `{time_end}` \n\nОрганизатор: {author.mention} \nДля участия нажмите на реакцию ниже.**",
         colour = 0x75218f).set_footer(
-        text = '! 𝐑 𝐘 𝐍 Ξ 𝐗#9691 © | Все права защищены',
+        text = 'Parazzit#1283 © | Все права защищены',
         icon_url = ctx.message.author.avatar_url))
     await message.add_reaction("🎉")
     while seconds > -1:
@@ -112,7 +112,7 @@ async def giveaway( ctx, seconds: int, *, text ):
         text_message = discord.Embed(
             description = f"**Разыгрывается: `{text}`\nЗавершится через: `{time_end}` \n\nОрганизатор: {author.mention} \nДля участия нажмите на реакцию ниже.**",
             colour = 0x75218f).set_footer(
-            text = '! 𝐑 𝐘 𝐍 Ξ 𝐗#9691 © | Все права защищены',
+            text = 'Parazzit#1283 © | Все права защищены',
             icon_url = ctx.message.author.avatar_url)
         await message.edit(embed = text_message)
         await asyncio.sleep(1)
@@ -135,7 +135,7 @@ async def giveaway( ctx, seconds: int, *, text ):
             win = discord.Embed(
                 description = f'**В этом розыгрыше нет победителя!**',
                 colour = 0x75218f).set_footer(
-                text = '! 𝐑 𝐘 𝐍 Ξ 𝐗#9691 © | Все права защищены',
+                text = 'Parazzit#1283 © | Все права защищены',
                 icon_url = ctx.message.author.avatar_url)
         elif str(user_win.id) == str(bot.user.id):
             winners()
@@ -143,7 +143,7 @@ async def giveaway( ctx, seconds: int, *, text ):
             win = discord.Embed(
                 description = f'**Победитель розыгрыша: {user_win.mention}!\nНапишите организатору {author.mention}, чтобы получить награду.**',
                 colour = 0x75218f).set_footer(
-                text = '! 𝐑 𝐘 𝐍 Ξ 𝐗#9691 © | Все права защищены',
+                text = 'Parazzit#1283 © | Все права защищены',
                 icon_url = ctx.message.author.avatar_url)
 
     winners()
@@ -151,7 +151,7 @@ async def giveaway( ctx, seconds: int, *, text ):
     await message.edit(embed = win)
     await author.send(embed = discord.Embed(description = f'**Ваш розыгрыш закончился.**',
                                             colour = 0x75218f).set_footer(
-        text = '! 𝐑 𝐘 𝐍 Ξ 𝐗#9691 © | Все права защищены',
+        text = 'Parazzit#1283 © | Все права защищены',
         icon_url = ctx.message.author.avatar_url))
 
 @bot.command( pass_context = True, aliases = [ "Предложить", "предложить", "предложка", "Предложка", "Suggest" ])
@@ -344,14 +344,14 @@ async def on_member_remove( member ):
 @bot.command(aliases=['bot'])
 async def botinfo(ctx):
     embed = discord.Embed(title=f"{ctx.guild.name}", description="Информация о боте **𝙽𝚘𝚡𝚞𝚜#6265**.\n Бот был написан специально для проекта **`𝙽𝚘𝚡𝚞𝚜`**,\n Подробнее о командах: **`.help`**", color = 0x00ffff)
-    embed.add_field(name=f'**Меня создал:**', value="`Needly#0001`(<@719605055547768894>)", inline=False)  # Создает строку
-    embed.add_field(name=f'**Помощь в создании:**', value="`ⓥⓞⓓⓚⓐ#2362`(<@342317507991961602>)", inline=False)  # Создает строку
+    embed.add_field(name=f'**Меня создал:**', value="`Parazzit#1283`(<@662346548025491476>)", inline=False)  # Создает строку
+    embed.add_field(name=f'**Помощь в создании:**', value="`*нету*`(/*нету/*)", inline=False)  # Создает строку
     embed.add_field(name=f'**Лицензия:**', value="LD-v7", inline=False)  # Создает строку
     embed.add_field(name=f'**Я написан на:**', value="Discord.py", inline=False)  # Создает строку
     embed.add_field(name=f'**Версия:**', value="V.3.2.4", inline=False)  # Создает строку
     embed.add_field(name=f'**Патч:**', value="46", inline=False)  # Создает строку
     embed.set_thumbnail( url = bot.user.avatar_url)
-    embed.set_footer(text=f"Needly#0001 © | Все права защищены", icon_url="https://cdn.discordapp.com/avatars/719605055547768894/a_9a069cce7b003d72a18bc790a36de1ef.gif?size=1024")
+    embed.set_footer(text=f"Parazzit#1283 © | Все права защищены", icon_url="https://cdn.discordapp.com/avatars/662346548025491476/c23dc4b634f03c950d8202e194a635b1.png?size=512")
     await ctx.send(embed=embed)
 
 @bot.command()
