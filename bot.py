@@ -55,19 +55,6 @@ async def reload(ctx, extension):
     bot.reload_extension(f'cogs.{extension}')
     await ctx.send(embed = discord.Embed(description = f"**{ctx.author.mention}, модуль `{extension}` был успешно перезагружен!**", color = 0x00ffff))
 
-@bot.command()
-@commands.check(owner)
-async def opros(ctx, *, arg):
-	await ctx.message.delete()
-	embed = discord.Embed(title=f"Опрос:", color = 0x00ffff)
-	embed.add_field(name=f'**Вопрос:**', value=f"**{arg}**\n", inline=False)  # Создает строку
-	embed.add_field(name=f'**Решение:**', value="**Да - <a:Yes:719995062095839366>\nНет - <a:No:719995078059229336>**\n\n", inline=False)  # Создает строку
-	embed.add_field(name=f'**Инфо:**', value="**Голосование будет длиться 1 минуту!**", inline=False)  # Создает строку
-	opros = await ctx.send(embed=embed)
-	
-	await opros.add_reaction("<a:Yes:719995062095839366>")
-	await opros.add_reaction("<a:No:719995078059229336>")
-
 def random_meme():
     with open('memes_data.txt', 'r') as file:
         memes = file.read().split(',')
@@ -154,144 +141,6 @@ async def giveaway( ctx, seconds: int, *, text ):
         text = 'Parazzit#1283 © | Все права защищены',
         icon_url = ctx.message.author.avatar_url))
 
-@bot.command( pass_context = True, aliases = [ "Предложить", "предложить", "предложка", "Предложка", "Suggest" ])
-async def suggest( ctx , * , agr ):
-    if ctx.author.id == 662346548025491476:
-        await ctx.send(embed = discord.Embed(description = f"**<a:No:719995078059229336> Извините, но Вы не можете использовать данную команду так как создатель бота запретил Вам доступ к этой команде!**"))
-    else:
-        await ctx.message.add_reaction('<a:Yes:719995062095839366>')
-        suggest_chanell = bot.get_channel( 716770622553718879 ) #Айди канала предложки
-        embed = discord.Embed(title=f"Новое предложение:", description= f"{ctx.author.mention} предложил: **{agr}** \n\n")
-
-        embed.set_thumbnail(url=ctx.guild.icon_url)
-
-        message = await suggest_chanell.send(embed=embed)
-        await message.add_reaction('<a:Yes:719995062095839366>')
-        await message.add_reaction('<a:No:719995078059229336>')
-
-@bot.event
-async def on_raw_reaction_add(payload):
-    if payload.message_id == 719990131255410769: # ID Сообщения
-        guild = bot.get_guild(payload.guild_id)
-        role = None
-        
-        if str(payload.emoji) == '🤢': # Emoji для реакций
-            role = guild.get_role(719939324795289703)
-        elif str(payload.emoji) == '💋':
-            role = guild.get_role(719939324795289702)
-        elif str(payload.emoji) == '👧':
-            role = guild.get_role(719939324774449201)
-        elif str(payload.emoji) == '👦':
-            role = guild.get_role(719939324795289701)
-        elif str(payload.emoji) == '🎉':
-            role = guild.get_role(719939324774449199)
-        elif str(payload.emoji) == '🔔':
-            role = guild.get_role(719939324774449200)
-        elif str(payload.emoji) == '📢':
-            role = guild.get_role(719939324774449198)
-        elif str(payload.emoji) == '⚔':
-            role = guild.get_role(719939324774449197)
-
-        if role:
-            member = guild.get_member(payload.user_id)
-            if member:
-                await member.add_roles(role)
-
-    if payload.message_id == 719989264015818772: # ID Сообщения
-        guild = bot.get_guild(payload.guild_id)
-        role = None
-        
-        if str(payload.emoji) == '✅': # Emoji для реакций
-            role = guild.get_role(719939324795289704)
-
-        if role:
-            member = guild.get_member(payload.user_id)
-            if member:
-                await member.add_roles(role)
-
-@bot.event
-async def on_raw_reaction_remove(payload):
-    if payload.message_id == 719990131255410769: # ID Сообщения
-        guild = bot.get_guild(payload.guild_id)
-        role = None
-
-        if str(payload.emoji) == '🤢': # Emoji для реакций
-            role = guild.get_role(719939324795289703)
-        elif str(payload.emoji) == '💋':
-            role = guild.get_role(719939324795289702)
-        elif str(payload.emoji) == '👧':
-            role = guild.get_role(719939324774449201)
-        elif str(payload.emoji) == '👦':
-            role = guild.get_role(719939324795289701)
-        elif str(payload.emoji) == '🎉':
-            role = guild.get_role(719939324774449199)
-        elif str(payload.emoji) == '🔔':
-            role = guild.get_role(719939324774449200)
-        elif str(payload.emoji) == '📢':
-            role = guild.get_role(719939324774449198)
-        elif str(payload.emoji) == '⚔':
-            role = guild.get_role(719939324774449197)
-
-    if role:
-        member = guild.get_member(payload.user_id)
-        if member:
-            await member.remove_roles(role)
-
-    if payload.message_id == 719989264015818772: # ID Сообщения
-        guild = bot.get_guild(payload.guild_id)
-        role = None
-
-        if str(payload.emoji) == '✅': # Emoji для реакций
-            role = guild.get_role(719939324795289704)
-
-        if role:
-            member = guild.get_member(payload.user_id)
-            if member:
-                await member.remove_roles(role)
-
-@bot.command()
-@commands.check(owner)
-async def nabor(ctx):
-    embed = discord.Embed(title=f"Набор на модерацию сервера", color = 0x00ffff)
-    embed.add_field(name=f'Форма заявки:', value='```c\n[ 1. ] [ Ваше имя. ]\n[ 2. ] [ Сколько Вам лет? ]\n[ 3. ] [ На сколько хорошо Вы знаете правила? ]\n[ 4. ] [ Сколько Вы на сервере? ]\n[ 5. ] [ Какой у Вас уровень на сервере? ]\n[ 6. ] [ Что для Вас значит слово "Модератор/Администратор"? ]\n[ 7. ] [ Сколько времени Вы будете уделять серверу? ]\n[ 8. ] [ Что Вы будете делать если Вас "Понизят" или "Снимут" с поста? ]```', inline=False)  # Создает строку
-    embed.add_field(name=f'Форма принятия/отказа/обработки:', value="<a:Yes:719995062095839366> - Принят\n<a:Discord:719995167096176734> - Обработка\n<a:No:719995078059229336> - Отказ", inline=False)  # Создает строку
-    embed.set_footer(text=f"Needly#0001 © | Все права защищены", icon_url="https://cdn.discordapp.com/avatars/719605055547768894/a_9a069cce7b003d72a18bc790a36de1ef.gif?size=1024")
-    await ctx.send(embed=embed)
-
-@bot.command()
-@commands.check(owner)
-async def yes(ctx, id:int):
-    await ctx.message.delete()
-    message = await ctx.message.channel.fetch_message(id)
-    await message.add_reaction('<a:Yes:719995062095839366>')
-
-@bot.command()
-@commands.check(owner)
-async def no(ctx, id:int):
-    await ctx.message.delete()
-    message = await ctx.message.channel.fetch_message(id)
-    await message.add_reaction('<a:No:719995078059229336>')
-
-@bot.command()
-@commands.check(owner)
-async def hm(ctx, id:int):
-    await ctx.message.delete()
-    message = await ctx.message.channel.fetch_message(id)
-    await message.add_reaction('<a:Discord:719995167096176734>')
-
-@bot.event
-async def on_voice_state_update(member,before,after):
-    if after.channel != None and after.channel.id == 722539761541186101:
-        for guild in bot.guilds:
-            if guild.id == 719939324686237737:
-                mainCategory = discord.utils.get(guild.categories, id=722178779119747192)
-                channel2 = await guild.create_voice_channel(name=f"〘🐳〙{member.display_name}",category=mainCategory, user_limit=1)
-                await member.move_to(channel2)
-                def check(a,b,c):
-                    return len(channel2.members) == 0
-                await bot.wait_for('voice_state_update', check=check)
-                await channel2.delete()
-
 @bot.command()
 async def neko(ctx):
     number = random.randint(1,3)
@@ -322,25 +171,6 @@ async def clear(ctx, amount:int=None):
     await ctx.channel.purge(limit=amount)
     await ctx.send(embed=embed, delete_after=6.0)
 
-@bot.event
-async def on_member_join( member ):
-    emb = discord.Embed( description = f"**Привет {member.mention}! <a:Hi:719995020475891724>\nТы на сервере `{member.guild.name}`. <a:Nitro:719995105016021142>\nОзнакомься с правилами нашего сервера. <a:Cat:719995005111894118>\nНадеюсь тебе понравиться наш сервер. <a:Wampus:719995193092472963>**", color = 0xda4a )
-    emb.set_footer(text=f"Needly#0001 © | Все права защищены", icon_url="https://cdn.discordapp.com/avatars/719605055547768894/a_9a069cce7b003d72a18bc790a36de1ef.gif?size=1024")
-    role = discord.utils.get( member.guild.roles, id = 719939324795289706 ) # Айди роли которая будет выдаватся когда человек зашёл на сервер
-
-    await member.add_roles( role )
-    channel = bot.get_channel( 719939325361389581 ) # Айди канала куда будет писатся сообщение
-    await channel.send( embed = emb )
-
-@bot.event
-async def on_member_remove( member ):
-    emb = discord.Embed( description = f"**Пока {member.mention}. <a:N_Buy:719995089237180497>\nМы будем тебя ждать тут. <a:N_Discord:719995167096176734>**", color = 0xda4a )
-    emb.set_footer(text=f"Needly#0001 © | Все права защищены", icon_url="https://cdn.discordapp.com/avatars/719605055547768894/a_9a069cce7b003d72a18bc790a36de1ef.gif?size=1024")
-
-    channel = bot.get_channel( 719939325361389583 ) # Айди канала куда будет писатся сообщение
-    await channel.send( embed = emb )
-
-
 @bot.command(aliases=['bot'])
 async def botinfo(ctx):
     embed = discord.Embed(title=f"{ctx.guild.name}", description="Информация о боте **𝙽𝚘𝚡𝚞𝚜#6265**.\n Бот был написан специально для проекта **`𝙽𝚘𝚡𝚞𝚜`**,\n Подробнее о командах: **`.help`**", color = 0x00ffff)
@@ -353,14 +183,6 @@ async def botinfo(ctx):
     embed.set_thumbnail( url = bot.user.avatar_url)
     embed.set_footer(text=f"Parazzit#1283 © | Все права защищены", icon_url="https://cdn.discordapp.com/avatars/662346548025491476/c23dc4b634f03c950d8202e194a635b1.png?size=512")
     await ctx.send(embed=embed)
-
-@bot.command()
-@commands.check(owner)
-async def edit(ctx, message_id: int = None, new_content: str = None):
-        message = await ctx.message.channel.fetch_message(message_id)
-        
-        await message.edit(content = new_content)
-        await ctx.message.add_reaction('<a:Yes:719995062095839366>')
 
 @bot.command()
 @commands.check(owner)
